@@ -418,3 +418,173 @@ main{max-width:560px;margin:0 auto;padding-block:16px 120px;padding-left:max(20p
 .stars button{font-size:24px;color:var(--rule);line-height:1;padding:2px}
 .stars button.on{color:var(--butter);text-shadow:0 0 0 var(--ink)}
 .search .link{padding:0 4px;font-size:20px}
+
+/* =====================================================================
+   Revisione del design (v4): carta crema, inchiostro blu cobalto,
+   più aria e allineamenti regolari. Riferimenti: La Petite Cuisine,
+   ricettario in porcellana blu, carte del menù dei dolci.
+   ===================================================================== */
+:root{
+  --paper:#F6EDD9; --leaf:#FBF7EE; --ink:#262A3B; --faded:#8B8A93; --rule:#E6DBC6;
+  --blue:#24408E; --blue-l:rgba(36,64,142,.26); --blue-xl:rgba(36,64,142,.07);
+  --h-tempo:#7C97DE; --h-voglia:#E0906F; --h-novita:#E3B64C;
+  --peach:#E0906F; --sage:#24408E; --rust:#B45C3F;
+  --r:20px; --r-s:14px;
+}
+body{font-weight:300;letter-spacing:.005em}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.015em}
+.ttl{font-size:32px;line-height:1.08;color:var(--ink)}
+.lab{color:#8A90A8;font-size:10.5px;letter-spacing:.17em}
+.word{color:var(--blue);font-weight:600;font-size:18px;letter-spacing:-.01em}
+.top{display:grid;grid-template-columns:40px 1fr 40px;align-items:center;justify-items:center;height:44px;margin-bottom:14px}
+.top .ib{width:40px;height:40px;color:var(--blue)}
+.ib{color:var(--blue)}
+.ico{stroke-width:1.3}
+.bhead{border-bottom:1px solid var(--blue-l);padding-bottom:10px;align-items:center}
+.bhead h2{font-size:18px}
+.view{gap:32px}
+.col{gap:28px}
+.two{gap:36px}
+
+/* pulsanti */
+.pill{border-color:var(--blue);color:var(--blue);font-weight:400;padding:8px 18px;line-height:1.2}
+.pill.sm{padding:6px 14px;font-size:13.5px}
+.pill.solid{background:var(--blue);color:var(--leaf);border-color:var(--blue)}
+.link{color:var(--blue)}
+.hint{color:var(--blue);border-bottom-color:var(--blue-l)}
+
+/* intestazione con illustrazione */
+.hero{align-items:end}
+.hero .illo,.hero svg.illo{width:72px!important;height:72px!important;margin-bottom:2px}
+
+/* settimana */
+.week-head{height:32px}
+.week-head .ctrl{gap:2px}
+.week-head .ctrl .ib{width:32px;height:32px}
+.day .dn{color:#8A90A8}
+.day .dd{font-weight:300;width:40px;height:40px}
+.day.sel .dd{border-color:var(--blue);background:var(--blue);color:var(--leaf);font-weight:500}
+.day.full .dot{background:var(--blue)}
+.dayhead{align-items:center}
+.dayhead .lab{margin-top:6px}
+.meter{gap:26px;margin-top:12px}
+.meter b{font-weight:500;font-size:21px}
+
+/* timeline */
+.tl::before{background:var(--blue-l);left:11px}
+.node{border-color:var(--blue);width:23px;height:23px}
+.node::after{background:var(--blue)}
+.step{padding:12px 0;align-items:start}
+.step .node{margin-top:1px}
+.step .k{padding-top:2px}
+.step .what b{font-weight:500}
+.step .t{color:#8A90A8}
+.step.slot .node{border-color:var(--blue-l)}
+.slotbox{border-color:var(--blue-l);background:var(--leaf);border-radius:var(--r-s);margin-top:8px}
+.slotbox.empty{border-color:var(--blue-l);color:var(--blue)}
+.slotbox .med{border-color:var(--blue-l)}
+.med{border-color:var(--blue-l);background:var(--leaf)}
+.allday{padding:14px 0 4px}
+.evrow{border-bottom-color:var(--rule)}
+
+/* riquadri */
+.banner,.plan,.ask,.cycle-empty,.coach,.tech{border:1px solid var(--blue-l);background:var(--leaf);border-radius:var(--r)}
+.banner b,.ask b{color:var(--ink)}
+.seg{border-color:var(--blue)}
+.seg button{color:var(--blue)}
+.seg button.on{background:var(--blue);color:var(--leaf)}
+.steps span.on{color:var(--blue)}
+.steps span.on i{background:var(--blue);border-color:var(--blue)}
+.steps span i{border-color:var(--blue-l)}
+.dates button{border-color:var(--rule);background:var(--leaf)}
+.dates button.on{border-color:var(--blue);color:var(--blue)}
+.dates button.on b{color:var(--blue)}
+.chiprow button.on{border-color:var(--blue);color:var(--blue)}
+
+/* caroselli: carte come il menù dei dolci */
+.page.tea{width:250px;background:var(--leaf);border:1px solid var(--blue-l);border-radius:18px;padding:16px 16px 14px;gap:4px;box-shadow:0 14px 30px -22px rgba(36,64,142,.45)}
+.page.tea+.page.tea{margin-left:-70px}
+.tea-h{display:flex;justify-content:space-between;align-items:center}
+.page.tea h4{font-size:19px;line-height:1.15;margin-top:6px;color:var(--ink)}
+.tea-sub{font-size:12.5px;color:var(--blue)}
+.page.tea .art{display:grid;place-items:center;width:100%;aspect-ratio:4/3;margin:6px 0 2px}
+.page.tea .art img{width:88%;height:88%;object-fit:contain}
+.tea-ing{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:3px 10px}
+.tea-ing li{font-size:11.5px;color:var(--ink);opacity:.8;display:flex;gap:6px;align-items:center;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tea-ing li::before{content:"";width:5px;height:5px;transform:rotate(45deg);border:1px solid var(--blue);flex:none}
+.tea-cut{display:block;border-top:1px dashed var(--blue-l);margin:10px 0 6px}
+.tea-f{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink);opacity:.75}
+.tea-stars{color:var(--blue);letter-spacing:1px;font-size:11px}
+.page .st{margin-top:4px;font-size:10px}
+.st.ok{color:#5E7E66}.st.no{color:var(--rust)}
+.page.tea .open{border-color:var(--blue);color:var(--blue);display:none}
+.pager i.on{background:var(--blue)}
+.mcard{background:var(--leaf);border:1px solid var(--blue-l);border-radius:16px;padding:10px 10px 10px;width:140px;gap:2px;box-shadow:0 10px 24px -20px rgba(36,64,142,.5)}
+.mcard b{font-size:13px;color:var(--ink);min-height:30px}
+.mcard .art{border-radius:10px;background:transparent}
+.mcard .art img{object-fit:contain;width:92%;height:92%;mix-blend-mode:normal}
+.mcard .tea-cut{margin:6px 0 4px}
+.mcard small{opacity:1;color:var(--faded)}
+.mcard .new{border-color:var(--blue);color:var(--blue)}
+.mcard .stamp{border-color:var(--blue);color:var(--blue)}
+.mcard.ghost{border-color:var(--blue-l)}
+
+/* filtri del ricettario: un colore per filtro */
+.sl-line::before{background:var(--blue);opacity:.35}
+.opt i::after{background:var(--blue);opacity:.55}
+.sl[data-k="tempo"]{--h:var(--h-tempo)} .sl[data-k="voglia"]{--h:var(--h-voglia)} .sl[data-k="novita"]{--h:var(--h-novita)}
+.opt.on i::before{background:radial-gradient(circle,var(--h) 0%,transparent 70%);opacity:.65}
+.opt.on i::after{background:var(--h);opacity:1;box-shadow:0 0 0 1.5px var(--blue)}
+.opt.on span{color:var(--blue)}
+.sl .lab{display:flex;align-items:center;gap:8px}
+.sl .lab::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--h)}
+.index li button{border-bottom:1px solid transparent}
+.index .dots{border-bottom-color:var(--blue-l)}
+.index .pg{color:var(--blue)}
+.search{border-bottom-color:var(--blue)}
+.search .ico{color:var(--blue)}
+
+/* spesa */
+.receipt{background:var(--leaf);border-color:var(--blue-l)}
+.rc-head b{color:var(--blue)}
+.rc-head{border-bottom-color:var(--blue-l)}
+.prog i,.bar i{background:var(--blue)}
+.box{border-color:var(--blue)}
+.it.on .box{background:var(--blue)}
+.it{border-bottom-color:var(--rule)}
+.assoc{border-color:var(--blue);color:var(--blue)}
+.jar .g i{background:var(--blue)}
+.plates .mcard{width:100%}
+
+/* barra delle schede e laterale */
+.tabs{background:var(--leaf);border-color:var(--blue-l);box-shadow:0 12px 30px -16px rgba(36,64,142,.4)}
+.tab{color:#8A90A8}
+.tab.on{background:var(--blue);color:var(--leaf)}
+.side{border-right-color:var(--blue-l)}
+.side nav button.on{color:var(--blue)}
+.syncdot.ok{background:#5E7E66}
+
+/* fogli dal basso: intestazione fissa con la X, corpo che scorre */
+.sheet{display:flex;flex-direction:column;max-height:92dvh;max-height:92vh;padding:0;overflow:hidden;border-radius:24px 24px 0 0;background:var(--paper);transition:transform .25s ease}
+.sheet-top{position:relative;flex:none;height:40px;display:flex;align-items:center;justify-content:center;touch-action:none}
+.sheet-top .grab{margin:0;width:44px;height:5px;background:var(--blue-l)}
+.sheet-x{position:absolute;right:max(12px,env(safe-area-inset-right,0px));top:4px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--blue);background:var(--blue-xl)}
+.sheet-body{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px max(20px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));overscroll-behavior:contain}
+@media (min-width:900px){.sheet{border-radius:24px;max-height:86vh}}
+.picker .row{border-bottom-color:var(--rule)}
+.picker .row .pill{border-color:var(--blue-l)}
+
+/* ricetta */
+.r-card{background:var(--leaf)!important;border-color:var(--blue-l)}
+.r-meta{border-bottom-color:var(--blue-l)}
+.r-tech b{color:var(--blue)}
+.menu-list .dots{border-bottom-color:var(--blue-l)}
+.steps-l li::before{color:var(--blue)}
+.steps-l .tm{color:var(--blue)}
+.tech{border-color:var(--blue)}
+.stars button.on{color:var(--blue);text-shadow:none}
+.dish .art{background:transparent!important}
+/* fogli e pagine sopra la barra delle schede */
+.sheet-wrap{z-index:60}
+.recipe{z-index:70}
+.toast{z-index:80}

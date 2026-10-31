@@ -45,7 +45,15 @@ export const breve = id => { const r = S.R[id]; if (!r) return id; return r.brev
 
 /* fogli dal basso */
 export function openSheet(html) {
-  $('sheet').innerHTML = `<div class="sheet-wrap"><div class="sheet-bg" data-close></div><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${html}</div></div>`;
+  $('sheet').innerHTML = `<div class="sheet-wrap"><div class="sheet-bg" data-close></div><div class="sheet" role="dialog" aria-modal="true"><div class="sheet-top"><div class="grab"></div><button class="sheet-x" data-close aria-label="Chiudi">${ICON.x}</button></div><div class="sheet-body">${html}</div></div></div>`;
+  const sh = $('sheet').querySelector('.sheet'), top = sh.querySelector('.sheet-top');
+  let y0 = null, dy = 0;
+  const start = e => { if (sh.querySelector('.sheet-body').scrollTop > 0 && !e.target.closest('.sheet-top')) return; y0 = e.touches[0].clientY; dy = 0; sh.style.transition = 'none'; };
+  const move = e => { if (y0 == null) return; dy = Math.max(0, e.touches[0].clientY - y0); if (dy > 0) { sh.style.transform = `translateY(${dy}px)`; if (e.cancelable) e.preventDefault(); } };
+  const end = () => { if (y0 == null) return; sh.style.transition = ''; if (dy > 90) closeSheet(); else sh.style.transform = ''; y0 = null; };
+  top.addEventListener('touchstart', start, { passive: true });
+  sh.querySelector('.sheet-body').addEventListener('touchstart', start, { passive: true });
+  sh.addEventListener('touchmove', move, { passive: false }); sh.addEventListener('touchend', end);
 }
 export function closeSheet() { $('sheet').innerHTML = ''; document.dispatchEvent(new Event('focusout')); }
 export function openOverlay(html) { $('overlay').innerHTML = html; document.body.style.overflow = 'hidden'; }

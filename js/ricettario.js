@@ -1,5 +1,5 @@
 // CAM Kitchen: il Ricettario (filtri, carte da sfogliare, indice, i miei piatti, Chiedi a Claude).
-import { S, giorno, salvaGiorno, salvaCiclo, oggi, saveUI } from './store.js';
+import { S, giorno, salvaGiorno, salvaCiclo, oggi, saveUI, cfg } from './store.js';
 import { fmt, macroRicetta, dispensa, statoIngredienti, totaliGiorno, cicloDi, quantitaTesto } from './calc.js';
 import { $, esc, toast, mascot, arte, tinta, illo, closeOverlay } from './ui.js';
 
@@ -60,9 +60,10 @@ export function vistaRicettario() {
   const pagina = Object.fromEntries(tutte.map((r, i) => [r.id, i + 1]));
   const capitoli = [...new Set(tutte.map(r => r.capitolo || 'Altro'))];
   const card = x => {
-    const r = x.r, t = macroRicetta(r.id);
-    const stato = !x.tracciata ? '' : x.mancanti.length ? `<span class="st no">manca ${esc(x.mancanti[0].nome.toLowerCase())}${x.mancanti.length > 1 ? ` e altri ${x.mancanti.length - 1}` : ''}</span>` : '<span class="st ok">hai tutto</span>';
-    return `<button class="page" data-act="pg" data-r="${r.id}" style="--tint:${tinta(r.id)}"><span class="pn"><span class="lab" style="color:var(--ink);opacity:.6">${esc(r.nuovo ? 'Da provare' : r.capitolo || 'Ricetta')}</span><span class="lab num" style="color:var(--ink);opacity:.6">p. ${pagina[r.id]}</span></span>${arte(r.id, 'art')}<h4>${esc(r.nome)}</h4><span class="m num">${r.tempo_min}′ · ${fmt(t.kcal)} kcal · ${fmt(t.prot)} g${h[r.id] && h[r.id].voto ? ` · ${'★'.repeat(Math.round(h[r.id].voto))}` : ''}</span>${stato}<span class="open">Apri la ricetta</span></button>`;
+    const r = x.r, t = macroRicetta(r.id), voto = h[r.id] && h[r.id].voto;
+    const ing = r.ingredienti.filter(i => S.A[i.alimento] && S.A[i.alimento].traccia_dispensa !== false).slice(0, 6).map(i => S.A[i.alimento].nome.replace(/\s*\(.*\)/, '').split(' ').slice(0, 3).join(' '));
+    const stato = !x.tracciata ? '' : x.mancanti.length ? `<span class="st no">manca ${esc(x.mancanti[0].nome.toLowerCase())}${x.mancanti.length > 1 ? ` e altri ${x.mancanti.length - 1}` : ''}</span>` : '<span class="st ok">hai tutto in casa</span>';
+    return `<button class="page tea" data-act="pg" data-r="${r.id}"><span class="tea-h"><span class="lab">${esc(r.nuovo ? 'Da provare' : r.capitolo || 'Ricetta')}</span><span class="lab num">p. ${pagina[r.id]}</span></span><h4>${esc(r.nome)}</h4><span class="tea-sub">${esc(r.tecnica ? r.tecnica.nome : r.sottotitolo || '')}</span><span class="art">${arte(r.id)}</span><ul class="tea-ing">${ing.map(n => `<li>${esc(n)}</li>`).join('')}</ul><span class="tea-cut"></span><span class="tea-f"><span class="num">${r.tempo_min}′ · ${fmt(t.kcal)} kcal · ${fmt(t.prot)} g</span><span class="tea-stars">${voto ? '★'.repeat(Math.round(voto)) + '☆'.repeat(5 - Math.round(voto)) : ''}</span></span>${stato}</button>`;
   };
   const filtriAttivi = f.tempo >= 0 || f.voglia >= 0 || f.novita >= 0 || f.casa || f.piano || f.q || f.cap || f.pasto;
   const miei = Object.entries(h).filter(([id]) => S.R[id]).sort((a, b) => b[1].ultima.localeCompare(a[1].ultima));
@@ -70,7 +71,7 @@ export function vistaRicettario() {
   <section class="col">
     <div class="hero"><div><span class="lab">Il ricettario di CAM</span><h1 class="ttl" style="margin-top:6px">Cosa cucino?</h1></div>${illo('ricettario')}</div>
     <form class="search" data-form="rq"><svg class="ico" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg><input id="rq" value="${esc(f.q)}" placeholder="Un ingrediente o un piatto" autocomplete="off" enterkeyhint="search">${f.q ? `<button type="button" class="link" data-act="rq-x">×</button>` : ''}</form>
-    <div class="choose">${CH.map(([k, l, ops]) => `<div class="sl"><span class="lab">${l}</span><div class="sl-line">${ops.map((o, i) => `<button class="opt ${f[k] === i ? 'on' : ''}" data-act="rf" data-k="${k}" data-i="${i}"><i></i><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div></div>`).join('')}</div>
+    <div class="choose">${CH.map(([k, l, ops]) => `<div class="sl" data-k="${k}"><span class="lab">${l}</span><div class="sl-line">${ops.map((o, i) => `<button class="opt ${f[k] === i ? 'on' : ''}" data-act="rf" data-k="${k}" data-i="${i}"><i></i><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div></div>`).join('')}</div>
     <div class="toggles">
       <button class="pill sm ${f.casa ? 'solid' : ''}" data-act="rf-casa">Solo con ciò che ho</button>
       <button class="pill sm ${f.piano ? 'solid' : ''}" data-act="rf-piano">${f.piano === 2 ? 'Sgarro' : 'Dentro il piano'}</button>
@@ -113,9 +114,10 @@ async function chiedi() {
   const m = messaggio();
   let copiato = false;
   try { await navigator.clipboard.writeText(m); copiato = true; } catch { /* non disponibile */ }
-  const url = `https://claude.ai/new?q=${encodeURIComponent(m)}`;
+  const pr = cfg().progetto;
+  const url = pr ? `https://claude.ai/project/${pr}` : `https://claude.ai/new?q=${encodeURIComponent(m)}`;
   const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();
-  toast(copiato ? 'Messaggio copiato: se non compare già scritto, incollalo' : 'Apro Claude');
+  toast(copiato ? 'Messaggio copiato: apri una chat nel progetto e incollalo' : 'Apro il progetto cam PT');
 }
 
 /* ---------- voto e menù (dalla pagina ricetta) ---------- */

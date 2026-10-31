@@ -20,6 +20,7 @@ export function apriImpostazioni(msg = '') {
    <div class="field"><span class="lab">Token (fine-grained · solo camkitchen · Contents read/write)</span><input id="c-token" type="password" value="${esc(c.token)}" autocomplete="off"></div>
    <p class="note">Il token resta solo su questo dispositivo: non finisce mai nel repo.</p>
    <div class="field"><span class="lab">Repo di CAM Gym (peso e sessioni)</span><input id="c-gym" value="${esc(c.gym)}" autocapitalize="off" autocomplete="off"></div>
+   <div class="field"><span class="lab">Progetto Claude per "Chiedi a Claude" (id dall'indirizzo claude.ai/project/…)</span><input id="c-prog" value="${esc(c.progetto || '')}" autocapitalize="off" autocomplete="off"></div>
    <div class="act" style="justify-content:flex-start"><button class="pill solid" data-act="cfg-salva">Salva</button><button class="pill" data-act="cfg-prova">Prova connessione</button><button class="pill" data-act="cfg-sync">Sincronizza ora</button></div>
    <p class="note" id="cfg-msg">${esc(msg || S.sync.msg || '')}</p>
    <span class="lab" style="margin-top:14px">Dati</span>
@@ -29,7 +30,7 @@ export function apriImpostazioni(msg = '') {
 }
 function leggiForm() {
   const v = id => ($(id) ? $(id).value.trim() : '');
-  setCfg({ owner: v('c-owner'), repo: v('c-repo'), branch: v('c-branch') || 'main', token: v('c-token'), gym: v('c-gym') });
+  setCfg({ owner: v('c-owner'), repo: v('c-repo'), branch: v('c-branch') || 'main', token: v('c-token'), gym: v('c-gym'), progetto: v('c-prog') });
 }
 export async function azioneAltro(act) {
   switch (act) {

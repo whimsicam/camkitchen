@@ -121,7 +121,7 @@ function sezioneCiclo(d) {
   if (!c) return `<div class="bhead"><h2>Il ciclo</h2></div><div class="cycle-empty">${mascot()}<span><b>Nessun menù ancora</b><small>Preparalo nella scheda Spesa: scegli quando vai al Conad e Camillo propone i piatti.</small></span></div><button class="hint" data-go="spesa">Vai alla spesa →</button>`;
   const st = statoCiclo(c);
   const cene = st.filter(p => p.pasto === 'cena'), pranzi = st.filter(p => p.pasto === 'pranzo');
-  const card = p => `<button class="mcard ${p.fatto ? 'done' : ''}" data-act="dish" data-r="${p.ricetta}" data-q="${p.pasto}" style="--tint:${tinta(p.ricetta)}">${p.nuovo ? '<span class="new">nuovo</span>' : ''}<span class="art">${arte(p.ricetta)}${p.fatto ? `<span class="stamp">${corto(p.fatto)}</span>` : ''}</span><b>${esc(breve(p.ricetta))}</b><small class="num">${S.R[p.ricetta] ? fmt(macroRicetta(p.ricetta).kcal) + ' kcal' : ''}</small></button>`;
+  const card = p => `<button class="mcard ${p.fatto ? 'done' : ''}" data-act="dish" data-r="${p.ricetta}" data-q="${p.pasto}">${p.nuovo ? '<span class="new">nuovo</span>' : ''}<b>${esc(breve(p.ricetta))}</b><span class="art">${arte(p.ricetta)}${p.fatto ? `<span class="stamp">${corto(p.fatto)}</span>` : ''}</span><span class="tea-cut"></span><small class="num">${S.R[p.ricetta] ? fmt(macroRicetta(p.ricetta).kcal) + ' kcal · ' + S.R[p.ricetta].tempo_min + '′' : ''}</small></button>`;
   const fine = c.al, giorniAllaFine = Math.round((new Date(fine) - new Date(oggi())) / 864e5);
   return `<div class="cycle">
     <div class="bhead"><h2>Il ciclo</h2><span class="lab">${corto(c.dal)} – ${corto(c.al)}</span></div>
@@ -184,7 +184,7 @@ export function azioneMenu(act, el) {
     case 'voce': sheetVoce(el.dataset.id); return true;
     case 'voce-salva': salvaVoce(el.dataset.id); return true;
     case 'voce-no': modifica(g => { delete g.giornata[el.dataset.id]; }); closeSheet(); return true;
-    case 'stp': { const i = $(el.dataset.t); const step = Number(el.dataset.s); i.value = Math.max(0, Math.round((Number(i.value.replace(',', '.')) || 0) + step * Number(el.dataset.n) * 100) / 100); return true; }
+    case 'stp': { const i = $(el.dataset.t); const step = Number(el.dataset.s); const cur = Number(String(i.value).replace(',', '.')) || 0; const v = Math.max(0, Math.round((cur + step * Number(el.dataset.n)) * 100) / 100); i.value = String(v).replace('.', ','); return false; }
     case 'ieri-si': modifica(g => { for (const m of giornataDel(g.data)) if (!g.giornata[m.id]) g.giornata[m.id] = 'fatto'; }, addDays(oggi(), -1)); toast('Segnate su ieri'); return true;
     case 'ieri-no': S.ui.ieriChiuso = addDays(oggi(), -1); saveUI(); return true;
     case 'coach-ok': S.ui.coachVisto = S.prog.versione; saveUI(); return true;

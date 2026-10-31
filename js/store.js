@@ -24,7 +24,7 @@ function cfgDefault() {
   const h = location.hostname, seg = location.pathname.split('/').filter(Boolean)[0] || '';
   return h.endsWith('.github.io') ? { owner: h.split('.')[0], repo: seg } : { owner: '', repo: '' };
 }
-export function cfg() { return { ...cfgDefault(), branch: 'main', token: '', gym: 'whimsicam/camgym', ...S.cfg }; }
+export function cfg() { return { ...cfgDefault(), branch: 'main', token: '', gym: 'whimsicam/camgym', progetto: '01a179ad-ec7c-72e6-b1ae-1c80c855d831', ...S.cfg }; }
 export function setCfg(c) { S.cfg = { ...S.cfg, ...c }; scrivi(K.cfg, S.cfg); }
 export const syncPronto = () => { const c = cfg(); return !!(c.owner && c.repo && c.token); };
 
