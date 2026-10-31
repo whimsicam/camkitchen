@@ -1,0 +1,116 @@
+{
+ "id": "burger-pollo-patate",
+ "nome": "Burger di pollo e patate croccanti",
+ "sottotitolo": "Due burger di pollo, uovo al padellino, patate in friggitrice ad aria",
+ "pasto": [
+  "cena",
+  "pranzo"
+ ],
+ "base": true,
+ "dentro_piano": true,
+ "porzioni": 1,
+ "tempo_min": 30,
+ "sforzo": 1,
+ "livello": 1,
+ "capitolo": "Secondi e burger",
+ "categoria_disegno": "burger",
+ "attrezzatura": [
+  "friggitrice ad aria",
+  "padella antiaderente con coperchio",
+  "ciotola"
+ ],
+ "ingredienti": [
+  {
+   "alimento": "hamburger-pollo",
+   "pz": 2
+  },
+  {
+   "alimento": "patate",
+   "g": 250
+  },
+  {
+   "alimento": "uova",
+   "pz": 1
+  },
+  {
+   "alimento": "olio-evo",
+   "g": 15
+  },
+  {
+   "alimento": "insalata",
+   "g": 60
+  },
+  {
+   "alimento": "pomodorini",
+   "g": 80
+  },
+  {
+   "alimento": "maionese-calve",
+   "g": 10
+  },
+  {
+   "alimento": "rosmarino"
+  },
+  {
+   "alimento": "sale"
+  },
+  {
+   "alimento": "pepe"
+  }
+ ],
+ "preparazione": "Togli i burger dal frigo mentre si scalda la friggitrice.",
+ "passaggi": [
+  {
+   "testo": "Accendi la friggitrice ad aria a 200 °C e lasciala scaldare.",
+   "fuoco": "200 °C",
+   "tempo_min": 3,
+   "segnale": "la spia o il display indica che è in temperatura"
+  },
+  {
+   "testo": "Lava le patate, tagliale a spicchi di circa 1,5 cm con la buccia e asciugale bene con la carta da cucina.",
+   "tempo_min": 5,
+   "segnale": "asciutte al tatto: l'acqua rimasta le cuoce al vapore"
+  },
+  {
+   "testo": "In una ciotola condiscile con 10 g di olio (un cucchiaio), sale e rosmarino, e mescola con le mani.",
+   "tempo_min": 1,
+   "segnale": "ogni spicchio è lucido e non resta olio sul fondo"
+  },
+  {
+   "testo": "Mettile nel cestello in un solo strato e cuoci a 200 °C. Scuoti il cestello a metà cottura.",
+   "fuoco": "200 °C",
+   "tempo_min": 19,
+   "segnale": "bordi dorati e la forchetta entra senza resistenza"
+  },
+  {
+   "testo": "Quando alle patate mancano 8 minuti, scalda la padella a fuoco medio con 1 cucchiaino di olio.",
+   "fuoco": "medio",
+   "tempo_min": 2,
+   "segnale": "una goccia d'acqua sfrigola subito"
+  },
+  {
+   "testo": "Metti i burger in padella e non toccarli per 4 minuti, poi girali e cuoci altri 4 minuti.",
+   "fuoco": "medio",
+   "tempo_min": 8,
+   "segnale": "si staccano da soli quando hanno la crosticina; dentro non resta rosa"
+  },
+  {
+   "testo": "Sposta i burger nel piatto. Nella stessa padella, a fuoco medio-basso, rompi l'uovo e copri con il coperchio.",
+   "fuoco": "medio-basso",
+   "tempo_min": 3,
+   "segnale": "albume bianco e rappreso, tuorlo ancora lucido"
+  },
+  {
+   "testo": "Impiatta con insalata, pomodorini e 10 g di maionese.",
+   "tempo_min": 1
+  }
+ ],
+ "tecnica": {
+  "nome": "Patate croccanti in friggitrice",
+  "spiegazione": "Asciugarle bene e non sovrapporle: l'aria calda deve girare intorno a ogni spicchio.",
+  "errore_tipico": "Cestello troppo pieno: le patate escono morbide e pallide, cotte al vapore."
+ },
+ "disegno": "disegni/burger-pollo-patate.png",
+ "fonte": null,
+ "aggiunta": "2026-10-31"
+}

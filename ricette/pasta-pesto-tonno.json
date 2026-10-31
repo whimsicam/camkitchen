@@ -1,0 +1,88 @@
+{
+ "id": "pasta-pesto-tonno",
+ "nome": "Casarecce al pesto rosso e tonno",
+ "sottotitolo": "Pesto di pomodoro e olive, tonno al naturale, una pioggia di Grana",
+ "pasto": [
+  "cena",
+  "pranzo"
+ ],
+ "base": true,
+ "dentro_piano": true,
+ "porzioni": 1,
+ "tempo_min": 20,
+ "sforzo": 1,
+ "livello": 1,
+ "capitolo": "Primi",
+ "categoria_disegno": "pasta",
+ "attrezzatura": [
+  "pentola grande con coperchio",
+  "padella larga",
+  "mestolo",
+  "bilancia"
+ ],
+ "ingredienti": [
+  {
+   "alimento": "pasta",
+   "g": 180
+  },
+  {
+   "alimento": "pesto-rosso-mutti",
+   "g": 90
+  },
+  {
+   "alimento": "tonno-naturale",
+   "pz": 1,
+   "sostituzioni": [
+    "grana-grattugiato:25"
+   ]
+  },
+  {
+   "alimento": "grana-grattugiato",
+   "g": 10
+  },
+  {
+   "alimento": "sale",
+   "g": 15,
+   "nota": "sale grosso per l'acqua"
+  }
+ ],
+ "preparazione": "Pesa la pasta e apri il tonno prima di accendere il fuoco.",
+ "passaggi": [
+  {
+   "testo": "Porta a bollore 2 litri d'acqua in una pentola grande con il coperchio.",
+   "fuoco": "alto",
+   "tempo_min": 10,
+   "segnale": "bolle forte su tutta la superficie"
+  },
+  {
+   "testo": "Sala l'acqua con 15 g di sale grosso e butta la pasta. Mescola nel primo minuto, così non si attacca.",
+   "fuoco": "alto",
+   "segnale": "togli 1 minuto dal tempo scritto sulla confezione"
+  },
+  {
+   "testo": "Intanto sgocciola il tonno, sbriciolalo con una forchetta in una padella larga e aggiungi il pesto. Fuoco spento.",
+   "tempo_min": 2
+  },
+  {
+   "testo": "Un minuto prima che la pasta sia pronta prendi un mestolo della sua acqua di cottura e tienilo da parte.",
+   "segnale": "l'acqua è torbida: è l'amido che lega il sugo"
+  },
+  {
+   "testo": "Scola la pasta al dente, versala nella padella, aggiungi mezzo mestolo d'acqua e accendi a fuoco vivace. Mescola e salta per un minuto.",
+   "fuoco": "vivace",
+   "tempo_min": 1,
+   "segnale": "il sugo diventa cremoso e avvolge la pasta, senza liquido sul fondo"
+  },
+  {
+   "testo": "Spegni, aggiungi il Grana e mescola ancora qualche secondo. Servi subito."
+  }
+ ],
+ "tecnica": {
+  "nome": "Mantecare la pasta",
+  "spiegazione": "Finire la cottura in padella con un po' d'acqua di cottura: l'amido lega il condimento e lo rende cremoso.",
+  "errore_tipico": "Scolare tutta l'acqua e saltare a fuoco spento: il pesto resta oleoso e scivola via dalla pasta."
+ },
+ "disegno": "disegni/pasta-pesto-tonno.png",
+ "fonte": null,
+ "aggiunta": "2026-10-31"
+}

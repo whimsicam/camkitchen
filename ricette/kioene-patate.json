@@ -1,0 +1,82 @@
+{
+ "id": "kioene-patate",
+ "nome": "Mini burger vegetali e patate",
+ "sottotitolo": "Burger di zucca e carote croccanti con patate in friggitrice e un uovo",
+ "pasto": [
+  "cena",
+  "pranzo"
+ ],
+ "base": true,
+ "jolly": true,
+ "dentro_piano": true,
+ "porzioni": 1,
+ "tempo_min": 25,
+ "sforzo": 1,
+ "livello": 1,
+ "capitolo": "Veloci",
+ "categoria_disegno": "burger",
+ "attrezzatura": [
+  "friggitrice ad aria"
+ ],
+ "ingredienti": [
+  {
+   "alimento": "kioene-zucca-carote",
+   "pz": 4
+  },
+  {
+   "alimento": "patate",
+   "g": 250
+  },
+  {
+   "alimento": "uova",
+   "pz": 1
+  },
+  {
+   "alimento": "olio-evo",
+   "g": 10
+  },
+  {
+   "alimento": "insalata",
+   "g": 60
+  },
+  {
+   "alimento": "rosmarino"
+  },
+  {
+   "alimento": "sale"
+  }
+ ],
+ "preparazione": "Sono poveri di proteine: l'uovo serve a tenere la cena vicino al target.",
+ "passaggi": [
+  {
+   "testo": "Cuoci le patate in friggitrice a 200 °C, spicchi asciutti e conditi con 10 g di olio, scuotendo a metà.",
+   "fuoco": "200 °C",
+   "tempo_min": 19,
+   "segnale": "bordi dorati"
+  },
+  {
+   "testo": "Negli ultimi 8 minuti aggiungi i mini burger nel cestello accanto alle patate, girandoli a metà.",
+   "fuoco": "200 °C",
+   "tempo_min": 8,
+   "segnale": "crosta dorata su entrambi i lati"
+  },
+  {
+   "testo": "Intanto cuoci l'uovo al padellino con il coperchio, a fuoco medio-basso.",
+   "fuoco": "medio-basso",
+   "tempo_min": 3,
+   "segnale": "albume rappreso, tuorlo lucido"
+  },
+  {
+   "testo": "Impiatta con l'insalata.",
+   "tempo_min": 1
+  }
+ ],
+ "tecnica": {
+  "nome": "Cotture insieme in friggitrice",
+  "spiegazione": "Si parte dall'alimento che richiede più tempo e si aggiungono gli altri dopo, così finiscono insieme.",
+  "errore_tipico": "Mettere tutto all'inizio: i burger si seccano prima che le patate siano pronte."
+ },
+ "disegno": "disegni/kioene-patate.png",
+ "fonte": null,
+ "aggiunta": "2026-10-31"
+}

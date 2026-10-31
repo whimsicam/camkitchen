@@ -1,0 +1,90 @@
+{
+ "porzioni": {
+  "piccola": 0.75,
+  "normale": 1,
+  "abbondante": 1.3
+ },
+ "fuori": [
+  {
+   "id": "pizza-margherita",
+   "nome": "Pizza margherita",
+   "kcal": 850,
+   "prot": 32
+  },
+  {
+   "id": "pizza-farcita",
+   "nome": "Pizza farcita (salumi o più formaggi)",
+   "kcal": 1050,
+   "prot": 42
+  },
+  {
+   "id": "sushi-20",
+   "nome": "Sushi, circa 20 pezzi",
+   "kcal": 900,
+   "prot": 40
+  },
+  {
+   "id": "poke",
+   "nome": "Poke bowl",
+   "kcal": 700,
+   "prot": 35
+  },
+  {
+   "id": "burger-patatine",
+   "nome": "Burger con patatine",
+   "kcal": 1200,
+   "prot": 45
+  },
+  {
+   "id": "kebab",
+   "nome": "Kebab nel pane",
+   "kcal": 750,
+   "prot": 38
+  },
+  {
+   "id": "piadina",
+   "nome": "Piadina farcita",
+   "kcal": 600,
+   "prot": 25
+  },
+  {
+   "id": "ristorante",
+   "nome": "Cena al ristorante (primo e secondo)",
+   "kcal": 1100,
+   "prot": 45
+  },
+  {
+   "id": "birra",
+   "nome": "Birra media 0,4 l",
+   "kcal": 170,
+   "prot": 2
+  },
+  {
+   "id": "vino",
+   "nome": "Calice di vino",
+   "kcal": 110,
+   "prot": 0
+  }
+ ],
+ "mensa": [
+  {
+   "id": "riso-pollo-curry",
+   "nome": "Riso e pollo al curry",
+   "kcal": 780,
+   "prot": 38
+  },
+  {
+   "id": "lasagne",
+   "nome": "Lasagne (porzione grande)",
+   "kcal": 820,
+   "prot": 34
+  },
+  {
+   "id": "riso-nigiri",
+   "nome": "Riso e nigiri con salsa di soia",
+   "kcal": 640,
+   "prot": 24
+  }
+ ],
+ "note": "Stime medie. I preset della mensa vanno calibrati con le foto dei piatti."
+}

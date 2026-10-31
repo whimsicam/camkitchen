@@ -1,0 +1,153 @@
+{
+ "versione": "0.2",
+ "aggiornato": "2026-10-31",
+ "messaggio_coach": "Primo ciclo: registra tutto, anche a occhio. Le prime 2–3 settimane servono a capire quanto ti serve davvero.",
+ "target": {
+  "kcal": 2800,
+  "kcal_min": 2700,
+  "kcal_max": 2900,
+  "proteine_min": 125,
+  "frutta_verdura_porzioni": 4
+ },
+ "data_inizio": "2026-11-03",
+ "giornata_tipo": [
+  {
+   "id": "colazione",
+   "nome": "Colazione",
+   "ora": "08:30",
+   "giorni": "tutti",
+   "descrizione": "tè, Nascondini, pane e crema",
+   "voci": [
+    {
+     "alimento": "te",
+     "pz": 1
+    },
+    {
+     "alimento": "miele",
+     "g": 7
+    },
+    {
+     "alimento": "nascondini",
+     "pz": 3
+    },
+    {
+     "alimento": "pane-proteico",
+     "pz": 1
+    },
+    {
+     "alimento": "crema-arachidi",
+     "g": 15
+    },
+    {
+     "alimento": "confettura-fichi",
+     "g": 15
+    }
+   ]
+  },
+  {
+   "id": "spuntino",
+   "nome": "Spuntino",
+   "ora": "11:00",
+   "giorni": "tutti",
+   "descrizione": "yogurt greco e mandorle",
+   "voci": [
+    {
+     "alimento": "yogurt-greco-bianco",
+     "pz": 1
+    },
+    {
+     "alimento": "miele",
+     "g": 7
+    },
+    {
+     "alimento": "mandorle",
+     "g": 25
+    }
+   ]
+  },
+  {
+   "id": "merenda",
+   "nome": "Merenda",
+   "ora": "17:30",
+   "giorni": "tutti",
+   "descrizione": "Grana, bresaola, crackers",
+   "voci": [
+    {
+     "alimento": "grana-cubetti",
+     "g": 36
+    },
+    {
+     "alimento": "bresaola",
+     "g": 45
+    },
+    {
+     "alimento": "crackers-pavesi",
+     "pz": 1
+    }
+   ]
+  },
+  {
+   "id": "shake",
+   "nome": "Shake",
+   "ora": null,
+   "giorni": "tutti",
+   "descrizione": "whey e latte di soia",
+   "evidenzia_dopo_palestra": true,
+   "voci": [
+    {
+     "alimento": "whey-yamamoto",
+     "g": 30
+    },
+    {
+     "alimento": "latte-soia",
+     "g": 250
+    }
+   ]
+  },
+  {
+   "id": "frutta",
+   "nome": "Frutta",
+   "ora": "23:00",
+   "giorni": "tutti",
+   "descrizione": "banana, kiwi o mirtilli",
+   "voci": [
+    {
+     "alimento": "banana",
+     "pz": 1
+    }
+   ]
+  }
+ ],
+ "pranzo": {
+  "feriali": "mensa",
+  "weekend": "menu",
+  "mensa_forfait": {
+   "kcal": 750,
+   "prot": 32
+  },
+  "mensa_schema": "~750 kcal e 35–40 g di proteine: una porzione piena di proteina, una normale di carboidrato, verdura. Con un piatto unico ricco, cena più magra di grassi."
+ },
+ "menu": {
+  "rotazione_cene": [
+   "pasta-pesto-tonno",
+   "burger-pollo-patate",
+   "burger-manzo-patate"
+  ],
+  "jolly": [
+   "toast-salmone",
+   "kioene-patate"
+  ],
+  "pranzi_weekend": [
+   "frittata-patate",
+   "pollo-limone-basmati",
+   "pasta-pesto-tonno"
+  ],
+  "piatti_nuovi_per_ciclo": 1,
+  "durata_default_giorni": 9
+ },
+ "regole": {
+  "sgarro": "Un piatto marcato come sgarro è libero ma si registra: entra nelle medie.",
+  "pasti_fuori": "Nessuna quota: se si mangia fuori, il piatto previsto passa al ciclo successivo.",
+  "porzione_frutta_verdura_g": 80
+ }
+}

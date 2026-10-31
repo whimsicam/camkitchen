@@ -1,0 +1,1261 @@
+[
+ {
+  "id": "pesto-rosso-mutti",
+  "nome": "Pesto di pomodoro con olive Leccino",
+  "marca": "Mutti",
+  "categoria": "sughi",
+  "unita": "g",
+  "per100": {
+   "kcal": 238,
+   "prot": 2.7,
+   "carb": 8.2,
+   "grassi": 21,
+   "fibre": 2.4,
+   "sale": 2.6,
+   "zuccheri": 5.3,
+   "saturi": 2.7
+  },
+  "confezione": {
+   "nome": "vasetto",
+   "g": 180
+  },
+  "alias": [
+   "pesto rosso",
+   "pesto mutti",
+   "pesto di pomodoro"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "nascondini",
+  "nome": "Nascondini",
+  "marca": "Mulino Bianco",
+  "categoria": "colazione",
+  "unita": "pz",
+  "per100": {
+   "kcal": 483,
+   "prot": 6.7,
+   "carb": 65,
+   "grassi": 21,
+   "fibre": 3.8,
+   "sale": 0.38,
+   "zuccheri": 26,
+   "saturi": 9
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 27,
+   "g_pz": 12.2
+  },
+  "alias": [
+   "nascondini",
+   "biscotti"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta",
+  "note": "Peso a biscotto stimato: 12,2 g"
+ },
+ {
+  "id": "hamburger-scottona",
+  "nome": "Hamburger di scottona",
+  "marca": "Conad",
+  "categoria": "carne",
+  "unita": "pz",
+  "per100": {
+   "kcal": 214,
+   "prot": 18,
+   "carb": 1.7,
+   "grassi": 15,
+   "fibre": 0,
+   "sale": 1.6,
+   "saturi": 7.5
+  },
+  "confezione": {
+   "nome": "hamburger",
+   "pz": 1,
+   "g_pz": 180
+  },
+  "alias": [
+   "scottona",
+   "hamburger di manzo",
+   "burger di manzo"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": 5,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "hamburger-pollo",
+  "nome": "Hamburger di pollo",
+  "marca": "Conad",
+  "categoria": "carne",
+  "unita": "pz",
+  "per100": {
+   "kcal": 132,
+   "prot": 17,
+   "carb": 0,
+   "grassi": 7.1,
+   "fibre": 0,
+   "sale": 1.2,
+   "saturi": 2.1
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 2,
+   "g_pz": 100
+  },
+  "alias": [
+   "hamburger di pollo",
+   "burger di pollo"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": 5,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "bresaola",
+  "nome": "Bresaola Valtellina IGP",
+  "marca": "Conad",
+  "categoria": "salumi",
+  "unita": "g",
+  "per100": {
+   "kcal": 163,
+   "prot": 34,
+   "carb": 0,
+   "grassi": 3,
+   "fibre": 0,
+   "sale": 4,
+   "saturi": 1.1
+  },
+  "confezione": {
+   "nome": "vaschetta",
+   "g": 90
+  },
+  "alias": [
+   "bresaola",
+   "bresaole"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "kioene-zucca-carote",
+  "nome": "Mini burger zucca e carote",
+  "marca": "Kioene",
+  "categoria": "vegetale",
+  "unita": "pz",
+  "per100": {
+   "kcal": 237,
+   "prot": 9.8,
+   "carb": 16,
+   "grassi": 14,
+   "fibre": 3.7,
+   "sale": 1.3,
+   "saturi": 1.5
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 4,
+   "g_pz": 50
+  },
+  "alias": [
+   "kioene",
+   "burger vegetali",
+   "mini burger"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "philadelphia-light",
+  "nome": "Philadelphia Light monoporzioni",
+  "marca": "Philadelphia",
+  "categoria": "latticini",
+  "unita": "pz",
+  "per100": {
+   "kcal": 182,
+   "prot": 8.4,
+   "carb": 3.7,
+   "grassi": 15,
+   "fibre": 0.3,
+   "sale": 0.73,
+   "saturi": 9.6
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 6,
+   "g_pz": 25
+  },
+  "alias": [
+   "philadelphia",
+   "formaggio spalmabile"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "sito del produttore (da verificare in etichetta)"
+ },
+ {
+  "id": "yogurt-greco-vaniglia",
+  "nome": "Yogurt greco vaniglia 0%",
+  "marca": "Conad Piacersi",
+  "categoria": "latticini",
+  "unita": "pz",
+  "per100": {
+   "kcal": 76,
+   "prot": 7,
+   "carb": 12,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0.11
+  },
+  "confezione": {
+   "nome": "vasetto",
+   "pz": 1,
+   "g_pz": 170
+  },
+  "alias": [
+   "yogurt greco vaniglia"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta",
+  "note": "Da sostituire con il bianco 0%"
+ },
+ {
+  "id": "crema-arachidi",
+  "nome": "Crema 100% arachidi",
+  "marca": "Conad Piacersi",
+  "categoria": "colazione",
+  "unita": "g",
+  "per100": {
+   "kcal": 601,
+   "prot": 28,
+   "carb": 17,
+   "grassi": 46,
+   "fibre": 3.4,
+   "sale": 0.01,
+   "saturi": 8.6
+  },
+  "confezione": {
+   "nome": "vasetto",
+   "g": 350
+  },
+  "alias": [
+   "burro di arachidi",
+   "crema di arachidi"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "salmone-affumicato",
+  "nome": "Salmone affumicato norvegese",
+  "marca": "Conad",
+  "categoria": "pesce",
+  "unita": "g",
+  "per100": {
+   "kcal": 192,
+   "prot": 21,
+   "carb": 0,
+   "grassi": 12,
+   "fibre": 0,
+   "sale": 3.4
+  },
+  "confezione": {
+   "nome": "confezione",
+   "g": 100
+  },
+  "alias": [
+   "salmone",
+   "salmone affumicato"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "grana-cubetti",
+  "nome": "Cubetti di Grana Padano DOP",
+  "marca": "Conad",
+  "categoria": "latticini",
+  "unita": "g",
+  "per100": {
+   "kcal": 398,
+   "prot": 33,
+   "carb": 0,
+   "grassi": 29,
+   "fibre": 0,
+   "sale": 1.5,
+   "saturi": 18
+  },
+  "confezione": {
+   "nome": "confezione",
+   "g": 150
+  },
+  "alias": [
+   "grana",
+   "parmigiano",
+   "cubetti di grana"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta",
+  "note": "Peso della confezione da verificare"
+ },
+ {
+  "id": "salsa-soia",
+  "nome": "Salsa di soia ridotta in sale",
+  "marca": "Conad Sapori & Idee",
+  "categoria": "condimenti",
+  "unita": "ml",
+  "per100": {
+   "kcal": 100,
+   "prot": 11,
+   "carb": 14,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 7.8
+  },
+  "confezione": {
+   "nome": "bottiglia",
+   "g": 150
+  },
+  "alias": [
+   "salsa di soia",
+   "soia"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "confettura-fichi",
+  "nome": "Confettura extra di fichi",
+  "marca": "Zuegg",
+  "categoria": "colazione",
+  "unita": "g",
+  "per100": {
+   "kcal": 241,
+   "prot": 0.5,
+   "carb": 59,
+   "grassi": 0,
+   "fibre": 1.9,
+   "sale": 0.03,
+   "zuccheri": 56
+  },
+  "confezione": {
+   "nome": "vasetto",
+   "g": 330
+  },
+  "alias": [
+   "marmellata",
+   "confettura",
+   "marmellata di fichi"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta"
+ },
+ {
+  "id": "whey-yamamoto",
+  "nome": "Whey protein",
+  "marca": "Yamamoto",
+  "categoria": "integratori",
+  "unita": "g",
+  "per100": {
+   "kcal": 350,
+   "prot": 83,
+   "carb": 3.6,
+   "grassi": 0.5,
+   "fibre": 0,
+   "sale": 2.7
+  },
+  "confezione": {
+   "nome": "barattolo",
+   "g": 1000
+  },
+  "alias": [
+   "proteine",
+   "whey"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "etichetta",
+  "note": "Dose 30 g = 105 kcal, 25 g proteine. Peso del barattolo da verificare"
+ },
+ {
+  "id": "yogurt-greco-bianco",
+  "nome": "Yogurt greco bianco 0%",
+  "marca": "Conad Piacersi",
+  "categoria": "latticini",
+  "unita": "pz",
+  "per100": {
+   "kcal": 57,
+   "prot": 10,
+   "carb": 3.6,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0.1
+  },
+  "confezione": {
+   "nome": "vasetto",
+   "pz": 1,
+   "g_pz": 170
+  },
+  "alias": [
+   "yogurt greco",
+   "yogurt greco bianco",
+   "yogurt"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "note": "Valori medi: verificare in etichetta"
+ },
+ {
+  "id": "pane-proteico",
+  "nome": "Pane proteico con fibre",
+  "marca": "Conad",
+  "categoria": "pane",
+  "unita": "pz",
+  "per100": {
+   "kcal": 257,
+   "prot": 23,
+   "carb": 18,
+   "grassi": 9,
+   "fibre": 10,
+   "sale": 1.1
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 8,
+   "g_pz": 35
+  },
+  "alias": [
+   "pane proteico",
+   "pane",
+   "pane per toast"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "note": "IPOTESI (fetta ~35 g, 90 kcal, 8 g proteine): sostituire con l'etichetta"
+ },
+ {
+  "id": "crackers-pavesi",
+  "nome": "Crackers salati",
+  "marca": "Pavesi",
+  "categoria": "snack",
+  "unita": "pz",
+  "per100": {
+   "kcal": 430,
+   "prot": 10,
+   "carb": 68,
+   "grassi": 12,
+   "fibre": 3,
+   "sale": 2.4
+  },
+  "confezione": {
+   "nome": "scatola",
+   "pz": 10,
+   "g_pz": 25
+  },
+  "alias": [
+   "crackers",
+   "cracker"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "note": "Valori medi: verificare il peso del pacchetto"
+ },
+ {
+  "id": "maionese-calve",
+  "nome": "Maionese",
+  "marca": "Calvè",
+  "categoria": "condimenti",
+  "unita": "g",
+  "per100": {
+   "kcal": 701,
+   "prot": 1.1,
+   "carb": 1.5,
+   "grassi": 77,
+   "fibre": 0,
+   "sale": 1.3
+  },
+  "confezione": {
+   "nome": "vasetto",
+   "g": 225
+  },
+  "alias": [
+   "maionese"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "note": "Valori medi: verificare in etichetta"
+ },
+ {
+  "id": "latte-soia",
+  "nome": "Bevanda di soia",
+  "marca": "—",
+  "categoria": "bevande",
+  "unita": "ml",
+  "per100": {
+   "kcal": 39,
+   "prot": 3,
+   "carb": 2.5,
+   "grassi": 1.8,
+   "fibre": 0.5,
+   "sale": 0.1
+  },
+  "confezione": {
+   "nome": "brick",
+   "g": 1000
+  },
+  "alias": [
+   "latte di soia",
+   "soia",
+   "latte"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "note": "Valori medi di una bevanda di soia classica: verificare il prodotto"
+ },
+ {
+  "id": "miele",
+  "nome": "Miele",
+  "marca": "—",
+  "categoria": "colazione",
+  "unita": "g",
+  "per100": {
+   "kcal": 304,
+   "prot": 0.3,
+   "carb": 82,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "vasetto",
+   "g": 500
+  },
+  "alias": [
+   "miele"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "te",
+  "nome": "Tè",
+  "marca": "—",
+  "categoria": "bevande",
+  "unita": "pz",
+  "per100": {
+   "kcal": 0,
+   "prot": 0,
+   "carb": 0,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "scatola",
+   "pz": 20,
+   "g_pz": 2
+  },
+  "alias": [
+   "tè",
+   "te",
+   "bustine di tè"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "mandorle",
+  "nome": "Mandorle",
+  "marca": "—",
+  "categoria": "frutta secca",
+  "unita": "g",
+  "per100": {
+   "kcal": 579,
+   "prot": 21,
+   "carb": 22,
+   "grassi": 50,
+   "fibre": 12.5,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "busta",
+   "g": 200
+  },
+  "alias": [
+   "mandorle"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "noci",
+  "nome": "Noci sgusciate",
+  "marca": "—",
+  "categoria": "frutta secca",
+  "unita": "g",
+  "per100": {
+   "kcal": 654,
+   "prot": 15,
+   "carb": 14,
+   "grassi": 65,
+   "fibre": 6.7,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "busta",
+   "g": 150
+  },
+  "alias": [
+   "noci"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "pasta",
+  "nome": "Pasta di semola (casarecce)",
+  "marca": "—",
+  "categoria": "dispensa",
+  "unita": "g",
+  "per100": {
+   "kcal": 359,
+   "prot": 12.5,
+   "carb": 72,
+   "grassi": 1.5,
+   "fibre": 3,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "pacco",
+   "g": 500
+  },
+  "alias": [
+   "pasta",
+   "casarecce",
+   "penne",
+   "fusilli"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "riso-basmati",
+  "nome": "Riso basmati",
+  "marca": "—",
+  "categoria": "dispensa",
+  "unita": "g",
+  "per100": {
+   "kcal": 350,
+   "prot": 8,
+   "carb": 78,
+   "grassi": 0.6,
+   "fibre": 1,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "pacco",
+   "g": 1000
+  },
+  "alias": [
+   "riso basmati",
+   "basmati"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "riso-carnaroli",
+  "nome": "Riso Carnaroli",
+  "marca": "—",
+  "categoria": "dispensa",
+  "unita": "g",
+  "per100": {
+   "kcal": 350,
+   "prot": 7,
+   "carb": 79,
+   "grassi": 0.6,
+   "fibre": 1,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "pacco",
+   "g": 1000
+  },
+  "alias": [
+   "riso carnaroli",
+   "riso per risotto",
+   "riso"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "tonno-naturale",
+  "nome": "Tonno al naturale (sgocciolato)",
+  "marca": "—",
+  "categoria": "pesce",
+  "unita": "pz",
+  "per100": {
+   "kcal": 103,
+   "prot": 24,
+   "carb": 0,
+   "grassi": 0.8,
+   "fibre": 0,
+   "sale": 1
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 3,
+   "g_pz": 80
+  },
+  "alias": [
+   "tonno",
+   "tonno al naturale"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "petto-pollo",
+  "nome": "Petto di pollo",
+  "marca": "—",
+  "categoria": "carne",
+  "unita": "g",
+  "per100": {
+   "kcal": 110,
+   "prot": 23,
+   "carb": 0,
+   "grassi": 1.5,
+   "fibre": 0,
+   "sale": 0.2
+  },
+  "confezione": {
+   "nome": "vaschetta",
+   "g": 500
+  },
+  "alias": [
+   "petto di pollo",
+   "pollo"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": 3,
+  "fonte": "media"
+ },
+ {
+  "id": "salsiccia",
+  "nome": "Salsiccia di suino",
+  "marca": "—",
+  "categoria": "carne",
+  "unita": "g",
+  "per100": {
+   "kcal": 300,
+   "prot": 15,
+   "carb": 0.5,
+   "grassi": 26,
+   "fibre": 0,
+   "sale": 2
+  },
+  "confezione": {
+   "nome": "vaschetta",
+   "g": 400
+  },
+  "alias": [
+   "salsiccia"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": 4,
+  "fonte": "media"
+ },
+ {
+  "id": "uova",
+  "nome": "Uova",
+  "marca": "—",
+  "categoria": "uova",
+  "unita": "pz",
+  "per100": {
+   "kcal": 143,
+   "prot": 12.6,
+   "carb": 0.7,
+   "grassi": 9.5,
+   "fibre": 0,
+   "sale": 0.4
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 6,
+   "g_pz": 55
+  },
+  "alias": [
+   "uova",
+   "uovo"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "note": "55 g = parte edibile di un uovo medio"
+ },
+ {
+  "id": "grana-grattugiato",
+  "nome": "Grana Padano grattugiato",
+  "marca": "—",
+  "categoria": "latticini",
+  "unita": "g",
+  "per100": {
+   "kcal": 398,
+   "prot": 33,
+   "carb": 0,
+   "grassi": 29,
+   "fibre": 0,
+   "sale": 1.5
+  },
+  "confezione": {
+   "nome": "busta",
+   "g": 100
+  },
+  "alias": [
+   "grana grattugiato",
+   "parmigiano grattugiato"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "olio-evo",
+  "nome": "Olio extravergine d'oliva",
+  "marca": "—",
+  "categoria": "condimenti",
+  "unita": "g",
+  "per100": {
+   "kcal": 899,
+   "prot": 0,
+   "carb": 0,
+   "grassi": 99.9,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "bottiglia",
+   "g": 1000
+  },
+  "alias": [
+   "olio",
+   "olio evo",
+   "olio extravergine"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "farina",
+  "nome": "Farina 00",
+  "marca": "—",
+  "categoria": "dispensa",
+  "unita": "g",
+  "per100": {
+   "kcal": 340,
+   "prot": 11,
+   "carb": 72,
+   "grassi": 1,
+   "fibre": 2,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "pacco",
+   "g": 1000
+  },
+  "alias": [
+   "farina"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media"
+ },
+ {
+  "id": "brodo-vegetale",
+  "nome": "Dado vegetale",
+  "marca": "—",
+  "categoria": "dispensa",
+  "unita": "pz",
+  "per100": {
+   "kcal": 0,
+   "prot": 0,
+   "carb": 0,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "confezione",
+   "pz": 10,
+   "g_pz": 10
+  },
+  "alias": [
+   "dado",
+   "brodo",
+   "brodo vegetale"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "note": "Valori trascurabili per porzione; sale da considerare"
+ },
+ {
+  "id": "patate",
+  "nome": "Patate",
+  "marca": "—",
+  "categoria": "verdura",
+  "unita": "g",
+  "per100": {
+   "kcal": 77,
+   "prot": 2,
+   "carb": 17.5,
+   "grassi": 0.1,
+   "fibre": 2.2,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "sacchetto",
+   "g": 1500
+  },
+  "alias": [
+   "patate",
+   "patata"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": 21,
+  "fonte": "media",
+  "note": "Non contano come porzione di verdura"
+ },
+ {
+  "id": "cipolla",
+  "nome": "Cipolla dorata",
+  "marca": "—",
+  "categoria": "verdura",
+  "unita": "pz",
+  "per100": {
+   "kcal": 40,
+   "prot": 1.1,
+   "carb": 9,
+   "grassi": 0.1,
+   "fibre": 1.7,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "retina",
+   "pz": 6,
+   "g_pz": 120
+  },
+  "alias": [
+   "cipolla",
+   "cipolle"
+  ],
+  "frutta_verdura": true,
+  "fresco_giorni": 21,
+  "fonte": "media"
+ },
+ {
+  "id": "zucca",
+  "nome": "Zucca",
+  "marca": "—",
+  "categoria": "verdura",
+  "unita": "g",
+  "per100": {
+   "kcal": 26,
+   "prot": 1,
+   "carb": 6.5,
+   "grassi": 0.1,
+   "fibre": 0.5,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "spicchio",
+   "g": 1000
+  },
+  "alias": [
+   "zucca"
+  ],
+  "frutta_verdura": true,
+  "fresco_giorni": 7,
+  "fonte": "media"
+ },
+ {
+  "id": "insalata",
+  "nome": "Insalata in busta",
+  "marca": "—",
+  "categoria": "verdura",
+  "unita": "g",
+  "per100": {
+   "kcal": 15,
+   "prot": 1.3,
+   "carb": 2,
+   "grassi": 0.2,
+   "fibre": 1.3,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "busta",
+   "g": 125
+  },
+  "alias": [
+   "insalata",
+   "lattuga",
+   "misticanza"
+  ],
+  "frutta_verdura": true,
+  "fresco_giorni": 4,
+  "fonte": "media"
+ },
+ {
+  "id": "pomodorini",
+  "nome": "Pomodorini",
+  "marca": "—",
+  "categoria": "verdura",
+  "unita": "g",
+  "per100": {
+   "kcal": 18,
+   "prot": 0.9,
+   "carb": 3.9,
+   "grassi": 0.2,
+   "fibre": 1.2,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "vaschetta",
+   "g": 250
+  },
+  "alias": [
+   "pomodori",
+   "pomodorini"
+  ],
+  "frutta_verdura": true,
+  "fresco_giorni": 5,
+  "fonte": "media"
+ },
+ {
+  "id": "limone",
+  "nome": "Limone",
+  "marca": "—",
+  "categoria": "frutta",
+  "unita": "pz",
+  "per100": {
+   "kcal": 29,
+   "prot": 1.1,
+   "carb": 9,
+   "grassi": 0.3,
+   "fibre": 2.8,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "retina",
+   "pz": 4,
+   "g_pz": 100
+  },
+  "alias": [
+   "limone",
+   "limoni"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": 21,
+  "fonte": "media",
+  "note": "Usato per il succo: non conta come porzione"
+ },
+ {
+  "id": "banana",
+  "nome": "Banana",
+  "marca": "—",
+  "categoria": "frutta",
+  "unita": "pz",
+  "per100": {
+   "kcal": 89,
+   "prot": 1.1,
+   "carb": 23,
+   "grassi": 0.3,
+   "fibre": 2.6,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "casco",
+   "pz": 5,
+   "g_pz": 120
+  },
+  "alias": [
+   "banana",
+   "banane"
+  ],
+  "frutta_verdura": true,
+  "fresco_giorni": 6,
+  "fonte": "media"
+ },
+ {
+  "id": "kiwi",
+  "nome": "Kiwi",
+  "marca": "—",
+  "categoria": "frutta",
+  "unita": "pz",
+  "per100": {
+   "kcal": 61,
+   "prot": 1.1,
+   "carb": 15,
+   "grassi": 0.5,
+   "fibre": 3,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "vaschetta",
+   "pz": 6,
+   "g_pz": 75
+  },
+  "alias": [
+   "kiwi"
+  ],
+  "frutta_verdura": true,
+  "fresco_giorni": 10,
+  "fonte": "media"
+ },
+ {
+  "id": "mirtilli",
+  "nome": "Mirtilli",
+  "marca": "—",
+  "categoria": "frutta",
+  "unita": "g",
+  "per100": {
+   "kcal": 57,
+   "prot": 0.7,
+   "carb": 14,
+   "grassi": 0.3,
+   "fibre": 2.4,
+   "sale": 0
+  },
+  "confezione": {
+   "nome": "vaschetta",
+   "g": 125
+  },
+  "alias": [
+   "mirtilli"
+  ],
+  "frutta_verdura": true,
+  "fresco_giorni": 5,
+  "fonte": "media"
+ },
+ {
+  "id": "rosmarino",
+  "nome": "Rosmarino",
+  "marca": "—",
+  "categoria": "aromi",
+  "unita": "g",
+  "per100": {
+   "kcal": 0,
+   "prot": 0,
+   "carb": 0,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": null,
+  "alias": [
+   "rosmarino"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "traccia_dispensa": false
+ },
+ {
+  "id": "sale",
+  "nome": "Sale",
+  "marca": "—",
+  "categoria": "aromi",
+  "unita": "g",
+  "per100": {
+   "kcal": 0,
+   "prot": 0,
+   "carb": 0,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": null,
+  "alias": [
+   "sale",
+   "sale grosso",
+   "sale fino"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "traccia_dispensa": false
+ },
+ {
+  "id": "pepe",
+  "nome": "Pepe nero",
+  "marca": "—",
+  "categoria": "aromi",
+  "unita": "g",
+  "per100": {
+   "kcal": 0,
+   "prot": 0,
+   "carb": 0,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": null,
+  "alias": [
+   "pepe"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "traccia_dispensa": false
+ },
+ {
+  "id": "prezzemolo",
+  "nome": "Prezzemolo",
+  "marca": "—",
+  "categoria": "aromi",
+  "unita": "g",
+  "per100": {
+   "kcal": 0,
+   "prot": 0,
+   "carb": 0,
+   "grassi": 0,
+   "fibre": 0,
+   "sale": 0
+  },
+  "confezione": null,
+  "alias": [
+   "prezzemolo"
+  ],
+  "frutta_verdura": false,
+  "fresco_giorni": null,
+  "fonte": "media",
+  "traccia_dispensa": false
+ }
+]

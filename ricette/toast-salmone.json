@@ -1,0 +1,68 @@
+{
+ "id": "toast-salmone",
+ "nome": "Toast con salmone e Philadelphia",
+ "sottotitolo": "Pane proteico tostato, formaggio fresco, salmone affumicato e pepe nero",
+ "pasto": [
+  "cena",
+  "pranzo"
+ ],
+ "base": true,
+ "jolly": true,
+ "dentro_piano": true,
+ "porzioni": 1,
+ "tempo_min": 10,
+ "sforzo": 1,
+ "livello": 1,
+ "capitolo": "Veloci",
+ "categoria_disegno": "toast",
+ "attrezzatura": [
+  "tostapane o padella",
+  "coltello"
+ ],
+ "ingredienti": [
+  {
+   "alimento": "pane-proteico",
+   "pz": 4
+  },
+  {
+   "alimento": "philadelphia-light",
+   "pz": 2
+  },
+  {
+   "alimento": "salmone-affumicato",
+   "g": 100
+  },
+  {
+   "alimento": "insalata",
+   "g": 50
+  },
+  {
+   "alimento": "pepe"
+  }
+ ],
+ "preparazione": "Sotto target: abbinalo a uno yogurt greco o a una porzione di frutta in più.",
+ "passaggi": [
+  {
+   "testo": "Tosta le fette di pane in padella a fuoco medio, senza olio, un minuto e mezzo per lato.",
+   "fuoco": "medio",
+   "tempo_min": 3,
+   "segnale": "dorate e croccanti ai bordi"
+  },
+  {
+   "testo": "Spalma mezza monoporzione di Philadelphia su ogni fetta ancora calda.",
+   "tempo_min": 1
+  },
+  {
+   "testo": "Distribuisci il salmone, macina pepe nero abbondante e servi con l'insalata.",
+   "tempo_min": 2
+  }
+ ],
+ "tecnica": {
+  "nome": "Tostare in padella",
+  "spiegazione": "Padella asciutta e fuoco medio: il pane si asciuga fuori e resta morbido dentro.",
+  "errore_tipico": "Fuoco troppo alto: brucia fuori in 30 secondi e dentro resta umido."
+ },
+ "disegno": "disegni/toast-salmone.png",
+ "fonte": null,
+ "aggiunta": "2026-10-31"
+}

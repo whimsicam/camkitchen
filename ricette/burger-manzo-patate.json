@@ -1,0 +1,106 @@
+{
+ "id": "burger-manzo-patate",
+ "nome": "Scottona, uovo e patate",
+ "sottotitolo": "Hamburger di scottona con crosta, uovo al padellino e patate croccanti",
+ "pasto": [
+  "cena",
+  "pranzo"
+ ],
+ "base": true,
+ "dentro_piano": true,
+ "porzioni": 1,
+ "tempo_min": 30,
+ "sforzo": 1,
+ "livello": 2,
+ "capitolo": "Secondi e burger",
+ "categoria_disegno": "burger",
+ "attrezzatura": [
+  "friggitrice ad aria",
+  "padella in acciaio o antiaderente spessa",
+  "ciotola"
+ ],
+ "ingredienti": [
+  {
+   "alimento": "hamburger-scottona",
+   "pz": 1
+  },
+  {
+   "alimento": "patate",
+   "g": 250
+  },
+  {
+   "alimento": "uova",
+   "pz": 1
+  },
+  {
+   "alimento": "olio-evo",
+   "g": 12
+  },
+  {
+   "alimento": "insalata",
+   "g": 60
+  },
+  {
+   "alimento": "pomodorini",
+   "g": 80
+  },
+  {
+   "alimento": "maionese-calve",
+   "g": 10
+  },
+  {
+   "alimento": "rosmarino"
+  },
+  {
+   "alimento": "sale"
+  },
+  {
+   "alimento": "pepe"
+  }
+ ],
+ "preparazione": "Togli l'hamburger dal frigo 15 minuti prima: a temperatura ambiente cuoce in modo uniforme.",
+ "passaggi": [
+  {
+   "testo": "Prepara e cuoci le patate come nel burger di pollo: 200 °C, spicchi asciutti, un solo strato, scuoti a metà.",
+   "fuoco": "200 °C",
+   "tempo_min": 22,
+   "segnale": "bordi dorati"
+  },
+  {
+   "testo": "Quando alle patate mancano 7 minuti, scalda la padella a fuoco medio-alto senza olio per 2 minuti, poi aggiungi qualche goccia d'olio.",
+   "fuoco": "medio-alto",
+   "tempo_min": 2,
+   "segnale": "l'olio scorre veloce e fa una leggera fumata"
+  },
+  {
+   "testo": "Sala l'hamburger solo in superficie e mettilo in padella. Non toccarlo per 3 minuti.",
+   "fuoco": "medio-alto",
+   "tempo_min": 3,
+   "segnale": "si stacca da solo e sotto ha una crosta marrone scuro"
+  },
+  {
+   "testo": "Giralo una sola volta e cuoci altri 3 minuti per una cottura media, 4 per ben cotta.",
+   "fuoco": "medio",
+   "tempo_min": 3,
+   "segnale": "premendo al centro con un dito è elastico, non molle"
+  },
+  {
+   "testo": "Fallo riposare nel piatto 2 minuti. Intanto, nella stessa padella a fuoco medio-basso, cuoci l'uovo con il coperchio.",
+   "fuoco": "medio-basso",
+   "tempo_min": 3,
+   "segnale": "i succhi restano nella carne invece di uscire al primo taglio"
+  },
+  {
+   "testo": "Impiatta con patate, insalata, pomodorini e maionese.",
+   "tempo_min": 1
+  }
+ ],
+ "tecnica": {
+  "nome": "La crosta sulla carne",
+  "spiegazione": "Padella molto calda, carne asciutta e mai mossa nei primi minuti: la reazione di Maillard crea la crosta e il sapore.",
+  "errore_tipico": "Girarla di continuo o metterla in padella fredda: la carne bolle nei suoi liquidi e resta grigia."
+ },
+ "disegno": "disegni/burger-manzo-patate.png",
+ "fonte": null,
+ "aggiunta": "2026-10-31"
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F6EDD9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="CAM Kitchen">
+<title>CAM Kitchen</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<aside class="side" aria-label="Sezioni">
+  <div class="word" id="side-word">CAM Kitchen</div>
+  <nav id="sidenav"></nav>
+  <div style="margin-top:auto;font-size:13px" class="muted" id="side-sync"></div>
+</aside>
+<main id="main"></main>
+<nav class="tabs" id="tabs" aria-label="Sezioni"></nav>
+<div id="sheet"></div>
+<div id="overlay"></div>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="js/app.js?v=1"></script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
+</body>
+</html>

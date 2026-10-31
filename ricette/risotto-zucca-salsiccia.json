@@ -1,0 +1,105 @@
+{
+ "id": "risotto-zucca-salsiccia",
+ "nome": "Risotto zucca e salsiccia",
+ "sottotitolo": "Tostatura del riso, brodo a mestoli e mantecatura con il Grana",
+ "pasto": [
+  "pranzo",
+  "cena"
+ ],
+ "base": false,
+ "nuovo": true,
+ "dentro_piano": true,
+ "porzioni": 1,
+ "tempo_min": 40,
+ "sforzo": 3,
+ "livello": 3,
+ "capitolo": "Da provare",
+ "categoria_disegno": "ciotola",
+ "attrezzatura": [
+  "casseruola dal fondo spesso",
+  "pentolino per il brodo",
+  "mestolo",
+  "cucchiaio di legno"
+ ],
+ "ingredienti": [
+  {
+   "alimento": "riso-carnaroli",
+   "g": 100
+  },
+  {
+   "alimento": "zucca",
+   "g": 250
+  },
+  {
+   "alimento": "salsiccia",
+   "g": 120
+  },
+  {
+   "alimento": "cipolla",
+   "pz": 0.25
+  },
+  {
+   "alimento": "brodo-vegetale",
+   "pz": 1
+  },
+  {
+   "alimento": "grana-grattugiato",
+   "g": 20
+  },
+  {
+   "alimento": "olio-evo",
+   "g": 10
+  },
+  {
+   "alimento": "sale"
+  },
+  {
+   "alimento": "pepe"
+  }
+ ],
+ "preparazione": "Prepara 700 ml di brodo con il dado e tienilo caldo. Taglia la zucca a dadini di 1 cm, trita la cipolla, togli il budello alla salsiccia e sbriciolala.",
+ "passaggi": [
+  {
+   "testo": "Nella casseruola rosola la salsiccia senza olio, a fuoco medio, finché non rilascia il grasso.",
+   "fuoco": "medio",
+   "tempo_min": 5,
+   "segnale": "sbriciolata e dorata"
+  },
+  {
+   "testo": "Aggiungi olio, cipolla e zucca e cuoci mescolando.",
+   "fuoco": "medio",
+   "tempo_min": 8,
+   "segnale": "la zucca inizia ad ammorbidirsi ai bordi"
+  },
+  {
+   "testo": "Aggiungi il riso e tostalo mescolando senza liquidi.",
+   "fuoco": "medio",
+   "tempo_min": 2,
+   "segnale": "i chicchi diventano lucidi e traslucidi ai bordi, e il fondo sfrigola"
+  },
+  {
+   "testo": "Versa un mestolo di brodo caldo e mescola. Aggiungi il successivo solo quando il precedente è quasi assorbito.",
+   "fuoco": "medio",
+   "tempo_min": 16,
+   "segnale": "il riso è sempre coperto da un velo di liquido, mai asciutto"
+  },
+  {
+   "testo": "Assaggia: il chicco deve essere morbido fuori e appena consistente al centro. Spegni.",
+   "tempo_min": 1,
+   "segnale": "al dente"
+  },
+  {
+   "testo": "Aggiungi il Grana e un ultimo goccio di brodo, mescola con forza e copri per 1 minuto.",
+   "tempo_min": 2,
+   "segnale": "il risotto scorre 'all'onda' se inclini il piatto"
+  }
+ ],
+ "tecnica": {
+  "nome": "Tostare e mantecare il risotto",
+  "spiegazione": "La tostatura sigilla il chicco così tiene la cottura; la mantecatura a fuoco spento emulsiona amido e formaggio in una crema.",
+  "errore_tipico": "Brodo freddo o tutto insieme: il riso si spacca e diventa una minestra collosa."
+ },
+ "disegno": "disegni/risotto-zucca-salsiccia.png",
+ "fonte": null,
+ "aggiunta": "2026-10-31"
+}

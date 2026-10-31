@@ -1,0 +1,107 @@
+{
+ "id": "frittata-patate",
+ "nome": "Frittata di patate e cipolla",
+ "sottotitolo": "Alta e morbida, girata con il coperchio",
+ "pasto": [
+  "pranzo",
+  "cena"
+ ],
+ "base": false,
+ "dentro_piano": true,
+ "porzioni": 1,
+ "tempo_min": 35,
+ "sforzo": 2,
+ "livello": 2,
+ "capitolo": "Uova",
+ "categoria_disegno": "uova",
+ "attrezzatura": [
+  "padella antiaderente da 20–22 cm con coperchio piatto",
+  "ciotola",
+  "frusta o forchetta"
+ ],
+ "ingredienti": [
+  {
+   "alimento": "uova",
+   "pz": 4
+  },
+  {
+   "alimento": "patate",
+   "g": 250
+  },
+  {
+   "alimento": "cipolla",
+   "pz": 0.5
+  },
+  {
+   "alimento": "grana-grattugiato",
+   "g": 15
+  },
+  {
+   "alimento": "olio-evo",
+   "g": 15
+  },
+  {
+   "alimento": "insalata",
+   "g": 80
+  },
+  {
+   "alimento": "pane-proteico",
+   "pz": 2
+  },
+  {
+   "alimento": "sale"
+  },
+  {
+   "alimento": "pepe"
+  }
+ ],
+ "preparazione": "Sbuccia le patate e tagliale a fette di 3 mm; affetta sottile mezza cipolla.",
+ "passaggi": [
+  {
+   "testo": "Scalda 10 g di olio in padella a fuoco medio, aggiungi cipolla e patate con un pizzico di sale e copri.",
+   "fuoco": "medio",
+   "tempo_min": 15,
+   "segnale": "le patate si rompono premendole con il cucchiaio"
+  },
+  {
+   "testo": "Togli il coperchio e lascia rosolare 3 minuti, mescolando ogni tanto.",
+   "fuoco": "medio",
+   "tempo_min": 3,
+   "segnale": "qualche bordo dorato"
+  },
+  {
+   "testo": "In una ciotola sbatti le uova con il Grana, sale e pepe, poi versa dentro patate e cipolla e mescola. Lascia riposare 2 minuti.",
+   "tempo_min": 3,
+   "segnale": "le patate si impregnano di uovo"
+  },
+  {
+   "testo": "Rimetti la padella a fuoco medio-basso con 5 g di olio, versa il composto e copri.",
+   "fuoco": "medio-basso",
+   "tempo_min": 8,
+   "segnale": "i bordi sono rappresi e il centro trema appena"
+  },
+  {
+   "testo": "Appoggia il coperchio piatto sulla padella, capovolgi la frittata sul coperchio e falla scivolare di nuovo in padella.",
+   "tempo_min": 1,
+   "segnale": "un gesto deciso: esitare la rompe"
+  },
+  {
+   "testo": "Cuoci l'altro lato senza coperchio.",
+   "fuoco": "medio-basso",
+   "tempo_min": 4,
+   "segnale": "premendo al centro è soda ma morbida"
+  },
+  {
+   "testo": "Lasciala riposare 2 minuti e servila con insalata e il pane tostato.",
+   "tempo_min": 2
+  }
+ ],
+ "tecnica": {
+  "nome": "Girare la frittata",
+  "spiegazione": "Fuoco basso e coperchio per far rapprendere il centro senza bruciare il fondo, poi il giro con il coperchio piatto.",
+  "errore_tipico": "Fuoco alto: sotto brucia mentre sopra è ancora liquida, e al giro si rompe."
+ },
+ "disegno": "disegni/frittata-patate.png",
+ "fonte": null,
+ "aggiunta": "2026-10-31"
+}
