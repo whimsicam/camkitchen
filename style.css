@@ -401,3 +401,15 @@ main{max-width:560px;margin:0 auto;padding-block:16px 120px;padding-left:max(20p
 .cycle-empty small{color:var(--faded);font-size:14px}
 
 .meter{flex-wrap:wrap;row-gap:6px}
+
+.plates .mcard{width:100%;padding:6px 6px 8px;border-radius:16px;gap:2px}
+.plates .mcard b{font-size:12px}
+.plates .mcard small{font-size:10px}
+.plates .mi .new{position:absolute;top:-6px;left:4px;background:var(--leaf)}
+.plates .mi.empty{justify-content:center}
+.plates .mi.empty .med{width:56px;height:56px}
+.receipt .search .pill{flex:none}
+
+/* i caroselli tengono i loro z-index al proprio interno: niente carte sopra la barra delle schede */
+.strip.mini,.book{isolation:isolate}
+.tabs{z-index:50}

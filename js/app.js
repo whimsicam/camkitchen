@@ -3,11 +3,12 @@ import { S, caricaLocale, caricaProgramma, caricaGym, sincronizza, saveUI, oggi,
 import { $, NAV, ICON, closeSheet, closeOverlay } from './ui.js';
 import { vistaMenu, azioneMenu, initFlows } from './menu.js';
 import { vistaInArrivo, azioneAltro } from './other.js';
+import { vistaSpesa, azioneSpesa, inviaAggiunta } from './spesa.js';
 
 const VISTE = {
   menu: vistaMenu,
   ricettario: () => vistaInArrivo('Cosa cucino?', 'ricettario', 'Il ricettario con le carte da sfogliare, i filtri e "Chiedi a Claude" arriva nella prossima tappa. Le ricette si aprono già dalla scheda Menù.'),
-  spesa: () => vistaInArrivo('La spesa', 'spesa', 'Qui prepari la prossima spesa: scegli il giorno, Camillo propone i piatti e calcola la lista. In arrivo nella prossima tappa.'),
+  spesa: vistaSpesa,
   progressi: () => vistaInArrivo('Progressi', 'progressi', 'Numeri della settimana, peso da CAM Gym, insights e il brief di Camillo. In arrivo.'),
 };
 
@@ -23,6 +24,7 @@ function renderNav() {
 }
 
 let ultimaVista = null;
+let rinviato = false;
 export function render() {
   if (!S.prog) { $('main').innerHTML = '<div class="wip"><b>Non riesco a caricare il programma</b><small>Controlla la connessione e riapri l\'app.</small></div>'; return; }
   const v = vista();
@@ -46,11 +48,22 @@ document.addEventListener('click', async e => {
   if (!el) return;
   const act = el.dataset.act;
   let r = azioneMenu(act, el);
+  if (r === null) r = azioneSpesa(act, el);
   if (r === null) r = await azioneAltro(act, el);
   if (r === true) render();
 });
 
-S.listeners.add(() => { if (!document.querySelector('.sheet-wrap') && !document.querySelector('#overlay .recipe')) render(); else renderNav(); });
+document.addEventListener('submit', e => {
+  const f = e.target.closest('[data-form="add"]'); if (!f) return;
+  e.preventDefault(); const i = f.querySelector('input'); inviaAggiunta(i.value); i.value = ''; rinviato = false; render(); const n = document.getElementById('addq'); if (n) n.focus();
+});
+
+const staScrivendo = () => { const a = document.activeElement; return a && /^(INPUT|SELECT|TEXTAREA)$/.test(a.tagName); };
+S.listeners.add(() => {
+  if (document.querySelector('.sheet-wrap') || document.querySelector('#overlay .recipe') || staScrivendo()) { rinviato = true; renderNav(); return; }
+  render();
+});
+document.addEventListener('focusout', () => setTimeout(() => { if (rinviato && !staScrivendo() && !document.querySelector('.sheet-wrap')) { rinviato = false; render(); } }, 50));
 window.addEventListener('resize', () => requestAnimationFrame(initFlows));
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { if (S.ui.selGiorno !== oggi()) { S.ui.sel = oggi(); S.ui.selGiorno = oggi(); saveUI(); } render(); sincronizza(); caricaGym(); } });
 

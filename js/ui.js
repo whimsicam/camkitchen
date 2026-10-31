@@ -47,7 +47,7 @@ export const breve = id => { const r = S.R[id]; if (!r) return id; return r.brev
 export function openSheet(html) {
   $('sheet').innerHTML = `<div class="sheet-wrap"><div class="sheet-bg" data-close></div><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${html}</div></div>`;
 }
-export function closeSheet() { $('sheet').innerHTML = ''; }
+export function closeSheet() { $('sheet').innerHTML = ''; document.dispatchEvent(new Event('focusout')); }
 export function openOverlay(html) { $('overlay').innerHTML = html; document.body.style.overflow = 'hidden'; }
 export function closeOverlay() { $('overlay').innerHTML = ''; document.body.style.overflow = ''; }
 

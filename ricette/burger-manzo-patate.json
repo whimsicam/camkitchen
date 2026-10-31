@@ -1,6 +1,7 @@
 {
  "id": "burger-manzo-patate",
  "nome": "Scottona, uovo e patate",
+ "breve": "Scottona",
  "sottotitolo": "Hamburger di scottona con crosta, uovo al padellino e patate croccanti",
  "pasto": [
   "cena",

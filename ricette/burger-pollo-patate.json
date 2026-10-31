@@ -1,6 +1,7 @@
 {
  "id": "burger-pollo-patate",
  "nome": "Burger di pollo e patate croccanti",
+ "breve": "Burger di pollo",
  "sottotitolo": "Due burger di pollo, uovo al padellino, patate in friggitrice ad aria",
  "pasto": [
   "cena",

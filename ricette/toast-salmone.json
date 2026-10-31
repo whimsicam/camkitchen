@@ -1,6 +1,7 @@
 {
  "id": "toast-salmone",
  "nome": "Toast con salmone e Philadelphia",
+ "breve": "Toast al salmone",
  "sottotitolo": "Pane proteico tostato, formaggio fresco, salmone affumicato e pepe nero",
  "pasto": [
   "cena",
