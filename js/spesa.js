@@ -36,7 +36,10 @@ function pianoChiuso(L) {
 
 function pianoAperto(L) {
   const p = P();
-  if (!p.step) { p.step = 1; p.dal = p.dal || (L && L.al >= oggi() ? addDays(L.al, 1) : oggi()); p.n = p.n || S.prog.menu.durata_default_giorni || 9; }
+  if (!p.step) p.step = 1;
+  if (!p.dal || p.dal < oggi()) p.dal = L && L.al >= oggi() ? addDays(L.al, 1) : oggi();
+  if (!p.n) p.n = S.prog.menu.durata_default_giorni || 9;
+  if (p.step === 2 && !p.draft) p.step = 1;
   const st = (n, l) => `<span class="${p.step >= n ? 'on' : ''}"><i>${n}</i>${l}</span>`;
   let body = '';
   if (p.step === 1) {
@@ -127,6 +130,13 @@ function caricoPer(it, on) {
 }
 export function azioneSpesa(act, el) {
   const p = P(), L = ultimoCiclo();
+  // azioni che richiedono una bozza o una lista: se non ci sono più (foglio rimasto aperto, riavvio) non si fa nulla
+  if (/^plan-(rm|swap|pick)$/.test(act) && !p.draft) { closeSheet(); return true; }
+  if (act === 'plan-ok' && !p.draft) { S.ui.plan = { step: 0 }; return true; }
+  if (/^(lista-tick|lista-ricalcola|extra-tick|extra-del|assoc|assoc-ok)$/.test(act) && !L) { closeSheet(); return true; }
+  if (act === 'lista-tick' && !(L.lista || []).some(x => x.id === el.dataset.id)) return true;
+  if (/^(extra-tick|assoc|assoc-ok)$/.test(act) && !(L.extra || []).some(x => x.id === el.dataset.id)) { closeSheet(); return true; }
+  if (act === 'plan-pick' && Number(el.dataset.i) >= p.draft.piatti.length) { closeSheet(); return true; }
   switch (act) {
     case 'seg': S.ui.seg = el.dataset.v; saveUI(); return true;
     case 'plan-open': S.ui.plan = { step: 1 }; return true;

@@ -1,6 +1,6 @@
 // CAM Kitchen: avvio, navigazione e smistamento delle azioni.
 import { S, caricaLocale, caricaProgramma, caricaGym, sincronizza, saveUI, oggi, syncPronto } from './store.js';
-import { $, NAV, ICON, closeSheet, closeOverlay } from './ui.js';
+import { $, NAV, ICON, closeSheet, closeOverlay, mascot } from './ui.js';
 import { vistaMenu, azioneMenu, initFlows } from './menu.js';
 import { vistaInArrivo, azioneAltro } from './other.js';
 import { vistaSpesa, azioneSpesa, inviaAggiunta } from './spesa.js';
@@ -33,7 +33,14 @@ export function render() {
   const st = S.sync.stato, dot = !syncPronto() ? '' : S.coda.length ? 'wait' : st === 'err' ? 'err' : 'ok';
   const top = `<header class="top"><span class="ib" aria-hidden="true"></span><div class="word">CAM Kitchen</div><button class="ib" data-act="settings" aria-label="Impostazioni" style="position:relative">${ICON.gear}${dot ? `<span class="syncdot ${dot}" style="position:absolute;right:4px;top:6px;margin:0"></span>` : ''}</button></header>`;
   const y = window.scrollY;
-  $('main').innerHTML = top + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${VISTE[v]()}</div>`;
+  let corpo;
+  try { corpo = VISTE[v](); }
+  catch (err) {
+    console.error(err);
+    // una schermata rotta non deve bloccare l'app: si azzera solo lo stato della schermata, mai i dati
+    corpo = `<div class="wip">${mascot()}<b>Questa schermata si è inceppata</b><small>I tuoi dati sono al sicuro. Tocca qui sotto per ripartire.</small><button class="pill solid" data-act="reset-ui">Ripristina la schermata</button><small style="font-size:11px">${String(err && err.message || err).replace(/</g, '&lt;')}</small></div>`;
+  }
+  $('main').innerHTML = top + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${corpo}</div>`;
   if (v === ultimaVista) window.scrollTo(0, y);
   ultimaVista = v;
   renderNav();
@@ -49,6 +56,7 @@ document.addEventListener('click', async e => {
   const el = e.target.closest('[data-act]');
   if (!el) return;
   const act = el.dataset.act;
+  if (act === 'reset-ui') { const v = S.ui.v; S.ui = { v: 'menu', sel: oggi(), selGiorno: oggi(), coachVisto: S.ui.coachVisto }; saveUI(); render(); return; }
   let r = azioneRicettario(act, el);
   if (r === 'recipe') { paginaRicetta(el.dataset.r); return; }
   if (r === null) r = azioneMenu(act, el);
@@ -76,7 +84,7 @@ document.addEventListener('visibilitychange', () => { if (document.visibilitySta
 async function avvia() {
   caricaLocale();
   // all'apertura si parte sempre da oggi
-  S.ui.sel = oggi(); S.ui.selGiorno = oggi(); saveUI();
+  S.ui.sel = oggi(); S.ui.selGiorno = oggi(); S.ui.plan = null; saveUI();
   await caricaProgramma();
   render();
   sincronizza();
