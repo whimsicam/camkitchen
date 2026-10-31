@@ -110,14 +110,14 @@ function messaggio() {
     'Se una mi piace e ti dico "aggiungila", salvala nel repo camkitchen (ricette/ e indice) con la riga per il disegno.',
   ].filter(Boolean).join('\n');
 }
-async function chiedi() {
-  const m = messaggio();
-  let copiato = false;
-  try { await navigator.clipboard.writeText(m); copiato = true; } catch { /* non disponibile */ }
-  const pr = cfg().progetto;
-  const url = pr ? `https://claude.ai/project/${pr}` : `https://claude.ai/new?q=${encodeURIComponent(m)}`;
-  const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();
-  toast(copiato ? 'Messaggio copiato: apri una chat nel progetto e incollalo' : 'Apro il progetto cam PT');
+function chiedi() {
+  const m = messaggio(), c = cfg();
+  // la copia deve partire subito, dentro il tocco, altrimenti iOS la blocca
+  const copia = navigator.clipboard ? navigator.clipboard.writeText(m).then(() => true, () => false) : Promise.resolve(false);
+  copia.then(ok => toast(ok ? 'Messaggio copiato: incollalo in una chat nuova del progetto' : 'Non sono riuscito a copiare il messaggio'));
+  const web = c.progetto ? `https://claude.ai/project/${c.progetto}` : 'https://claude.ai/new';
+  // lo Shortcut apre l'app Claude direttamente sul progetto; il link web è il ripiego
+  setTimeout(() => { location.href = c.claudeShortcut === false ? web : `shortcuts://run-shortcut?name=${encodeURIComponent('Apri cam PT')}`; }, 150);
 }
 
 /* ---------- voto e menù (dalla pagina ricetta) ---------- */
