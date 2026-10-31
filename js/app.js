@@ -4,10 +4,12 @@ import { $, NAV, ICON, closeSheet, closeOverlay } from './ui.js';
 import { vistaMenu, azioneMenu, initFlows } from './menu.js';
 import { vistaInArrivo, azioneAltro } from './other.js';
 import { vistaSpesa, azioneSpesa, inviaAggiunta } from './spesa.js';
+import { vistaRicettario, azioneRicettario, cercaRicette } from './ricettario.js';
+import { paginaRicetta } from './menu.js';
 
 const VISTE = {
   menu: vistaMenu,
-  ricettario: () => vistaInArrivo('Cosa cucino?', 'ricettario', 'Il ricettario con le carte da sfogliare, i filtri e "Chiedi a Claude" arriva nella prossima tappa. Le ricette si aprono già dalla scheda Menù.'),
+  ricettario: vistaRicettario,
   spesa: vistaSpesa,
   progressi: () => vistaInArrivo('Progressi', 'progressi', 'Numeri della settimana, peso da CAM Gym, insights e il brief di Camillo. In arrivo.'),
 };
@@ -47,13 +49,17 @@ document.addEventListener('click', async e => {
   const el = e.target.closest('[data-act]');
   if (!el) return;
   const act = el.dataset.act;
-  let r = azioneMenu(act, el);
+  let r = azioneRicettario(act, el);
+  if (r === 'recipe') { paginaRicetta(el.dataset.r); return; }
+  if (r === null) r = azioneMenu(act, el);
   if (r === null) r = azioneSpesa(act, el);
   if (r === null) r = await azioneAltro(act, el);
   if (r === true) render();
 });
 
 document.addEventListener('submit', e => {
+  const rq = e.target.closest('[data-form="rq"]');
+  if (rq) { e.preventDefault(); const i = rq.querySelector('input'); cercaRicette(i.value); i.blur(); rinviato = false; render(); return; }
   const f = e.target.closest('[data-form="add"]'); if (!f) return;
   e.preventDefault(); const i = f.querySelector('input'); inviaAggiunta(i.value); i.value = ''; rinviato = false; render(); const n = document.getElementById('addq'); if (n) n.focus();
 });

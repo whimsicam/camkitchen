@@ -2,6 +2,7 @@
 import { S, giorno, salvaGiorno, oggi, uid, nowISO, saveUI } from './store.js';
 import { fmt, addDays, dow, isWeekend, giornataDel, totaliGiorno, vociGiornata, macroVoci, macroRicetta, pastoDel, giornoCompleto, nonSegnati, cicloDi, statoCiclo, dispensa, statoIngredienti, quantitaTesto, grammi } from './calc.js';
 import { $, esc, toast, mascot, arte, tinta, breve, openSheet, closeSheet, openOverlay, closeOverlay, ICON } from './ui.js';
+import { storico } from './ricettario.js';
 
 const GIORNI = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'];
 const GG = ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'];
@@ -300,7 +301,8 @@ export function paginaRicetta(id, quale = 'cena') {
    <div class="r-grid"><div class="r-card" style="background:${tinta(id)}"><div class="r-meta"><span class="lab">Ricetta</span><span class="lab num">${r.porzioni || 1} porzione</span></div>
     <h1>${esc(r.nome)}</h1>${r.tecnica ? `<span class="r-tech">Tecnica · <b>${esc(r.tecnica.nome)}</b></span>` : ''}${arte(id, 'art')}
     <div class="r-spec"><div><span class="lab">kcal</span><b class="num">${fmt(t.kcal)}</b></div><div><span class="lab">proteine</span><b class="num">${fmt(t.prot)} g</b></div><div><span class="lab">tempo</span><b class="num">${r.tempo_min}′</b></div><div><span class="lab">carbo</span><b class="num">${fmt(t.carb)} g</b></div><div><span class="lab">grassi</span><b class="num">${fmt(t.grassi)} g</b></div><div><span class="lab">livello</span><b class="num">${r.livello}/5</b></div></div>
-    <div class="r-act" style="margin-top:8px"><button class="pill solid" data-act="eat" data-r="${id}" data-q="${quale}">Fatto</button></div></div>
+    <div class="r-act" style="margin-top:8px"><button class="pill solid" data-act="eat" data-r="${id}" data-q="${quale}">Fatto ${quale === 'pranzo' ? 'a pranzo' : 'a cena'}</button><button class="pill" data-act="al-menu" data-r="${id}" data-q="${quale}">Aggiungi al menù</button></div>
+    ${(() => { const h = storico()[id]; if (!h) return ''; const v = Math.round(h.voto || 0); return `<div style="margin-top:6px"><span class="lab">Il tuo voto · cucinato ${h.volte} ${h.volte === 1 ? 'volta' : 'volte'}</span><div class="stars">${[1, 2, 3, 4, 5].map(n => `<button data-act="vota" data-r="${id}" data-n="${n}" class="${n <= v ? 'on' : ''}" aria-label="${n} su 5">★</button>`).join('')}</div></div>`; })()}</div>
    <div class="r-cols">
     <section><div class="bhead"><h2>Ingredienti</h2><span class="lab">per ${r.porzioni || 1}</span></div><ul class="menu-list">${ing.map(i => `<li><span>${esc(i.nome)}${tracciato && i.stato === 'no' ? '<span class="no">manca</span>' : ''}</span><span class="dots"></span><span class="num">${quantitaTesto(i)}</span></li>`).join('')}</ul>
      ${r.attrezzatura ? `<p class="note">Attrezzatura: ${esc(r.attrezzatura.join(', '))}.</p>` : ''}${r.preparazione ? `<p class="note">${esc(r.preparazione)}</p>` : ''}</section>
