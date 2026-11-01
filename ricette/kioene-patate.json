@@ -2,7 +2,7 @@
  "id": "kioene-patate",
  "nome": "Mini burger vegetali e patate",
  "breve": "Burger vegetali",
- "sottotitolo": "Burger di zucca e carote croccanti con patate in friggitrice e un uovo",
+ "sottotitolo": "Burger di zucca e carote croccanti, patate in friggitrice, uovo e insalata",
  "pasto": [
   "cena",
   "pranzo"
@@ -17,7 +17,9 @@
  "capitolo": "Veloci",
  "categoria_disegno": "burger",
  "attrezzatura": [
-  "friggitrice ad aria"
+  "friggitrice ad aria",
+  "padella antiaderente con coperchio",
+  "ciotola"
  ],
  "ingredienti": [
   {
@@ -34,11 +36,15 @@
   },
   {
    "alimento": "olio-evo",
-   "g": 10
+   "g": 15
   },
   {
    "alimento": "insalata",
    "g": 60
+  },
+  {
+   "alimento": "pomodorini",
+   "g": 80
   },
   {
    "alimento": "rosmarino"
@@ -47,28 +53,38 @@
    "alimento": "sale"
   }
  ],
- "preparazione": "Sono poveri di proteine: l'uovo serve a tenere la cena vicino al target.",
+ "preparazione": "I burger vegetali hanno poche proteine: l'uovo serve a tenere la cena vicino al target.",
  "passaggi": [
   {
-   "testo": "Cuoci le patate in friggitrice a 200 °C, spicchi asciutti e conditi con 10 g di olio, scuotendo a metà.",
-   "fuoco": "200 °C",
-   "tempo_min": 19,
-   "segnale": "bordi dorati"
-  },
-  {
-   "testo": "Negli ultimi 8 minuti aggiungi i mini burger nel cestello accanto alle patate, girandoli a metà.",
+   "testo": "Accendi la friggitrice a 200 °C. Taglia le patate a spicchi di 1,5 cm, asciugale e condiscile con 10 g di olio, sale e rosmarino.",
    "fuoco": "200 °C",
    "tempo_min": 8,
-   "segnale": "crosta dorata su entrambi i lati"
+   "segnale": "spicchi lucidi e asciutti"
   },
   {
-   "testo": "Intanto cuoci l'uovo al padellino con il coperchio, a fuoco medio-basso.",
+   "testo": "Cuoci le patate nel cestello in un solo strato per 11 minuti.",
+   "fuoco": "200 °C",
+   "tempo_min": 11
+  },
+  {
+   "testo": "Apri, scuoti le patate e appoggia i 4 mini burger sopra o accanto, senza sovrapporli. Cuoci altri 8 minuti girando i burger a metà.",
+   "fuoco": "200 °C",
+   "tempo_min": 8,
+   "segnale": "burger con crosta dorata su entrambi i lati, patate dorate ai bordi"
+  },
+  {
+   "testo": "Negli ultimi 3 minuti cuoci l'uovo in padella a fuoco medio-basso con un filo d'olio e il coperchio.",
    "fuoco": "medio-basso",
    "tempo_min": 3,
    "segnale": "albume rappreso, tuorlo lucido"
   },
   {
-   "testo": "Impiatta con l'insalata.",
+   "testo": "Insalata: versa 60 g di insalata in una ciotola e taglia i pomodorini a metà (80 g, circa 6–7). Condisci solo al momento di mangiare con un filo d'olio (5 g, un cucchiaino), un pizzico di sale e, se ti va, qualche goccia d'aceto o di limone.",
+   "tempo_min": 3,
+   "segnale": "condita all'ultimo resta croccante; condita prima si affloscia in pochi minuti"
+  },
+  {
+   "testo": "Impiatta tutto insieme.",
    "tempo_min": 1
   }
  ],
@@ -79,5 +95,6 @@
  },
  "disegno": "disegni/kioene-patate.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

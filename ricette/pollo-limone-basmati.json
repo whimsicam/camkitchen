@@ -2,7 +2,7 @@
  "id": "pollo-limone-basmati",
  "nome": "Pollo al limone con riso basmati",
  "breve": "Pollo al limone",
- "sottotitolo": "Fettine di petto infarinate, salsa al limone legata in padella",
+ "sottotitolo": "Fettine di petto infarinate, salsa al limone legata in padella, riso basmati, insalata",
  "pasto": [
   "pranzo",
   "cena"
@@ -19,6 +19,7 @@
  "attrezzatura": [
   "padella antiaderente",
   "pentolino con coperchio",
+  "colino",
   "piatto fondo per la farina",
   "spremiagrumi"
  ],
@@ -37,18 +38,22 @@
   },
   {
    "alimento": "olio-evo",
-   "g": 15
+   "g": 20
   },
   {
    "alimento": "limone",
    "pz": 1
   },
   {
-   "alimento": "prezzemolo"
+   "alimento": "insalata",
+   "g": 60
   },
   {
-   "alimento": "insalata",
+   "alimento": "pomodorini",
    "g": 80
+  },
+  {
+   "alimento": "prezzemolo"
   },
   {
    "alimento": "sale"
@@ -57,43 +62,59 @@
    "alimento": "pepe"
   }
  ],
- "preparazione": "Spremi il limone. Taglia il petto in 4 fettine di 1 cm e asciugale con la carta.",
+ "preparazione": "Spremi il limone in un bicchiere. Taglia il petto in 4 fettine di circa 1 cm (se è spesso, taglialo prima a metà in orizzontale) e asciugale con la carta.",
  "passaggi": [
   {
-   "testo": "Sciacqua il riso in un colino finché l'acqua è quasi limpida. Mettilo nel pentolino con 1,5 volte il suo volume d'acqua (circa 150 ml) e un pizzico di sale.",
+   "testo": "Metti il riso nel colino e sciacqualo sotto l'acqua fredda muovendolo con le dita.",
    "tempo_min": 2,
-   "segnale": "l'acqua del risciacquo non è più bianca"
+   "segnale": "l'acqua che esce non è più bianca ma quasi limpida"
   },
   {
-   "testo": "Porta a bollore, abbassa al minimo, copri e non scoperchiare.",
+   "testo": "Versa il riso nel pentolino con 150 ml d'acqua fredda e un pizzico di sale. Porta a bollore senza coperchio.",
+   "fuoco": "alto",
+   "tempo_min": 3,
+   "segnale": "bolle su tutta la superficie"
+  },
+  {
+   "testo": "Abbassa al minimo, metti il coperchio e non aprirlo.",
    "fuoco": "minimo",
    "tempo_min": 12,
-   "segnale": "in superficie si vedono piccoli crateri"
+   "segnale": "alla fine in superficie si vedono piccoli crateri e l'acqua è sparita"
   },
   {
    "testo": "Spegni e lascia il riso coperto a riposare, poi sgranalo con una forchetta.",
    "tempo_min": 5,
-   "segnale": "chicchi separati, non colloso"
+   "segnale": "chicchi separati e morbidi, non collosi"
   },
   {
-   "testo": "Mentre il riso cuoce, sala le fettine, passale nella farina e scuoti via l'eccesso.",
+   "testo": "Mentre il riso cuoce: sala le fettine, passale nella farina su entrambi i lati e battile sul bordo del piatto per togliere l'eccesso.",
    "tempo_min": 2,
-   "segnale": "un velo sottile e uniforme"
+   "segnale": "un velo sottile e uniforme, senza grumi"
   },
   {
-   "testo": "Scalda l'olio in padella a fuoco medio-alto e rosola le fettine 3 minuti per lato.",
+   "testo": "Scalda 15 g di olio in padella a fuoco medio-alto e rosola le fettine 3 minuti per lato senza muoverle.",
    "fuoco": "medio-alto",
    "tempo_min": 6,
-   "segnale": "dorate fuori; tagliandone una, dentro è bianca"
+   "segnale": "dorate fuori; tagliandone una, dentro è bianca e succosa"
   },
   {
-   "testo": "Abbassa a fuoco medio, versa il succo di limone e 50 ml d'acqua, e muovi la padella.",
+   "testo": "Abbassa a fuoco medio, versa il succo del limone e 50 ml d'acqua e muovi la padella per 2 minuti, girando le fettine una volta.",
    "fuoco": "medio",
    "tempo_min": 2,
-   "segnale": "la farina lega il liquido in una salsa lucida e velata"
+   "segnale": "la farina lega il liquido in una salsa velata e lucida che si attacca alla carne"
   },
   {
-   "testo": "Spegni, aggiungi prezzemolo e pepe, e servi con il riso e l'insalata, versando la salsa sopra."
+   "testo": "Spegni, aggiungi prezzemolo tritato e una macinata di pepe.",
+   "tempo_min": 1
+  },
+  {
+   "testo": "Insalata: versa 60 g di insalata in una ciotola e taglia i pomodorini a metà (80 g, circa 6–7). Condisci solo al momento di mangiare con un filo d'olio (5 g, un cucchiaino), un pizzico di sale e, se ti va, qualche goccia d'aceto o di limone.",
+   "tempo_min": 3,
+   "segnale": "condita all'ultimo resta croccante; condita prima si affloscia in pochi minuti"
+  },
+  {
+   "testo": "Impiatta il riso, appoggia sopra le fettine e versa tutta la salsa sul riso. Insalata a lato.",
+   "tempo_min": 1
   }
  ],
  "tecnica": {
@@ -103,5 +124,6 @@
  },
  "disegno": "disegni/pollo-limone-basmati.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

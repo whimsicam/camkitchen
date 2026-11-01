@@ -30,9 +30,11 @@ export function macroVoci(voci) {
   }
   return t;
 }
+export const tolti = ricettaId => new Set([...((S.pref && S.pref.togli && S.pref.togli[ricettaId]) || []), ...((S.pref && S.pref.nonMiPiace) || [])]);
 export function ingredientiEffettivi(ricettaId, diff) {
   const r = S.R[ricettaId]; if (!r) return [];
-  const ing = r.ingredienti.map(i => ({ ...i }));
+  const via = tolti(ricettaId);
+  const ing = r.ingredienti.filter(i => !via.has(i.alimento)).map(i => ({ ...i }));
   for (const d of diff || []) {
     const i = ing.find(x => x.alimento === d.alimento);
     if (i) { delete i.g; delete i.pz; Object.assign(i, d); } else ing.push({ ...d });
@@ -61,7 +63,7 @@ export function totaliGiorno(g) {
   }
   for (const e of g.eventi || []) {
     if (e.tipo === 'pasto') add(t, macroRicetta(e.ricetta, e.ingredienti, e.porzione || 1));
-    else if (e.tipo === 'fuori') add(t, { kcal: e.kcal || 0, prot: e.prot || 0 });
+    else if (e.tipo === 'fuori') add(t, { kcal: e.kcal || 0, prot: e.prot || 0 }, 1);
     else if (e.tipo === 'extra') add(t, macroVoci([{ alimento: e.alimento, g: e.g, pz: e.pz }]));
   }
   return t;
@@ -119,7 +121,7 @@ export function dispensa(finoA) {
 }
 export function statoIngredienti(ricettaId, disp) {
   const r = S.R[ricettaId]; if (!r) return [];
-  return r.ingredienti.map(i => {
+  return ingredientiEffettivi(ricettaId).map(i => {
     const a = S.A[i.alimento];
     const serve = grammi(i);
     let stato = 'nd';
@@ -205,7 +207,7 @@ export function calcolaLista(c) {
   const st = statoCiclo(c).filter(p => !p.fatto);
   const conto = {};
   st.forEach(p => { conto[p.ricetta] = (conto[p.ricetta] || 0) + 1; });
-  for (const p of st) for (const i of S.R[p.ricetta] ? S.R[p.ricetta].ingredienti : []) { addNeed(i.alimento, grammi(i), p.ricetta); if (p.nuovo) perNuovo[i.alimento] = p.ricetta; }
+  for (const p of st) for (const i of ingredientiEffettivi(p.ricetta)) { addNeed(i.alimento, grammi(i), p.ricetta); if (p.nuovo) perNuovo[i.alimento] = p.ricetta; }
   const da = c.dal > oggiD ? c.dal : oggiD, n = Math.max(0, giorniTra(da, c.al) + 1);
   for (let x = 0; x < n; x++) for (const m of giornataDel(addDays(da, x))) for (const v of m.voci) addNeed(v.alimento, grammi(v), 'giornata');
   const items = [];

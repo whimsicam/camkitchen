@@ -3,14 +3,14 @@ export const APP_NAME = 'CAM Kitchen';
 
 const K = {
   cfg: 'ck.cfg', giorni: 'ck.giorni', cicli: 'ck.cicli', alias: 'ck.alias', shas: 'ck.shas', coda: 'ck.coda',
-  prog: 'ck.prog', alimenti: 'ck.alimenti', preset: 'ck.preset', ricette: 'ck.ricette', gym: 'ck.gym', ui: 'ck.ui', inbox: 'ck.inbox',
+  pref: 'ck.pref', prog: 'ck.prog', alimenti: 'ck.alimenti', preset: 'ck.preset', ricette: 'ck.ricette', gym: 'ck.gym', ui: 'ck.ui', inbox: 'ck.inbox',
 };
 const leggi = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
 const scrivi = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { console.warn('localStorage', e); } };
 
 export const S = {
   cfg: {}, prog: null, A: {}, preset: null, R: {},
-  giorni: {}, cicli: {}, alias: {}, inbox: [], shas: {}, coda: [],
+  giorni: {}, cicli: {}, alias: {}, pref: { togli: {}, nonMiPiace: [] }, inbox: [], shas: {}, coda: [],
   gym: { sessioni: {}, peso: {}, quando: 0 },
   sync: { stato: 'idle', msg: '' },
   ui: {},
@@ -57,6 +57,12 @@ export function salvaAlias(testo, alimento) {
   accoda('alias-utente.json');
 }
 export function salvaInbox() { scrivi(K.inbox, S.inbox); }
+export function salvaPref() { scrivi(K.pref, S.pref); accoda('preferenze.json'); emit(); }
+function unisciPref(a, b) {
+  const togli = { ...(b.togli || {}) };
+  for (const [k, v] of Object.entries(a.togli || {})) togli[k] = v;
+  return { togli, nonMiPiace: [...new Set([...(a.nonMiPiace || [])])] };
+}
 
 function accoda(path) {
   if (!S.coda.includes(path)) S.coda.push(path);
@@ -70,6 +76,7 @@ function contenutoLocale(path) {
   if (path.startsWith('giorni/')) return S.giorni[path.slice(7, -5)];
   if (path.startsWith('cicli/')) return S.cicli[path.slice(6, -5)];
   if (path === 'alias-utente.json') return S.alias;
+  if (path === 'preferenze.json') return S.pref;
   return null;
 }
 
@@ -126,6 +133,7 @@ export async function eliminaRemoto(path, msg) {
 function messaggio(path) {
   if (path.startsWith('giorni/')) return `giorno: ${path.slice(7, -5)}`;
   if (path.startsWith('cicli/')) return `menù: ciclo ${path.slice(6, -5)}`;
+  if (path === 'preferenze.json') return 'preferenze: ingredienti tolti';
   return `dati: ${path}`;
 }
 
@@ -142,6 +150,7 @@ async function invia(path) {
       S.shas[path] = info ? info.sha : undefined;
       if (path.startsWith('giorni/') && rem) { dati = unisciGiorno(dati, rem); S.giorni[dati.data] = dati; scrivi(K.giorni, S.giorni); }
       if (path === 'alias-utente.json' && rem) { S.alias = { ...rem, ...S.alias }; dati = S.alias; scrivi(K.alias, S.alias); }
+      if (path === 'preferenze.json' && rem) { S.pref = unisciPref(S.pref, rem); dati = S.pref; scrivi(K.pref, S.pref); }
       continue;
     }
     throw new Error(`GitHub ${r.status}`);
@@ -160,12 +169,13 @@ async function scarica() {
     if (f.type !== 'blob' || !f.path.endsWith('.json')) continue;
     const p = f.path;
     if (p.startsWith('inbox/')) { inboxRemota.push(f); continue; }
-    if (!(p.startsWith('giorni/') || p.startsWith('cicli/') || p === 'alias-utente.json')) continue;
+    if (!(p.startsWith('giorni/') || p.startsWith('cicli/') || p === 'alias-utente.json' || p === 'preferenze.json')) continue;
     if (S.shas[p] === f.sha) continue;
     const rem = await leggiRemoto(p).catch(() => null);
     S.shas[p] = f.sha; if (!rem) continue;
     if (p.startsWith('giorni/')) { const d = p.slice(7, -5); S.giorni[d] = unisciGiorno(S.coda.includes(p) ? S.giorni[d] : null, rem) || rem; }
     else if (p.startsWith('cicli/')) { const id = p.slice(6, -5); if (!S.coda.includes(p)) S.cicli[id] = rem; }
+    else if (p === 'preferenze.json') S.pref = S.coda.includes(p) ? unisciPref(S.pref, rem) : { togli: rem.togli || {}, nonMiPiace: rem.nonMiPiace || [] };
     else S.alias = { ...rem, ...S.alias };
     cambi++;
   }
@@ -175,7 +185,7 @@ async function scarica() {
     if (rem && rem.testo && !S.inbox.some(x => x.file === f.path)) { S.inbox.push({ file: f.path, testo: rem.testo, quando: rem.quando || nowISO() }); cambi++; }
     try { await eliminaRemoto(f.path, 'spesa: voce da Siri importata'); } catch { /* si riprova alla prossima */ }
   }
-  if (cambi) { scrivi(K.giorni, S.giorni); scrivi(K.cicli, S.cicli); scrivi(K.alias, S.alias); salvaInbox(); }
+  if (cambi) { scrivi(K.giorni, S.giorni); scrivi(K.cicli, S.cicli); scrivi(K.alias, S.alias); scrivi(K.pref, S.pref); salvaInbox(); }
   scrivi(K.shas, S.shas);
   return cambi;
 }
@@ -224,6 +234,7 @@ export async function caricaProgramma() {
     S.prog = prog; S.preset = preset;
     S.A = Object.fromEntries(alimenti.map(a => [a.id, a]));
     S.R = Object.fromEntries(ric.filter(Boolean).map(r => [r.id, r]));
+    if (!localStorage.getItem(K.pref)) { const pr = await getJSON('preferenze.json').catch(() => null); if (pr) { S.pref = { togli: pr.togli || {}, nonMiPiace: pr.nonMiPiace || [] }; scrivi(K.pref, S.pref); } }
     scrivi(K.prog, prog); scrivi(K.preset, preset); scrivi(K.alimenti, alimenti); scrivi(K.ricette, Object.values(S.R));
   } catch (e) {
     console.warn('programma offline', e);
@@ -260,6 +271,7 @@ export function caricaLocale() {
   S.cfg = leggi(K.cfg, {}); S.giorni = leggi(K.giorni, {}); S.cicli = leggi(K.cicli, {}); S.alias = leggi(K.alias, {});
   S.inbox = leggi(K.inbox, []); S.shas = leggi(K.shas, {}); S.coda = leggi(K.coda, []); S.gym = leggi(K.gym, { sessioni: {}, peso: {}, quando: 0 });
   S.ui = leggi(K.ui, {});
+  S.pref = leggi(K.pref, null) || { togli: {}, nonMiPiace: [] };
 }
 export function esporta() {
   return JSON.stringify({ giorni: S.giorni, cicli: S.cicli, alias: S.alias, inbox: S.inbox }, null, 1);

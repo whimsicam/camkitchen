@@ -36,10 +36,6 @@
    "g": 120
   },
   {
-   "alimento": "cipolla",
-   "pz": 0.25
-  },
-  {
    "alimento": "brodo-vegetale",
    "pz": 1
   },
@@ -52,47 +48,50 @@
    "g": 10
   },
   {
+   "alimento": "rosmarino"
+  },
+  {
    "alimento": "sale"
   },
   {
    "alimento": "pepe"
   }
  ],
- "preparazione": "Prepara 700 ml di brodo con il dado e tienilo caldo. Taglia la zucca a dadini di 1 cm, trita la cipolla, togli il budello alla salsiccia e sbriciolala.",
+ "preparazione": "Sciogli il dado in 700 ml d'acqua nel pentolino e tienilo sul fuoco al minimo. Sbuccia la zucca e tagliala a dadini di 1 cm. Togli il budello alla salsiccia e sbriciolala con le dita.",
  "passaggi": [
   {
-   "testo": "Nella casseruola rosola la salsiccia senza olio, a fuoco medio, finché non rilascia il grasso.",
+   "testo": "Metti la salsiccia nella casseruola senza olio, a fuoco medio, e sgranala con il cucchiaio.",
    "fuoco": "medio",
    "tempo_min": 5,
-   "segnale": "sbriciolata e dorata"
+   "segnale": "dorata e croccante in qualche punto, con un po' di grasso sciolto sul fondo"
   },
   {
-   "testo": "Aggiungi olio, cipolla e zucca e cuoci mescolando.",
+   "testo": "Aggiungi 10 g di olio, i dadini di zucca, un pizzico di sale e qualche ago di rosmarino. Cuoci mescolando ogni tanto.",
    "fuoco": "medio",
    "tempo_min": 8,
-   "segnale": "la zucca inizia ad ammorbidirsi ai bordi"
+   "segnale": "i dadini sono morbidi ai bordi e qualcuno inizia a sfaldarsi"
   },
   {
-   "testo": "Aggiungi il riso e tostalo mescolando senza liquidi.",
+   "testo": "Aggiungi il riso e tostalo mescolando continuamente, senza liquidi.",
    "fuoco": "medio",
    "tempo_min": 2,
-   "segnale": "i chicchi diventano lucidi e traslucidi ai bordi, e il fondo sfrigola"
+   "segnale": "i chicchi diventano lucidi e traslucidi ai bordi, il fondo sfrigola"
   },
   {
-   "testo": "Versa un mestolo di brodo caldo e mescola. Aggiungi il successivo solo quando il precedente è quasi assorbito.",
+   "testo": "Versa un mestolo di brodo caldo e mescola. Aggiungi il successivo solo quando il precedente è quasi assorbito; mescola spesso ma non di continuo.",
    "fuoco": "medio",
    "tempo_min": 16,
    "segnale": "il riso è sempre coperto da un velo di liquido, mai asciutto"
   },
   {
-   "testo": "Assaggia: il chicco deve essere morbido fuori e appena consistente al centro. Spegni.",
+   "testo": "Dopo 16 minuti assaggia un chicco.",
    "tempo_min": 1,
-   "segnale": "al dente"
+   "segnale": "morbido fuori e appena consistente al centro: è al dente"
   },
   {
-   "testo": "Aggiungi il Grana e un ultimo goccio di brodo, mescola con forza e copri per 1 minuto.",
+   "testo": "Spegni, aggiungi il Grana, un ultimo goccio di brodo e il pepe. Mescola con forza per 30 secondi, copri e lascia riposare un minuto.",
    "tempo_min": 2,
-   "segnale": "il risotto scorre 'all'onda' se inclini il piatto"
+   "segnale": "inclinando il piatto il risotto scorre lento, 'all'onda'"
   }
  ],
  "tecnica": {
@@ -102,5 +101,6 @@
  },
  "disegno": "disegni/risotto-zucca-salsiccia.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

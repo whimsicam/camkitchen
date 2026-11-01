@@ -9,17 +9,25 @@ export function toast(t) {
   clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 1800);
 }
 
-/* Camillo: gnocco con cappello da chef e baffi */
+/* Camillo: pesce cuoco di sushi, con la fascia hachimaki */
 export function mascot(cls = '') {
   return `<svg class="mascot ${cls}" viewBox="-12 -16 104 108" aria-hidden="true"><defs><filter id="mg" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter></defs>
-<g class="body"><ellipse cx="40" cy="58" rx="33" ry="27" fill="#F2CF6B" filter="url(#mg)" opacity=".85"/>
-<path d="M12 60 C12 40 26 33 40 33 C54 33 68 40 68 60 C68 75 56 82 40 82 C24 82 12 75 12 60Z" fill="#F7DF9A" stroke="#3A3530" stroke-width="2"/>
-<path d="M24 34 C14 34 14 18 25 19 C25 7 41 5 43 15 C49 6 64 11 59 21 C68 21 67 35 57 34 Z" fill="#FBF5E8" stroke="#3A3530" stroke-width="2" stroke-linejoin="round"/>
-<rect x="24" y="31" width="33" height="8" rx="2" fill="#FBF5E8" stroke="#3A3530" stroke-width="2"/>
-<circle class="eye" cx="31" cy="51" r="2.6" fill="#3A3530"/><circle class="eye" cx="49" cy="51" r="2.6" fill="#3A3530"/>
-<path d="M40 58.5 C35 54 27 54 23.5 59 C21.5 62 17.5 61.5 17 58 C16 66 24 70.5 31 67.5 C35 66 37.5 64.5 40 64.5 C42.5 64.5 45 66 49 67.5 C56 70.5 64 66 63 58 C62.5 61.5 58.5 62 56.5 59 C53 54 45 54 40 58.5Z" fill="#3A3530"/>
-<path d="M37 70.5 q3 2.5 6 0" stroke="#3A3530" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-<ellipse cx="22" cy="55" rx="3.5" ry="2" fill="#E9A386" opacity=".6"/><ellipse cx="58" cy="55" rx="3.5" ry="2" fill="#E9A386" opacity=".6"/></g></svg>`;
+<g class="body">
+<ellipse cx="40" cy="56" rx="34" ry="24" fill="#F4A98C" filter="url(#mg)" opacity=".55"/>
+<path d="M66 54 L86 38 Q90 56 86 74 Z" fill="#F4A98C" stroke="#24408E" stroke-width="2" stroke-linejoin="round"/>
+<path d="M44 31 Q56 16 68 42 Q60 34 52 33Z" fill="#F4A98C" stroke="#24408E" stroke-width="2" stroke-linejoin="round"/>
+<path d="M8 56 C8 38 24 30 40 30 C58 30 70 42 70 56 C70 70 58 80 40 80 C24 80 8 72 8 56Z" fill="#F7B79E" stroke="#24408E" stroke-width="2"/>
+<path d="M14 64 C24 76 52 78 64 64 C54 72 26 72 14 64Z" fill="#FBF7EE" opacity=".9"/>
+<path d="M44 46 q4 4 0 8 M52 44 q4 5 0 10 M60 47 q3 4 0 7" fill="none" stroke="#24408E" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+<path d="M11.5 46 C17 33 34 27 52 33 L50.5 41 C35 36 22 40 16.5 51 Z" fill="#FBF7EE" stroke="#24408E" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="31" cy="36.5" r="2.8" fill="#E0906F" stroke="#24408E" stroke-width="1"/>
+<path d="M51.5 37 c5 -6 11 -6 9 0 c-2 4 -6 2 -9 0 Z M51.5 37 c6 3 9 9 5 10 c-4 1 -4 -5 -5 -10 Z" fill="#FBF7EE" stroke="#24408E" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="26" cy="51" r="6.5" fill="#FBF7EE" stroke="#24408E" stroke-width="2"/>
+<g class="eye"><circle cx="24.8" cy="51.5" r="3.4" fill="#24408E"/><circle cx="23.6" cy="50.2" r="1.1" fill="#FBF7EE"/></g>
+<path d="M12 62 q4 3.5 8 0" fill="none" stroke="#24408E" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="22" cy="60" rx="3.2" ry="1.8" fill="#E0906F" opacity=".7"/>
+<path d="M44 62 q6 6 0 12" fill="none" stroke="#24408E" stroke-width="2" stroke-linecap="round"/>
+</g></svg>`;
 }
 
 /* disegno di una ricetta: il PNG se esiste, altrimenti l'illustrazione di categoria */
@@ -68,7 +76,7 @@ export const ICON = {
   x: '<svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
 };
 export const NAV = [
-  ['menu', 'Menù', '<path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/>'],
+  ['menu', 'Menù', '<circle cx="12" cy="12.5" r="6"/><circle cx="12" cy="12.5" r="3.4"/><path d="M3 4v5.5M1.8 4v3.3a1.2 1.2 0 0 0 2.4 0V4M3 9.5V21M21.5 4c-1.6 1.6-1.6 5.5 0 7v10"/>'],
   ['ricettario', 'Ricettario', '<path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4z"/><path d="M20 5h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6z"/>'],
   ['spesa', 'Spesa', '<path d="M5 8h14l-1.5 11h-11z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>'],
   ['progressi', 'Progressi', '<path d="M4 19h16"/><path d="M6 15l4-4 3 3 5-6"/>'],

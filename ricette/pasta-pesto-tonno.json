@@ -16,9 +16,10 @@
  "capitolo": "Primi",
  "categoria_disegno": "pasta",
  "attrezzatura": [
-  "pentola grande con coperchio",
-  "padella larga",
+  "pentola da almeno 3 litri con coperchio",
+  "padella larga 26–28 cm",
   "mestolo",
+  "scolapasta",
   "bilancia"
  ],
  "ingredienti": [
@@ -47,35 +48,49 @@
    "nota": "sale grosso per l'acqua"
   }
  ],
- "preparazione": "Pesa la pasta e apri il tonno prima di accendere il fuoco.",
+ "preparazione": "Pesa 180 g di pasta e metà vasetto di pesto (90 g). Apri il tonno e scolalo bene premendo il coperchio: l'olio o l'acqua in eccesso annacquano il sugo.",
  "passaggi": [
   {
-   "testo": "Porta a bollore 2 litri d'acqua in una pentola grande con il coperchio.",
+   "testo": "Riempi la pentola con 2 litri d'acqua, metti il coperchio e accendi il fuoco al massimo.",
    "fuoco": "alto",
    "tempo_min": 10,
-   "segnale": "bolle forte su tutta la superficie"
+   "segnale": "bolle forte su tutta la superficie, non solo ai bordi"
   },
   {
-   "testo": "Sala l'acqua con 15 g di sale grosso e butta la pasta. Mescola nel primo minuto, così non si attacca.",
+   "testo": "Togli il coperchio, aggiungi 15 g di sale grosso (un cucchiaio raso), aspetta che riprenda il bollore e butta la pasta. Mescola per i primi 30 secondi perché non si attacchi.",
    "fuoco": "alto",
-   "segnale": "togli 1 minuto dal tempo scritto sulla confezione"
+   "tempo_min": 1,
+   "segnale": "l'acqua deve essere salata come un brodo leggero"
   },
   {
-   "testo": "Intanto sgocciola il tonno, sbriciolalo con una forchetta in una padella larga e aggiungi il pesto. Fuoco spento.",
+   "testo": "Imposta un timer: tempo di cottura della confezione meno 1 minuto. Mescola ogni 2–3 minuti, senza coperchio.",
+   "fuoco": "medio-alto",
+   "tempo_min": 10,
+   "segnale": "se la schiuma sale, abbassa un po' la fiamma"
+  },
+  {
+   "testo": "Mentre la pasta cuoce, metti nella padella fredda il pesto e il tonno sbriciolato con una forchetta, in pezzi piccoli.",
    "tempo_min": 2
   },
   {
-   "testo": "Un minuto prima che la pasta sia pronta prendi un mestolo della sua acqua di cottura e tienilo da parte.",
-   "segnale": "l'acqua è torbida: è l'amido che lega il sugo"
+   "testo": "Un minuto prima che suoni il timer, preleva un mestolo d'acqua di cottura (circa 100 ml) e tienilo vicino al fornello.",
+   "segnale": "l'acqua è torbida: è l'amido che servirà a legare il sugo"
   },
   {
-   "testo": "Scola la pasta al dente, versala nella padella, aggiungi mezzo mestolo d'acqua e accendi a fuoco vivace. Mescola e salta per un minuto.",
+   "testo": "Accendi la padella a fuoco medio, aggiungi metà dell'acqua di cottura al pesto e mescola finché si scalda e diventa più fluido.",
+   "fuoco": "medio",
+   "tempo_min": 1,
+   "segnale": "il pesto sobbolle appena ai bordi"
+  },
+  {
+   "testo": "Scola la pasta (non sciacquarla) e versala subito in padella. Alza a fuoco vivace e mescola continuamente per un minuto, aggiungendo altra acqua di cottura un cucchiaio alla volta se si asciuga.",
    "fuoco": "vivace",
    "tempo_min": 1,
-   "segnale": "il sugo diventa cremoso e avvolge la pasta, senza liquido sul fondo"
+   "segnale": "il sugo diventa cremoso, lucido e avvolge ogni pezzo; sul fondo non resta liquido"
   },
   {
-   "testo": "Spegni, aggiungi il Grana e mescola ancora qualche secondo. Servi subito."
+   "testo": "Spegni, aggiungi 10 g di Grana grattugiato, mescola ancora 10 secondi e impiatta subito.",
+   "segnale": "il formaggio si scioglie senza fare fili"
   }
  ],
  "tecnica": {
@@ -85,5 +100,6 @@
  },
  "disegno": "disegni/pasta-pesto-tonno.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

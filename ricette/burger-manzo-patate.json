@@ -2,7 +2,7 @@
  "id": "burger-manzo-patate",
  "nome": "Scottona, uovo e patate",
  "breve": "Scottona",
- "sottotitolo": "Hamburger di scottona con crosta, uovo al padellino e patate croccanti",
+ "sottotitolo": "Hamburger di scottona con crosta, uovo al padellino, patate croccanti, insalata",
  "pasto": [
   "cena",
   "pranzo"
@@ -17,8 +17,10 @@
  "categoria_disegno": "burger",
  "attrezzatura": [
   "friggitrice ad aria",
-  "padella in acciaio o antiaderente spessa",
-  "ciotola"
+  "padella dal fondo spesso (acciaio o antiaderente buona)",
+  "ciotola",
+  "carta da cucina",
+  "spatola"
  ],
  "ingredienti": [
   {
@@ -35,7 +37,7 @@
   },
   {
    "alimento": "olio-evo",
-   "g": 12
+   "g": 17
   },
   {
    "alimento": "insalata",
@@ -59,40 +61,51 @@
    "alimento": "pepe"
   }
  ],
- "preparazione": "Togli l'hamburger dal frigo 15 minuti prima: a temperatura ambiente cuoce in modo uniforme.",
+ "preparazione": "Togli l'hamburger dal frigo 15 minuti prima e tamponalo con la carta da cucina su entrambi i lati: asciutto fa la crosta, umido bolle.",
  "passaggi": [
   {
-   "testo": "Prepara e cuoci le patate come nel burger di pollo: 200 °C, spicchi asciutti, un solo strato, scuoti a metà.",
+   "testo": "Accendi la friggitrice a 200 °C. Taglia le patate con la buccia a spicchi di 1,5 cm, asciugale con la carta e condiscile in ciotola con 10 g di olio, sale e rosmarino.",
    "fuoco": "200 °C",
-   "tempo_min": 22,
-   "segnale": "bordi dorati"
+   "tempo_min": 8,
+   "segnale": "spicchi lucidi, ciotola senza olio sul fondo"
   },
   {
-   "testo": "Quando alle patate mancano 7 minuti, scalda la padella a fuoco medio-alto senza olio per 2 minuti, poi aggiungi qualche goccia d'olio.",
+   "testo": "Cuoci le patate nel cestello in un solo strato, scuotendo a metà.",
+   "fuoco": "200 °C",
+   "tempo_min": 20,
+   "segnale": "bordi dorati, forchetta che entra senza resistenza"
+  },
+  {
+   "testo": "Quando alle patate mancano 7 minuti, scalda la padella a fuoco medio-alto, senza olio, per 2 minuti. Poi aggiungi 2 g di olio (qualche goccia) e spandilo con la carta.",
    "fuoco": "medio-alto",
    "tempo_min": 2,
-   "segnale": "l'olio scorre veloce e fa una leggera fumata"
+   "segnale": "l'olio scorre velocissimo e fa un filo di fumo"
   },
   {
-   "testo": "Sala l'hamburger solo in superficie e mettilo in padella. Non toccarlo per 3 minuti.",
+   "testo": "Sala l'hamburger in superficie e mettilo in padella. Non toccarlo per 3 minuti.",
    "fuoco": "medio-alto",
    "tempo_min": 3,
    "segnale": "si stacca da solo e sotto ha una crosta marrone scuro"
   },
   {
-   "testo": "Giralo una sola volta e cuoci altri 3 minuti per una cottura media, 4 per ben cotta.",
+   "testo": "Giralo una sola volta e cuoci altri 3 minuti per una cottura media, 4 se lo vuoi ben cotto.",
    "fuoco": "medio",
    "tempo_min": 3,
    "segnale": "premendo al centro con un dito è elastico, non molle"
   },
   {
-   "testo": "Fallo riposare nel piatto 2 minuti. Intanto, nella stessa padella a fuoco medio-basso, cuoci l'uovo con il coperchio.",
+   "testo": "Spostalo nel piatto e lascialo riposare 2 minuti mentre, nella stessa padella a fuoco medio-basso, cuoci l'uovo con il coperchio.",
    "fuoco": "medio-basso",
    "tempo_min": 3,
-   "segnale": "i succhi restano nella carne invece di uscire al primo taglio"
+   "segnale": "albume rappreso, tuorlo lucido; la carne trattiene i succhi invece di perderli al primo taglio"
   },
   {
-   "testo": "Impiatta con patate, insalata, pomodorini e maionese.",
+   "testo": "Insalata: versa 60 g di insalata in una ciotola e taglia i pomodorini a metà (80 g, circa 6–7). Condisci solo al momento di mangiare con un filo d'olio (5 g, un cucchiaino), un pizzico di sale e, se ti va, qualche goccia d'aceto o di limone.",
+   "tempo_min": 3,
+   "segnale": "condita all'ultimo resta croccante; condita prima si affloscia in pochi minuti"
+  },
+  {
+   "testo": "Impiatta con le patate e 10 g di maionese, pepe sull'uovo.",
    "tempo_min": 1
   }
  ],
@@ -103,5 +116,6 @@
  },
  "disegno": "disegni/burger-manzo-patate.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

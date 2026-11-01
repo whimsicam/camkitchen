@@ -2,7 +2,7 @@
  "id": "toast-salmone",
  "nome": "Toast con salmone e Philadelphia",
  "breve": "Toast al salmone",
- "sottotitolo": "Pane proteico tostato, formaggio fresco, salmone affumicato e pepe nero",
+ "sottotitolo": "Pane proteico tostato, formaggio fresco, salmone affumicato, pepe nero e limone",
  "pasto": [
   "cena",
   "pranzo"
@@ -17,8 +17,8 @@
  "capitolo": "Veloci",
  "categoria_disegno": "toast",
  "attrezzatura": [
-  "tostapane o padella",
-  "coltello"
+  "padella antiaderente o tostapane",
+  "coltello da burro"
  ],
  "ingredienti": [
   {
@@ -38,24 +38,33 @@
    "g": 50
   },
   {
+   "alimento": "limone",
+   "pz": 0.25
+  },
+  {
    "alimento": "pepe"
   }
  ],
- "preparazione": "Sotto target: abbinalo a uno yogurt greco o a una porzione di frutta in più.",
+ "preparazione": "È sotto il target di kcal: in quella giornata aggiungi uno yogurt greco o una porzione di frutta in più.",
  "passaggi": [
   {
-   "testo": "Tosta le fette di pane in padella a fuoco medio, senza olio, un minuto e mezzo per lato.",
+   "testo": "Scalda la padella a fuoco medio, senza olio, per un minuto. Appoggia 2 fette di pane e tostale un minuto e mezzo per lato; ripeti con le altre 2.",
    "fuoco": "medio",
-   "tempo_min": 3,
-   "segnale": "dorate e croccanti ai bordi"
+   "tempo_min": 6,
+   "segnale": "dorate e croccanti ai bordi, morbide al centro"
   },
   {
-   "testo": "Spalma mezza monoporzione di Philadelphia su ogni fetta ancora calda.",
-   "tempo_min": 1
+   "testo": "Su ogni fetta ancora calda spalma mezza monoporzione di Philadelphia (circa 12 g), fino ai bordi.",
+   "tempo_min": 1,
+   "segnale": "il calore lo ammorbidisce e si spalma senza strappare il pane"
   },
   {
-   "testo": "Distribuisci il salmone, macina pepe nero abbondante e servi con l'insalata.",
+   "testo": "Distribuisci il salmone (100 g) a riccioli sulle 4 fette, spremi qualche goccia di limone e macina pepe nero abbondante.",
    "tempo_min": 2
+  },
+  {
+   "testo": "Servi con 50 g di insalata a lato, condita con qualche goccia di limone.",
+   "tempo_min": 1
   }
  ],
  "tecnica": {
@@ -65,5 +74,6 @@
  },
  "disegno": "disegni/toast-salmone.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

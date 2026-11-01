@@ -1,8 +1,8 @@
 {
  "id": "frittata-patate",
- "nome": "Frittata di patate e cipolla",
+ "nome": "Frittata di patate",
  "breve": "Frittata di patate",
- "sottotitolo": "Alta e morbida, girata con il coperchio",
+ "sottotitolo": "Alta e morbida, girata con il coperchio, con Grana e rosmarino",
  "pasto": [
   "pranzo",
   "cena"
@@ -16,9 +16,10 @@
  "capitolo": "Uova",
  "categoria_disegno": "uova",
  "attrezzatura": [
-  "padella antiaderente da 20–22 cm con coperchio piatto",
+  "padella antiaderente da 20–22 cm",
+  "coperchio piatto più largo della padella (o un piatto piano)",
   "ciotola",
-  "frusta o forchetta"
+  "forchetta o frusta"
  ],
  "ingredienti": [
   {
@@ -30,24 +31,27 @@
    "g": 250
   },
   {
-   "alimento": "cipolla",
-   "pz": 0.5
-  },
-  {
    "alimento": "grana-grattugiato",
    "g": 15
   },
   {
    "alimento": "olio-evo",
-   "g": 15
+   "g": 20
   },
   {
    "alimento": "insalata",
+   "g": 60
+  },
+  {
+   "alimento": "pomodorini",
    "g": 80
   },
   {
    "alimento": "pane-proteico",
    "pz": 2
+  },
+  {
+   "alimento": "rosmarino"
   },
   {
    "alimento": "sale"
@@ -56,35 +60,35 @@
    "alimento": "pepe"
   }
  ],
- "preparazione": "Sbuccia le patate e tagliale a fette di 3 mm; affetta sottile mezza cipolla.",
+ "preparazione": "Sbuccia le patate e tagliale a fette sottili, 3 mm, tutte uguali: è lo spessore uniforme che le fa cuocere insieme.",
  "passaggi": [
   {
-   "testo": "Scalda 10 g di olio in padella a fuoco medio, aggiungi cipolla e patate con un pizzico di sale e copri.",
+   "testo": "Scalda 10 g di olio in padella a fuoco medio, aggiungi le patate, un pizzico di sale e qualche ago di rosmarino, mescola e metti il coperchio.",
    "fuoco": "medio",
-   "tempo_min": 15,
-   "segnale": "le patate si rompono premendole con il cucchiaio"
+   "tempo_min": 12,
+   "segnale": "mescola ogni 3–4 minuti; sono pronte quando una fetta si rompe premendola con il cucchiaio"
   },
   {
-   "testo": "Togli il coperchio e lascia rosolare 3 minuti, mescolando ogni tanto.",
+   "testo": "Togli il coperchio e lasciale rosolare mescolando ogni tanto.",
    "fuoco": "medio",
    "tempo_min": 3,
    "segnale": "qualche bordo dorato"
   },
   {
-   "testo": "In una ciotola sbatti le uova con il Grana, sale e pepe, poi versa dentro patate e cipolla e mescola. Lascia riposare 2 minuti.",
+   "testo": "Nella ciotola sbatti le 4 uova con il Grana, un pizzico di sale e il pepe per 30 secondi. Versa dentro le patate calde, mescola e lascia riposare 2 minuti.",
    "tempo_min": 3,
-   "segnale": "le patate si impregnano di uovo"
+   "segnale": "le patate si impregnano di uovo e la frittata resterà compatta"
   },
   {
-   "testo": "Rimetti la padella a fuoco medio-basso con 5 g di olio, versa il composto e copri.",
+   "testo": "Pulisci la padella con la carta, rimettila a fuoco medio-basso con 5 g di olio e versa il composto livellandolo. Copri.",
    "fuoco": "medio-basso",
    "tempo_min": 8,
-   "segnale": "i bordi sono rappresi e il centro trema appena"
+   "segnale": "i bordi sono rappresi e il centro trema appena se muovi la padella"
   },
   {
-   "testo": "Appoggia il coperchio piatto sulla padella, capovolgi la frittata sul coperchio e falla scivolare di nuovo in padella.",
+   "testo": "Appoggia il coperchio piatto sulla padella, capovolgi la frittata sul coperchio con un gesto deciso e falla scivolare di nuovo in padella dal lato crudo.",
    "tempo_min": 1,
-   "segnale": "un gesto deciso: esitare la rompe"
+   "segnale": "un movimento solo: esitare la rompe"
   },
   {
    "testo": "Cuoci l'altro lato senza coperchio.",
@@ -93,8 +97,17 @@
    "segnale": "premendo al centro è soda ma morbida"
   },
   {
-   "testo": "Lasciala riposare 2 minuti e servila con insalata e il pane tostato.",
+   "testo": "Toglila dal fuoco e lasciala riposare 2 minuti. Intanto tosta 2 fette di pane in padella o nel tostapane.",
    "tempo_min": 2
+  },
+  {
+   "testo": "Insalata: versa 60 g di insalata in una ciotola e taglia i pomodorini a metà (80 g, circa 6–7). Condisci solo al momento di mangiare con un filo d'olio (5 g, un cucchiaino), un pizzico di sale e, se ti va, qualche goccia d'aceto o di limone.",
+   "tempo_min": 3,
+   "segnale": "condita all'ultimo resta croccante; condita prima si affloscia in pochi minuti"
+  },
+  {
+   "testo": "Servi la frittata a spicchi con l'insalata e il pane.",
+   "tempo_min": 1
   }
  ],
  "tecnica": {
@@ -104,5 +117,6 @@
  },
  "disegno": "disegni/frittata-patate.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

@@ -1,6 +1,6 @@
 // CAM Kitchen: il Ricettario (filtri, carte da sfogliare, indice, i miei piatti, Chiedi a Claude).
 import { S, giorno, salvaGiorno, salvaCiclo, oggi, saveUI, cfg } from './store.js';
-import { fmt, macroRicetta, dispensa, statoIngredienti, totaliGiorno, cicloDi, quantitaTesto } from './calc.js';
+import { fmt, macroRicetta, dispensa, statoIngredienti, totaliGiorno, cicloDi, quantitaTesto, tolti } from './calc.js';
 import { $, esc, toast, mascot, arte, tinta, illo, closeOverlay } from './ui.js';
 
 const F = () => (S.ui.rf = S.ui.rf || { tempo: -1, voglia: -1, novita: -1, casa: false, piano: 0, q: '', cap: '', pasto: '' });
@@ -61,15 +61,16 @@ export function vistaRicettario() {
   const capitoli = [...new Set(tutte.map(r => r.capitolo || 'Altro'))];
   const card = x => {
     const r = x.r, t = macroRicetta(r.id), voto = h[r.id] && h[r.id].voto;
-    const ing = r.ingredienti.filter(i => S.A[i.alimento] && S.A[i.alimento].traccia_dispensa !== false).slice(0, 6).map(i => S.A[i.alimento].nome.replace(/\s*\(.*\)/, '').split(' ').slice(0, 3).join(' '));
+    const via = tolti(r.id);
+    const ing = r.ingredienti.filter(i => S.A[i.alimento] && S.A[i.alimento].traccia_dispensa !== false && !via.has(i.alimento)).slice(0, 8).map(i => { const a = S.A[i.alimento], n = (a.alias && a.alias[0]) || a.nome; return n.charAt(0).toUpperCase() + n.slice(1); });
     const stato = !x.tracciata ? '' : x.mancanti.length ? `<span class="st no">manca ${esc(x.mancanti[0].nome.toLowerCase())}${x.mancanti.length > 1 ? ` e altri ${x.mancanti.length - 1}` : ''}</span>` : '<span class="st ok">hai tutto in casa</span>';
-    return `<button class="page tea" data-act="pg" data-r="${r.id}"><span class="tea-h"><span class="lab">${esc(r.nuovo ? 'Da provare' : r.capitolo || 'Ricetta')}</span><span class="lab num">p. ${pagina[r.id]}</span></span><h4>${esc(r.nome)}</h4><span class="tea-sub">${esc(r.tecnica ? r.tecnica.nome : r.sottotitolo || '')}</span><span class="art">${arte(r.id)}</span><ul class="tea-ing">${ing.map(n => `<li>${esc(n)}</li>`).join('')}</ul><span class="tea-cut"></span><span class="tea-f"><span class="num">${r.tempo_min}′ · ${fmt(t.kcal)} kcal · ${fmt(t.prot)} g</span><span class="tea-stars">${voto ? '★'.repeat(Math.round(voto)) + '☆'.repeat(5 - Math.round(voto)) : ''}</span></span>${stato}</button>`;
+    return `<button class="page tea" data-act="pg" data-r="${r.id}"><span class="tea-h"><span class="lab">${esc(r.nuovo ? 'Da provare' : r.capitolo || 'Ricetta')}</span><span class="lab num">p. ${pagina[r.id]}</span></span><h4>${esc(r.nome)}</h4><span class="tea-sub">${esc(r.tecnica ? r.tecnica.nome : r.sottotitolo || '')}</span><span class="art">${arte(r.id)}</span><ul class="tea-ing">${ing.map(n => `<li>${esc(n)}</li>`).join('')}</ul><span class="tea-meta num">${r.tempo_min}′ · ${fmt(t.kcal)} kcal · ${fmt(t.prot)} g di proteine</span>${stato}<span class="tea-cut"></span><span class="tea-f"><span class="tea-brand">${mascot('xs')}<span>CAM<br>Kitchen</span></span><span class="tea-stars">${voto ? '★'.repeat(Math.round(voto)) + '☆'.repeat(5 - Math.round(voto)) : r.nuovo ? 'da provare' : '☆☆☆☆☆'}</span></span></button>`;
   };
   const filtriAttivi = f.tempo >= 0 || f.voglia >= 0 || f.novita >= 0 || f.casa || f.piano || f.q || f.cap || f.pasto;
   const miei = Object.entries(h).filter(([id]) => S.R[id]).sort((a, b) => b[1].ultima.localeCompare(a[1].ultima));
   return `<div class="two">
   <section class="col">
-    <div class="hero"><div><span class="lab">Il ricettario di CAM</span><h1 class="ttl" style="margin-top:6px">Cosa cucino?</h1></div>${illo('ricettario')}</div>
+    <div><span class="lab">Il ricettario di CAM</span><h1 class="ttl" style="margin-top:6px">Cosa cucino?</h1></div>
     <form class="search" data-form="rq"><svg class="ico" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg><input id="rq" value="${esc(f.q)}" placeholder="Un ingrediente o un piatto" autocomplete="off" enterkeyhint="search">${f.q ? `<button type="button" class="link" data-act="rq-x">×</button>` : ''}</form>
     <div class="choose">${CH.map(([k, l, ops]) => `<div class="sl" data-k="${k}"><span class="lab">${l}</span><div class="sl-line">${ops.map((o, i) => `<button class="opt ${f[k] === i ? 'on' : ''}" data-act="rf" data-k="${k}" data-i="${i}"><i></i><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div></div>`).join('')}</div>
     <div class="toggles">
@@ -105,20 +106,20 @@ function messaggio() {
     f.q ? `Voglio usare: ${f.q}.` : '',
     f.piano === 2 ? 'Stavolta è uno sgarro: niente vincoli di kcal.' : `Oggi ho già mangiato ${fmt(t.kcal)} kcal e ${fmt(t.prot)} g di proteine; il target è ${fmt(T.kcal)} kcal e ${T.proteine_min} g. Il piatto deve stare nel piano.`,
     casa.length ? `In casa ho: ${casa.join(', ')}.` : 'Non ho ancora fatto l\'inventario della dispensa.',
-    f.casa ? 'Usa solo quello che ho in casa (sale, olio, spezie ci sono sempre).' : 'Puoi proporre al massimo 2 ingredienti da comprare.',
+    'Sono a casa e non esco a fare la spesa: usa solo quello che ho (sale, olio, pepe e spezie ci sono sempre).',
+    S.pref.nonMiPiace.length ? `Non mi piacciono: ${S.pref.nonMiPiace.map(id => S.A[id] ? S.A[id].nome.toLowerCase() : id).join(', ')}.` : '',
     'Segui lo standard del ricettario: ingredienti in grammi, passaggi con fuoco, tempo e segnale visivo, la tecnica che insegna e l\'errore tipico. Cerca ricette vere online e adattale.',
     'Se una mi piace e ti dico "aggiungila", salvala nel repo camkitchen (ricette/ e indice) con la riga per il disegno.',
   ].filter(Boolean).join('\n');
 }
-function chiedi() {
-  const m = messaggio(), c = cfg();
-  // la copia deve partire subito, dentro il tocco, altrimenti iOS la blocca
+export function apriClaude(m) {
+  const c = cfg();
   const copia = navigator.clipboard ? navigator.clipboard.writeText(m).then(() => true, () => false) : Promise.resolve(false);
   copia.then(ok => toast(ok ? 'Messaggio copiato: incollalo in una chat nuova del progetto' : 'Non sono riuscito a copiare il messaggio'));
   const web = c.progetto ? `https://claude.ai/project/${c.progetto}` : 'https://claude.ai/new';
-  // lo Shortcut apre l'app Claude direttamente sul progetto; il link web è il ripiego
   setTimeout(() => { location.href = c.claudeShortcut === false ? web : `shortcuts://run-shortcut?name=${encodeURIComponent('Apri cam PT')}`; }, 150);
 }
+function chiedi() { apriClaude(messaggio()); }
 
 /* ---------- voto e menù (dalla pagina ricetta) ---------- */
 export function vota(id, n) {

@@ -2,7 +2,7 @@
  "id": "burger-pollo-patate",
  "nome": "Burger di pollo e patate croccanti",
  "breve": "Burger di pollo",
- "sottotitolo": "Due burger di pollo, uovo al padellino, patate in friggitrice ad aria",
+ "sottotitolo": "Due burger di pollo, uovo al padellino, patate in friggitrice ad aria, insalata",
  "pasto": [
   "cena",
   "pranzo"
@@ -17,8 +17,10 @@
  "categoria_disegno": "burger",
  "attrezzatura": [
   "friggitrice ad aria",
-  "padella antiaderente con coperchio",
-  "ciotola"
+  "padella antiaderente 24 cm con coperchio",
+  "ciotola",
+  "carta da cucina",
+  "pinza o spatola"
  ],
  "ingredienti": [
   {
@@ -35,7 +37,7 @@
   },
   {
    "alimento": "olio-evo",
-   "g": 15
+   "g": 20
   },
   {
    "alimento": "insalata",
@@ -59,50 +61,55 @@
    "alimento": "pepe"
   }
  ],
- "preparazione": "Togli i burger dal frigo mentre si scalda la friggitrice.",
+ "preparazione": "Togli i burger dal frigo appena entri in cucina: a temperatura ambiente cuociono più uniformi. Lava le patate sotto l'acqua strofinando la buccia con le mani.",
  "passaggi": [
   {
-   "testo": "Accendi la friggitrice ad aria a 200 °C e lasciala scaldare.",
+   "testo": "Accendi la friggitrice ad aria a 200 °C, cestello vuoto, e lasciala scaldare mentre tagli le patate.",
    "fuoco": "200 °C",
    "tempo_min": 3,
-   "segnale": "la spia o il display indica che è in temperatura"
+   "segnale": "spia o display indicano che è in temperatura"
   },
   {
-   "testo": "Lava le patate, tagliale a spicchi di circa 1,5 cm con la buccia e asciugale bene con la carta da cucina.",
+   "testo": "Taglia le patate con la buccia a spicchi di circa 1,5 cm di spessore. Mettile su un foglio di carta da cucina e tamponale fino a che sono asciutte.",
    "tempo_min": 5,
-   "segnale": "asciutte al tatto: l'acqua rimasta le cuoce al vapore"
+   "segnale": "al tatto non devono essere umide: l'acqua le cuoce al vapore invece di farle diventare croccanti"
   },
   {
-   "testo": "In una ciotola condiscile con 10 g di olio (un cucchiaio), sale e rosmarino, e mescola con le mani.",
+   "testo": "Nella ciotola condiscile con 10 g di olio (un cucchiaio), un pizzico di sale e gli aghi di un rametto di rosmarino. Mescola con le mani per un minuto.",
    "tempo_min": 1,
-   "segnale": "ogni spicchio è lucido e non resta olio sul fondo"
+   "segnale": "ogni spicchio è lucido e sul fondo della ciotola non resta olio"
   },
   {
-   "testo": "Mettile nel cestello in un solo strato e cuoci a 200 °C. Scuoti il cestello a metà cottura.",
+   "testo": "Versale nel cestello in un solo strato, senza sovrapporle, e cuoci a 200 °C. A metà cottura apri e scuoti bene il cestello.",
    "fuoco": "200 °C",
    "tempo_min": 19,
-   "segnale": "bordi dorati e la forchetta entra senza resistenza"
+   "segnale": "pronte quando i bordi sono dorati e una forchetta entra senza resistenza; se sono pallide, altri 3 minuti"
   },
   {
-   "testo": "Quando alle patate mancano 8 minuti, scalda la padella a fuoco medio con 1 cucchiaino di olio.",
+   "testo": "Quando alle patate mancano 8 minuti, metti la padella sul fuoco medio con 5 g di olio (un cucchiaino) e lasciala scaldare.",
    "fuoco": "medio",
    "tempo_min": 2,
-   "segnale": "una goccia d'acqua sfrigola subito"
+   "segnale": "una goccia d'acqua nella padella sfrigola subito"
   },
   {
-   "testo": "Metti i burger in padella e non toccarli per 4 minuti, poi girali e cuoci altri 4 minuti.",
+   "testo": "Appoggia i burger in padella e non toccarli per 4 minuti. Girali con la spatola e cuoci l'altro lato altri 4 minuti.",
    "fuoco": "medio",
    "tempo_min": 8,
-   "segnale": "si staccano da soli quando hanno la crosticina; dentro non resta rosa"
+   "segnale": "si staccano da soli quando hanno fatto la crosticina; premendo al centro sono sodi e, tagliandone uno, dentro non c'è rosa"
   },
   {
-   "testo": "Sposta i burger nel piatto. Nella stessa padella, a fuoco medio-basso, rompi l'uovo e copri con il coperchio.",
+   "testo": "Spostali nel piatto. Nella stessa padella, a fuoco medio-basso, rompi l'uovo, sala l'albume e metti il coperchio.",
    "fuoco": "medio-basso",
    "tempo_min": 3,
-   "segnale": "albume bianco e rappreso, tuorlo ancora lucido"
+   "segnale": "albume tutto bianco e rappreso, tuorlo ancora lucido e morbido"
   },
   {
-   "testo": "Impiatta con insalata, pomodorini e 10 g di maionese.",
+   "testo": "Insalata: versa 60 g di insalata in una ciotola e taglia i pomodorini a metà (80 g, circa 6–7). Condisci solo al momento di mangiare con un filo d'olio (5 g, un cucchiaino), un pizzico di sale e, se ti va, qualche goccia d'aceto o di limone.",
+   "tempo_min": 3,
+   "segnale": "condita all'ultimo resta croccante; condita prima si affloscia in pochi minuti"
+  },
+  {
+   "testo": "Impiatta burger, uovo e patate, con l'insalata a lato e 10 g di maionese (un cucchiaino colmo) per le patate. Una macinata di pepe sull'uovo.",
    "tempo_min": 1
   }
  ],
@@ -113,5 +120,6 @@
  },
  "disegno": "disegni/burger-pollo-patate.png",
  "fonte": null,
- "aggiunta": "2026-10-31"
+ "aggiunta": "2026-10-31",
+ "aggiornata": "2026-11-01"
 }

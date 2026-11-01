@@ -21,7 +21,7 @@ export function vistaSpesa() {
   importaInbox();
   const L = ultimoCiclo(), p = P();
   const seg = S.ui.seg || 'buy';
-  return `<div class="hero"><div><span class="lab">Conad · ogni 7–10 giorni</span><h1 class="ttl" style="margin-top:6px">La spesa</h1></div>${illo('spesa')}</div>
+  return `<div><span class="lab">Conad · ogni 7–10 giorni</span><h1 class="ttl" style="margin-top:6px">La spesa</h1></div>
   ${p.step || serveSpesa() ? pianoAperto(L) : pianoChiuso(L)}
   <div class="sp-lists">
     <div class="seg" role="tablist"><button class="${seg === 'buy' ? 'on' : ''}" data-act="seg" data-v="buy">Da comprare</button><button class="${seg === 'home' ? 'on' : ''}" data-act="seg" data-v="home">In casa</button></div>
@@ -86,10 +86,14 @@ function riga(it) {
   return `<button class="it ${it.preso ? 'on' : ''}" data-act="lista-tick" data-id="${esc(it.id)}"><span class="box"></span><span><span class="n">${esc(it.alimento && S.A[it.alimento] ? S.A[it.alimento].nome : it.testo)}</span>${it.nota ? `<small>${esc(it.nota)}</small>` : ''}</span><span class="q num">${esc(it.testoQ || it.testo)}</span></button>`;
 }
 function aggiunte(L) {
-  const ex = L ? (L.extra || []) : S.inbox.map(x => ({ ...x, id: x.file, testo: x.testo }));
-  return `<div class="grp"><div class="grp-h"><span class="med" style="width:30px;height:30px;border-style:dashed;border-color:var(--faded)"></span><b>Aggiunte da te</b><small>anche da Siri</small></div>
-  ${ex.map(it => `<div style="display:grid;grid-template-columns:1fr auto;align-items:center"><button class="it ${it.preso ? 'on' : ''}" data-act="extra-tick" data-id="${esc(it.id)}"><span class="box"></span><span><span class="n">${esc(it.testo)}</span>${!it.alimento && !it.nonAlimentare ? '' : `<small>${it.nonAlimentare ? 'non alimentare' : esc(S.A[it.alimento] ? S.A[it.alimento].nome : '')}</small>`}</span><span class="q num">${it.g && it.alimento ? esc(confezioni(it.alimento, it.g).testo) : ''}</span></button>${!it.alimento && !it.nonAlimentare ? `<button class="assoc" data-act="assoc" data-id="${esc(it.id)}">Associa</button>` : `<button class="del" data-act="extra-del" data-id="${esc(it.id)}" aria-label="Togli" style="width:28px;height:28px;color:var(--faded)">${ICON.x}</button>`}</div>`).join('')}
-  ${L ? `<form class="search" data-form="add" style="margin-top:10px"><svg class="ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><input id="addq" placeholder="Aggiungi (es. 6 uova, marmellata)" autocomplete="off"><button class="pill sm" type="submit">Aggiungi</button></form>` : ''}</div>`;
+  const ex = L ? (L.extra || []) : S.inbox.map(x => ({ id: x.file, testo: x.testo, provvisoria: true }));
+  const form = `<form class="search addform" data-form="add"><svg class="ico" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><input id="addq" placeholder="Scrivi cosa comprare (es. 6 uova, marmellata)" autocomplete="off" enterkeyhint="done"><button class="pill sm solid" type="submit">Aggiungi</button></form>`;
+  return `<div class="grp"><div class="grp-h"><span class="med" style="width:30px;height:30px;border-style:dashed;border-color:var(--blue-l)"></span><b>Aggiunte da te</b></div>
+  ${form}
+  ${ex.map(it => it.provvisoria
+    ? `<div class="evrow"><span>${esc(it.testo)}</span><span></span><button class="del" data-act="inbox-del" data-id="${esc(it.id)}" aria-label="Togli">${ICON.x}</button></div>`
+    : `<div style="display:grid;grid-template-columns:1fr auto;align-items:center"><button class="it ${it.preso ? 'on' : ''}" data-act="extra-tick" data-id="${esc(it.id)}"><span class="box"></span><span><span class="n">${esc(it.testo)}</span>${!it.alimento && !it.nonAlimentare ? '' : `<small>${it.nonAlimentare ? 'non alimentare' : esc(S.A[it.alimento] ? S.A[it.alimento].nome : '')}</small>`}</span><span class="q num">${it.g && it.alimento ? esc(confezioni(it.alimento, it.g).testo) : ''}</span></button>${!it.alimento && !it.nonAlimentare ? `<button class="assoc" data-act="assoc" data-id="${esc(it.id)}">Associa</button>` : `<button class="del" data-act="extra-del" data-id="${esc(it.id)}" aria-label="Togli" style="width:28px;height:28px;color:var(--faded)">${ICON.x}</button>`}</div>`).join('')}
+  ${!L && ex.length ? '<p class="note">Entrano nella lista quando prepari il menù qui sopra.</p>' : ''}</div>`;
 }
 
 /* ---------- in casa ---------- */
@@ -159,6 +163,7 @@ export function azioneSpesa(act, el) {
     case 'lista-tick': { const it = L.lista.find(x => x.id === el.dataset.id); it.preso = !it.preso; caricoPer(it, it.preso); salvaCiclo({ ...L }); return true; }
     case 'lista-ricalcola': { const presi = new Set(L.lista.filter(x => x.preso).map(x => x.id)); const nuova = calcolaLista(L).items.filter(x => !presi.has(x.id)); salvaCiclo({ ...L, lista: [...L.lista.filter(x => x.preso), ...nuova] }); toast('Lista ricalcolata'); return true; }
     case 'extra-tick': { if (!L) return false; const it = L.extra.find(x => x.id === el.dataset.id); it.preso = !it.preso; caricoPer(it, it.preso); salvaCiclo({ ...L }); return true; }
+    case 'inbox-del': S.inbox = S.inbox.filter(x => x.file !== el.dataset.id); salvaInbox(); return true;
     case 'extra-del': { if (!L) return false; salvaCiclo({ ...L, extra: L.extra.filter(x => x.id !== el.dataset.id) }); return true; }
     case 'assoc': sheetAssocia(el.dataset.id); return false;
     case 'assoc-ok': { const it = L.extra.find(x => x.id === el.dataset.id), v = $('as-al').value; if (!v) { toast('Scegli un alimento'); return false; }
@@ -181,7 +186,8 @@ export function azioneSpesa(act, el) {
   return null;
 }
 export function inviaAggiunta(testo) {
-  const L = ultimoCiclo(); if (!L || !testo.trim()) return;
+  const L = ultimoCiclo(); if (!testo.trim()) return;
+  if (!L) { S.inbox.push({ file: uid(), testo: testo.trim(), quando: nowISO() }); salvaInbox(); toast('Aggiunto'); return; }
   const nuovi = parseVoci(testo).map(v => ({ id: uid(), testo: v.testo, chiave: v.chiave, alimento: v.alimento, nonAlimentare: v.nonAlimentare, g: v.g }));
   salvaCiclo({ ...L, extra: [...(L.extra || []), ...nuovi] });
   const ign = nuovi.filter(x => !x.alimento && !x.nonAlimentare).length;
