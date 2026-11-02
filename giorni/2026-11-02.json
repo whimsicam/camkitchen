@@ -485,6 +485,14 @@
    "alimento": "uova",
    "g": 330,
    "rif": "lista:uova"
+  },
+  {
+   "id": "mvznha3o0qfj",
+   "t": "2026-11-02T20:26:56+01:00",
+   "tipo": "carico",
+   "alimento": "yogurt-greco-bianco",
+   "g": 1020,
+   "rif": "lista:yogurt-greco-bianco"
   }
  ],
  "rimossi": [
