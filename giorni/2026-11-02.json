@@ -429,6 +429,14 @@
    "alimento": "pomodorini",
    "g": 500,
    "rif": "lista:pomodorini"
+  },
+  {
+   "id": "mvznauk381l1",
+   "t": "2026-11-02T20:21:56+01:00",
+   "tipo": "carico",
+   "alimento": "hamburger-pollo",
+   "g": 200,
+   "rif": "lista:hamburger-pollo"
   }
  ],
  "rimossi": [
