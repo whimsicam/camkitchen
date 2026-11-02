@@ -96,6 +96,12 @@ export function unisciGiorno(loc, rem) {
 }
 
 /* ---------- GitHub ---------- */
+function erroreGH(st) {
+  if (st === 401) return 'il token non è valido o è scaduto (rigeneralo su GitHub)';
+  if (st === 403) return 'il token non può scrivere: su GitHub serve il permesso Contents "Read and write" sul repo camkitchen';
+  if (st === 404) return 'repo o ramo non trovato, oppure il token non include il repo camkitchen';
+  return `errore GitHub ${st}`;
+}
 async function gh(path, opts = {}) {
   const c = cfg();
   return fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}${path}`, {
@@ -110,13 +116,13 @@ function b64(str) { const b = new TextEncoder().encode(str); let s = ''; b.forEa
 async function leggiRemoto(path) {
   const r = await gh(percorso(path) + ref(), { headers: { Accept: 'application/vnd.github.raw+json' } });
   if (r.status === 404) return null;
-  if (!r.ok) throw new Error(`GitHub ${r.status}`);
+  if (!r.ok) throw new Error(erroreGH(r.status));
   return r.json();
 }
 async function infoRemoto(path) {
   const r = await gh(percorso(path) + ref());
   if (r.status === 404) return null;
-  if (!r.ok) throw new Error(`GitHub ${r.status}`);
+  if (!r.ok) throw new Error(erroreGH(r.status));
   return r.json();
 }
 async function scriviRemoto(path, dati, msg, sha) {
@@ -127,7 +133,7 @@ async function scriviRemoto(path, dati, msg, sha) {
 export async function eliminaRemoto(path, msg) {
   const info = await infoRemoto(path); if (!info) return;
   const r = await gh(percorso(path), { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: msg, sha: info.sha, branch: cfg().branch || 'main' }) });
-  if (!r.ok && r.status !== 404) throw new Error(`GitHub ${r.status}`);
+  if (!r.ok && r.status !== 404) throw new Error(erroreGH(r.status));
 }
 
 function messaggio(path) {
@@ -153,7 +159,7 @@ async function invia(path) {
       if (path === 'preferenze.json' && rem) { S.pref = unisciPref(S.pref, rem); dati = S.pref; scrivi(K.pref, S.pref); }
       continue;
     }
-    throw new Error(`GitHub ${r.status}`);
+    throw new Error(erroreGH(r.status));
   }
   throw new Error('conflitto non risolto');
 }
@@ -161,7 +167,7 @@ async function invia(path) {
 async function scarica() {
   const c = cfg();
   const r = await gh(`/git/trees/${encodeURIComponent(c.branch || 'main')}?recursive=1`);
-  if (!r.ok) throw new Error(`GitHub ${r.status}`);
+  if (!r.ok) throw new Error(erroreGH(r.status));
   const albero = (await r.json()).tree || [];
   let cambi = 0;
   const inboxRemota = [];
@@ -215,9 +221,13 @@ export async function provaConnessione() {
   if (!syncPronto()) return 'Compila owner, repo e token.';
   try {
     const r = await gh('');
-    if (!r.ok) return r.status === 404 ? 'Repo non trovato o token senza accesso.' : r.status === 401 ? 'Token non valido.' : `Errore GitHub ${r.status}.`;
+    if (!r.ok) return `Non riesco a collegarmi: ${erroreGH(r.status)}.`;
     const j = await r.json();
-    return j.permissions && j.permissions.push === false ? `Connesso a ${j.full_name}, ma il token non può scrivere.` : `OK: connesso a ${j.full_name}.`;
+    if (j.permissions && j.permissions.push === false) return `Connesso a ${j.full_name}, ma il token non può scrivere.`;
+    // la lettura non basta: si prova davvero a inviare quello che è in coda (o il giorno di oggi)
+    if (!S.coda.length) { const d = oggi(); if (S.giorni[d]) accoda(`giorni/${d}.json`); }
+    clearTimeout(timer); await sincronizza(true);
+    return S.sync.stato === 'ok' ? `OK: connesso a ${j.full_name} e dati inviati.` : `Connesso a ${j.full_name}, ma l'invio non riesce: ${S.sync.msg.replace('Sync non riuscita: ', '')}.`;
   } catch (e) { return `Errore: ${e.message || e}`; }
 }
 

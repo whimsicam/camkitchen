@@ -32,6 +32,9 @@ export function render() {
   const v = vista();
   const st = S.sync.stato, dot = !syncPronto() ? '' : S.coda.length ? 'wait' : st === 'err' ? 'err' : 'ok';
   const top = `<header class="top"><span class="ib" aria-hidden="true"></span><div class="word">CAM Kitchen</div><button class="ib" data-act="settings" aria-label="Impostazioni" style="position:relative">${ICON.gear}${dot ? `<span class="syncdot ${dot}" style="position:absolute;right:4px;top:6px;margin:0"></span>` : ''}</button></header>`;
+  const avviso = !syncPronto() ? 'Sincronizzazione non attiva: i dati restano solo su questo telefono e Claude non li vede. Tocca per configurarla.'
+    : st === 'err' ? `${S.sync.msg}. Tocca per controllare.` : '';
+  const banner = avviso ? `<button class="syncbar" data-act="settings"><span class="syncdot ${syncPronto() ? 'err' : ''}"></span>${avviso.replace(/</g, '&lt;')}</button>` : '';
   const y = window.scrollY;
   let corpo;
   try { corpo = VISTE[v](); }
@@ -40,7 +43,7 @@ export function render() {
     // una schermata rotta non deve bloccare l'app: si azzera solo lo stato della schermata, mai i dati
     corpo = `<div class="wip">${mascot()}<b>Questa schermata si è inceppata</b><small>I tuoi dati sono al sicuro. Tocca qui sotto per ripartire.</small><button class="pill solid" data-act="reset-ui">Ripristina la schermata</button><small style="font-size:11px">${String(err && err.message || err).replace(/</g, '&lt;')}</small></div>`;
   }
-  $('main').innerHTML = top + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${corpo}</div>`;
+  $('main').innerHTML = top + banner + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${corpo}</div>`;
   if (v === ultimaVista) window.scrollTo(0, y);
   ultimaVista = v;
   renderNav();

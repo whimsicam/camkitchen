@@ -614,3 +614,8 @@ details summary::-webkit-details-marker{display:none}
 .tea-brand{display:flex;align-items:center;gap:6px;font-size:8.5px;line-height:1.05;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:500}
 .mascot.xs{width:24px;height:24px}
 .tea-stars{font-size:11px;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase}
+
+/* avviso di sincronizzazione */
+.syncbar{display:flex;gap:8px;align-items:flex-start;width:100%;text-align:left;margin:0 0 14px;padding:10px 12px;border:1px solid var(--blue-l);border-radius:var(--r-s);background:var(--leaf);color:var(--ink);font:inherit;font-size:13px;line-height:1.4;cursor:pointer}
+.syncbar .syncdot{flex:none;margin-top:5px;background:var(--faded)}
+.syncbar .syncdot.err{background:#C0533A}
