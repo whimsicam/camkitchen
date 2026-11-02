@@ -172,7 +172,7 @@
    "testo": "1 confezione",
    "gruppo": "giornata",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "mandorle",
@@ -219,7 +219,8 @@
    "chiave": "melatonina",
    "alimento": null,
    "nonAlimentare": false,
-   "g": null
+   "g": null,
+   "preso": true
   }
  ]
 }
