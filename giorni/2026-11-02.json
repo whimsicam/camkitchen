@@ -389,6 +389,14 @@
    "alimento": "banana",
    "g": 1200,
    "rif": "lista:banana"
+  },
+  {
+   "id": "mvzn4cseg1um",
+   "t": "2026-11-02T20:16:53+01:00",
+   "tipo": "carico",
+   "alimento": "riso-basmati",
+   "g": 1000,
+   "rif": "lista:riso-basmati"
   }
  ],
  "rimossi": [
