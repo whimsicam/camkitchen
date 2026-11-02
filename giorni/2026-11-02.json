@@ -493,6 +493,14 @@
    "alimento": "yogurt-greco-bianco",
    "g": 1020,
    "rif": "lista:yogurt-greco-bianco"
+  },
+  {
+   "id": "mvznil7kxem2",
+   "t": "2026-11-02T20:27:57+01:00",
+   "tipo": "carico",
+   "alimento": "latte-soia",
+   "g": 2000,
+   "rif": "lista:latte-soia"
   }
  ],
  "rimossi": [
