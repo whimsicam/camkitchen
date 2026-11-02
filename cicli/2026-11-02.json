@@ -37,7 +37,7 @@
    "testo": "1 confezione",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "insalata",
