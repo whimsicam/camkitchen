@@ -381,6 +381,14 @@
    "alimento": "kiwi",
    "nuovo_pz": 3,
    "motivo": "correzione"
+  },
+  {
+   "id": "mvzn47r7mibv",
+   "t": "2026-11-02T20:16:46+01:00",
+   "tipo": "carico",
+   "alimento": "banana",
+   "g": 1200,
+   "rif": "lista:banana"
   }
  ],
  "rimossi": [
