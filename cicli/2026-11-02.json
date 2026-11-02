@@ -64,7 +64,7 @@
    "testo": "1 sacchetto",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "pomodorini",
