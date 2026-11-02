@@ -1,0 +1,35 @@
+{
+ "data": "2026-11-02",
+ "giornata": {
+  "colazione": {
+   "voci": [
+    {
+     "alimento": "te",
+     "pz": 1
+    },
+    {
+     "alimento": "miele",
+     "g": 12
+    }
+   ]
+  },
+  "spuntino": "fatto"
+ },
+ "pranzo": null,
+ "eventi": [
+  {
+   "id": "mvzaa9mzupxr",
+   "t": "2026-11-02T14:17:33+01:00",
+   "tipo": "fuori",
+   "pasto": "pranzo",
+   "nome": "Cannelloni ricotta e spinaci",
+   "kcal": 704,
+   "prot": 29
+  }
+ ],
+ "rimossi": [
+  "mvz7ylgmvue1",
+  "mvz82tkpenfb",
+  "mvza9nv4bv49"
+ ]
+}
