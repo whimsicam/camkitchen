@@ -405,6 +405,14 @@
    "alimento": "mandorle",
    "g": 200,
    "rif": "lista:mandorle"
+  },
+  {
+   "id": "mvzn6575rzrd",
+   "t": "2026-11-02T20:18:16+01:00",
+   "tipo": "carico",
+   "alimento": "insalata",
+   "g": 375,
+   "rif": "lista:insalata"
   }
  ],
  "rimossi": [
