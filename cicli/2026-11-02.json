@@ -46,7 +46,7 @@
    "testo": "3 buste",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "maionese-calve",
