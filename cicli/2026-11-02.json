@@ -136,7 +136,7 @@
    "testo": "2 caschi",
    "gruppo": "giornata",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "latte-soia",
