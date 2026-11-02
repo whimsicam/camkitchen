@@ -431,14 +431,6 @@
    "rif": "lista:pomodorini"
   },
   {
-   "id": "mvznauk381l1",
-   "t": "2026-11-02T20:21:56+01:00",
-   "tipo": "carico",
-   "alimento": "hamburger-pollo",
-   "g": 200,
-   "rif": "lista:hamburger-pollo"
-  },
-  {
    "id": "mvzndbwvdgpd",
    "t": "2026-11-02T20:23:51+01:00",
    "tipo": "carico",
@@ -501,6 +493,14 @@
    "alimento": "latte-soia",
    "g": 2000,
    "rif": "lista:latte-soia"
+  },
+  {
+   "id": "mvznncaxvw6o",
+   "t": "2026-11-02T20:31:38+01:00",
+   "tipo": "carico",
+   "alimento": "hamburger-pollo",
+   "g": 200,
+   "rif": "lista:hamburger-pollo"
   }
  ],
  "rimossi": [
@@ -508,6 +508,7 @@
   "mvz82tkpenfb",
   "mvza9nv4bv49",
   "mvzidh3ieav6",
-  "mvznha3o0qfj"
+  "mvznha3o0qfj",
+  "mvznauk381l1"
  ]
 }
