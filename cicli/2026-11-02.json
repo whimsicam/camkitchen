@@ -73,7 +73,7 @@
    "testo": "2 vaschette",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "uova",
