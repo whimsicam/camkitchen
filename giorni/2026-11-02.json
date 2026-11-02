@@ -25,6 +25,342 @@
    "nome": "Cannelloni ricotta e spinaci",
    "kcal": 704,
    "prot": 29
+  },
+  {
+   "id": "mvzh784dpk5b",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "latte-soia",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784ddryb",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "hamburger-pollo",
+   "nuovo_g": 100,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d9mwd",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "hamburger-scottona",
+   "nuovo_g": 360,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dtpmu",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "petto-pollo",
+   "nuovo_g": 500,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784djl5h",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "salsiccia",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dmnpe",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "confettura-fichi",
+   "nuovo_g": 330,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d2f1h",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "crema-arachidi",
+   "nuovo_g": 175,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784duk0s",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "miele",
+   "nuovo_g": 500,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dn5c0",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "nascondini",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d2trp",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "maionese-calve",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dmz7e",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "olio-evo",
+   "nuovo_g": 1000,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dcnlj",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "salsa-soia",
+   "nuovo_g": 150,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dhao7",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "brodo-vegetale",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dvkzc",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "farina",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dfmsc",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "pasta",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dugx7",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "riso-basmati",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784de6fr",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "riso-carnaroli",
+   "nuovo_g": 1000,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d7fax",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "banana",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dnfgs",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "kiwi",
+   "nuovo_g": 75,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dnkul",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "limone",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dpvw1",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "mirtilli",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dl4ky",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "mandorle",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dr1y4",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "noci",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dy3dc",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "whey-yamamoto",
+   "nuovo_g": 1000,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dln14",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "grana-cubetti",
+   "nuovo_g": 75,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dzelf",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "grana-grattugiato",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dr0pc",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "philadelphia-light",
+   "nuovo_g": 100,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d5m7t",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-bianco",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d8x8l",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-vaniglia",
+   "nuovo_g": 1020,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dpm2g",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "pane-proteico",
+   "nuovo_g": 210,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784drzki",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "salmone-affumicato",
+   "nuovo_g": 100,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dij0j",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "tonno-naturale",
+   "nuovo_g": 320,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d6tw0",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "bresaola",
+   "nuovo_g": 180,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784du0aw",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "crackers-pavesi",
+   "nuovo_g": 100,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dejuj",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "pesto-rosso-mutti",
+   "nuovo_g": 180,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dfo71",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "uova",
+   "nuovo_g": 165,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784douto",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "kioene-zucca-carote",
+   "nuovo_g": 200,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d0csg",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "cipolla",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d3397",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "insalata",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d5ni5",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "patate",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784dof9c",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "pomodorini",
+   "nuovo_g": 0,
+   "motivo": "inventario"
+  },
+  {
+   "id": "mvzh784d9uxj",
+   "t": "2026-11-02T17:31:09+01:00",
+   "tipo": "rettifica",
+   "alimento": "zucca",
+   "nuovo_g": 0,
+   "motivo": "inventario"
   }
  ],
  "rimossi": [
