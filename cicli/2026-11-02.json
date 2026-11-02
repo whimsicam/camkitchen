@@ -127,7 +127,7 @@
    "testo": "1 pacco",
    "gruppo": "pollo-limone-basmati",
    "nota": "per provare pollo al limone con riso basmati",
-   "preso": false
+   "preso": true
   },
   {
    "id": "banana",
