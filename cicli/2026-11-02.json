@@ -163,7 +163,7 @@
    "testo": "1 scatola",
    "gruppo": "giornata",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "grana-cubetti",
