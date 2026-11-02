@@ -212,5 +212,14 @@
   }
  ],
  "creato": "2026-11-02T16:31:14.904Z",
- "extra": []
+ "extra": [
+  {
+   "id": "mvzh9iwdrq2i",
+   "testo": "Melatonina",
+   "chiave": "melatonina",
+   "alimento": null,
+   "nonAlimentare": false,
+   "g": null
+  }
+ ]
 }
