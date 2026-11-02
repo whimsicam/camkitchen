@@ -145,7 +145,7 @@
    "testo": "2 brick",
    "gruppo": "giornata",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "bresaola",
@@ -208,7 +208,7 @@
    "testo": "6 vasetti",
    "gruppo": "giornata",
    "nota": "",
-   "preso": false
+   "preso": true
   }
  ],
  "creato": "2026-11-02T16:31:14.904Z",
