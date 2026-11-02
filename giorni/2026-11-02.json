@@ -373,6 +373,14 @@
    "alimento": "zucca",
    "nuovo_g": 0,
    "motivo": "inventario"
+  },
+  {
+   "id": "mvzmrcc6b5s1",
+   "t": "2026-11-02T20:06:45+01:00",
+   "tipo": "rettifica",
+   "alimento": "kiwi",
+   "nuovo_pz": 3,
+   "motivo": "correzione"
   }
  ],
  "rimossi": [
