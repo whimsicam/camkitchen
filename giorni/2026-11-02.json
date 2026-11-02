@@ -437,6 +437,22 @@
    "alimento": "hamburger-pollo",
    "g": 200,
    "rif": "lista:hamburger-pollo"
+  },
+  {
+   "id": "mvzndbwvdgpd",
+   "t": "2026-11-02T20:23:51+01:00",
+   "tipo": "carico",
+   "alimento": "nascondini",
+   "g": 329.4,
+   "rif": "lista:nascondini"
+  },
+  {
+   "id": "mvzndccz5lru",
+   "t": "2026-11-02T20:23:52+01:00",
+   "tipo": "carico",
+   "alimento": "te",
+   "g": 40,
+   "rif": "lista:te"
   }
  ],
  "rimossi": [
