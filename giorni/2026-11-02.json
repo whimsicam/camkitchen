@@ -487,8 +487,8 @@
    "rif": "lista:uova"
   },
   {
-   "id": "mvznha3o0qfj",
-   "t": "2026-11-02T20:26:56+01:00",
+   "id": "mvznhd8aafa8",
+   "t": "2026-11-02T20:27:00+01:00",
    "tipo": "carico",
    "alimento": "yogurt-greco-bianco",
    "g": 1020,
@@ -499,6 +499,7 @@
   "mvz7ylgmvue1",
   "mvz82tkpenfb",
   "mvza9nv4bv49",
-  "mvzidh3ieav6"
+  "mvzidh3ieav6",
+  "mvznha3o0qfj"
  ]
 }
