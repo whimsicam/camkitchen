@@ -477,6 +477,14 @@
    "alimento": "bresaola",
    "g": 90,
    "rif": "lista:bresaola"
+  },
+  {
+   "id": "mvznfqp5rgyt",
+   "t": "2026-11-02T20:25:44+01:00",
+   "tipo": "carico",
+   "alimento": "uova",
+   "g": 330,
+   "rif": "lista:uova"
   }
  ],
  "rimossi": [
