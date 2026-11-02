@@ -1,0 +1,216 @@
+{
+ "id": "2026-11-02",
+ "dal": "2026-11-02",
+ "al": "2026-11-07",
+ "piatti": [
+  {
+   "ricetta": "burger-pollo-patate",
+   "pasto": "cena"
+  },
+  {
+   "ricetta": "burger-manzo-patate",
+   "pasto": "cena"
+  },
+  {
+   "ricetta": "burger-manzo-patate",
+   "pasto": "cena"
+  },
+  {
+   "ricetta": "pollo-limone-basmati",
+   "pasto": "pranzo",
+   "nuovo": true
+  },
+  {
+   "ricetta": "frittata-patate",
+   "pasto": "cena"
+  },
+  {
+   "ricetta": "toast-salmone",
+   "pasto": "cena"
+  }
+ ],
+ "lista": [
+  {
+   "id": "hamburger-pollo",
+   "alimento": "hamburger-pollo",
+   "g": 200,
+   "testo": "1 confezione",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "insalata",
+   "alimento": "insalata",
+   "g": 375,
+   "testo": "3 buste",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "maionese-calve",
+   "alimento": "maionese-calve",
+   "g": 225,
+   "testo": "1 vasetto",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "patate",
+   "alimento": "patate",
+   "g": 1500,
+   "testo": "1 sacchetto",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "pomodorini",
+   "alimento": "pomodorini",
+   "g": 500,
+   "testo": "2 vaschette",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "uova",
+   "alimento": "uova",
+   "g": 330,
+   "testo": "6",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "grana-grattugiato",
+   "alimento": "grana-grattugiato",
+   "g": 100,
+   "testo": "1 busta",
+   "gruppo": "frittata-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "pane-proteico",
+   "alimento": "pane-proteico",
+   "g": 280,
+   "testo": "1 confezione",
+   "gruppo": "frittata-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "farina",
+   "alimento": "farina",
+   "g": 1000,
+   "testo": "1 pacco",
+   "gruppo": "pollo-limone-basmati",
+   "nota": "per provare pollo al limone con riso basmati",
+   "preso": false
+  },
+  {
+   "id": "limone",
+   "alimento": "limone",
+   "g": 400,
+   "testo": "1 retina",
+   "gruppo": "pollo-limone-basmati",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "riso-basmati",
+   "alimento": "riso-basmati",
+   "g": 1000,
+   "testo": "1 pacco",
+   "gruppo": "pollo-limone-basmati",
+   "nota": "per provare pollo al limone con riso basmati",
+   "preso": false
+  },
+  {
+   "id": "banana",
+   "alimento": "banana",
+   "g": 1200,
+   "testo": "2 caschi",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "latte-soia",
+   "alimento": "latte-soia",
+   "g": 2000,
+   "testo": "2 brick",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "bresaola",
+   "alimento": "bresaola",
+   "g": 90,
+   "testo": "1 vaschetta",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "crackers-pavesi",
+   "alimento": "crackers-pavesi",
+   "g": 250,
+   "testo": "1 scatola",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "grana-cubetti",
+   "alimento": "grana-cubetti",
+   "g": 150,
+   "testo": "1 confezione",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "mandorle",
+   "alimento": "mandorle",
+   "g": 200,
+   "testo": "1 busta",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "nascondini",
+   "alimento": "nascondini",
+   "g": 329.4,
+   "testo": "1 confezione",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "te",
+   "alimento": "te",
+   "g": 40,
+   "testo": "1 scatola",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "yogurt-greco-bianco",
+   "alimento": "yogurt-greco-bianco",
+   "g": 1020,
+   "testo": "6 vasetti",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  }
+ ],
+ "creato": "2026-11-02T16:31:14.904Z",
+ "extra": []
+}
