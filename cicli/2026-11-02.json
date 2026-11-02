@@ -181,7 +181,7 @@
    "testo": "1 busta",
    "gruppo": "giornata",
    "nota": "",
-   "preso": false
+   "preso": true
   },
   {
    "id": "nascondini",
