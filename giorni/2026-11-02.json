@@ -453,6 +453,22 @@
    "alimento": "te",
    "g": 40,
    "rif": "lista:te"
+  },
+  {
+   "id": "mvzne9vix11u",
+   "t": "2026-11-02T20:24:35+01:00",
+   "tipo": "carico",
+   "alimento": "grana-cubetti",
+   "g": 150,
+   "rif": "lista:grana-cubetti"
+  },
+  {
+   "id": "mvznec85mjfy",
+   "t": "2026-11-02T20:24:38+01:00",
+   "tipo": "carico",
+   "alimento": "crackers-pavesi",
+   "g": 250,
+   "rif": "lista:crackers-pavesi"
   }
  ],
  "rimossi": [
