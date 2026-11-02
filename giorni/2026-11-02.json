@@ -397,6 +397,14 @@
    "alimento": "riso-basmati",
    "g": 1000,
    "rif": "lista:riso-basmati"
+  },
+  {
+   "id": "mvzn568ycfam",
+   "t": "2026-11-02T20:17:31+01:00",
+   "tipo": "carico",
+   "alimento": "mandorle",
+   "g": 200,
+   "rif": "lista:mandorle"
   }
  ],
  "rimossi": [
