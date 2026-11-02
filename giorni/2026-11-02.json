@@ -13,7 +13,19 @@
     }
    ]
   },
-  "spuntino": "fatto"
+  "spuntino": "fatto",
+  "merenda": {
+   "voci": [
+    {
+     "alimento": "grana-cubetti",
+     "g": 26
+    },
+    {
+     "alimento": "bresaola",
+     "g": 45
+    }
+   ]
+  }
  },
  "pranzo": null,
  "eventi": [
