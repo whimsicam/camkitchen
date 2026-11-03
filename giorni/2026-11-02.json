@@ -501,6 +501,15 @@
    "alimento": "hamburger-pollo",
    "g": 200,
    "rif": "lista:hamburger-pollo"
+  },
+  {
+   "id": "mw0e969zre6x",
+   "t": "2026-11-03T08:56:27+01:00",
+   "tipo": "pasto",
+   "pasto": "cena",
+   "ricetta": "burger-pollo-patate",
+   "porzione": 1,
+   "ciclo": "2026-11-02"
   }
  ],
  "rimossi": [
