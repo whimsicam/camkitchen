@@ -16,6 +16,14 @@
      "pz": 3
     }
    ]
+  },
+  "spuntino": {
+   "voci": [
+    {
+     "alimento": "yogurt-greco-bianco",
+     "pz": 1
+    }
+   ]
   }
  },
  "pranzo": null,
