@@ -53,15 +53,6 @@
    "preso": true
   },
   {
-   "id": "maionese-calve",
-   "alimento": "maionese-calve",
-   "g": 225,
-   "testo": "1 vasetto",
-   "gruppo": "burger-pollo-patate",
-   "nota": "",
-   "preso": false
-  },
-  {
    "id": "patate",
    "alimento": "patate",
    "g": 1500,
@@ -87,42 +78,6 @@
    "gruppo": "burger-pollo-patate",
    "nota": "",
    "preso": true
-  },
-  {
-   "id": "grana-grattugiato",
-   "alimento": "grana-grattugiato",
-   "g": 100,
-   "testo": "1 busta",
-   "gruppo": "frittata-patate",
-   "nota": "",
-   "preso": false
-  },
-  {
-   "id": "pane-proteico",
-   "alimento": "pane-proteico",
-   "g": 280,
-   "testo": "1 confezione",
-   "gruppo": "frittata-patate",
-   "nota": "",
-   "preso": false
-  },
-  {
-   "id": "farina",
-   "alimento": "farina",
-   "g": 1000,
-   "testo": "1 pacco",
-   "gruppo": "pollo-limone-basmati",
-   "nota": "per provare pollo al limone con riso basmati",
-   "preso": false
-  },
-  {
-   "id": "limone",
-   "alimento": "limone",
-   "g": 400,
-   "testo": "1 retina",
-   "gruppo": "pollo-limone-basmati",
-   "nota": "",
-   "preso": false
   },
   {
    "id": "riso-basmati",
@@ -213,6 +168,51 @@
    "gruppo": "giornata",
    "nota": "",
    "preso": true
+  },
+  {
+   "id": "maionese-calve",
+   "alimento": "maionese-calve",
+   "g": 225,
+   "testo": "1 vasetto",
+   "gruppo": "burger-manzo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "grana-grattugiato",
+   "alimento": "grana-grattugiato",
+   "g": 100,
+   "testo": "1 busta",
+   "gruppo": "frittata-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "pane-proteico",
+   "alimento": "pane-proteico",
+   "g": 280,
+   "testo": "1 confezione",
+   "gruppo": "frittata-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "farina",
+   "alimento": "farina",
+   "g": 1000,
+   "testo": "1 pacco",
+   "gruppo": "pollo-limone-basmati",
+   "nota": "per provare pollo al limone con riso basmati",
+   "preso": false
+  },
+  {
+   "id": "limone",
+   "alimento": "limone",
+   "g": 400,
+   "testo": "1 retina",
+   "gruppo": "pollo-limone-basmati",
+   "nota": "",
+   "preso": false
   }
  ],
  "creato": "2026-11-02T16:31:14.904Z",
