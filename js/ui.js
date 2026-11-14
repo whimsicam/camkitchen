@@ -20,25 +20,9 @@ export function mascot(cls = '') {
 </g></svg>`;
 }
 
-/* disegno di una ricetta: il PNG se esiste, altrimenti l'illustrazione di categoria */
-export function arte(ricettaId, cls = '') {
-  const r = S.R[ricettaId];
-  const cat = (r && r.categoria_disegno) || 'piatto';
-  const fallback = `disegni/categorie/${cat}.svg`;
-  const src = r && r.disegno ? r.disegno : fallback;
-  return `<img class="${cls}" src="${src}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">`;
-}
-export const TINT = { primi: '#F3DCC9', secondi: '#E4EAD3', uova: '#F6E7B8', veloci: '#EAD9D2', nuovo: '#E3E0EE', altro: '#F1EBC4' };
-export function tinta(ricettaId) {
-  const r = S.R[ricettaId]; if (!r) return '#FBF5E8';
-  if (r.nuovo) return TINT.nuovo;
-  const c = (r.capitolo || '').toLowerCase();
-  if (c.startsWith('primi')) return TINT.primi;
-  if (c.startsWith('secondi')) return TINT.secondi;
-  if (c.startsWith('uova')) return TINT.uova;
-  if (c.startsWith('veloci')) return TINT.veloci;
-  return TINT.altro;
-}
+/* niente disegni dei piatti e una sola tinta: restano solo crema e blu */
+export const arte = () => '';
+export const tinta = () => 'transparent';
 export const breve = id => { const r = S.R[id]; if (!r) return id; return r.breve || r.nome.split(/ (con|e|al|alla|di) /)[0]; };
 
 /* fogli dal basso */

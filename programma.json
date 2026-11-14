@@ -7,7 +7,11 @@
   "kcal_min": 2700,
   "kcal_max": 2900,
   "proteine_min": 125,
-  "frutta_verdura_porzioni": 4
+  "frutta_verdura_porzioni": 4,
+  "peso_settimana": [
+   0.25,
+   0.4
+  ]
  },
  "data_inizio": "2026-11-03",
  "giornata_tipo": [
@@ -81,7 +85,8 @@
       }
      ]
     }
-   ]
+   ],
+   "piano": "tè con 1 cucchiaino di miele, 3 Nascondini, 1 fetta di pane proteico con 1 cucchiaio di crema di arachidi e 1 di confettura"
   },
   {
    "id": "spuntino",
@@ -99,7 +104,8 @@
      "n": 2,
      "u": "cucchiaino"
     }
-   ]
+   ],
+   "piano": "yogurt greco bianco con 2 cucchiaini di confettura di fichi"
   },
   {
    "id": "merenda",
@@ -149,7 +155,8 @@
       }
      ]
     }
-   ]
+   ],
+   "piano": "5 cubetti di Grana, mezza vaschetta di bresaola, 1 pacchetto di crackers, una manciata di mandorle"
   },
   {
    "id": "shake",
@@ -167,7 +174,8 @@
      "alimento": "latte-soia",
      "g": 250
     }
-   ]
+   ],
+   "piano": "1 dose di whey nel latte di soia; nei giorni di palestra dopo l'allenamento"
   },
   {
    "id": "frutta",
@@ -180,7 +188,8 @@
      "alimento": "banana",
      "pz": 1
     }
-   ]
+   ],
+   "piano": "banana, kiwi o mirtilli"
   }
  ],
  "pranzo": {
@@ -190,7 +199,7 @@
    "kcal": 750,
    "prot": 32
   },
-  "mensa_schema": "~750 kcal e 35–40 g di proteine: una porzione piena di proteina, una normale di carboidrato, verdura. Con un piatto unico ricco, cena più magra di grassi."
+  "mensa_schema": "una proteina piena (pollo, pesce, carne, uova o legumi), un carboidrato (riso, pasta, patate o pane) e verdura. Con un piatto unico ricco, a cena meno grassi"
  },
  "menu": {
   "rotazione_cene": [
@@ -208,11 +217,26 @@
    "pasta-pesto-tonno"
   ],
   "piatti_nuovi_per_ciclo": 1,
-  "durata_default_giorni": 9
+  "durata_default_giorni": 9,
+  "cene_per_ciclo": 4
  },
  "regole": {
   "sgarro": "Un piatto marcato come sgarro è libero ma si registra: entra nelle medie.",
   "pasti_fuori": "Nessuna quota: se si mangia fuori, il piatto previsto passa al ciclo successivo.",
-  "porzione_frutta_verdura_g": 80
+  "porzione_frutta_verdura_g": 80,
+  "aggiustamento": [
+   [
+    "peso fermo per 2–3 settimane",
+    "+200 kcal"
+   ],
+   [
+    "più di 0,5 kg a settimana",
+    "−150/200 kcal"
+   ],
+   [
+    "ogni 2 settimane",
+    "controllo con CAM Gym"
+   ]
+  ]
  }
 }

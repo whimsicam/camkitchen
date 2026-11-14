@@ -3,16 +3,16 @@ import { S, caricaLocale, caricaProgramma, caricaGym, sincronizza, saveUI, oggi,
 import { $, NAV, ICON, closeSheet, closeOverlay, mascot } from './ui.js';
 import { azioneMenu, initFlows } from './menu.js';
 import { vistaOggi, azioneOggi } from './oggi.js';
-import { vistaInArrivo, azioneAltro } from './other.js';
+import { azioneAltro } from './other.js';
+import { vistaPiano } from './piano.js';
 import { vistaSpesa, azioneSpesa, inviaAggiunta } from './spesa.js';
-import { vistaRicettario, azioneRicettario, cercaRicette } from './ricettario.js';
-import { paginaRicetta } from './menu.js';
+import { vistaRicettario, azioneRicettario } from './ricettario.js';
 
 const VISTE = {
   menu: vistaOggi,
   ricettario: vistaRicettario,
   spesa: vistaSpesa,
-  progressi: () => vistaInArrivo('Il piano', 'progressi', 'Cosa mangiare, andamento del peso da CAM Gym e regole di aggiustamento. In arrivo.'),
+  progressi: vistaPiano,
 };
 
 function vista() { return VISTE[S.ui.v] ? S.ui.v : 'menu'; }
@@ -44,7 +44,7 @@ export function render() {
     // una schermata rotta non deve bloccare l'app: si azzera solo lo stato della schermata, mai i dati
     corpo = `<div class="wip">${mascot()}<b>Questa schermata si è inceppata</b><small>I tuoi dati sono al sicuro. Tocca qui sotto per ripartire.</small><button class="pill solid" data-act="reset-ui">Ripristina la schermata</button><small style="font-size:11px">${String(err && err.message || err).replace(/</g, '&lt;')}</small></div>`;
   }
-  $('main').innerHTML = (v === 'menu' ? '' : top) + banner + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${corpo}</div>`;
+  $('main').innerHTML = banner + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${corpo}</div>`;
   if (v === ultimaVista) window.scrollTo(0, y);
   ultimaVista = v;
   renderNav();
@@ -62,7 +62,6 @@ document.addEventListener('click', async e => {
   const act = el.dataset.act;
   if (act === 'reset-ui') { const v = S.ui.v; S.ui = { v: 'menu', sel: oggi(), selGiorno: oggi(), coachVisto: S.ui.coachVisto }; saveUI(); render(); return; }
   let r = azioneRicettario(act, el);
-  if (r === 'recipe') { paginaRicetta(el.dataset.r); return; }
   if (r === null) r = azioneOggi(act, el);
   if (r === null) r = azioneMenu(act, el);
   if (r === null) r = azioneSpesa(act, el);
@@ -71,8 +70,6 @@ document.addEventListener('click', async e => {
 });
 
 document.addEventListener('submit', e => {
-  const rq = e.target.closest('[data-form="rq"]');
-  if (rq) { e.preventDefault(); const i = rq.querySelector('input'); cercaRicette(i.value); i.blur(); rinviato = false; render(); return; }
   const f = e.target.closest('[data-form="add"]'); if (!f) return;
   e.preventDefault(); const i = f.querySelector('input'); inviaAggiunta(i.value); i.value = ''; rinviato = false; render(); const n = document.getElementById('addq'); if (n) n.focus();
 });

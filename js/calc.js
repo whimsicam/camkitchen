@@ -164,11 +164,12 @@ function ultimaCenaBase() {
 export function generaCiclo(dal, nGiorni) {
   const al = addDays(dal, nGiorni - 1), M = S.prog.menu;
   const prec = cicloDi(addDays(dal, -1));
-  const riportati = prec ? statoCiclo(prec).filter(p => !p.fatto && !p.da_scartare).map(p => ({ ricetta: p.ricetta, pasto: p.pasto, ...(p.nuovo ? { nuovo: true } : {}), da_ciclo: prec.id })) : [];
+  // i piatti non fatti si riportano solo se il ciclo precedente è appena finito
+  const riportati = prec && giorniTra(prec.al, dal) <= 3 ? statoCiclo(prec).filter(p => !p.fatto && !p.da_scartare).map(p => ({ ricetta: p.ricetta, pasto: p.pasto, ...(p.nuovo ? { nuovo: true } : {}), da_ciclo: prec.id })) : [];
   const piatti = [...riportati];
   // cene in rotazione, ripartendo dopo l'ultima cena base fatta
   const rot = M.rotazione_cene; let i = (rot.indexOf(ultimaCenaBase()) + 1) % rot.length;
-  while (piatti.filter(p => p.pasto === 'cena').length < nGiorni) { piatti.push({ ricetta: rot[i], pasto: 'cena' }); i = (i + 1) % rot.length; }
+  while (piatti.filter(p => p.pasto === 'cena').length < Math.min(nGiorni, M.cene_per_ciclo || nGiorni)) { piatti.push({ ricetta: rot[i], pasto: 'cena' }); i = (i + 1) % rot.length; }
   // pranzi del weekend
   const weekend = [...Array(nGiorni)].map((_, k) => addDays(dal, k)).filter(isWeekend);
   const pw = M.pranzi_weekend.filter(id => S.R[id] && !S.R[id].nuovo); let j = 0;
@@ -202,7 +203,7 @@ export function confezioni(alimento, g) {
   if (c.g) { const n = Math.max(1, Math.ceil(g / c.g - 0.05)); return { n, g: n * c.g, testo: n === 1 ? `1 ${c.nome || 'confezione'}` : `${n} ${plurale(c.nome || 'confezione')}` }; }
   return { n: 1, g: Math.ceil(g), testo: `${fmt(g)} g` };
 }
-function plurale(s) {
+export function plurale(s) {
   const irr = { vasetto: 'vasetti', pacco: 'pacchi', confezione: 'confezioni', vaschetta: 'vaschette', busta: 'buste', bottiglia: 'bottiglie', brick: 'brick', scatola: 'scatole', barattolo: 'barattoli', retina: 'retine', casco: 'caschi', sacchetto: 'sacchetti', spicchio: 'spicchi', hamburger: 'hamburger' };
   return irr[s] || s;
 }

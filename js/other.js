@@ -1,11 +1,6 @@
-// CAM Kitchen: impostazioni e schede ancora in costruzione.
+// CAM Kitchen: impostazioni.
 import { S, cfg, setCfg, sincronizza, provaConnessione, esporta, caricaGym } from './store.js';
 import { $, esc, toast, mascot, illo, openOverlay, closeOverlay } from './ui.js';
-
-export function vistaInArrivo(nome, illoNome, testo) {
-  return `<div><span class="lab">CAM Kitchen</span><h1 class="ttl" style="margin-top:6px">${nome}</h1></div>
-  <div class="wip">${mascot()}<b>Camillo ci sta lavorando</b><small>${testo}</small></div>`;
-}
 
 export function apriImpostazioni(msg = '') {
   const c = cfg();

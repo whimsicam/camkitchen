@@ -3,7 +3,8 @@ import { S, giorno, salvaGiorno, salvaCiclo, oggi, saveUI, cfg } from './store.j
 import { fmt, macroRicetta, dispensa, statoIngredienti, totaliGiorno, cicloDi, quantitaTesto, tolti } from './calc.js';
 import { $, esc, toast, mascot, arte, tinta, illo, closeOverlay } from './ui.js';
 
-const F = () => (S.ui.rf = S.ui.rf || { tempo: -1, voglia: -1, novita: -1, casa: false, piano: 0, q: '', cap: '', pasto: '' });
+// restano solo i tre cursori: gli altri filtri della versione precedente si azzerano
+const F = () => { const v = S.ui.rf || {}; return (S.ui.rf = { tempo: v.tempo ?? -1, voglia: v.voglia ?? -1, novita: v.novita ?? -1, casa: false, piano: 0, q: '', cap: '', pasto: '' }); };
 const CH = [
   ['tempo', 'Tempo', [['Veloce', 'fino a 15′'], ['Normale', '15–30′'], ['Con calma', 'oltre 30′']]],
   ['voglia', 'Voglia', [['Poca', 'pochi passaggi'], ['Un po\'', 'qualche tecnica'], ['Tanta', 'mi impegno']]],
@@ -54,48 +55,34 @@ function risultati() {
 }
 
 /* ---------- vista ---------- */
+let scrivo = false;
 export function vistaRicettario() {
-  const f = F(), res = risultati(), h = storico();
+  const f = F(), res = risultati();
   const tutte = Object.values(S.R).sort((a, b) => (a.capitolo || '').localeCompare(b.capitolo || '') || a.nome.localeCompare(b.nome));
-  const pagina = Object.fromEntries(tutte.map((r, i) => [r.id, i + 1]));
-  const capitoli = [...new Set(tutte.map(r => r.capitolo || 'Altro'))];
+  const pagina = Object.fromEntries(tutte.map((r, i) => [r.id, String(i + 1).padStart(2, '0')]));
+  const cap = r => (r.nuovo ? 'nuovo' : (r.capitolo || 'ricetta').split(' ')[0].toLowerCase());
   const card = x => {
-    const r = x.r, t = macroRicetta(r.id), voto = h[r.id] && h[r.id].voto;
-    const via = tolti(r.id);
-    const ing = r.ingredienti.filter(i => S.A[i.alimento] && S.A[i.alimento].traccia_dispensa !== false && !via.has(i.alimento)).slice(0, 8).map(i => { const a = S.A[i.alimento], n = (a.alias && a.alias[0]) || a.nome; return n.charAt(0).toUpperCase() + n.slice(1); });
-    const stato = !x.tracciata ? '' : x.mancanti.length ? `<span class="st no">manca ${esc(x.mancanti[0].nome.toLowerCase())}${x.mancanti.length > 1 ? ` e altri ${x.mancanti.length - 1}` : ''}</span>` : '<span class="st ok">hai tutto in casa</span>';
-    return `<button class="page tea" data-act="pg" data-r="${r.id}"><span class="tea-h"><span class="lab">${esc(r.nuovo ? 'Da provare' : r.capitolo || 'Ricetta')}</span><span class="lab num">p. ${pagina[r.id]}</span></span><h4>${esc(r.nome)}</h4><span class="tea-sub">${esc(r.tecnica ? r.tecnica.nome : r.sottotitolo || '')}</span><span class="art">${arte(r.id)}</span><ul class="tea-ing">${ing.map(n => `<li>${esc(n)}</li>`).join('')}</ul><span class="tea-meta num">${r.tempo_min}′ · ${fmt(t.kcal)} kcal · ${fmt(t.prot)} g di proteine</span>${stato}<span class="tea-cut"></span><span class="tea-f"><span class="tea-brand">${mascot('xs')}<span>CAM<br>Kitchen</span></span><span class="tea-stars">${voto ? '★'.repeat(Math.round(voto)) + '☆'.repeat(5 - Math.round(voto)) : r.nuovo ? 'da provare' : '☆☆☆☆☆'}</span></span></button>`;
+    const r = x.r, t = macroRicetta(r.id);
+    const stato = !x.tracciata ? '' : x.mancanti.length ? `manca ${x.mancanti[0].nome.toLowerCase()}${x.mancanti.length > 1 ? ` e altri ${x.mancanti.length - 1}` : ''}` : 'hai tutto in casa';
+    return `<button class="rcard" data-act="recipe" data-r="${r.id}"><span class="lab">${pagina[r.id]} · ${esc(cap(r))}</span><span class="rc-b"><span class="rc-n">${esc(r.nome)}</span>${stato ? `<small>${esc(stato)}</small>` : ''}<span class="rc-m num">${fmt(t.kcal)} kcal · ${fmt(t.prot)} g prot · ${r.tempo_min}′</span></span></button>`;
   };
-  const filtriAttivi = f.tempo >= 0 || f.voglia >= 0 || f.novita >= 0 || f.casa || f.piano || f.q || f.cap || f.pasto;
-  const miei = Object.entries(h).filter(([id]) => S.R[id]).sort((a, b) => b[1].ultima.localeCompare(a[1].ultima));
-  return `<div class="two">
-  <section class="col">
-    <div><span class="lab">Il ricettario di CAM</span><h1 class="ttl" style="margin-top:6px">Cosa cucino?</h1></div>
-    <form class="search" data-form="rq"><svg class="ico" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg><input id="rq" value="${esc(f.q)}" placeholder="Un ingrediente o un piatto" autocomplete="off" enterkeyhint="search">${f.q ? `<button type="button" class="link" data-act="rq-x">×</button>` : ''}</form>
-    <div class="choose">${CH.map(([k, l, ops]) => `<div class="sl" data-k="${k}"><span class="lab">${l}</span><div class="sl-line">${ops.map((o, i) => `<button class="opt ${f[k] === i ? 'on' : ''}" data-act="rf" data-k="${k}" data-i="${i}"><i></i><span>${o[0]}</span><small>${o[1]}</small></button>`).join('')}</div></div>`).join('')}</div>
-    <div class="toggles">
-      <button class="pill sm ${f.casa ? 'solid' : ''}" data-act="rf-casa">Solo con ciò che ho</button>
-      <button class="pill sm ${f.piano ? 'solid' : ''}" data-act="rf-piano">${f.piano === 2 ? 'Sgarro' : 'Dentro il piano'}</button>
-      <button class="pill sm ${f.pasto ? 'solid' : ''}" data-act="rf-pasto">${f.pasto === 'pranzo' ? 'Pranzo' : f.pasto === 'cena' ? 'Cena' : 'Pranzo o cena'}</button>
-    </div>
-    ${filtriAttivi ? `<button class="link" data-act="rf-reset" style="align-self:flex-start;padding-left:0">Togli tutti i filtri</button>` : ''}
-  </section>
-  <section class="col">
-    <div>
-      <div class="bhead"><h2>Sfoglia</h2><span class="lab num">${res.length} ${res.length === 1 ? 'ricetta' : 'ricette'}${f.cap ? ` · ${esc(f.cap)}` : ''}</span></div>
-      ${res.length ? `<div class="book" data-flow>${res.map(card).join('')}</div>` : `<div class="empty-st">${mascot()}<b>Niente con questi filtri</b><small>Allarga un filtro, oppure chiedo a Claude qualcosa di adatto.</small><button class="pill solid" data-act="ask">Chiedi a Claude</button></div>`}
-    </div>
-    <div>
-      <div class="bhead"><h2>Indice</h2><span class="lab num">${tutte.length} ricette</span></div>
-      <ul class="index">${capitoli.map(c => { const rs = tutte.filter(r => (r.capitolo || 'Altro') === c); return `<li><button data-act="rf-cap" data-c="${esc(c)}" style="${f.cap === c ? 'font-weight:600' : ''}"><b>${esc(c)}</b><span class="dots"></span><span class="pg num">${rs.length} · p. ${pagina[rs[0].id]}</span></button></li>`; }).join('')}</ul>
-    </div>
-    ${miei.length ? `<div><div class="bhead"><h2>I miei piatti</h2><span class="lab num">${miei.length} cucinati</span></div><ul class="index">${miei.map(([id, x]) => `<li><button data-act="recipe" data-r="${id}"><b>${esc(S.R[id].nome)}</b><span class="dots"></span><span class="pg num">${x.volte}× ${x.voto ? '· ' + '★'.repeat(Math.round(x.voto)) : ''}</span></button></li>`).join('')}</ul></div>` : ''}
-    <button class="ask" data-act="ask">${mascot('sm')}<span><b>Non trovi niente?</b><small>Camillo prepara la domanda per Claude con quello che hai in casa, i filtri scelti e quanto ti manca oggi.</small></span></button>
-  </section></div>`;
+  const filtriAttivi = f.tempo >= 0 || f.voglia >= 0 || f.novita >= 0;
+  return `<section class="oggi ric">
+  <h1 class="big">ricette</h1>
+  <div class="rsl">${CH.map(([k, l, ops]) => `<div class="rs"><span class="lab">${l}</span><div class="rs-l">${ops.map((o, i) => `<button class="${f[k] === i ? 'on' : ''}" data-act="rf" data-k="${k}" data-i="${i}" aria-pressed="${f[k] === i}"><i></i>${o[0].toLowerCase()}</button>`).join('')}</div></div>`).join('')}</div>
+  ${res.length ? `<div class="rcards">${res.map(card).join('')}</div>` : `<p class="og-note" style="margin:0">Nessuna ricetta con questi cursori. ${filtriAttivi ? '<button class="link" data-act="rf-reset" style="padding:0">Azzera i cursori</button>, oppure chiedi a Claude.' : ''}</p>`}
+  <div class="rask"><div class="rask-h">${mascot('sm')}<b>Chiedi a Claude</b></div>
+    <button class="pill solid" data-act="ask">con quello che ho in casa</button>
+    ${scrivo ? `<textarea id="ask-t" rows="2" placeholder="es. zucchine, uova, feta" aria-label="Cosa hai"></textarea><button class="pill" data-act="ask-invia">chiedi con questi ingredienti</button>` : `<button class="pill" data-act="ask-scrivo">ti scrivo io cosa ho</button>`}
+    <small>Dispensa, cursori e ricettario li allego io al messaggio.</small></div>
+  <div>
+    <div class="og-h"><h2>Tutto il ricettario</h2><span class="num">${tutte.length} ricette</span></div>
+    <div class="rix">${tutte.map(r => `<button data-act="recipe" data-r="${r.id}"><span class="n num">${pagina[r.id]}</span><b>${esc(r.nome)}</b><span class="dots"></span><span class="c">${esc(cap(r))}</span></button>`).join('')}</div>
+  </div></section>`;
 }
 
 /* ---------- Chiedi a Claude ---------- */
-function messaggio() {
+function messaggio(liberi = '') {
   const f = F(), disp = dispensa(), g = giorno(oggi()), t = totaliGiorno(g), T = S.prog.target;
   const casa = Object.entries(disp.saldo).filter(([id, v]) => v > 0.5 && S.A[id]).map(([id, v]) => { const a = S.A[id], c = a.confezione || {}; return `${a.nome} (${c.g_pz ? fmt(v / c.g_pz, 0) + ' pz' : fmt(v) + (a.unita === 'ml' ? ' ml' : ' g')})`; });
   const filtri = CH.filter(([k]) => f[k] >= 0).map(([k, l, ops]) => `${l.toLowerCase()}: ${ops[f[k]][0].toLowerCase()} (${ops[f[k]][1]})`);
@@ -103,13 +90,14 @@ function messaggio() {
   return [
     `Ciao Claude, ti scrivo da CAM Kitchen (progetto cam PT). Proponimi 3 ricette per ${pasto}.`,
     filtri.length ? `Filtri: ${filtri.join('; ')}.` : '',
-    f.q ? `Voglio usare: ${f.q}.` : '',
+    liberi ? `Ho questi ingredienti e voglio usarli: ${liberi}.` : '',
     f.piano === 2 ? 'Stavolta è uno sgarro: niente vincoli di kcal.' : `Oggi ho già mangiato ${fmt(t.kcal)} kcal e ${fmt(t.prot)} g di proteine; il target è ${fmt(T.kcal)} kcal e ${T.proteine_min} g. Il piatto deve stare nel piano.`,
-    casa.length ? `In casa ho: ${casa.join(', ')}.` : 'Non ho ancora fatto l\'inventario della dispensa.',
+    liberi ? '' : casa.length ? `In casa ho: ${casa.join(', ')}.` : 'Non ho ancora segnato cosa ho in casa.',
     'Sono a casa e non esco a fare la spesa: usa solo quello che ho (sale, olio, pepe e spezie ci sono sempre).',
     S.pref.nonMiPiace.length ? `Non mi piacciono: ${S.pref.nonMiPiace.map(id => S.A[id] ? S.A[id].nome.toLowerCase() : id).join(', ')}.` : '',
+    `Nel ricettario ho già: ${Object.values(S.R).map(r => r.nome).join('; ')}. Puoi propormi una di queste se è adatta, ma almeno una proposta deve essere nuova.`,
     'Segui lo standard del ricettario: ingredienti in grammi, passaggi con fuoco, tempo e segnale visivo, la tecnica che insegna e l\'errore tipico. Cerca ricette vere online e adattale.',
-    'Se una mi piace e ti dico "aggiungila", salvala nel repo camkitchen (ricette/ e indice) con la riga per il disegno.',
+    'Se una mi piace e ti dico "aggiungila", salvala nel repo camkitchen (ricette/ e indice).',
   ].filter(Boolean).join('\n');
 }
 export function apriClaude(m) {
@@ -142,17 +130,12 @@ export function azioneRicettario(act, el) {
   const f = F();
   switch (act) {
     case 'rf': { const k = el.dataset.k, i = Number(el.dataset.i); f[k] = f[k] === i ? -1 : i; saveUI(); return true; }
-    case 'rf-casa': f.casa = !f.casa; saveUI(); return true;
-    case 'rf-piano': f.piano = (f.piano + 1) % 3; saveUI(); return true;
-    case 'rf-pasto': f.pasto = f.pasto === '' ? 'cena' : f.pasto === 'cena' ? 'pranzo' : ''; saveUI(); return true;
-    case 'rf-cap': f.cap = f.cap === el.dataset.c ? '' : el.dataset.c; saveUI(); return true;
     case 'rf-reset': S.ui.rf = null; saveUI(); return true;
-    case 'rq-x': f.q = ''; saveUI(); return true;
-    case 'pg': if (el.classList.contains('center')) return 'recipe'; { const b = el.parentElement; b.scrollTo({ left: el.offsetLeft + el.offsetWidth / 2 - b.clientWidth / 2, behavior: 'smooth' }); } return false;
     case 'ask': chiedi(); return false;
+    case 'ask-scrivo': scrivo = true; return true;
+    case 'ask-invia': { const t = $('ask-t').value.trim(); if (!t) { toast('Scrivi cosa hai'); return false; } scrivo = false; apriClaude(messaggio(t)); return true; }
     case 'vota': vota(el.dataset.r, Number(el.dataset.n)); closeOverlay(); return true;
     case 'al-menu': if (aggiungiAlMenu(el.dataset.r, el.dataset.q)) { closeOverlay(); return true; } return false;
   }
   return null;
 }
-export function cercaRicette(testo) { F().q = testo; saveUI(); }
