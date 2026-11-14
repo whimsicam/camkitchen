@@ -1,4 +1,10 @@
 {
- "nonMiPiace": ["cipolla"],
- "togli": {}
+ "togli": {
+  "risotto-zucca-salsiccia": [
+   "olio-evo"
+  ]
+ },
+ "nonMiPiace": [
+  "cipolla"
+ ]
 }
