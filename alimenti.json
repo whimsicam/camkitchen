@@ -1,1261 +1,194 @@
 [
- {
-  "id": "pesto-rosso-mutti",
-  "nome": "Pesto di pomodoro con olive Leccino",
-  "marca": "Mutti",
-  "categoria": "sughi",
-  "unita": "g",
-  "per100": {
-   "kcal": 238,
-   "prot": 2.7,
-   "carb": 8.2,
-   "grassi": 21,
-   "fibre": 2.4,
-   "sale": 2.6,
-   "zuccheri": 5.3,
-   "saturi": 2.7
-  },
-  "confezione": {
-   "nome": "vasetto",
-   "g": 180
-  },
-  "alias": [
-   "pesto rosso",
-   "pesto mutti",
-   "pesto di pomodoro"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta"
- },
- {
-  "id": "nascondini",
-  "nome": "Nascondini",
-  "marca": "Mulino Bianco",
-  "categoria": "colazione",
-  "unita": "pz",
-  "per100": {
-   "kcal": 483,
-   "prot": 6.7,
-   "carb": 65,
-   "grassi": 21,
-   "fibre": 3.8,
-   "sale": 0.38,
-   "zuccheri": 26,
-   "saturi": 9
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 27,
-   "g_pz": 12.2
-  },
-  "alias": [
-   "nascondini",
-   "biscotti"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta",
-  "note": "Peso a biscotto stimato: 12,2 g"
- },
- {
-  "id": "hamburger-scottona",
-  "nome": "Hamburger di scottona",
-  "marca": "Conad",
-  "categoria": "carne",
-  "unita": "pz",
-  "per100": {
-   "kcal": 214,
-   "prot": 18,
-   "carb": 1.7,
-   "grassi": 15,
-   "fibre": 0,
-   "sale": 1.6,
-   "saturi": 7.5
-  },
-  "confezione": {
-   "nome": "hamburger",
-   "pz": 1,
-   "g_pz": 180
-  },
-  "alias": [
-   "scottona",
-   "hamburger di manzo",
-   "burger di manzo"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": 5,
-  "fonte": "etichetta"
- },
- {
-  "id": "hamburger-pollo",
-  "nome": "Hamburger di pollo",
-  "marca": "Conad",
-  "categoria": "carne",
-  "unita": "pz",
-  "per100": {
-   "kcal": 132,
-   "prot": 17,
-   "carb": 0,
-   "grassi": 7.1,
-   "fibre": 0,
-   "sale": 1.2,
-   "saturi": 2.1
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 2,
-   "g_pz": 100
-  },
-  "alias": [
-   "hamburger di pollo",
-   "burger di pollo"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": 5,
-  "fonte": "etichetta"
- },
- {
-  "id": "bresaola",
-  "nome": "Bresaola Valtellina IGP",
-  "marca": "Conad",
-  "categoria": "salumi",
-  "unita": "g",
-  "per100": {
-   "kcal": 163,
-   "prot": 34,
-   "carb": 0,
-   "grassi": 3,
-   "fibre": 0,
-   "sale": 4,
-   "saturi": 1.1
-  },
-  "confezione": {
-   "nome": "vaschetta",
-   "g": 90
-  },
-  "alias": [
-   "bresaola",
-   "bresaole"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta"
- },
- {
-  "id": "kioene-zucca-carote",
-  "nome": "Mini burger zucca e carote",
-  "marca": "Kioene",
-  "categoria": "vegetale",
-  "unita": "pz",
-  "per100": {
-   "kcal": 237,
-   "prot": 9.8,
-   "carb": 16,
-   "grassi": 14,
-   "fibre": 3.7,
-   "sale": 1.3,
-   "saturi": 1.5
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 4,
-   "g_pz": 50
-  },
-  "alias": [
-   "kioene",
-   "burger vegetali",
-   "mini burger"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta"
- },
- {
-  "id": "philadelphia-light",
-  "nome": "Philadelphia Light monoporzioni",
-  "marca": "Philadelphia",
-  "categoria": "latticini",
-  "unita": "pz",
-  "per100": {
-   "kcal": 182,
-   "prot": 8.4,
-   "carb": 3.7,
-   "grassi": 15,
-   "fibre": 0.3,
-   "sale": 0.73,
-   "saturi": 9.6
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 6,
-   "g_pz": 25
-  },
-  "alias": [
-   "philadelphia",
-   "formaggio spalmabile"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "sito del produttore (da verificare in etichetta)"
- },
- {
-  "id": "yogurt-greco-vaniglia",
-  "nome": "Yogurt greco vaniglia 0%",
-  "marca": "Conad Piacersi",
-  "categoria": "latticini",
-  "unita": "pz",
-  "per100": {
-   "kcal": 76,
-   "prot": 7,
-   "carb": 12,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0.11
-  },
-  "confezione": {
-   "nome": "vasetto",
-   "pz": 1,
-   "g_pz": 170
-  },
-  "alias": [
-   "yogurt greco vaniglia"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta",
-  "note": "Da sostituire con il bianco 0%"
- },
- {
-  "id": "crema-arachidi",
-  "nome": "Crema 100% arachidi",
-  "marca": "Conad Piacersi",
-  "categoria": "colazione",
-  "unita": "g",
-  "per100": {
-   "kcal": 601,
-   "prot": 28,
-   "carb": 17,
-   "grassi": 46,
-   "fibre": 3.4,
-   "sale": 0.01,
-   "saturi": 8.6
-  },
-  "confezione": {
-   "nome": "vasetto",
-   "g": 350
-  },
-  "alias": [
-   "burro di arachidi",
-   "crema di arachidi"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta"
- },
- {
-  "id": "salmone-affumicato",
-  "nome": "Salmone affumicato norvegese",
-  "marca": "Conad",
-  "categoria": "pesce",
-  "unita": "g",
-  "per100": {
-   "kcal": 192,
-   "prot": 21,
-   "carb": 0,
-   "grassi": 12,
-   "fibre": 0,
-   "sale": 3.4
-  },
-  "confezione": {
-   "nome": "confezione",
-   "g": 100
-  },
-  "alias": [
-   "salmone",
-   "salmone affumicato"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta"
- },
- {
-  "id": "grana-cubetti",
-  "nome": "Cubetti di Grana Padano DOP",
-  "marca": "Conad",
-  "categoria": "latticini",
-  "unita": "g",
-  "per100": {
-   "kcal": 398,
-   "prot": 33,
-   "carb": 0,
-   "grassi": 29,
-   "fibre": 0,
-   "sale": 1.5,
-   "saturi": 18
-  },
-  "confezione": {
-   "nome": "confezione",
-   "g": 150
-  },
-  "alias": [
-   "grana",
-   "parmigiano",
-   "cubetti di grana"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta",
-  "note": "Peso della confezione da verificare"
- },
- {
-  "id": "salsa-soia",
-  "nome": "Salsa di soia ridotta in sale",
-  "marca": "Conad Sapori & Idee",
-  "categoria": "condimenti",
-  "unita": "ml",
-  "per100": {
-   "kcal": 100,
-   "prot": 11,
-   "carb": 14,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 7.8
-  },
-  "confezione": {
-   "nome": "bottiglia",
-   "g": 150
-  },
-  "alias": [
-   "salsa di soia",
-   "soia"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta"
- },
- {
-  "id": "confettura-fichi",
-  "nome": "Confettura extra di fichi",
-  "marca": "Zuegg",
-  "categoria": "colazione",
-  "unita": "g",
-  "per100": {
-   "kcal": 241,
-   "prot": 0.5,
-   "carb": 59,
-   "grassi": 0,
-   "fibre": 1.9,
-   "sale": 0.03,
-   "zuccheri": 56
-  },
-  "confezione": {
-   "nome": "vasetto",
-   "g": 330
-  },
-  "alias": [
-   "marmellata",
-   "confettura",
-   "marmellata di fichi"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta"
- },
- {
-  "id": "whey-yamamoto",
-  "nome": "Whey protein",
-  "marca": "Yamamoto",
-  "categoria": "integratori",
-  "unita": "g",
-  "per100": {
-   "kcal": 350,
-   "prot": 83,
-   "carb": 3.6,
-   "grassi": 0.5,
-   "fibre": 0,
-   "sale": 2.7
-  },
-  "confezione": {
-   "nome": "barattolo",
-   "g": 1000
-  },
-  "alias": [
-   "proteine",
-   "whey"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "etichetta",
-  "note": "Dose 30 g = 105 kcal, 25 g proteine. Peso del barattolo da verificare"
- },
- {
-  "id": "yogurt-greco-bianco",
-  "nome": "Yogurt greco bianco 0%",
-  "marca": "Conad Piacersi",
-  "categoria": "latticini",
-  "unita": "pz",
-  "per100": {
-   "kcal": 57,
-   "prot": 10,
-   "carb": 3.6,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0.1
-  },
-  "confezione": {
-   "nome": "vasetto",
-   "pz": 1,
-   "g_pz": 170
-  },
-  "alias": [
-   "yogurt greco",
-   "yogurt greco bianco",
-   "yogurt"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "note": "Valori medi: verificare in etichetta"
- },
- {
-  "id": "pane-proteico",
-  "nome": "Pane proteico con fibre",
-  "marca": "Conad",
-  "categoria": "pane",
-  "unita": "pz",
-  "per100": {
-   "kcal": 257,
-   "prot": 23,
-   "carb": 18,
-   "grassi": 9,
-   "fibre": 10,
-   "sale": 1.1
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 8,
-   "g_pz": 35
-  },
-  "alias": [
-   "pane proteico",
-   "pane",
-   "pane per toast"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "note": "IPOTESI (fetta ~35 g, 90 kcal, 8 g proteine): sostituire con l'etichetta"
- },
- {
-  "id": "crackers-pavesi",
-  "nome": "Crackers salati",
-  "marca": "Pavesi",
-  "categoria": "snack",
-  "unita": "pz",
-  "per100": {
-   "kcal": 430,
-   "prot": 10,
-   "carb": 68,
-   "grassi": 12,
-   "fibre": 3,
-   "sale": 2.4
-  },
-  "confezione": {
-   "nome": "scatola",
-   "pz": 10,
-   "g_pz": 25
-  },
-  "alias": [
-   "crackers",
-   "cracker"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "note": "Valori medi: verificare il peso del pacchetto"
- },
- {
-  "id": "maionese-calve",
-  "nome": "Maionese",
-  "marca": "Calvè",
-  "categoria": "condimenti",
-  "unita": "g",
-  "per100": {
-   "kcal": 701,
-   "prot": 1.1,
-   "carb": 1.5,
-   "grassi": 77,
-   "fibre": 0,
-   "sale": 1.3
-  },
-  "confezione": {
-   "nome": "vasetto",
-   "g": 225
-  },
-  "alias": [
-   "maionese"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "note": "Valori medi: verificare in etichetta"
- },
- {
-  "id": "latte-soia",
-  "nome": "Bevanda di soia",
-  "marca": "—",
-  "categoria": "bevande",
-  "unita": "ml",
-  "per100": {
-   "kcal": 39,
-   "prot": 3,
-   "carb": 2.5,
-   "grassi": 1.8,
-   "fibre": 0.5,
-   "sale": 0.1
-  },
-  "confezione": {
-   "nome": "brick",
-   "g": 1000
-  },
-  "alias": [
-   "latte di soia",
-   "soia",
-   "latte"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "note": "Valori medi di una bevanda di soia classica: verificare il prodotto"
- },
- {
-  "id": "miele",
-  "nome": "Miele",
-  "marca": "—",
-  "categoria": "colazione",
-  "unita": "g",
-  "per100": {
-   "kcal": 304,
-   "prot": 0.3,
-   "carb": 82,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "vasetto",
-   "g": 500
-  },
-  "alias": [
-   "miele"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "te",
-  "nome": "Tè",
-  "marca": "—",
-  "categoria": "bevande",
-  "unita": "pz",
-  "per100": {
-   "kcal": 0,
-   "prot": 0,
-   "carb": 0,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "scatola",
-   "pz": 20,
-   "g_pz": 2
-  },
-  "alias": [
-   "tè",
-   "te",
-   "bustine di tè"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "mandorle",
-  "nome": "Mandorle",
-  "marca": "—",
-  "categoria": "frutta secca",
-  "unita": "g",
-  "per100": {
-   "kcal": 579,
-   "prot": 21,
-   "carb": 22,
-   "grassi": 50,
-   "fibre": 12.5,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "busta",
-   "g": 200
-  },
-  "alias": [
-   "mandorle"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "noci",
-  "nome": "Noci sgusciate",
-  "marca": "—",
-  "categoria": "frutta secca",
-  "unita": "g",
-  "per100": {
-   "kcal": 654,
-   "prot": 15,
-   "carb": 14,
-   "grassi": 65,
-   "fibre": 6.7,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "busta",
-   "g": 150
-  },
-  "alias": [
-   "noci"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "pasta",
-  "nome": "Pasta di semola (casarecce)",
-  "marca": "—",
-  "categoria": "dispensa",
-  "unita": "g",
-  "per100": {
-   "kcal": 359,
-   "prot": 12.5,
-   "carb": 72,
-   "grassi": 1.5,
-   "fibre": 3,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "pacco",
-   "g": 500
-  },
-  "alias": [
-   "pasta",
-   "casarecce",
-   "penne",
-   "fusilli"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "riso-basmati",
-  "nome": "Riso basmati",
-  "marca": "—",
-  "categoria": "dispensa",
-  "unita": "g",
-  "per100": {
-   "kcal": 350,
-   "prot": 8,
-   "carb": 78,
-   "grassi": 0.6,
-   "fibre": 1,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "pacco",
-   "g": 1000
-  },
-  "alias": [
-   "riso basmati",
-   "basmati"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "riso-carnaroli",
-  "nome": "Riso Carnaroli",
-  "marca": "—",
-  "categoria": "dispensa",
-  "unita": "g",
-  "per100": {
-   "kcal": 350,
-   "prot": 7,
-   "carb": 79,
-   "grassi": 0.6,
-   "fibre": 1,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "pacco",
-   "g": 1000
-  },
-  "alias": [
-   "riso carnaroli",
-   "riso per risotto",
-   "riso"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "tonno-naturale",
-  "nome": "Tonno al naturale (sgocciolato)",
-  "marca": "—",
-  "categoria": "pesce",
-  "unita": "pz",
-  "per100": {
-   "kcal": 103,
-   "prot": 24,
-   "carb": 0,
-   "grassi": 0.8,
-   "fibre": 0,
-   "sale": 1
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 3,
-   "g_pz": 80
-  },
-  "alias": [
-   "tonno",
-   "tonno al naturale"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "petto-pollo",
-  "nome": "Petto di pollo",
-  "marca": "—",
-  "categoria": "carne",
-  "unita": "g",
-  "per100": {
-   "kcal": 110,
-   "prot": 23,
-   "carb": 0,
-   "grassi": 1.5,
-   "fibre": 0,
-   "sale": 0.2
-  },
-  "confezione": {
-   "nome": "vaschetta",
-   "g": 500
-  },
-  "alias": [
-   "petto di pollo",
-   "pollo"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": 3,
-  "fonte": "media"
- },
- {
-  "id": "salsiccia",
-  "nome": "Salsiccia di suino",
-  "marca": "—",
-  "categoria": "carne",
-  "unita": "g",
-  "per100": {
-   "kcal": 300,
-   "prot": 15,
-   "carb": 0.5,
-   "grassi": 26,
-   "fibre": 0,
-   "sale": 2
-  },
-  "confezione": {
-   "nome": "vaschetta",
-   "g": 400
-  },
-  "alias": [
-   "salsiccia"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": 4,
-  "fonte": "media"
- },
- {
-  "id": "uova",
-  "nome": "Uova",
-  "marca": "—",
-  "categoria": "uova",
-  "unita": "pz",
-  "per100": {
-   "kcal": 143,
-   "prot": 12.6,
-   "carb": 0.7,
-   "grassi": 9.5,
-   "fibre": 0,
-   "sale": 0.4
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 6,
-   "g_pz": 55
-  },
-  "alias": [
-   "uova",
-   "uovo"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "note": "55 g = parte edibile di un uovo medio"
- },
- {
-  "id": "grana-grattugiato",
-  "nome": "Grana Padano grattugiato",
-  "marca": "—",
-  "categoria": "latticini",
-  "unita": "g",
-  "per100": {
-   "kcal": 398,
-   "prot": 33,
-   "carb": 0,
-   "grassi": 29,
-   "fibre": 0,
-   "sale": 1.5
-  },
-  "confezione": {
-   "nome": "busta",
-   "g": 100
-  },
-  "alias": [
-   "grana grattugiato",
-   "parmigiano grattugiato"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "olio-evo",
-  "nome": "Olio extravergine d'oliva",
-  "marca": "—",
-  "categoria": "condimenti",
-  "unita": "g",
-  "per100": {
-   "kcal": 899,
-   "prot": 0,
-   "carb": 0,
-   "grassi": 99.9,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "bottiglia",
-   "g": 1000
-  },
-  "alias": [
-   "olio",
-   "olio evo",
-   "olio extravergine"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "farina",
-  "nome": "Farina 00",
-  "marca": "—",
-  "categoria": "dispensa",
-  "unita": "g",
-  "per100": {
-   "kcal": 340,
-   "prot": 11,
-   "carb": 72,
-   "grassi": 1,
-   "fibre": 2,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "pacco",
-   "g": 1000
-  },
-  "alias": [
-   "farina"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media"
- },
- {
-  "id": "brodo-vegetale",
-  "nome": "Dado vegetale",
-  "marca": "—",
-  "categoria": "dispensa",
-  "unita": "pz",
-  "per100": {
-   "kcal": 0,
-   "prot": 0,
-   "carb": 0,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "confezione",
-   "pz": 10,
-   "g_pz": 10
-  },
-  "alias": [
-   "dado",
-   "brodo",
-   "brodo vegetale"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "note": "Valori trascurabili per porzione; sale da considerare"
- },
- {
-  "id": "patate",
-  "nome": "Patate",
-  "marca": "—",
-  "categoria": "verdura",
-  "unita": "g",
-  "per100": {
-   "kcal": 77,
-   "prot": 2,
-   "carb": 17.5,
-   "grassi": 0.1,
-   "fibre": 2.2,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "sacchetto",
-   "g": 1500
-  },
-  "alias": [
-   "patate",
-   "patata"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": 21,
-  "fonte": "media",
-  "note": "Non contano come porzione di verdura"
- },
- {
-  "id": "cipolla",
-  "nome": "Cipolla dorata",
-  "marca": "—",
-  "categoria": "verdura",
-  "unita": "pz",
-  "per100": {
-   "kcal": 40,
-   "prot": 1.1,
-   "carb": 9,
-   "grassi": 0.1,
-   "fibre": 1.7,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "retina",
-   "pz": 6,
-   "g_pz": 120
-  },
-  "alias": [
-   "cipolla",
-   "cipolle"
-  ],
-  "frutta_verdura": true,
-  "fresco_giorni": 21,
-  "fonte": "media"
- },
- {
-  "id": "zucca",
-  "nome": "Zucca",
-  "marca": "—",
-  "categoria": "verdura",
-  "unita": "g",
-  "per100": {
-   "kcal": 26,
-   "prot": 1,
-   "carb": 6.5,
-   "grassi": 0.1,
-   "fibre": 0.5,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "spicchio",
-   "g": 1000
-  },
-  "alias": [
-   "zucca"
-  ],
-  "frutta_verdura": true,
-  "fresco_giorni": 7,
-  "fonte": "media"
- },
- {
-  "id": "insalata",
-  "nome": "Insalata in busta",
-  "marca": "—",
-  "categoria": "verdura",
-  "unita": "g",
-  "per100": {
-   "kcal": 15,
-   "prot": 1.3,
-   "carb": 2,
-   "grassi": 0.2,
-   "fibre": 1.3,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "busta",
-   "g": 125
-  },
-  "alias": [
-   "insalata",
-   "lattuga",
-   "misticanza"
-  ],
-  "frutta_verdura": true,
-  "fresco_giorni": 4,
-  "fonte": "media"
- },
- {
-  "id": "pomodorini",
-  "nome": "Pomodorini",
-  "marca": "—",
-  "categoria": "verdura",
-  "unita": "g",
-  "per100": {
-   "kcal": 18,
-   "prot": 0.9,
-   "carb": 3.9,
-   "grassi": 0.2,
-   "fibre": 1.2,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "vaschetta",
-   "g": 250
-  },
-  "alias": [
-   "pomodori",
-   "pomodorini"
-  ],
-  "frutta_verdura": true,
-  "fresco_giorni": 5,
-  "fonte": "media"
- },
- {
-  "id": "limone",
-  "nome": "Limone",
-  "marca": "—",
-  "categoria": "frutta",
-  "unita": "pz",
-  "per100": {
-   "kcal": 29,
-   "prot": 1.1,
-   "carb": 9,
-   "grassi": 0.3,
-   "fibre": 2.8,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "retina",
-   "pz": 4,
-   "g_pz": 100
-  },
-  "alias": [
-   "limone",
-   "limoni"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": 21,
-  "fonte": "media",
-  "note": "Usato per il succo: non conta come porzione"
- },
- {
-  "id": "banana",
-  "nome": "Banana",
-  "marca": "—",
-  "categoria": "frutta",
-  "unita": "pz",
-  "per100": {
-   "kcal": 89,
-   "prot": 1.1,
-   "carb": 23,
-   "grassi": 0.3,
-   "fibre": 2.6,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "casco",
-   "pz": 5,
-   "g_pz": 120
-  },
-  "alias": [
-   "banana",
-   "banane"
-  ],
-  "frutta_verdura": true,
-  "fresco_giorni": 6,
-  "fonte": "media"
- },
- {
-  "id": "kiwi",
-  "nome": "Kiwi",
-  "marca": "—",
-  "categoria": "frutta",
-  "unita": "pz",
-  "per100": {
-   "kcal": 61,
-   "prot": 1.1,
-   "carb": 15,
-   "grassi": 0.5,
-   "fibre": 3,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "vaschetta",
-   "pz": 6,
-   "g_pz": 75
-  },
-  "alias": [
-   "kiwi"
-  ],
-  "frutta_verdura": true,
-  "fresco_giorni": 10,
-  "fonte": "media"
- },
- {
-  "id": "mirtilli",
-  "nome": "Mirtilli",
-  "marca": "—",
-  "categoria": "frutta",
-  "unita": "g",
-  "per100": {
-   "kcal": 57,
-   "prot": 0.7,
-   "carb": 14,
-   "grassi": 0.3,
-   "fibre": 2.4,
-   "sale": 0
-  },
-  "confezione": {
-   "nome": "vaschetta",
-   "g": 125
-  },
-  "alias": [
-   "mirtilli"
-  ],
-  "frutta_verdura": true,
-  "fresco_giorni": 5,
-  "fonte": "media"
- },
- {
-  "id": "rosmarino",
-  "nome": "Rosmarino",
-  "marca": "—",
-  "categoria": "aromi",
-  "unita": "g",
-  "per100": {
-   "kcal": 0,
-   "prot": 0,
-   "carb": 0,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": null,
-  "alias": [
-   "rosmarino"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "traccia_dispensa": false
- },
- {
-  "id": "sale",
-  "nome": "Sale",
-  "marca": "—",
-  "categoria": "aromi",
-  "unita": "g",
-  "per100": {
-   "kcal": 0,
-   "prot": 0,
-   "carb": 0,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": null,
-  "alias": [
-   "sale",
-   "sale grosso",
-   "sale fino"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "traccia_dispensa": false
- },
- {
-  "id": "pepe",
-  "nome": "Pepe nero",
-  "marca": "—",
-  "categoria": "aromi",
-  "unita": "g",
-  "per100": {
-   "kcal": 0,
-   "prot": 0,
-   "carb": 0,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": null,
-  "alias": [
-   "pepe"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "traccia_dispensa": false
- },
- {
-  "id": "prezzemolo",
-  "nome": "Prezzemolo",
-  "marca": "—",
-  "categoria": "aromi",
-  "unita": "g",
-  "per100": {
-   "kcal": 0,
-   "prot": 0,
-   "carb": 0,
-   "grassi": 0,
-   "fibre": 0,
-   "sale": 0
-  },
-  "confezione": null,
-  "alias": [
-   "prezzemolo"
-  ],
-  "frutta_verdura": false,
-  "fresco_giorni": null,
-  "fonte": "media",
-  "traccia_dispensa": false
- }
+{"id": "pesto-rosso-mutti", "nome": "Pesto di pomodoro con olive Leccino", "marca": "Mutti", "categoria": "sughi", "unita": "g", "per100": {"kcal": 238, "prot": 2.7, "carb": 8.2, "grassi": 21, "fibre": 2.4, "sale": 2.6, "zuccheri": 5.3, "saturi": 2.7}, "confezione": {"nome": "vasetto", "g": 180}, "alias": ["pesto rosso", "pesto mutti", "pesto di pomodoro"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "porzione_g": 90},
+{"id": "nascondini", "nome": "Nascondini", "marca": "Mulino Bianco", "categoria": "colazione", "unita": "pz", "per100": {"kcal": 483, "prot": 6.7, "carb": 65, "grassi": 21, "fibre": 3.8, "sale": 0.38, "zuccheri": 26, "saturi": 9}, "confezione": {"nome": "confezione", "pz": 27, "g_pz": 12.2}, "alias": ["nascondini", "biscotti"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "note": "Peso a biscotto stimato: 12,2 g", "pezzo": "biscotti"},
+{"id": "hamburger-scottona", "nome": "Hamburger di scottona", "marca": "Conad", "categoria": "carne", "unita": "pz", "per100": {"kcal": 214, "prot": 18, "carb": 1.7, "grassi": 15, "fibre": 0, "sale": 1.6, "saturi": 7.5}, "confezione": {"nome": "hamburger", "pz": 1, "g_pz": 180}, "alias": ["scottona", "hamburger di manzo", "burger di manzo"], "frutta_verdura": false, "fresco_giorni": 5, "fonte": "etichetta"},
+{"id": "hamburger-pollo", "nome": "Hamburger di pollo", "marca": "Conad", "categoria": "carne", "unita": "pz", "per100": {"kcal": 132, "prot": 17, "carb": 0, "grassi": 7.1, "fibre": 0, "sale": 1.2, "saturi": 2.1}, "confezione": {"nome": "confezione", "pz": 2, "g_pz": 100}, "alias": ["hamburger di pollo", "burger di pollo"], "frutta_verdura": false, "fresco_giorni": 5, "fonte": "etichetta"},
+{"id": "bresaola", "nome": "Bresaola Valtellina IGP", "marca": "Conad", "categoria": "salumi", "unita": "g", "per100": {"kcal": 163, "prot": 34, "carb": 0, "grassi": 3, "fibre": 0, "sale": 4, "saturi": 1.1}, "confezione": {"nome": "vaschetta", "g": 90}, "alias": ["bresaola", "bresaole"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "misure": {"vaschetta": 90}, "porzione_g": 45},
+{"id": "kioene-zucca-carote", "nome": "Mini burger zucca e carote", "marca": "Kioene", "categoria": "vegetale", "unita": "pz", "per100": {"kcal": 237, "prot": 9.8, "carb": 16, "grassi": 14, "fibre": 3.7, "sale": 1.3, "saturi": 1.5}, "confezione": {"nome": "confezione", "pz": 4, "g_pz": 50}, "alias": ["kioene", "burger vegetali", "mini burger"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta"},
+{"id": "philadelphia-light", "nome": "Philadelphia Light monoporzioni", "marca": "Philadelphia", "categoria": "latticini", "unita": "pz", "per100": {"kcal": 182, "prot": 8.4, "carb": 3.7, "grassi": 15, "fibre": 0.3, "sale": 0.73, "saturi": 9.6}, "confezione": {"nome": "confezione", "pz": 6, "g_pz": 25}, "alias": ["philadelphia", "formaggio spalmabile"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "sito del produttore (da verificare in etichetta)"},
+{"id": "yogurt-greco-vaniglia", "nome": "Yogurt greco vaniglia 0%", "marca": "Conad Piacersi", "categoria": "latticini", "unita": "pz", "per100": {"kcal": 76, "prot": 7, "carb": 12, "grassi": 0, "fibre": 0, "sale": 0.11}, "confezione": {"nome": "vasetto", "pz": 1, "g_pz": 170}, "alias": ["yogurt greco vaniglia"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "note": "Da sostituire con il bianco 0%", "pezzo": "vasetti"},
+{"id": "crema-arachidi", "nome": "Crema 100% arachidi", "marca": "Conad Piacersi", "categoria": "colazione", "unita": "g", "per100": {"kcal": 601, "prot": 28, "carb": 17, "grassi": 46, "fibre": 3.4, "sale": 0.01, "saturi": 8.6}, "confezione": {"nome": "vasetto", "g": 350}, "alias": ["burro di arachidi", "crema di arachidi"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "misure": {"cucchiaio": 15, "cucchiaino": 8}},
+{"id": "salmone-affumicato", "nome": "Salmone affumicato norvegese", "marca": "Conad", "categoria": "pesce", "unita": "g", "per100": {"kcal": 192, "prot": 21, "carb": 0, "grassi": 12, "fibre": 0, "sale": 3.4}, "confezione": {"nome": "confezione", "g": 100}, "alias": ["salmone", "salmone affumicato"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "porzione_g": 100},
+{"id": "grana-cubetti", "nome": "Cubetti di Grana Padano DOP", "marca": "Conad", "categoria": "latticini", "unita": "g", "per100": {"kcal": 398, "prot": 33, "carb": 0, "grassi": 29, "fibre": 0, "sale": 1.5, "saturi": 18}, "confezione": {"nome": "confezione", "g": 150}, "alias": ["grana", "parmigiano", "cubetti di grana"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "note": "Peso della confezione da verificare", "misure": {"cubetto": 7.5}, "porzione_g": 35},
+{"id": "salsa-soia", "nome": "Salsa di soia ridotta in sale", "marca": "Conad Sapori & Idee", "categoria": "condimenti", "unita": "ml", "per100": {"kcal": 100, "prot": 11, "carb": 14, "grassi": 0, "fibre": 0, "sale": 7.8}, "confezione": {"nome": "bottiglia", "g": 150}, "alias": ["salsa di soia", "soia"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta"},
+{"id": "confettura-fichi", "nome": "Confettura extra di fichi", "marca": "Zuegg", "categoria": "colazione", "unita": "g", "per100": {"kcal": 241, "prot": 0.5, "carb": 59, "grassi": 0, "fibre": 1.9, "sale": 0.03, "zuccheri": 56}, "confezione": {"nome": "vasetto", "g": 330}, "alias": ["marmellata", "confettura", "marmellata di fichi"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "misure": {"cucchiaino": 7, "cucchiaio": 15}},
+{"id": "whey-yamamoto", "nome": "Whey protein", "marca": "Yamamoto", "categoria": "integratori", "unita": "g", "per100": {"kcal": 350, "prot": 83, "carb": 3.6, "grassi": 0.5, "fibre": 0, "sale": 2.7}, "confezione": {"nome": "barattolo", "g": 1000}, "alias": ["proteine", "whey"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "etichetta", "note": "Dose 30 g = 105 kcal, 25 g proteine. Peso del barattolo da verificare", "porzione_g": 30},
+{"id": "yogurt-greco-bianco", "nome": "Yogurt greco bianco 0%", "marca": "Conad Piacersi", "categoria": "latticini", "unita": "pz", "per100": {"kcal": 57, "prot": 10, "carb": 3.6, "grassi": 0, "fibre": 0, "sale": 0.1}, "confezione": {"nome": "vasetto", "pz": 1, "g_pz": 170}, "alias": ["yogurt greco", "yogurt greco bianco", "yogurt"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "note": "Valori medi: verificare in etichetta", "pezzo": "vasetti"},
+{"id": "pane-proteico", "nome": "Pane proteico con fibre", "marca": "Conad", "categoria": "pane", "unita": "pz", "per100": {"kcal": 257, "prot": 23, "carb": 18, "grassi": 9, "fibre": 10, "sale": 1.1}, "confezione": {"nome": "confezione", "pz": 8, "g_pz": 35}, "alias": ["pane proteico", "pane", "pane per toast"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "note": "IPOTESI (fetta ~35 g, 90 kcal, 8 g proteine): sostituire con l'etichetta", "pezzo": "fette"},
+{"id": "crackers-pavesi", "nome": "Crackers salati", "marca": "Pavesi", "categoria": "snack", "unita": "pz", "per100": {"kcal": 430, "prot": 10, "carb": 68, "grassi": 12, "fibre": 3, "sale": 2.4}, "confezione": {"nome": "scatola", "pz": 10, "g_pz": 25}, "alias": ["crackers", "cracker"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "note": "Valori medi: verificare il peso del pacchetto", "pezzo": "pacchetti"},
+{"id": "maionese-calve", "nome": "Maionese", "marca": "Calvè", "categoria": "condimenti", "unita": "g", "per100": {"kcal": 701, "prot": 1.1, "carb": 1.5, "grassi": 77, "fibre": 0, "sale": 1.3}, "confezione": {"nome": "vasetto", "g": 225}, "alias": ["maionese"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "note": "Valori medi: verificare in etichetta", "misure": {"cucchiaino": 5, "cucchiaio": 12}},
+{"id": "latte-soia", "nome": "Bevanda di soia", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 39, "prot": 3, "carb": 2.5, "grassi": 1.8, "fibre": 0.5, "sale": 0.1}, "confezione": {"nome": "brick", "g": 1000}, "alias": ["latte di soia", "soia", "latte"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "note": "Valori medi di una bevanda di soia classica: verificare il prodotto", "porzione_g": 250},
+{"id": "miele", "nome": "Miele", "marca": "—", "categoria": "colazione", "unita": "g", "per100": {"kcal": 304, "prot": 0.3, "carb": 82, "grassi": 0, "fibre": 0, "sale": 0}, "confezione": {"nome": "vasetto", "g": 500}, "alias": ["miele"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "misure": {"cucchiaino": 7}},
+{"id": "te", "nome": "Tè", "marca": "—", "categoria": "bevande", "unita": "pz", "per100": {"kcal": 0, "prot": 0, "carb": 0, "grassi": 0, "fibre": 0, "sale": 0}, "confezione": {"nome": "scatola", "pz": 20, "g_pz": 2}, "alias": ["tè", "te", "bustine di tè"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "pezzo": "tazze"},
+{"id": "mandorle", "nome": "Mandorle", "marca": "—", "categoria": "frutta secca", "unita": "g", "per100": {"kcal": 579, "prot": 21, "carb": 22, "grassi": 50, "fibre": 12.5, "sale": 0}, "confezione": {"nome": "busta", "g": 200}, "alias": ["mandorle"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "misure": {"manciata": 20}, "porzione_g": 20},
+{"id": "noci", "nome": "Noci sgusciate", "marca": "—", "categoria": "frutta secca", "unita": "g", "per100": {"kcal": 654, "prot": 15, "carb": 14, "grassi": 65, "fibre": 6.7, "sale": 0}, "confezione": {"nome": "busta", "g": 150}, "alias": ["noci"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "misure": {"manciata": 20}, "porzione_g": 20},
+{"id": "pasta", "nome": "Pasta di semola (casarecce)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 359, "prot": 12.5, "carb": 72, "grassi": 1.5, "fibre": 3, "sale": 0}, "confezione": {"nome": "pacco", "g": 500}, "alias": ["pasta", "casarecce", "penne", "fusilli"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "porzione_g": 180},
+{"id": "riso-basmati", "nome": "Riso basmati", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 350, "prot": 8, "carb": 78, "grassi": 0.6, "fibre": 1, "sale": 0}, "confezione": {"nome": "pacco", "g": 1000}, "alias": ["riso basmati", "basmati"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "porzione_g": 100},
+{"id": "riso-carnaroli", "nome": "Riso Carnaroli", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 350, "prot": 7, "carb": 79, "grassi": 0.6, "fibre": 1, "sale": 0}, "confezione": {"nome": "pacco", "g": 1000}, "alias": ["riso carnaroli", "riso per risotto", "riso"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "porzione_g": 100},
+{"id": "tonno-naturale", "nome": "Tonno al naturale (sgocciolato)", "marca": "—", "categoria": "pesce", "unita": "pz", "per100": {"kcal": 103, "prot": 24, "carb": 0, "grassi": 0.8, "fibre": 0, "sale": 1}, "confezione": {"nome": "confezione", "pz": 3, "g_pz": 80}, "alias": ["tonno", "tonno al naturale"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "porzione_g": 80},
+{"id": "petto-pollo", "nome": "Petto di pollo", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 110, "prot": 23, "carb": 0, "grassi": 1.5, "fibre": 0, "sale": 0.2}, "confezione": {"nome": "vaschetta", "g": 500}, "alias": ["petto di pollo", "pollo"], "frutta_verdura": false, "fresco_giorni": 3, "fonte": "media", "porzione_g": 200},
+{"id": "salsiccia", "nome": "Salsiccia di suino", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 300, "prot": 15, "carb": 0.5, "grassi": 26, "fibre": 0, "sale": 2}, "confezione": {"nome": "vaschetta", "g": 400}, "alias": ["salsiccia"], "frutta_verdura": false, "fresco_giorni": 4, "fonte": "media", "porzione_g": 150},
+{"id": "uova", "nome": "Uova", "marca": "—", "categoria": "uova", "unita": "pz", "per100": {"kcal": 143, "prot": 12.6, "carb": 0.7, "grassi": 9.5, "fibre": 0, "sale": 0.4}, "confezione": {"nome": "confezione", "pz": 6, "g_pz": 55}, "alias": ["uova", "uovo"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "note": "55 g = parte edibile di un uovo medio", "pezzo": "uova"},
+{"id": "grana-grattugiato", "nome": "Grana Padano grattugiato", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 398, "prot": 33, "carb": 0, "grassi": 29, "fibre": 0, "sale": 1.5}, "confezione": {"nome": "busta", "g": 100}, "alias": ["grana grattugiato", "parmigiano grattugiato"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "misure": {"cucchiaio": 10}},
+{"id": "olio-evo", "nome": "Olio extravergine d'oliva", "marca": "—", "categoria": "condimenti", "unita": "g", "per100": {"kcal": 899, "prot": 0, "carb": 0, "grassi": 99.9, "fibre": 0, "sale": 0}, "confezione": {"nome": "bottiglia", "g": 1000}, "alias": ["olio", "olio evo", "olio extravergine"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "misure": {"cucchiaio": 10, "cucchiaino": 5}},
+{"id": "farina", "nome": "Farina 00", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 340, "prot": 11, "carb": 72, "grassi": 1, "fibre": 2, "sale": 0}, "confezione": {"nome": "pacco", "g": 1000}, "alias": ["farina"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media"},
+{"id": "brodo-vegetale", "nome": "Dado vegetale", "marca": "—", "categoria": "dispensa", "unita": "pz", "per100": {"kcal": 0, "prot": 0, "carb": 0, "grassi": 0, "fibre": 0, "sale": 0}, "confezione": {"nome": "confezione", "pz": 10, "g_pz": 10}, "alias": ["dado", "brodo", "brodo vegetale"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "note": "Valori trascurabili per porzione; sale da considerare"},
+{"id": "patate", "nome": "Patate", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 77, "prot": 2, "carb": 17.5, "grassi": 0.1, "fibre": 2.2, "sale": 0}, "confezione": {"nome": "sacchetto", "g": 1500}, "alias": ["patate", "patata"], "frutta_verdura": false, "fresco_giorni": 21, "fonte": "media", "note": "Non contano come porzione di verdura", "porzione_g": 250},
+{"id": "cipolla", "nome": "Cipolla dorata", "marca": "—", "categoria": "verdura", "unita": "pz", "per100": {"kcal": 40, "prot": 1.1, "carb": 9, "grassi": 0.1, "fibre": 1.7, "sale": 0}, "confezione": {"nome": "retina", "pz": 6, "g_pz": 120}, "alias": ["cipolla", "cipolle"], "frutta_verdura": true, "fresco_giorni": 21, "fonte": "media"},
+{"id": "zucca", "nome": "Zucca", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 26, "prot": 1, "carb": 6.5, "grassi": 0.1, "fibre": 0.5, "sale": 0}, "confezione": {"nome": "spicchio", "g": 1000}, "alias": ["zucca"], "frutta_verdura": true, "fresco_giorni": 7, "fonte": "media", "porzione_g": 200},
+{"id": "insalata", "nome": "Insalata in busta", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 15, "prot": 1.3, "carb": 2, "grassi": 0.2, "fibre": 1.3, "sale": 0}, "confezione": {"nome": "busta", "g": 125}, "alias": ["insalata", "lattuga", "misticanza"], "frutta_verdura": true, "fresco_giorni": 4, "fonte": "media", "porzione_g": 80},
+{"id": "pomodorini", "nome": "Pomodorini", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 18, "prot": 0.9, "carb": 3.9, "grassi": 0.2, "fibre": 1.2, "sale": 0}, "confezione": {"nome": "vaschetta", "g": 250}, "alias": ["pomodori", "pomodorini"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "porzione_g": 100},
+{"id": "limone", "nome": "Limone", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 29, "prot": 1.1, "carb": 9, "grassi": 0.3, "fibre": 2.8, "sale": 0}, "confezione": {"nome": "retina", "pz": 4, "g_pz": 100}, "alias": ["limone", "limoni"], "frutta_verdura": false, "fresco_giorni": 21, "fonte": "media", "note": "Usato per il succo: non conta come porzione"},
+{"id": "banana", "nome": "Banana", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 89, "prot": 1.1, "carb": 23, "grassi": 0.3, "fibre": 2.6, "sale": 0}, "confezione": {"nome": "casco", "pz": 5, "g_pz": 120}, "alias": ["banana", "banane"], "frutta_verdura": true, "fresco_giorni": 6, "fonte": "media", "pezzo": "banane"},
+{"id": "kiwi", "nome": "Kiwi", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 61, "prot": 1.1, "carb": 15, "grassi": 0.5, "fibre": 3, "sale": 0}, "confezione": {"nome": "vaschetta", "pz": 6, "g_pz": 75}, "alias": ["kiwi"], "frutta_verdura": true, "fresco_giorni": 10, "fonte": "media", "pezzo": "kiwi"},
+{"id": "mirtilli", "nome": "Mirtilli", "marca": "—", "categoria": "frutta", "unita": "g", "per100": {"kcal": 57, "prot": 0.7, "carb": 14, "grassi": 0.3, "fibre": 2.4, "sale": 0}, "confezione": {"nome": "vaschetta", "g": 125}, "alias": ["mirtilli"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "porzione_g": 125},
+{"id": "rosmarino", "nome": "Rosmarino", "marca": "—", "categoria": "aromi", "unita": "g", "per100": {"kcal": 0, "prot": 0, "carb": 0, "grassi": 0, "fibre": 0, "sale": 0}, "confezione": null, "alias": ["rosmarino"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "traccia_dispensa": false},
+{"id": "sale", "nome": "Sale", "marca": "—", "categoria": "aromi", "unita": "g", "per100": {"kcal": 0, "prot": 0, "carb": 0, "grassi": 0, "fibre": 0, "sale": 0}, "confezione": null, "alias": ["sale", "sale grosso", "sale fino"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "traccia_dispensa": false},
+{"id": "pepe", "nome": "Pepe nero", "marca": "—", "categoria": "aromi", "unita": "g", "per100": {"kcal": 0, "prot": 0, "carb": 0, "grassi": 0, "fibre": 0, "sale": 0}, "confezione": null, "alias": ["pepe"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "traccia_dispensa": false},
+{"id": "prezzemolo", "nome": "Prezzemolo", "marca": "—", "categoria": "aromi", "unita": "g", "per100": {"kcal": 0, "prot": 0, "carb": 0, "grassi": 0, "fibre": 0, "sale": 0}, "confezione": null, "alias": ["prezzemolo"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "traccia_dispensa": false},
+{"id": "pasta-cotta", "nome": "Pasta cotta", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 150, "prot": 5.5, "carb": 30, "grassi": 0.7, "fibre": 1.5}, "confezione": null, "alias": ["pasta cotta", "pasta scolata"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 220},
+{"id": "pasta-integrale", "nome": "Pasta integrale (cruda)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 350, "prot": 13, "carb": 66, "grassi": 2.5, "fibre": 7}, "confezione": {"nome": "pacco", "g": 500}, "alias": ["pasta integrale"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 100},
+{"id": "pasta-uovo", "nome": "Pasta fresca all'uovo", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 280, "prot": 11, "carb": 52, "grassi": 3, "fibre": 2}, "confezione": {"nome": "confezione", "g": 250}, "alias": ["pasta fresca", "tagliatelle", "pasta all'uovo"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "gnocchi", "nome": "Gnocchi di patate", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 150, "prot": 3.5, "carb": 32, "grassi": 0.5, "fibre": 1.5}, "confezione": {"nome": "confezione", "g": 500}, "alias": ["gnocchi"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 250},
+{"id": "tortellini", "nome": "Tortellini freschi", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 290, "prot": 12, "carb": 45, "grassi": 7, "fibre": 2}, "confezione": {"nome": "confezione", "g": 250}, "alias": ["tortellini", "ravioli", "pasta ripiena"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "riso-cotto", "nome": "Riso bianco cotto", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 130, "prot": 2.7, "carb": 28, "grassi": 0.3, "fibre": 0.4}, "confezione": null, "alias": ["riso cotto", "riso bollito", "riso in bianco"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 220},
+{"id": "riso-integrale", "nome": "Riso integrale (crudo)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 350, "prot": 7.5, "carb": 74, "grassi": 2.5, "fibre": 3}, "confezione": {"nome": "pacco", "g": 1000}, "alias": ["riso integrale"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 90},
+{"id": "farro", "nome": "Farro (crudo)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 340, "prot": 14, "carb": 67, "grassi": 2.5, "fibre": 7}, "confezione": {"nome": "pacco", "g": 500}, "alias": ["farro"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "orzo", "nome": "Orzo perlato (crudo)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 340, "prot": 10, "carb": 72, "grassi": 1.5, "fibre": 9}, "confezione": {"nome": "pacco", "g": 500}, "alias": ["orzo"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "couscous", "nome": "Couscous (crudo)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 360, "prot": 12.5, "carb": 72, "grassi": 1.5, "fibre": 4}, "confezione": {"nome": "pacco", "g": 500}, "alias": ["couscous", "cous cous"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "quinoa", "nome": "Quinoa (cruda)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 368, "prot": 14, "carb": 64, "grassi": 6, "fibre": 7}, "confezione": {"nome": "pacco", "g": 400}, "alias": ["quinoa"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "fiocchi-avena", "nome": "Fiocchi d'avena", "marca": "—", "categoria": "colazione", "unita": "g", "per100": {"kcal": 372, "prot": 13.5, "carb": 60, "grassi": 7, "fibre": 10}, "confezione": {"nome": "pacco", "g": 500}, "alias": ["avena", "fiocchi d'avena", "porridge"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "cornflakes", "nome": "Corn flakes", "marca": "—", "categoria": "colazione", "unita": "g", "per100": {"kcal": 378, "prot": 7, "carb": 84, "grassi": 0.9, "fibre": 3}, "confezione": {"nome": "scatola", "g": 375}, "alias": ["cornflakes", "corn flakes", "cereali"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 40},
+{"id": "muesli", "nome": "Muesli", "marca": "—", "categoria": "colazione", "unita": "g", "per100": {"kcal": 370, "prot": 10, "carb": 62, "grassi": 8, "fibre": 8}, "confezione": {"nome": "pacco", "g": 375}, "alias": ["muesli", "granola"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "pane-comune", "nome": "Pane comune", "marca": "—", "categoria": "pane", "unita": "g", "per100": {"kcal": 275, "prot": 9, "carb": 55, "grassi": 1.5, "fibre": 3}, "confezione": null, "alias": ["pane bianco", "panino", "michetta", "rosetta", "baguette"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 60},
+{"id": "pane-integrale", "nome": "Pane integrale", "marca": "—", "categoria": "pane", "unita": "g", "per100": {"kcal": 240, "prot": 9, "carb": 45, "grassi": 2.5, "fibre": 7}, "confezione": null, "alias": ["pane integrale"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 60},
+{"id": "pancarre", "nome": "Pane in cassetta", "marca": "—", "categoria": "pane", "unita": "pz", "per100": {"kcal": 270, "prot": 8, "carb": 49, "grassi": 4, "fibre": 3}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 25}, "alias": ["pancarrè", "pan carrè", "pane in cassetta", "pane bauletto"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "piadina", "nome": "Piadina", "marca": "—", "categoria": "pane", "unita": "pz", "per100": {"kcal": 330, "prot": 8.5, "carb": 52, "grassi": 9.5, "fibre": 2.5}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 120}, "alias": ["piadina", "piadine"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "tortilla-wrap", "nome": "Tortilla di grano (wrap)", "marca": "—", "categoria": "pane", "unita": "pz", "per100": {"kcal": 310, "prot": 8.5, "carb": 52, "grassi": 7, "fibre": 2.5}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 62}, "alias": ["tortilla", "wrap", "tortillas"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "fette-biscottate", "nome": "Fette biscottate", "marca": "—", "categoria": "colazione", "unita": "pz", "per100": {"kcal": 400, "prot": 11, "carb": 75, "grassi": 6, "fibre": 4}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 9}, "alias": ["fette biscottate", "fetta biscottata"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "gallette-riso", "nome": "Gallette di riso", "marca": "—", "categoria": "snack", "unita": "pz", "per100": {"kcal": 385, "prot": 8, "carb": 82, "grassi": 2.8, "fibre": 3.5}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 9}, "alias": ["gallette", "gallette di riso"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "grissini", "nome": "Grissini", "marca": "—", "categoria": "pane", "unita": "g", "per100": {"kcal": 430, "prot": 12, "carb": 70, "grassi": 11, "fibre": 3}, "confezione": null, "alias": ["grissini"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30},
+{"id": "taralli", "nome": "Taralli", "marca": "—", "categoria": "snack", "unita": "g", "per100": {"kcal": 470, "prot": 9, "carb": 65, "grassi": 19, "fibre": 3}, "confezione": null, "alias": ["taralli"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 40},
+{"id": "polenta", "nome": "Polenta cotta", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 80, "prot": 1.8, "carb": 17, "grassi": 0.4, "fibre": 1}, "confezione": null, "alias": ["polenta"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 250},
+{"id": "focaccia", "nome": "Focaccia", "marca": "—", "categoria": "pane", "unita": "g", "per100": {"kcal": 300, "prot": 7, "carb": 45, "grassi": 10, "fibre": 2}, "confezione": null, "alias": ["focaccia", "pizza bianca"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 100},
+{"id": "pizza-margherita", "nome": "Pizza margherita", "marca": "—", "categoria": "pronti", "unita": "g", "per100": {"kcal": 270, "prot": 11, "carb": 33, "grassi": 10, "fibre": 2}, "confezione": null, "alias": ["pizza", "pizza margherita", "trancio di pizza"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 320},
+{"id": "lasagne", "nome": "Lasagne alla bolognese", "marca": "—", "categoria": "pronti", "unita": "g", "per100": {"kcal": 160, "prot": 8.5, "carb": 13, "grassi": 8, "fibre": 1}, "confezione": null, "alias": ["lasagne", "lasagna"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 350},
+{"id": "insalata-riso", "nome": "Insalata di riso", "marca": "—", "categoria": "pronti", "unita": "g", "per100": {"kcal": 150, "prot": 4, "carb": 22, "grassi": 5, "fibre": 1.5}, "confezione": null, "alias": ["insalata di riso"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 300},
+{"id": "patatine-fritte", "nome": "Patatine fritte", "marca": "—", "categoria": "pronti", "unita": "g", "per100": {"kcal": 300, "prot": 3.5, "carb": 38, "grassi": 15, "fibre": 3.5}, "confezione": null, "alias": ["patatine fritte", "patate fritte"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "pure", "nome": "Purè di patate", "marca": "—", "categoria": "pronti", "unita": "g", "per100": {"kcal": 100, "prot": 2, "carb": 14, "grassi": 4, "fibre": 1.3}, "confezione": null, "alias": ["purè", "pure di patate", "purè di patate"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "patate-dolci", "nome": "Patate dolci", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 86, "prot": 1.6, "carb": 18, "grassi": 0.1, "fibre": 3}, "confezione": null, "alias": ["patate dolci", "patata dolce", "batata"], "frutta_verdura": false, "fresco_giorni": 14, "fonte": "media", "generico": true, "porzione_g": 250},
+{"id": "ceci", "nome": "Ceci in scatola (sgocciolati)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 120, "prot": 7, "carb": 14, "grassi": 2.5, "fibre": 6}, "confezione": {"nome": "scatola", "g": 240}, "alias": ["ceci"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "fagioli-borlotti", "nome": "Fagioli borlotti in scatola (sgocciolati)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 95, "prot": 6.5, "carb": 13, "grassi": 0.5, "fibre": 6}, "confezione": {"nome": "scatola", "g": 240}, "alias": ["fagioli", "borlotti", "fagioli borlotti"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "fagioli-cannellini", "nome": "Fagioli cannellini in scatola (sgocciolati)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 90, "prot": 6.5, "carb": 12, "grassi": 0.5, "fibre": 6}, "confezione": {"nome": "scatola", "g": 240}, "alias": ["cannellini", "fagioli cannellini"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "lenticchie", "nome": "Lenticchie in scatola (sgocciolate)", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 90, "prot": 6.5, "carb": 12, "grassi": 0.5, "fibre": 5}, "confezione": {"nome": "scatola", "g": 240}, "alias": ["lenticchie"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "lenticchie-secche", "nome": "Lenticchie secche", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 325, "prot": 24, "carb": 50, "grassi": 1.5, "fibre": 13}, "confezione": {"nome": "pacco", "g": 500}, "alias": ["lenticchie secche"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "piselli", "nome": "Piselli surgelati", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 75, "prot": 5.5, "carb": 9, "grassi": 0.5, "fibre": 5.5}, "confezione": {"nome": "busta", "g": 450}, "alias": ["piselli"], "frutta_verdura": true, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "edamame", "nome": "Edamame (sgusciati)", "marca": "—", "categoria": "vegetale", "unita": "g", "per100": {"kcal": 120, "prot": 11, "carb": 8, "grassi": 5, "fibre": 5}, "confezione": null, "alias": ["edamame"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 100},
+{"id": "tofu", "nome": "Tofu al naturale", "marca": "—", "categoria": "vegetale", "unita": "g", "per100": {"kcal": 125, "prot": 13, "carb": 1.5, "grassi": 7.5, "fibre": 1}, "confezione": {"nome": "panetto", "g": 250}, "alias": ["tofu"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "seitan", "nome": "Seitan al naturale", "marca": "—", "categoria": "vegetale", "unita": "g", "per100": {"kcal": 125, "prot": 24, "carb": 3, "grassi": 2, "fibre": 0.5}, "confezione": null, "alias": ["seitan"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "burger-vegetale", "nome": "Burger vegetale (soia)", "marca": "—", "categoria": "vegetale", "unita": "pz", "per100": {"kcal": 200, "prot": 15, "carb": 8, "grassi": 11, "fibre": 4}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 100}, "alias": ["burger vegetale", "burger di soia"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "hummus", "nome": "Hummus", "marca": "—", "categoria": "vegetale", "unita": "g", "per100": {"kcal": 270, "prot": 7, "carb": 11, "grassi": 21, "fibre": 5}, "confezione": {"nome": "vaschetta", "g": 200}, "alias": ["hummus"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "pollo-cotto", "nome": "Petto di pollo cotto (griglia o piastra)", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 165, "prot": 31, "carb": 0, "grassi": 3.6, "fibre": 0}, "confezione": null, "alias": ["pollo cotto", "pollo alla griglia", "pollo grigliato", "pollo alla piastra"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "cosce-pollo", "nome": "Cosce di pollo (crude, senza pelle)", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 125, "prot": 19, "carb": 0, "grassi": 5.5, "fibre": 0}, "confezione": null, "alias": ["cosce di pollo", "sovracosce", "fusi di pollo"], "frutta_verdura": false, "fresco_giorni": 3, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "tacchino", "nome": "Fesa di tacchino (cruda)", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 107, "prot": 24, "carb": 0, "grassi": 1.2, "fibre": 0}, "confezione": null, "alias": ["tacchino", "fesa di tacchino", "petto di tacchino"], "frutta_verdura": false, "fresco_giorni": 3, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "macinato-manzo", "nome": "Macinato di manzo", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 220, "prot": 19, "carb": 0, "grassi": 16, "fibre": 0}, "confezione": null, "alias": ["macinato", "carne macinata", "trita", "macinato di manzo"], "frutta_verdura": false, "fresco_giorni": 2, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "bistecca-manzo", "nome": "Bistecca di manzo magra", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 130, "prot": 21.5, "carb": 0, "grassi": 5, "fibre": 0}, "confezione": null, "alias": ["bistecca", "manzo", "tagliata", "fettina di manzo"], "frutta_verdura": false, "fresco_giorni": 3, "fonte": "media", "generico": true, "porzione_g": 180},
+{"id": "vitello", "nome": "Fettine di vitello", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 107, "prot": 21, "carb": 0, "grassi": 2.5, "fibre": 0}, "confezione": null, "alias": ["vitello", "fettine", "fettine di vitello"], "frutta_verdura": false, "fresco_giorni": 3, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "lonza", "nome": "Lonza di maiale", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 150, "prot": 21, "carb": 0, "grassi": 7, "fibre": 0}, "confezione": null, "alias": ["lonza", "maiale", "arista", "braciola"], "frutta_verdura": false, "fresco_giorni": 3, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "cotoletta-pollo", "nome": "Cotoletta di pollo impanata", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 240, "prot": 15, "carb": 16, "grassi": 13, "fibre": 1}, "confezione": null, "alias": ["cotoletta", "cotoletta di pollo", "milanese"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "polpette", "nome": "Polpette di carne", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 220, "prot": 15, "carb": 8, "grassi": 14, "fibre": 0.5}, "confezione": null, "alias": ["polpette"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "wurstel", "nome": "Würstel di pollo e tacchino", "marca": "—", "categoria": "carne", "unita": "g", "per100": {"kcal": 240, "prot": 12, "carb": 2, "grassi": 20, "fibre": 0}, "confezione": {"nome": "confezione", "g": 100}, "alias": ["wurstel", "würstel"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 100},
+{"id": "prosciutto-cotto", "nome": "Prosciutto cotto", "marca": "—", "categoria": "salumi", "unita": "g", "per100": {"kcal": 135, "prot": 19, "carb": 1, "grassi": 6, "fibre": 0}, "confezione": {"nome": "vaschetta", "g": 100}, "alias": ["prosciutto cotto", "cotto"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 60},
+{"id": "prosciutto-crudo", "nome": "Prosciutto crudo", "marca": "—", "categoria": "salumi", "unita": "g", "per100": {"kcal": 235, "prot": 27, "carb": 0, "grassi": 14, "fibre": 0}, "confezione": {"nome": "vaschetta", "g": 100}, "alias": ["prosciutto crudo", "crudo", "prosciutto"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 60},
+{"id": "tacchino-affettato", "nome": "Fesa di tacchino affettata", "marca": "—", "categoria": "salumi", "unita": "g", "per100": {"kcal": 105, "prot": 20, "carb": 1.5, "grassi": 2, "fibre": 0}, "confezione": {"nome": "vaschetta", "g": 100}, "alias": ["affettato di tacchino", "tacchino arrosto", "tacchino affettato"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 60},
+{"id": "speck", "nome": "Speck", "marca": "—", "categoria": "salumi", "unita": "g", "per100": {"kcal": 300, "prot": 28, "carb": 0.5, "grassi": 21, "fibre": 0}, "confezione": {"nome": "vaschetta", "g": 100}, "alias": ["speck"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "salame", "nome": "Salame", "marca": "—", "categoria": "salumi", "unita": "g", "per100": {"kcal": 390, "prot": 26, "carb": 1, "grassi": 31, "fibre": 0}, "confezione": null, "alias": ["salame"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 40},
+{"id": "mortadella", "nome": "Mortadella", "marca": "—", "categoria": "salumi", "unita": "g", "per100": {"kcal": 310, "prot": 15, "carb": 1, "grassi": 28, "fibre": 0}, "confezione": null, "alias": ["mortadella"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "pancetta", "nome": "Pancetta a cubetti", "marca": "—", "categoria": "salumi", "unita": "g", "per100": {"kcal": 330, "prot": 15, "carb": 0.5, "grassi": 30, "fibre": 0}, "confezione": {"nome": "vaschetta", "g": 100}, "alias": ["pancetta", "guanciale"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "salmone-fresco", "nome": "Salmone fresco", "marca": "—", "categoria": "pesce", "unita": "g", "per100": {"kcal": 190, "prot": 20, "carb": 0, "grassi": 12, "fibre": 0}, "confezione": null, "alias": ["salmone fresco", "trancio di salmone", "filetto di salmone"], "frutta_verdura": false, "fresco_giorni": 2, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "tonno-olio", "nome": "Tonno sott'olio (sgocciolato)", "marca": "—", "categoria": "pesce", "unita": "g", "per100": {"kcal": 190, "prot": 25, "carb": 0, "grassi": 10, "fibre": 0}, "confezione": {"nome": "scatoletta", "g": 52}, "alias": ["tonno sott'olio", "tonno all'olio"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 52},
+{"id": "merluzzo", "nome": "Merluzzo o nasello", "marca": "—", "categoria": "pesce", "unita": "g", "per100": {"kcal": 80, "prot": 17.5, "carb": 0, "grassi": 0.7, "fibre": 0}, "confezione": null, "alias": ["merluzzo", "nasello", "platessa"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "orata", "nome": "Orata o branzino", "marca": "—", "categoria": "pesce", "unita": "g", "per100": {"kcal": 110, "prot": 20, "carb": 0, "grassi": 3.5, "fibre": 0}, "confezione": null, "alias": ["orata", "branzino", "spigola"], "frutta_verdura": false, "fresco_giorni": 2, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "pesce-spada", "nome": "Pesce spada", "marca": "—", "categoria": "pesce", "unita": "g", "per100": {"kcal": 120, "prot": 19, "carb": 0, "grassi": 4.5, "fibre": 0}, "confezione": null, "alias": ["pesce spada", "spada"], "frutta_verdura": false, "fresco_giorni": 2, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "gamberi", "nome": "Gamberi sgusciati", "marca": "—", "categoria": "pesce", "unita": "g", "per100": {"kcal": 85, "prot": 18, "carb": 0.5, "grassi": 1, "fibre": 0}, "confezione": null, "alias": ["gamberi", "gamberetti", "mazzancolle"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "sgombro", "nome": "Sgombro in scatola al naturale", "marca": "—", "categoria": "pesce", "unita": "g", "per100": {"kcal": 180, "prot": 21, "carb": 0, "grassi": 10.5, "fibre": 0}, "confezione": {"nome": "scatoletta", "g": 90}, "alias": ["sgombro"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 90},
+{"id": "bastoncini-pesce", "nome": "Bastoncini di pesce", "marca": "—", "categoria": "pesce", "unita": "pz", "per100": {"kcal": 200, "prot": 12, "carb": 19, "grassi": 8.5, "fibre": 1}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 25}, "alias": ["bastoncini", "bastoncini di pesce"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "nigiri", "nome": "Nigiri di sushi", "marca": "—", "categoria": "pronti", "unita": "pz", "per100": {"kcal": 150, "prot": 6.5, "carb": 25, "grassi": 2, "fibre": 0.5}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 30}, "alias": ["nigiri", "sushi"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "maki", "nome": "Maki o uramaki", "marca": "—", "categoria": "pronti", "unita": "pz", "per100": {"kcal": 160, "prot": 5, "carb": 27, "grassi": 3.5, "fibre": 1}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 25}, "alias": ["maki", "uramaki", "hosomaki", "roll"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "albume", "nome": "Albume d'uovo", "marca": "—", "categoria": "uova", "unita": "g", "per100": {"kcal": 52, "prot": 11, "carb": 0.7, "grassi": 0.2, "fibre": 0}, "confezione": {"nome": "brick", "g": 500}, "alias": ["albume", "albumi"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "mozzarella", "nome": "Mozzarella", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 255, "prot": 18, "carb": 1, "grassi": 20, "fibre": 0}, "confezione": {"nome": "mozzarella", "g": 125}, "alias": ["mozzarella", "fiordilatte"], "frutta_verdura": false, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "mozzarella-bufala", "nome": "Mozzarella di bufala", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 290, "prot": 17, "carb": 0.5, "grassi": 24, "fibre": 0}, "confezione": null, "alias": ["bufala", "mozzarella di bufala"], "frutta_verdura": false, "fresco_giorni": 4, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "ricotta", "nome": "Ricotta vaccina", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 150, "prot": 8.5, "carb": 3.5, "grassi": 11, "fibre": 0}, "confezione": {"nome": "vaschetta", "g": 250}, "alias": ["ricotta"], "frutta_verdura": false, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 100},
+{"id": "fiocchi-latte", "nome": "Fiocchi di latte", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 100, "prot": 12, "carb": 2.5, "grassi": 4.5, "fibre": 0}, "confezione": {"nome": "vaschetta", "g": 150}, "alias": ["fiocchi di latte", "cottage cheese"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "skyr", "nome": "Skyr bianco", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 62, "prot": 11, "carb": 4, "grassi": 0.2, "fibre": 0}, "confezione": {"nome": "vasetto", "g": 150}, "alias": ["skyr"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "yogurt-bianco", "nome": "Yogurt bianco intero", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 65, "prot": 3.8, "carb": 4.5, "grassi": 3.5, "fibre": 0}, "confezione": {"nome": "vasetto", "g": 125}, "alias": ["yogurt bianco", "yogurt intero"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "yogurt-greco-intero", "nome": "Yogurt greco intero (5%)", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 95, "prot": 9, "carb": 3, "grassi": 5, "fibre": 0}, "confezione": {"nome": "vasetto", "g": 150}, "alias": ["yogurt greco intero", "yogurt greco 5%"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "latte-ps", "nome": "Latte parzialmente scremato", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 46, "prot": 3.3, "carb": 5, "grassi": 1.6, "fibre": 0}, "confezione": {"nome": "bottiglia", "g": 1000}, "alias": ["latte parzialmente scremato", "latte vaccino", "latte ps"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 250},
+{"id": "latte-intero", "nome": "Latte intero", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 64, "prot": 3.3, "carb": 4.8, "grassi": 3.6, "fibre": 0}, "confezione": {"nome": "bottiglia", "g": 1000}, "alias": ["latte intero"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 250},
+{"id": "feta", "nome": "Feta", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 265, "prot": 14, "carb": 1.5, "grassi": 22, "fibre": 0}, "confezione": {"nome": "confezione", "g": 200}, "alias": ["feta"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 60},
+{"id": "stracchino", "nome": "Stracchino o crescenza", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 300, "prot": 18, "carb": 0, "grassi": 25, "fibre": 0}, "confezione": {"nome": "confezione", "g": 165}, "alias": ["stracchino", "crescenza"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "scamorza", "nome": "Scamorza", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 335, "prot": 25, "carb": 1, "grassi": 26, "fibre": 0}, "confezione": null, "alias": ["scamorza", "provola"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 60},
+{"id": "gorgonzola", "nome": "Gorgonzola", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 325, "prot": 19, "carb": 1, "grassi": 27, "fibre": 0}, "confezione": null, "alias": ["gorgonzola"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "burro", "nome": "Burro", "marca": "—", "categoria": "latticini", "unita": "g", "per100": {"kcal": 750, "prot": 0.8, "carb": 1, "grassi": 83, "fibre": 0}, "confezione": {"nome": "panetto", "g": 250}, "alias": ["burro"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 10, "misure": {"cucchiaino": 5}},
+{"id": "panna-cucina", "nome": "Panna da cucina", "marca": "—", "categoria": "latticini", "unita": "ml", "per100": {"kcal": 205, "prot": 2.5, "carb": 3.5, "grassi": 20, "fibre": 0}, "confezione": {"nome": "brick", "g": 200}, "alias": ["panna", "panna da cucina"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "zucchine", "nome": "Zucchine", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 17, "prot": 1.3, "carb": 2.2, "grassi": 0.2, "fibre": 1.1}, "confezione": null, "alias": ["zucchine", "zucchina"], "frutta_verdura": true, "fresco_giorni": 6, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "melanzane", "nome": "Melanzane", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 22, "prot": 1.1, "carb": 3, "grassi": 0.3, "fibre": 2.6}, "confezione": null, "alias": ["melanzane", "melanzana"], "frutta_verdura": true, "fresco_giorni": 6, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "peperoni", "nome": "Peperoni", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 26, "prot": 1, "carb": 5, "grassi": 0.3, "fibre": 1.8}, "confezione": null, "alias": ["peperoni", "peperone"], "frutta_verdura": true, "fresco_giorni": 7, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "pomodori", "nome": "Pomodori da insalata", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 19, "prot": 1, "carb": 3.5, "grassi": 0.2, "fibre": 1.2}, "confezione": null, "alias": ["pomodoro", "pomodori da insalata"], "frutta_verdura": true, "fresco_giorni": 6, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "carote", "nome": "Carote", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 36, "prot": 1, "carb": 7.5, "grassi": 0.2, "fibre": 3}, "confezione": null, "alias": ["carote", "carota"], "frutta_verdura": true, "fresco_giorni": 14, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "broccoli", "nome": "Broccoli", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 33, "prot": 3, "carb": 3.5, "grassi": 0.4, "fibre": 3}, "confezione": null, "alias": ["broccoli", "broccolo"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "cavolfiore", "nome": "Cavolfiore", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 28, "prot": 3, "carb": 3, "grassi": 0.2, "fibre": 2.4}, "confezione": null, "alias": ["cavolfiore"], "frutta_verdura": true, "fresco_giorni": 6, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "spinaci", "nome": "Spinaci", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 27, "prot": 3, "carb": 2.5, "grassi": 0.5, "fibre": 2}, "confezione": null, "alias": ["spinaci", "spinacino"], "frutta_verdura": true, "fresco_giorni": 4, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "fagiolini", "nome": "Fagiolini", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 25, "prot": 2, "carb": 3.5, "grassi": 0.1, "fibre": 3}, "confezione": null, "alias": ["fagiolini"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "finocchi", "nome": "Finocchi", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 13, "prot": 1.2, "carb": 1, "grassi": 0, "fibre": 2.2}, "confezione": null, "alias": ["finocchi", "finocchio"], "frutta_verdura": true, "fresco_giorni": 7, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "cetrioli", "nome": "Cetrioli", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 14, "prot": 0.7, "carb": 1.8, "grassi": 0.5, "fibre": 0.8}, "confezione": null, "alias": ["cetrioli", "cetriolo"], "frutta_verdura": true, "fresco_giorni": 6, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "funghi", "nome": "Funghi champignon", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 25, "prot": 3, "carb": 1, "grassi": 0.3, "fibre": 2}, "confezione": null, "alias": ["funghi", "champignon"], "frutta_verdura": true, "fresco_giorni": 4, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "rucola", "nome": "Rucola", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 28, "prot": 2.6, "carb": 2, "grassi": 0.7, "fibre": 1.6}, "confezione": null, "alias": ["rucola"], "frutta_verdura": true, "fresco_giorni": 4, "fonte": "media", "generico": true, "porzione_g": 50},
+{"id": "asparagi", "nome": "Asparagi", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 25, "prot": 3, "carb": 3, "grassi": 0.2, "fibre": 2}, "confezione": null, "alias": ["asparagi"], "frutta_verdura": true, "fresco_giorni": 4, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "verdure-grigliate", "nome": "Verdure grigliate (con olio)", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 70, "prot": 1.5, "carb": 5, "grassi": 4.5, "fibre": 2.5}, "confezione": null, "alias": ["verdure grigliate", "verdure", "contorno di verdure", "verdure al forno"], "frutta_verdura": true, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "minestrone", "nome": "Minestrone di verdure", "marca": "—", "categoria": "pronti", "unita": "g", "per100": {"kcal": 45, "prot": 2, "carb": 6.5, "grassi": 1, "fibre": 2.5}, "confezione": null, "alias": ["minestrone", "zuppa di verdure", "vellutata", "passato di verdure"], "frutta_verdura": true, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 300},
+{"id": "passata", "nome": "Passata di pomodoro", "marca": "—", "categoria": "sughi", "unita": "g", "per100": {"kcal": 30, "prot": 1.4, "carb": 5, "grassi": 0.2, "fibre": 1.5}, "confezione": {"nome": "bottiglia", "g": 700}, "alias": ["passata", "passata di pomodoro", "polpa di pomodoro", "pelati"], "frutta_verdura": true, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "mais", "nome": "Mais in scatola (sgocciolato)", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 80, "prot": 2.8, "carb": 14, "grassi": 1.2, "fibre": 2.5}, "confezione": {"nome": "scatola", "g": 140}, "alias": ["mais"], "frutta_verdura": true, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 70},
+{"id": "avocado", "nome": "Avocado", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 160, "prot": 2, "carb": 2, "grassi": 15, "fibre": 6.7}, "confezione": null, "alias": ["avocado"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "olive", "nome": "Olive denocciolate", "marca": "—", "categoria": "verdura", "unita": "g", "per100": {"kcal": 145, "prot": 1, "carb": 1, "grassi": 15, "fibre": 3}, "confezione": null, "alias": ["olive"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30},
+{"id": "mela", "nome": "Mela", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 52, "prot": 0.3, "carb": 12, "grassi": 0.2, "fibre": 2.4}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 180}, "alias": ["mela", "mele"], "frutta_verdura": true, "fresco_giorni": 14, "fonte": "media", "generico": true},
+{"id": "pera", "nome": "Pera", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 57, "prot": 0.4, "carb": 13, "grassi": 0.1, "fibre": 3}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 170}, "alias": ["pera", "pere"], "frutta_verdura": true, "fresco_giorni": 7, "fonte": "media", "generico": true},
+{"id": "arancia", "nome": "Arancia", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 45, "prot": 0.9, "carb": 9.5, "grassi": 0.2, "fibre": 2.2}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 180}, "alias": ["arancia", "arance"], "frutta_verdura": true, "fresco_giorni": 14, "fonte": "media", "generico": true},
+{"id": "clementine", "nome": "Clementine o mandarini", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 47, "prot": 0.8, "carb": 10, "grassi": 0.2, "fibre": 1.7}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 70}, "alias": ["clementine", "clementina", "mandarino", "mandarini", "mandaranci"], "frutta_verdura": true, "fresco_giorni": 10, "fonte": "media", "generico": true},
+{"id": "uva", "nome": "Uva", "marca": "—", "categoria": "frutta", "unita": "g", "per100": {"kcal": 67, "prot": 0.6, "carb": 16, "grassi": 0.2, "fibre": 1}, "confezione": null, "alias": ["uva"], "frutta_verdura": true, "fresco_giorni": 6, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "fragole", "nome": "Fragole", "marca": "—", "categoria": "frutta", "unita": "g", "per100": {"kcal": 32, "prot": 0.7, "carb": 6, "grassi": 0.3, "fibre": 2}, "confezione": null, "alias": ["fragole", "fragola"], "frutta_verdura": true, "fresco_giorni": 3, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "lamponi", "nome": "Lamponi", "marca": "—", "categoria": "frutta", "unita": "g", "per100": {"kcal": 52, "prot": 1.2, "carb": 6, "grassi": 0.6, "fibre": 6.5}, "confezione": null, "alias": ["lamponi", "frutti di bosco"], "frutta_verdura": true, "fresco_giorni": 3, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "pesca", "nome": "Pesca", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 39, "prot": 0.9, "carb": 8.5, "grassi": 0.2, "fibre": 1.5}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 150}, "alias": ["pesca", "pesche", "nettarina"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true},
+{"id": "albicocche", "nome": "Albicocche", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 48, "prot": 1.4, "carb": 9.5, "grassi": 0.4, "fibre": 2}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 40}, "alias": ["albicocche", "albicocca"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true},
+{"id": "ananas", "nome": "Ananas", "marca": "—", "categoria": "frutta", "unita": "g", "per100": {"kcal": 50, "prot": 0.5, "carb": 11.5, "grassi": 0.1, "fibre": 1.4}, "confezione": null, "alias": ["ananas"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 150},
+{"id": "melone", "nome": "Melone", "marca": "—", "categoria": "frutta", "unita": "g", "per100": {"kcal": 34, "prot": 0.8, "carb": 7.5, "grassi": 0.2, "fibre": 0.9}, "confezione": null, "alias": ["melone"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "anguria", "nome": "Anguria", "marca": "—", "categoria": "frutta", "unita": "g", "per100": {"kcal": 30, "prot": 0.6, "carb": 7, "grassi": 0.2, "fibre": 0.4}, "confezione": null, "alias": ["anguria", "cocomero"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true, "porzione_g": 300},
+{"id": "cachi", "nome": "Cachi", "marca": "—", "categoria": "frutta", "unita": "pz", "per100": {"kcal": 70, "prot": 0.6, "carb": 16, "grassi": 0.3, "fibre": 2.5}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 170}, "alias": ["cachi", "caco"], "frutta_verdura": true, "fresco_giorni": 5, "fonte": "media", "generico": true},
+{"id": "datteri", "nome": "Datteri", "marca": "—", "categoria": "frutta secca", "unita": "pz", "per100": {"kcal": 280, "prot": 2.5, "carb": 65, "grassi": 0.4, "fibre": 8}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 8}, "alias": ["datteri", "dattero"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "spremuta", "nome": "Spremuta d'arancia", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 45, "prot": 0.7, "carb": 10, "grassi": 0.2, "fibre": 0.2}, "confezione": null, "alias": ["spremuta", "spremuta d'arancia"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "arachidi", "nome": "Arachidi tostate", "marca": "—", "categoria": "frutta secca", "unita": "g", "per100": {"kcal": 600, "prot": 26, "carb": 10, "grassi": 49, "fibre": 8}, "confezione": null, "alias": ["arachidi", "noccioline"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30, "misure": {"manciata": 30}},
+{"id": "anacardi", "nome": "Anacardi", "marca": "—", "categoria": "frutta secca", "unita": "g", "per100": {"kcal": 590, "prot": 18, "carb": 27, "grassi": 46, "fibre": 3}, "confezione": null, "alias": ["anacardi"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30, "misure": {"manciata": 30}},
+{"id": "nocciole", "nome": "Nocciole", "marca": "—", "categoria": "frutta secca", "unita": "g", "per100": {"kcal": 650, "prot": 15, "carb": 7, "grassi": 61, "fibre": 9}, "confezione": null, "alias": ["nocciole"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30, "misure": {"manciata": 30}},
+{"id": "pistacchi", "nome": "Pistacchi sgusciati", "marca": "—", "categoria": "frutta secca", "unita": "g", "per100": {"kcal": 600, "prot": 20, "carb": 16, "grassi": 48, "fibre": 10}, "confezione": null, "alias": ["pistacchi"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30, "misure": {"manciata": 30}},
+{"id": "cioccolato-fondente", "nome": "Cioccolato fondente", "marca": "—", "categoria": "snack", "unita": "g", "per100": {"kcal": 550, "prot": 7, "carb": 35, "grassi": 40, "fibre": 10}, "confezione": {"nome": "tavoletta", "g": 100}, "alias": ["cioccolato fondente", "fondente", "cioccolato"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 20},
+{"id": "cioccolato-latte", "nome": "Cioccolato al latte", "marca": "—", "categoria": "snack", "unita": "g", "per100": {"kcal": 540, "prot": 7.5, "carb": 56, "grassi": 31, "fibre": 2}, "confezione": {"nome": "tavoletta", "g": 100}, "alias": ["cioccolato al latte"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 20},
+{"id": "crema-nocciole", "nome": "Crema spalmabile alle nocciole", "marca": "—", "categoria": "colazione", "unita": "g", "per100": {"kcal": 540, "prot": 6, "carb": 57, "grassi": 31, "fibre": 3}, "confezione": {"nome": "barattolo", "g": 350}, "alias": ["nutella", "crema di nocciole", "crema alle nocciole"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 15, "misure": {"cucchiaino": 8, "cucchiaio": 15}},
+{"id": "biscotti-secchi", "nome": "Biscotti secchi", "marca": "—", "categoria": "colazione", "unita": "g", "per100": {"kcal": 440, "prot": 7, "carb": 73, "grassi": 12, "fibre": 3}, "confezione": null, "alias": ["biscotti secchi", "frollini", "oro saiwa"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30},
+{"id": "cornetto", "nome": "Cornetto vuoto (bar)", "marca": "—", "categoria": "colazione", "unita": "pz", "per100": {"kcal": 410, "prot": 8, "carb": 45, "grassi": 21, "fibre": 2}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 60}, "alias": ["cornetto", "brioche", "croissant"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "barretta-proteica", "nome": "Barretta proteica", "marca": "—", "categoria": "snack", "unita": "pz", "per100": {"kcal": 370, "prot": 33, "carb": 30, "grassi": 13, "fibre": 6}, "confezione": {"nome": "pezzo", "pz": 1, "g_pz": 50}, "alias": ["barretta proteica", "barretta", "protein bar"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true},
+{"id": "patatine-sacchetto", "nome": "Patatine in sacchetto", "marca": "—", "categoria": "snack", "unita": "g", "per100": {"kcal": 540, "prot": 6, "carb": 51, "grassi": 33, "fibre": 4.5}, "confezione": null, "alias": ["patatine", "chips"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 30},
+{"id": "gelato", "nome": "Gelato alla crema", "marca": "—", "categoria": "snack", "unita": "g", "per100": {"kcal": 210, "prot": 3.5, "carb": 24, "grassi": 11, "fibre": 0}, "confezione": null, "alias": ["gelato"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 120},
+{"id": "tiramisu", "nome": "Tiramisù", "marca": "—", "categoria": "snack", "unita": "g", "per100": {"kcal": 290, "prot": 5, "carb": 30, "grassi": 17, "fibre": 0.5}, "confezione": null, "alias": ["tiramisù", "tiramisu", "dolce al cucchiaio"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 120},
+{"id": "torta", "nome": "Torta o crostata (fetta)", "marca": "—", "categoria": "snack", "unita": "g", "per100": {"kcal": 380, "prot": 5.5, "carb": 55, "grassi": 15, "fibre": 1.5}, "confezione": null, "alias": ["torta", "crostata", "fetta di torta", "ciambellone"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 80},
+{"id": "zucchero", "nome": "Zucchero", "marca": "—", "categoria": "dispensa", "unita": "g", "per100": {"kcal": 400, "prot": 0, "carb": 100, "grassi": 0, "fibre": 0}, "confezione": {"nome": "pacco", "g": 1000}, "alias": ["zucchero"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 5, "misure": {"cucchiaino": 5}},
+{"id": "pesto-genovese", "nome": "Pesto alla genovese", "marca": "—", "categoria": "sughi", "unita": "g", "per100": {"kcal": 480, "prot": 5, "carb": 5, "grassi": 48, "fibre": 2}, "confezione": {"nome": "vasetto", "g": 190}, "alias": ["pesto", "pesto genovese", "pesto alla genovese", "pesto verde"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 40},
+{"id": "ragu", "nome": "Ragù alla bolognese", "marca": "—", "categoria": "sughi", "unita": "g", "per100": {"kcal": 140, "prot": 8, "carb": 5, "grassi": 10, "fibre": 1}, "confezione": {"nome": "vasetto", "g": 180}, "alias": ["ragù", "ragu", "sugo di carne"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 120},
+{"id": "sugo-pomodoro", "nome": "Sugo al pomodoro pronto", "marca": "—", "categoria": "sughi", "unita": "g", "per100": {"kcal": 60, "prot": 1.5, "carb": 7, "grassi": 3, "fibre": 1.5}, "confezione": {"nome": "vasetto", "g": 400}, "alias": ["sugo", "sugo al pomodoro", "sugo pronto"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 120},
+{"id": "ketchup", "nome": "Ketchup", "marca": "—", "categoria": "condimenti", "unita": "g", "per100": {"kcal": 105, "prot": 1.3, "carb": 24, "grassi": 0.2, "fibre": 0.5}, "confezione": null, "alias": ["ketchup"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 15},
+{"id": "birra", "nome": "Birra chiara", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 43, "prot": 0.4, "carb": 3.5, "grassi": 0, "fibre": 0}, "confezione": null, "alias": ["birra"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 330},
+{"id": "vino", "nome": "Vino", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 83, "prot": 0.1, "carb": 2.5, "grassi": 0, "fibre": 0}, "confezione": null, "alias": ["vino", "vino rosso", "vino bianco", "calice di vino", "prosecco"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 125},
+{"id": "spritz", "nome": "Spritz", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 85, "prot": 0, "carb": 7, "grassi": 0, "fibre": 0}, "confezione": null, "alias": ["spritz", "aperol spritz", "aperitivo"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "cola", "nome": "Bibita zuccherata (cola, aranciata)", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 42, "prot": 0, "carb": 10.6, "grassi": 0, "fibre": 0}, "confezione": null, "alias": ["coca cola", "coca", "cola", "aranciata", "bibita"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 330},
+{"id": "succo-frutta", "nome": "Succo di frutta", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 48, "prot": 0.3, "carb": 11.5, "grassi": 0.1, "fibre": 0.3}, "confezione": null, "alias": ["succo", "succo di frutta"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 200},
+{"id": "cappuccino", "nome": "Cappuccino (latte intero, senza zucchero)", "marca": "—", "categoria": "bevande", "unita": "ml", "per100": {"kcal": 45, "prot": 2.5, "carb": 3.5, "grassi": 2.4, "fibre": 0}, "confezione": null, "alias": ["cappuccino", "cappuccio"], "frutta_verdura": false, "fresco_giorni": null, "fonte": "media", "generico": true, "porzione_g": 150}
 ]

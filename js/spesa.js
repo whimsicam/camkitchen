@@ -219,7 +219,7 @@ function sheetRettifica(id) {
 }
 function sheetInventario() {
   const d = dispensa();
-  const al = Object.values(S.A).filter(a => a.traccia_dispensa !== false && a.id !== 'te').sort((a, b) => a.categoria.localeCompare(b.categoria) || a.nome.localeCompare(b.nome));
+  const al = Object.values(S.A).filter(a => a.traccia_dispensa !== false && a.id !== 'te' && (!a.generico || d.saldo[a.id] != null)).sort((a, b) => a.categoria.localeCompare(b.categoria) || a.nome.localeCompare(b.nome));
   const riga = a => { const c = a.confezione || {}, u = c.g_pz ? 'pz' : c.g ? 'conf' : 'g';
     const cur = d.saldo[a.id] != null ? (u === 'pz' ? d.saldo[a.id] / c.g_pz : u === 'conf' ? d.saldo[a.id] / c.g : d.saldo[a.id]) : 0;
     const lab = u === 'pz' ? (a.id === 'uova' ? 'uova' : 'pezzi') : u === 'conf' ? `${c.nome || 'confezione'} da ${fmt(c.g)} ${a.unita === 'ml' ? 'ml' : 'g'}` : 'grammi';

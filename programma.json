@@ -1,7 +1,7 @@
 {
- "versione": "0.2",
- "aggiornato": "2026-10-31",
- "messaggio_coach": "Primo ciclo: registra tutto, anche a occhio. Le prime 2–3 settimane servono a capire quanto ti serve davvero.",
+ "versione": "0.3",
+ "aggiornato": "2026-11-14",
+ "messaggio_coach": "Piano 0.3: yogurt con confettura allo spuntino, mandorle a merenda. Ora registri a cucchiaini, pezzi e porzioni.",
  "target": {
   "kcal": 2800,
   "kcal_min": 2700,
@@ -24,7 +24,8 @@
     },
     {
      "alimento": "miele",
-     "g": 7
+     "n": 1,
+     "u": "cucchiaino"
     },
     {
      "alimento": "nascondini",
@@ -36,11 +37,49 @@
     },
     {
      "alimento": "crema-arachidi",
-     "g": 15
+     "n": 1,
+     "u": "cucchiaio"
     },
     {
      "alimento": "confettura-fichi",
-     "g": 15
+     "n": 1,
+     "u": "cucchiaio"
+    }
+   ],
+   "varianti": [
+    {
+     "id": "senza-pane",
+     "nome": "senza pane",
+     "voci": [
+      {
+       "alimento": "te",
+       "pz": 1
+      },
+      {
+       "alimento": "miele",
+       "n": 1,
+       "u": "cucchiaino"
+      },
+      {
+       "alimento": "nascondini",
+       "pz": 3
+      }
+     ]
+    },
+    {
+     "id": "solo-te",
+     "nome": "solo tè",
+     "voci": [
+      {
+       "alimento": "te",
+       "pz": 1
+      },
+      {
+       "alimento": "miele",
+       "n": 1,
+       "u": "cucchiaino"
+      }
+     ]
     }
    ]
   },
@@ -49,19 +88,16 @@
    "nome": "Spuntino",
    "ora": "11:00",
    "giorni": "tutti",
-   "descrizione": "yogurt greco e mandorle",
+   "descrizione": "yogurt greco e confettura",
    "voci": [
     {
      "alimento": "yogurt-greco-bianco",
      "pz": 1
     },
     {
-     "alimento": "miele",
-     "g": 7
-    },
-    {
-     "alimento": "mandorle",
-     "g": 25
+     "alimento": "confettura-fichi",
+     "n": 2,
+     "u": "cucchiaino"
     }
    ]
   },
@@ -70,19 +106,48 @@
    "nome": "Merenda",
    "ora": "17:30",
    "giorni": "tutti",
-   "descrizione": "Grana, bresaola, crackers",
+   "descrizione": "Grana, bresaola, crackers, mandorle",
    "voci": [
     {
      "alimento": "grana-cubetti",
-     "g": 36
+     "n": 5,
+     "u": "cubetto"
     },
     {
      "alimento": "bresaola",
-     "g": 45
+     "n": 0.5,
+     "u": "vaschetta"
     },
     {
      "alimento": "crackers-pavesi",
      "pz": 1
+    },
+    {
+     "alimento": "mandorle",
+     "n": 1,
+     "u": "manciata"
+    }
+   ],
+   "varianti": [
+    {
+     "id": "senza-mandorle",
+     "nome": "senza mandorle",
+     "voci": [
+      {
+       "alimento": "grana-cubetti",
+       "n": 5,
+       "u": "cubetto"
+      },
+      {
+       "alimento": "bresaola",
+       "n": 0.5,
+       "u": "vaschetta"
+      },
+      {
+       "alimento": "crackers-pavesi",
+       "pz": 1
+      }
+     ]
     }
    ]
   },

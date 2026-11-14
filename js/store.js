@@ -61,7 +61,7 @@ export function salvaPref() { scrivi(K.pref, S.pref); accoda('preferenze.json');
 function unisciPref(a, b) {
   const togli = { ...(b.togli || {}) };
   for (const [k, v] of Object.entries(a.togli || {})) togli[k] = v;
-  return { togli, nonMiPiace: [...new Set([...(a.nonMiPiace || [])])] };
+  return { togli, nonMiPiace: [...new Set([...(a.nonMiPiace || [])])], varianti: { ...(b.varianti || {}), ...(a.varianti || {}) } };
 }
 
 function accoda(path) {
@@ -139,7 +139,7 @@ export async function eliminaRemoto(path, msg) {
 function messaggio(path) {
   if (path.startsWith('giorni/')) return `giorno: ${path.slice(7, -5)}`;
   if (path.startsWith('cicli/')) return `menù: ciclo ${path.slice(6, -5)}`;
-  if (path === 'preferenze.json') return 'preferenze: ingredienti tolti';
+  if (path === 'preferenze.json') return 'preferenze: aggiornate';
   return `dati: ${path}`;
 }
 
@@ -181,7 +181,7 @@ async function scarica() {
     S.shas[p] = f.sha; if (!rem) continue;
     if (p.startsWith('giorni/')) { const d = p.slice(7, -5); S.giorni[d] = unisciGiorno(S.coda.includes(p) ? S.giorni[d] : null, rem) || rem; }
     else if (p.startsWith('cicli/')) { const id = p.slice(6, -5); if (!S.coda.includes(p)) S.cicli[id] = rem; }
-    else if (p === 'preferenze.json') S.pref = S.coda.includes(p) ? unisciPref(S.pref, rem) : { togli: rem.togli || {}, nonMiPiace: rem.nonMiPiace || [] };
+    else if (p === 'preferenze.json') S.pref = S.coda.includes(p) ? unisciPref(S.pref, rem) : { togli: rem.togli || {}, nonMiPiace: rem.nonMiPiace || [], varianti: rem.varianti || {} };
     else S.alias = { ...rem, ...S.alias };
     cambi++;
   }
@@ -244,7 +244,7 @@ export async function caricaProgramma() {
     S.prog = prog; S.preset = preset;
     S.A = Object.fromEntries(alimenti.map(a => [a.id, a]));
     S.R = Object.fromEntries(ric.filter(Boolean).map(r => [r.id, r]));
-    if (!localStorage.getItem(K.pref)) { const pr = await getJSON('preferenze.json').catch(() => null); if (pr) { S.pref = { togli: pr.togli || {}, nonMiPiace: pr.nonMiPiace || [] }; scrivi(K.pref, S.pref); } }
+    if (!localStorage.getItem(K.pref)) { const pr = await getJSON('preferenze.json').catch(() => null); if (pr) { S.pref = { togli: pr.togli || {}, nonMiPiace: pr.nonMiPiace || [], varianti: pr.varianti || {} }; scrivi(K.pref, S.pref); } }
     scrivi(K.prog, prog); scrivi(K.preset, preset); scrivi(K.alimenti, alimenti); scrivi(K.ricette, Object.values(S.R));
   } catch (e) {
     console.warn('programma offline', e);

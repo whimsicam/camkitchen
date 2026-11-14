@@ -13,7 +13,22 @@
     }
    ]
   },
-  "spuntino": "fatto",
+  "spuntino": {
+   "voci": [
+    {
+     "alimento": "yogurt-greco-bianco",
+     "pz": 1
+    },
+    {
+     "alimento": "miele",
+     "g": 7
+    },
+    {
+     "alimento": "mandorle",
+     "g": 25
+    }
+   ]
+  },
   "merenda": {
    "voci": [
     {

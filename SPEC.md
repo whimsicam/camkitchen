@@ -357,3 +357,24 @@ Modalità cucina passo passo, avanzi, tracciamento delle scadenze inserite a man
 12. Nessun token nel codice o nei file del repo.
 13. Dal selettore del giorno si apre un giorno della settimana scorsa, si spunta la merenda: la dispensa e la media di quella settimana nei Progressi si aggiornano.
 14. Sul PC (finestra ≥ 900 px) compare la barra laterale e le viste usano il layout a colonne; sul telefono la barra in basso. Nessuno scroll orizzontale a 390 px.
+
+## Versione 3 (14/11/2026): scheda Oggi, misure di casa, varianti
+
+Sostituisce, dove in conflitto, le sezioni precedenti su Menù, giornata di oggi, pasti fuori casa e stile. Spesa, Ricette e Piano seguiranno lo stesso impianto (bozzetti approvati da CAM nella chat del progetto).
+
+### Stile
+Font DM Mono (300/400/500). Due colori: crema `#FAF3E6` e blu cobalto `#24408E` (secondario `#5A69A3`, linee `#D9DBE8`, secondo anello `#8493CC`). Nessun altro colore, nessun disegno dei piatti. Camillo è un gatto stilizzato a tratto blu (`mascot()` in `js/ui.js`). Barra delle schede con sole icone: Oggi, Ricette, Spesa, Piano.
+
+### Scheda Oggi (`js/oggi.js`)
+- In alto la data del giorno selezionato in grande (tocco = calendario) e Camillo (tocco = impostazioni); sotto, frecce per ieri e domani.
+- kcal e proteine in didascalia con due cerchi concentrici.
+- "La giornata" è un'unica lista: voci della giornata tipo, pranzo e cena nell'ordine dell'orario, poi gli extra. Cerchio = fatto come previsto; nome = modifica.
+- **Voce della giornata tipo:** varianti da scegliere con un tocco (`varianti` in `programma.json` più quelle salvate da CAM in `preferenze.json` → `varianti: { "<id voce>": [ { "id", "nome", "voci" } ] }`), un interruttore per ogni alimento, quantità in misure di casa, aggiunta di alimenti con ricerca. Il giorno salva `"fatto"` oppure `{ "voci": [...], "variante": "<id>" }`.
+- **Pranzo, cena, extra: un solo foglio "cosa hai mangiato?"** con ricerca (alimenti e ricette), pasti recenti, piatti del menù, "ho i numeri della confezione" (kcal per 100 g, grammi, proteine per 100 g: il conto lo fa l'app) e "chiedi una stima a Claude". Un pasto può contenere più voci. Non esistono più "fuori casa", "fuori ricettario" e i preset della mensa (i vecchi giorni con `pranzo.tipo: "mensa"` restano leggibili).
+
+### Dati nuovi
+- `alimenti.json`: `misure` (`{ "cucchiaino": 7 }`, grammi per misura di casa), `pezzo` (nome del pezzo al plurale, es. "biscotti"), `porzione_g` (porzione normale), `generico: true` (alimenti medi da tabelle di composizione: non compaiono nell'inventario finché non hanno un saldo).
+- Voce di giornata tipo o di giorno: oltre a `g` e `pz`, può avere `n` + `u` (numero di misure di casa: `{ "alimento": "miele", "n": 1, "u": "cucchiaino" }`).
+- Evento `extra`: campo `pasto` (`"pranzo"` o `"cena"`; assente = fuori pasto) e `porz` (`"poco"` 0,7 · `"normale"` 1 · `"tanto"` 1,4 della `porzione_g`).
+- Evento `fuori`: usato per ogni voce con kcal date (confezione o stima); `etichetta: { g, kcal100, prot100 }` quando viene dai numeri della confezione; `pendente: true` finché Claude non scrive la stima.
+- Stima di Claude: il messaggio chiede di aggiornare l'evento nel file del giorno; se non è possibile, la risposta è una riga `kcal: 000 · proteine: 00`.

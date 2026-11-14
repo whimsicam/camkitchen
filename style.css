@@ -619,3 +619,92 @@ details summary::-webkit-details-marker{display:none}
 .syncbar{display:flex;gap:8px;align-items:flex-start;width:100%;text-align:left;margin:0 0 14px;padding:10px 12px;border:1px solid var(--blue-l);border-radius:var(--r-s);background:var(--leaf);color:var(--ink);font:inherit;font-size:13px;line-height:1.4;cursor:pointer}
 .syncbar .syncdot{flex:none;margin-top:5px;background:var(--faded)}
 .syncbar .syncdot.err{background:#C0533A}
+
+/* ===== v3 (14/11/2026): DM Mono, crema e cobalto; scheda Oggi, varianti, "cosa hai mangiato?" ===== */
+:root{--paper:#FAF3E6;--leaf:#FFFBF2;--ink:#24408E;--faded:#5A69A3;--rule:#D9DBE8;--blue:#24408E;--blue-2:#8493CC;--blue-l:rgba(36,64,142,.38);--blue-xl:rgba(36,64,142,.07);--font:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace}
+body{font-size:15px;font-weight:400}
+body::after{display:none}
+.tab span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.tab{min-height:44px;justify-content:center}
+.tab svg{width:24px;height:24px;stroke-width:1.7}
+.oggi{display:flex;flex-direction:column;gap:20px;padding-top:8px}
+.og-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.og-date h1{margin:0;font-weight:300;font-size:46px;line-height:1.12;letter-spacing:.12em;text-align:left}
+.og-cat{position:relative;width:48px;height:48px;display:grid;place-items:center;flex:none}
+.og-cat .mascot{width:48px;height:48px}
+.og-cat .syncdot{position:absolute;right:0;top:2px;margin:0}
+.og-days{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--faded);margin-top:-8px}
+.og-days button{min-height:36px;padding:0 2px}
+.og-days b{font-weight:500;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.og-rule{height:1.5px;background:var(--ink);margin-top:-8px}
+.og-sum{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.og-cap{display:flex;flex-direction:column;gap:12px;font-size:13px;font-weight:500}
+.og-cap i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;background:var(--ink);box-sizing:border-box}
+.og-cap i.p{background:var(--blue-2)}
+.og-cap .m{font-weight:400;color:var(--faded)}
+.og-cap .m i{background:transparent;border:1.5px solid var(--faded)}
+.og-rings{width:104px;height:104px;flex:none;fill:none}
+.og-rings circle{stroke-width:5;stroke-linecap:round;transition:stroke-dasharray .45s}
+.og-rings .tr{stroke:var(--rule)}.og-rings .rk{stroke:var(--ink)}.og-rings .rp{stroke:var(--blue-2)}
+.og-note{margin:-6px 0 0;font-size:12.5px;line-height:1.5;color:var(--faded)}
+.og-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1.5px solid var(--ink);padding-bottom:8px}
+.og-h h2{margin:0;font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.og-h span{font-size:11.5px;color:var(--faded)}
+.orow{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:12px;align-items:center;min-height:58px;border-bottom:1px solid var(--rule)}
+.oc{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--ink);position:relative;display:block}
+button.oc::before{content:"";position:absolute;inset:-12px}
+.orow.on>.oc{background:var(--ink)}
+.orow.vuoto>.oc{border-style:dashed}
+.ow{min-width:0;text-align:left;padding:8px 0}
+.ow b{display:block;font-weight:500;font-size:15px}
+.ow small{display:block;font-size:12.5px;color:var(--faded);margin-top:2px;overflow-wrap:anywhere}
+.ok{font-size:13px;color:var(--faded)}
+.og-add{display:flex;align-items:center;justify-content:center;min-height:46px;border:1px dashed var(--ink);border-radius:999px;font-size:13.5px;width:100%}
+.opasto,.ovoce{display:flex;flex-direction:column;gap:16px}
+.opasto h3,.ovoce h3{margin:0;font-weight:300;font-size:30px;line-height:1.15;letter-spacing:.1em}
+#o-res,#v-res,#v-body{display:flex;flex-direction:column;gap:12px}
+#v-body{gap:16px}
+#o-res:empty,#v-res:empty,#o-piatto:empty{display:none}
+.chiprow button{min-height:36px}
+.chiprow button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ores{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;min-height:52px;border-bottom:1px solid var(--rule);width:100%;text-align:left;margin-top:-12px}
+.ores:first-child{margin-top:0}
+.ores b{display:block;font-weight:500;font-size:14.5px}
+.ores small{font-size:12px;color:var(--faded)}
+.opr{display:grid;grid-template-columns:minmax(0,1fr) auto auto 28px;gap:8px;align-items:center;min-height:56px;border-bottom:1px solid var(--rule)}
+.opr>b{font-weight:500;font-size:14px;overflow-wrap:anywhere}
+.opr>b small{display:block;font-weight:400;font-size:12px;color:var(--faded)}
+.opr .del{width:28px;height:28px;display:grid;place-items:center;color:var(--faded)}
+.oseg{display:inline-flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden;font-size:11px}
+.oseg button{padding:0 7px;min-height:34px}
+.oseg button.on{background:var(--ink);color:var(--paper)}
+.ost{display:inline-flex;align-items:center;gap:8px;font-size:14px}
+.ost b{font-weight:500;min-width:22px;text-align:center}
+.ost button{width:32px;height:32px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:16px;line-height:1}
+.oconf{border:1px solid var(--ink);border-radius:18px;padding:2px 16px}
+.oconf[open]{padding-bottom:16px}
+.oconf summary{font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;min-height:48px;display:flex;align-items:center;cursor:pointer;list-style:none}
+.oconf summary::-webkit-details-marker{display:none}
+.oconf summary::after{content:"+";margin-left:auto;font-size:18px;font-weight:400}
+.oconf[open] summary::after{content:"−"}
+.oconf .field{margin-top:8px}
+.ogrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ogrid .lab,.oconf .field>.lab{letter-spacing:.02em;text-transform:none;font-size:11px;min-height:30px;display:flex;align-items:flex-end;color:var(--faded)}
+.oconf-f{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.oconf-f b{font-weight:500;font-size:14px}
+.ofoot{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.otot{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:500;border-top:1.5px solid var(--ink);padding-top:12px}
+.ofoot>.pill.solid{display:flex;align-items:center;justify-content:center;min-height:48px;width:100%}
+.osw{width:42px;height:24px;border-radius:999px;border:1.5px solid var(--ink);position:relative;flex:none;display:block}
+.osw::after{content:"";position:absolute;top:3px;left:3px;width:15px;height:15px;border-radius:50%;background:var(--ink);transition:left .15s}
+.osw.on{background:var(--ink)}
+.osw.on::after{left:21px;background:var(--paper)}
+.orow.vr{grid-template-columns:42px minmax(0,1fr) auto}
+.orow.off .ow b,.orow.off .ow small{color:#8E97BD;text-decoration:line-through}
+.ovar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 10px;align-items:center}
+.ovar input{font:inherit;font-size:16px;border:0;border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);padding:8px 0;outline:none;min-width:0}
+.ovar input:focus{border-bottom-color:var(--ink)}
+@media (min-width:900px){.oggi{max-width:520px}}
+@media (prefers-reduced-motion:reduce){.og-rings circle,.osw::after{transition:none}}
+.banner .acts{grid-column:2/-1}
+.banner b{font-weight:500}

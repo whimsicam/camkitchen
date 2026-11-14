@@ -17,6 +17,7 @@ const add = (t, u, f = 1) => { for (const k in t) t[k] += (u[k] || 0) * f; retur
 export function grammi(v) {
   const a = S.A[v.alimento]; if (!a) return 0;
   if (v.g != null) return v.g;
+  if (v.n != null && v.u) return v.n * ((a.misure && a.misure[v.u]) || 0);
   if (v.pz != null) return v.pz * ((a.confezione && a.confezione.g_pz) || 0);
   return 0;
 }
@@ -68,12 +69,14 @@ export function totaliGiorno(g) {
   }
   return t;
 }
+export const extraDel = (g, quale) => (g.eventi || []).filter(e => e.tipo === 'extra' && e.pasto === quale);
+export const pastoFatto = (g, quale) => (g.eventi || []).some(e => e.pasto === quale && (e.tipo === 'pasto' || e.tipo === 'fuori' || e.tipo === 'extra')) || (quale === 'pranzo' && !!(g.pranzo && g.pranzo.tipo === 'mensa'));
 export const pastoDel = (g, quale) => (g.eventi || []).find(e => (e.tipo === 'pasto' || e.tipo === 'fuori') && e.pasto === quale);
 
 export function giornoCompleto(g) {
   if (!g) return false;
   const tipo = giornataDel(g.data).every(m => g.giornata && g.giornata[m.id]);
-  return tipo && !!pastoDel(g, 'cena');
+  return tipo && pastoFatto(g, 'cena');
 }
 export function nonSegnati(g) { return giornataDel(g.data).filter(m => !(g.giornata && g.giornata[m.id])); }
 
@@ -130,8 +133,11 @@ export function statoIngredienti(ricettaId, disp) {
     return { ...i, nome: a ? a.nome : i.alimento, serve, stato };
   });
 }
+const PLUR = { cucchiaino: 'cucchiaini', cucchiaio: 'cucchiai', manciata: 'manciate', cubetto: 'cubetti', vaschetta: 'vaschette', fetta: 'fette' };
+export const misuraTesto = (n, u) => `${n === 0.5 ? '½' : fmt(n, n % 1 ? 1 : 0)} ${n > 1 ? (PLUR[u] || u) : u}`;
 export function quantitaTesto(i) {
   const a = S.A[i.alimento];
+  if (i.n != null && i.u) return misuraTesto(i.n, i.u);
   if (i.pz != null) {
     const n = i.pz;
     if (i.alimento === 'uova') return `${fmt(n, n % 1 ? 1 : 0)}`;

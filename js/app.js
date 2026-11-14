@@ -1,24 +1,25 @@
 // CAM Kitchen: avvio, navigazione e smistamento delle azioni.
 import { S, caricaLocale, caricaProgramma, caricaGym, sincronizza, saveUI, oggi, syncPronto } from './store.js';
 import { $, NAV, ICON, closeSheet, closeOverlay, mascot } from './ui.js';
-import { vistaMenu, azioneMenu, initFlows } from './menu.js';
+import { azioneMenu, initFlows } from './menu.js';
+import { vistaOggi, azioneOggi } from './oggi.js';
 import { vistaInArrivo, azioneAltro } from './other.js';
 import { vistaSpesa, azioneSpesa, inviaAggiunta } from './spesa.js';
 import { vistaRicettario, azioneRicettario, cercaRicette } from './ricettario.js';
 import { paginaRicetta } from './menu.js';
 
 const VISTE = {
-  menu: vistaMenu,
+  menu: vistaOggi,
   ricettario: vistaRicettario,
   spesa: vistaSpesa,
-  progressi: () => vistaInArrivo('Progressi', 'progressi', 'Numeri della settimana, peso da CAM Gym, insights e il brief di Camillo. In arrivo.'),
+  progressi: () => vistaInArrivo('Il piano', 'progressi', 'Cosa mangiare, andamento del peso da CAM Gym e regole di aggiustamento. In arrivo.'),
 };
 
 function vista() { return VISTE[S.ui.v] ? S.ui.v : 'menu'; }
 
 function renderNav() {
   const v = vista();
-  $('tabs').innerHTML = NAV.map(n => `<button class="tab ${n[0] === v ? 'on' : ''}" data-view="${n[0]}"><svg viewBox="0 0 24 24">${n[2]}</svg><span>${n[1]}</span></button>`).join('');
+  $('tabs').innerHTML = NAV.map(n => `<button class="tab ${n[0] === v ? 'on' : ''}" data-view="${n[0]}" aria-label="${n[1]}"><svg viewBox="0 0 24 24">${n[2]}</svg><span>${n[1]}</span></button>`).join('');
   $('sidenav').innerHTML = NAV.map(n => `<button class="${n[0] === v ? 'on' : ''}" data-view="${n[0]}"><svg viewBox="0 0 24 24">${n[2]}</svg>${n[1]}</button>`).join('');
   const st = S.sync.stato, cls = st === 'ok' ? 'ok' : st === 'err' ? 'err' : st === 'off' ? '' : 'wait';
   const txt = !syncPronto() ? 'Sync da configurare' : S.coda.length ? `${S.coda.length} da sincronizzare` : st === 'err' ? 'Sync non riuscita' : 'Sincronizzato';
@@ -43,7 +44,7 @@ export function render() {
     // una schermata rotta non deve bloccare l'app: si azzera solo lo stato della schermata, mai i dati
     corpo = `<div class="wip">${mascot()}<b>Questa schermata si è inceppata</b><small>I tuoi dati sono al sicuro. Tocca qui sotto per ripartire.</small><button class="pill solid" data-act="reset-ui">Ripristina la schermata</button><small style="font-size:11px">${String(err && err.message || err).replace(/</g, '&lt;')}</small></div>`;
   }
-  $('main').innerHTML = top + banner + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${corpo}</div>`;
+  $('main').innerHTML = (v === 'menu' ? '' : top) + banner + `<div class="view ${v !== ultimaVista ? 'enter' : ''}" id="v-${v}">${corpo}</div>`;
   if (v === ultimaVista) window.scrollTo(0, y);
   ultimaVista = v;
   renderNav();
@@ -62,6 +63,7 @@ document.addEventListener('click', async e => {
   if (act === 'reset-ui') { const v = S.ui.v; S.ui = { v: 'menu', sel: oggi(), selGiorno: oggi(), coachVisto: S.ui.coachVisto }; saveUI(); render(); return; }
   let r = azioneRicettario(act, el);
   if (r === 'recipe') { paginaRicetta(el.dataset.r); return; }
+  if (r === null) r = azioneOggi(act, el);
   if (r === null) r = azioneMenu(act, el);
   if (r === null) r = azioneSpesa(act, el);
   if (r === null) r = await azioneAltro(act, el);
