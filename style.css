@@ -773,3 +773,10 @@ button.bx::before{content:"";position:absolute;inset:-12px}
 .ckr .oseg button{padding:0 12px;min-height:36px}
 .med:empty,.art:empty{display:none}
 :root{--rust:#5A69A3;--peach:#8493CC;--sage:#8493CC;--butter:#D9DBE8}
+
+.oed-n{text-align:left;min-height:44px;min-width:0;padding:6px 0}
+.oed-n b{font-weight:500;font-size:14px;overflow-wrap:anywhere;text-decoration:underline dotted var(--blue-l);text-underline-offset:4px}
+.oed-n b small{display:block;font-weight:400;font-size:12px;color:var(--faded);text-decoration:none}
+.oed{margin:8px 0;padding:12px 14px}
+.oed .ogrid{grid-template-columns:repeat(auto-fit,minmax(80px,1fr))}
+.oed input{font:inherit;font-size:16px}

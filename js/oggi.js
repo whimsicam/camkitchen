@@ -1,6 +1,6 @@
 // CAM Kitchen: scheda Oggi (la giornata in un'unica lista, varianti con un tocco, "cosa hai mangiato?").
 import { S, giorno, salvaPref, oggi, uid, nowISO, cfg, syncPronto } from './store.js';
-import { fmt, addDays, dow, giornataDel, totaliGiorno, vociGiornata, macroVoci, macroRicetta, cicloDi, statoCiclo, quantitaTesto, misuraTesto } from './calc.js';
+import { fmt, addDays, dow, grammi, giornataDel, totaliGiorno, vociGiornata, macroVoci, macroRicetta, cicloDi, statoCiclo, quantitaTesto, misuraTesto } from './calc.js';
 import { $, esc, toast, mascot, openSheet, closeSheet, breve, ICON } from './ui.js';
 import { sel, bannerIeri, bannerCoach, modifica } from './menu.js';
 import { apriClaude } from './ricettario.js';
@@ -135,9 +135,9 @@ function recenti(q) {
 }
 // a pranzo nei feriali la mensa, nel weekend i piatti di casa
 const soliti = q => { const fer = dow(sel()) < 5; return (S.prog.abituali || []).filter(x => q !== 'altro' && (x.pasto || []).includes(q) && (q !== 'pranzo' || !!x.mensa === fer)); };
-const daSolito = v => (v.alimento ? { tipo: 'extra', alimento: v.alimento, ...(v.g != null ? { g: v.g } : v.pz != null ? { pz: v.pz } : { n: v.n, u: v.u }), ...(v.porz ? { porz: v.porz } : {}) } : { tipo: 'fuori', nome: v.nome, kcal: v.kcal, prot: v.prot });
+const daSolito = v => (v.alimento ? { tipo: 'extra', alimento: v.alimento, ...(v.g != null ? { g: v.g } : v.pz != null ? { pz: v.pz } : { n: v.n, u: v.u }), ...(v.porz ? { porz: v.porz } : {}) } : { tipo: 'fuori', nome: v.nome, kcal: v.kcal, prot: v.prot, ...(v.g ? { g: v.g } : {}) });
 function sheetPasto(q) {
-  P = { q, rec: recenti(q) };
+  P = { q, rec: recenti(q) }; ED = null;
   openSheet(`<div class="opasto"><span class="lab">${dataCorta(sel())} · ${NOMI[q]}</span><h3>cosa hai mangiato?</h3>
   <div class="search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><input id="oq" placeholder="cerca: pollo, riso, pizza…" autocomplete="off" autocapitalize="off" enterkeyhint="search" aria-label="Cerca un alimento o un piatto"></div>
   <div id="o-res"></div>
@@ -167,10 +167,21 @@ function rinfresca() {
     if (menu.length) res += `<span class="lab">Dal tuo menù</span><div class="chiprow">${menu.map(id => `<button data-act="o-add" data-r="${id}">${esc(breve(id).toLowerCase())}</button>`).join('')}</div>`;
   }
   $('o-res').innerHTML = res;
-  $('o-piatto').innerHTML = xs.length ? `<div class="og-h"><h2>Nel piatto</h2></div>${xs.map(rigaPiatto).join('')}` : '';
+  $('o-piatto').innerHTML = xs.length ? `<div class="og-h"><h2>Nel piatto</h2><span>tocca un nome per cambiarlo</span></div>${xs.map(rigaPiatto).join('')}` : '';
   $('o-tot').textContent = `${fmt(t.kcal)} kcal · ${fmt(t.prot)} g prot`;
 }
+let ED = null; // voce del piatto aperta in modifica
+const campo = (id, lab, v) => `<div class="field"><label class="lab" for="${id}">${lab}</label><input id="${id}" inputmode="decimal" value="${v ?? ''}" autocomplete="off"></div>`;
+function editor(x) {
+  const e = giorno(sel()).eventi.find(z => z.id === x.id); if (!e) return '';
+  let campi = '', scala = '';
+  if (x.k === 'cibo') { const a = S.A[e.alimento]; campi = e.pz != null ? campo('ed-pz', (a && a.pezzo) || 'pezzi', e.pz) : campo('ed-g', a && a.unita === 'ml' ? 'ml' : 'grammi', Math.round(grammi(e))); }
+  else if (x.k === 'stima') { campi = campo('ed-g', 'grammi', e.g) + campo('ed-k', 'kcal', e.kcal) + campo('ed-p', 'proteine g', e.prot); if (e.g && e.kcal != null) scala = ` data-g="${e.g}" data-k="${e.kcal}" data-p="${e.prot || 0}"`; }
+  else if (x.k === 'ricetta') campi = campo('ed-por', 'porzioni', e.porzione || 1);
+  return `<div class="oconf oed"${scala}><span class="lab">${esc(x.nome)}</span><div class="ogrid">${campi}</div><div class="oconf-f"><button class="link" data-act="o-ed-x" style="padding-left:0">annulla</button><button class="pill sm solid" data-act="o-ed-ok" data-id="${x.id}">salva</button></div></div>`;
+}
 function rigaPiatto(x) {
+  if (ED === x.id) return editor(x);
   let mezzo = '';
   if (x.k === 'cibo') {
     const a = S.A[x.e.alimento];
@@ -178,8 +189,9 @@ function rigaPiatto(x) {
     else if (a && x.e.porz) mezzo = `<span class="oseg">${Object.keys(FATT).map(p => `<button class="${x.e.porz === p ? 'on' : ''}" data-act="o-porz" data-id="${x.id}" data-v="${p}">${p}</button>`).join('')}</span>`;
     else mezzo = `<small class="num">${esc(quantitaTesto(x.e))}</small>`;
   } else if (x.pendente) mezzo = `<button class="pill sm" data-act="o-stima" data-id="${x.id}">inserisci</button>`;
-  else mezzo = '<span></span>';
-  return `<div class="opr"><b>${esc(x.nome)}${x.pendente ? '<small>stima di Claude in arrivo</small>' : ''}</b>${mezzo}<span class="ok num">${x.pendente ? '—' : fmt(x.kcal)}</span><button class="del" data-act="o-del" data-id="${x.id}" aria-label="Togli ${esc(x.nome)}">${ICON.x}</button></div>`;
+  else { const e = x.k === 'stima' && giorno(sel()).eventi.find(z => z.id === x.id); mezzo = e && e.g ? `<small class="num">${fmt(e.g)} g</small>` : '<span></span>'; }
+  const nome = `${esc(x.nome)}${x.pendente ? '<small>stima di Claude in arrivo</small>' : ''}`;
+  return `<div class="opr">${x.k === 'mensa' ? `<b>${nome}</b>` : `<button class="oed-n" data-act="o-ed" data-id="${x.id}"><b>${nome}</b></button>`}${mezzo}<span class="ok num">${x.pendente ? '—' : fmt(x.kcal)}</span><button class="del" data-act="o-del" data-id="${x.id}" aria-label="Togli ${esc(x.nome)}">${ICON.x}</button></div>`;
 }
 const conPasto = (e, q) => (q === 'altro' ? (e.tipo === 'extra' ? e : { ...e, pasto: 'altro' }) : { ...e, pasto: q });
 function aggiungi(e) { const q = P.q; modifica(g => { g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(e, q) }); }); }
@@ -245,6 +257,14 @@ export function azioneOggi(act, el) {
     case 'o-sol': { const x = (S.prog.abituali || []).find(a => a.id === el.dataset.id); if (!x) return false;
       modifica(g => { for (const v of x.voci) g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(daSolito(v), P.q), solito: x.id }); });
       rinfresca(); toast('Aggiunto'); return true; }
+    case 'o-ed': ED = el.dataset.id; rinfresca(); const f = document.querySelector('.oed input'); if (f) f.focus(); return false;
+    case 'o-ed-x': ED = null; rinfresca(); return false;
+    case 'o-ed-ok': { const v = id => { const i = $(id); return i && i.value.trim() !== '' ? num(i.value) : null; };
+      modifica(g => { const e = g.eventi.find(z => z.id === el.dataset.id); if (!e) return;
+        if (e.tipo === 'extra') { const pz = v('ed-pz'), gr = v('ed-g'); if (pz != null) e.pz = Math.max(0.5, pz); else if (gr != null) { e.g = Math.max(1, Math.round(gr)); delete e.n; delete e.u; delete e.porz; delete e.pz; } }
+        else if (e.tipo === 'fuori') { const gr = v('ed-g'), k = v('ed-k'), pr = v('ed-p'); if (gr != null) e.g = Math.round(gr); else delete e.g; if (k != null) { e.kcal = Math.round(k); e.pendente = false; } if (pr != null) e.prot = Math.round(pr); }
+        else if (e.tipo === 'pasto') { const por = v('ed-por'); if (por) e.porzione = Math.max(0.25, por); } });
+      ED = null; rinfresca(); return true; }
     case 'o-rec': { const x = P.rec[Number(el.dataset.i)]; if (!x) return false;
       modifica(g => { for (const e of x.ev) { const { id, t, ciclo, voto, rif, solito, ...resto } = e; g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(resto, P.q) }); } });
       rinfresca(); toast('Aggiunto'); return true; }
@@ -295,5 +315,6 @@ document.addEventListener('input', e => {
   const t = e.target;
   if (t.id === 'oq') rinfresca();
   else if (t.id === 'vq') { const r = cerca(t.value, false); $('v-res').innerHTML = r.map(x => rigaRisultato(x, 'v-add')).join(''); }
+  else if (t.id === 'ed-g') { const b = t.closest('.oed'); if (b && b.dataset.g) { const r = num(t.value) / num(b.dataset.g); if (r > 0) { $('ed-k').value = Math.round(num(b.dataset.k) * r); $('ed-p').value = Math.round(num(b.dataset.p) * r); } } }
   else if (t.id === 'c-k' || t.id === 'c-g') $('c-tot').textContent = `= ${fmt(num($('c-k').value) * num($('c-g').value) / 100)} kcal`;
 });
