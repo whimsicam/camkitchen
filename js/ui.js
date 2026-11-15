@@ -16,7 +16,7 @@ export function mascot(cls = '') {
 <g class="eye"><path d="M23 29 q3 3 6 0 M35 29 q3 3 6 0"/></g>
 <path d="M30.5 34 h3 l-1.5 2 z" fill="#24408E"/><path d="M32 36 q-2.5 3 -5 1 M32 36 q2.5 3 5 1"/>
 <path d="M12 33 h-7 M12 37 l-6 2 M52 33 h7 M52 37 l6 2"/>
-<circle cx="32" cy="22" r="1.2" fill="#24408E"/><circle cx="29" cy="24" r="1" fill="#24408E"/><circle cx="35" cy="24" r="1" fill="#24408E"/>
+
 </g></svg>`;
 }
 
