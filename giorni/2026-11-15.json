@@ -1,0 +1,24 @@
+{
+ "data": "2026-11-15",
+ "giornata": {},
+ "pranzo": null,
+ "eventi": [
+  {
+   "id": "mwi04aa0dbje",
+   "t": "2026-11-15T16:40:35+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-vaniglia",
+   "nuovo_pz": 5,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwi04aij2d5x",
+   "t": "2026-11-15T16:40:36+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-vaniglia",
+   "nuovo_pz": 4,
+   "motivo": "controllo"
+  }
+ ],
+ "rimossi": []
+}
