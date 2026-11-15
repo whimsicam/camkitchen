@@ -4,11 +4,23 @@
  "al": "2026-11-07",
  "piatti": [
   {
+   "ricetta": "pasta-pesto-tonno",
+   "pasto": "cena"
+  },
+  {
    "ricetta": "burger-pollo-patate",
    "pasto": "cena"
   },
   {
    "ricetta": "burger-manzo-patate",
+   "pasto": "cena"
+  },
+  {
+   "ricetta": "pasta-pesto-tonno",
+   "pasto": "cena"
+  },
+  {
+   "ricetta": "burger-pollo-patate",
    "pasto": "cena"
   },
   {
@@ -19,29 +31,26 @@
    "ricetta": "pollo-limone-basmati",
    "pasto": "pranzo",
    "nuovo": true
-  },
-  {
-   "ricetta": "frittata-patate",
-   "pasto": "cena"
-  },
-  {
-   "ricetta": "toast-salmone",
-   "pasto": "cena"
-  },
-  {
-   "ricetta": "kioene-patate",
-   "pasto": "cena"
   }
  ],
  "lista": [
   {
+   "id": "hamburger-scottona",
+   "alimento": "hamburger-scottona",
+   "g": 360,
+   "testo": "2 hamburger",
+   "gruppo": "burger-manzo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
    "id": "hamburger-pollo",
    "alimento": "hamburger-pollo",
-   "g": 200,
-   "testo": "1 confezione",
+   "g": 400,
+   "testo": "2 confezioni",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": true
+   "preso": false
   },
   {
    "id": "insalata",
@@ -50,7 +59,25 @@
    "testo": "3 buste",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": true
+   "preso": false
+  },
+  {
+   "id": "maionese-calve",
+   "alimento": "maionese-calve",
+   "g": 225,
+   "testo": "1 vasetto",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "olio-evo",
+   "alimento": "olio-evo",
+   "g": 1000,
+   "testo": "1 bottiglia",
+   "gruppo": "burger-pollo-patate",
+   "nota": "",
+   "preso": false
   },
   {
    "id": "patate",
@@ -59,7 +86,7 @@
    "testo": "1 sacchetto",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": true
+   "preso": false
   },
   {
    "id": "pomodorini",
@@ -68,7 +95,7 @@
    "testo": "2 vaschette",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": true
+   "preso": false
   },
   {
    "id": "uova",
@@ -77,105 +104,6 @@
    "testo": "6",
    "gruppo": "burger-pollo-patate",
    "nota": "",
-   "preso": true
-  },
-  {
-   "id": "riso-basmati",
-   "alimento": "riso-basmati",
-   "g": 1000,
-   "testo": "1 pacco",
-   "gruppo": "pollo-limone-basmati",
-   "nota": "per provare pollo al limone con riso basmati",
-   "preso": true
-  },
-  {
-   "id": "banana",
-   "alimento": "banana",
-   "g": 1200,
-   "testo": "2 caschi",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "latte-soia",
-   "alimento": "latte-soia",
-   "g": 2000,
-   "testo": "2 brick",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "bresaola",
-   "alimento": "bresaola",
-   "g": 90,
-   "testo": "1 vaschetta",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "crackers-pavesi",
-   "alimento": "crackers-pavesi",
-   "g": 250,
-   "testo": "1 scatola",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "grana-cubetti",
-   "alimento": "grana-cubetti",
-   "g": 150,
-   "testo": "1 confezione",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "mandorle",
-   "alimento": "mandorle",
-   "g": 200,
-   "testo": "1 busta",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "nascondini",
-   "alimento": "nascondini",
-   "g": 329.4,
-   "testo": "1 confezione",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "te",
-   "alimento": "te",
-   "g": 40,
-   "testo": "1 scatola",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "yogurt-greco-bianco",
-   "alimento": "yogurt-greco-bianco",
-   "g": 1020,
-   "testo": "6 vasetti",
-   "gruppo": "giornata",
-   "nota": "",
-   "preso": true
-  },
-  {
-   "id": "maionese-calve",
-   "alimento": "maionese-calve",
-   "g": 225,
-   "testo": "1 vasetto",
-   "gruppo": "burger-manzo-patate",
-   "nota": "",
    "preso": false
   },
   {
@@ -183,16 +111,34 @@
    "alimento": "grana-grattugiato",
    "g": 100,
    "testo": "1 busta",
-   "gruppo": "frittata-patate",
+   "gruppo": "pasta-pesto-tonno",
    "nota": "",
    "preso": false
   },
   {
-   "id": "pane-proteico",
-   "alimento": "pane-proteico",
-   "g": 280,
+   "id": "pasta",
+   "alimento": "pasta",
+   "g": 500,
+   "testo": "1 pacco",
+   "gruppo": "pasta-pesto-tonno",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "pesto-rosso-mutti",
+   "alimento": "pesto-rosso-mutti",
+   "g": 180,
+   "testo": "1 vasetto",
+   "gruppo": "pasta-pesto-tonno",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "tonno-naturale",
+   "alimento": "tonno-naturale",
+   "g": 240,
    "testo": "1 confezione",
-   "gruppo": "frittata-patate",
+   "gruppo": "pasta-pesto-tonno",
    "nota": "",
    "preso": false
   },
@@ -211,20 +157,154 @@
    "g": 400,
    "testo": "1 retina",
    "gruppo": "pollo-limone-basmati",
+   "nota": "per provare pollo al limone con riso basmati",
+   "preso": false
+  },
+  {
+   "id": "petto-pollo",
+   "alimento": "petto-pollo",
+   "g": 500,
+   "testo": "1 vaschetta",
+   "gruppo": "pollo-limone-basmati",
+   "nota": "per provare pollo al limone con riso basmati",
+   "preso": false
+  },
+  {
+   "id": "riso-basmati",
+   "alimento": "riso-basmati",
+   "g": 1000,
+   "testo": "1 pacco",
+   "gruppo": "pollo-limone-basmati",
+   "nota": "per provare pollo al limone con riso basmati",
+   "preso": false
+  },
+  {
+   "id": "banana",
+   "alimento": "banana",
+   "g": 1200,
+   "testo": "2 caschi",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "latte-soia",
+   "alimento": "latte-soia",
+   "g": 2000,
+   "testo": "2 brick",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "bresaola",
+   "alimento": "bresaola",
+   "g": 270,
+   "testo": "3 vaschette",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "confettura-fichi",
+   "alimento": "confettura-fichi",
+   "g": 330,
+   "testo": "1 vasetto",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "crackers-pavesi",
+   "alimento": "crackers-pavesi",
+   "g": 250,
+   "testo": "1 scatola",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "crema-arachidi",
+   "alimento": "crema-arachidi",
+   "g": 350,
+   "testo": "1 vasetto",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "grana-cubetti",
+   "alimento": "grana-cubetti",
+   "g": 300,
+   "testo": "2 confezioni",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "mandorle",
+   "alimento": "mandorle",
+   "g": 200,
+   "testo": "1 busta",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "miele",
+   "alimento": "miele",
+   "g": 500,
+   "testo": "1 vasetto",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "nascondini",
+   "alimento": "nascondini",
+   "g": 329.4,
+   "testo": "1 confezione",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "pane-proteico",
+   "alimento": "pane-proteico",
+   "g": 280,
+   "testo": "1 confezione",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "te",
+   "alimento": "te",
+   "g": 40,
+   "testo": "1 scatola",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "whey-yamamoto",
+   "alimento": "whey-yamamoto",
+   "g": 1000,
+   "testo": "1 barattolo",
+   "gruppo": "giornata",
+   "nota": "",
+   "preso": false
+  },
+  {
+   "id": "yogurt-greco-bianco",
+   "alimento": "yogurt-greco-bianco",
+   "g": 1020,
+   "testo": "6 vasetti",
+   "gruppo": "giornata",
    "nota": "",
    "preso": false
   }
  ],
- "creato": "2026-11-02T16:31:14.904Z",
- "extra": [
-  {
-   "id": "mvzh9iwdrq2i",
-   "testo": "Melatonina",
-   "chiave": "melatonina",
-   "alimento": null,
-   "nonAlimentare": false,
-   "g": null,
-   "preso": true
-  }
- ]
+ "creato": "2026-10-31T22:57:26.401Z",
+ "extra": []
 }
