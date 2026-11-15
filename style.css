@@ -782,3 +782,4 @@ button.bx::before{content:"";position:absolute;inset:-12px}
 .oed input{font:inherit;font-size:16px}
 
 .pctl{border:1.5px dashed var(--ink);border-radius:18px;padding:14px 16px}
+.og-date h1{font-size:42px;letter-spacing:.1em}

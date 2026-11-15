@@ -6,6 +6,7 @@ import { sel, bannerIeri, bannerCoach, modifica } from './menu.js';
 import { apriClaude } from './ricettario.js';
 
 const GG = ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'];
+const GIORNI = ['lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato', 'domenica'];
 const MM = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
 const SESS = { armor: 'Armor', roots: 'Roots', guns: 'Guns', wings: 'Wings', breathe: 'Breathe' };
 const NOMI = { pranzo: 'Pranzo', cena: 'Cena', altro: 'Extra' };
@@ -40,7 +41,7 @@ export function vistaOggi() {
   const d = sel(), g = giorno(d), t = totaliGiorno(g), T = S.prog.target;
   const sessioni = (S.gym.sessioni || {})[d] || [];
   const st = S.sync.stato, punto = !syncPronto() ? '' : S.coda.length ? 'wait' : st === 'err' ? 'err' : 'ok';
-  const [gs, resto] = [GG[dow(d)], `${Number(d.slice(8))} ${MM[Number(d.slice(5, 7)) - 1]}`];
+  const [gs, resto] = [GIORNI[dow(d)], `${Number(d.slice(8))} ${MM[Number(d.slice(5, 7)) - 1]}`];
   const pk = Math.min(t.kcal / T.kcal, 1), pp = Math.min(t.prot / T.proteine_min, 1);
   const manca = T.kcal - t.kcal;
   const nota = t.kcal >= T.kcal_min && t.kcal <= T.kcal_max ? 'Sei dentro il target di oggi.' : t.kcal > T.kcal_max ? `Sei sopra il target di ${fmt(t.kcal - T.kcal)} kcal.` : `Mancano ${fmt(manca)} kcal${daFare(g) ? `: ${daFare(g)}` : ''}.`;
