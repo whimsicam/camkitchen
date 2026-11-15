@@ -238,5 +238,396 @@
     "controllo con CAM Gym"
    ]
   ]
- }
+ },
+ "abituali": [
+  {
+   "id": "mensa-zucca-nigiri",
+   "nome": "riso alla zucca e 3 nigiri",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Riso alla zucca, vaschetta piccola",
+     "kcal": 350,
+     "prot": 8
+    },
+    {
+     "nome": "3 nigiri di salmone con soia",
+     "kcal": 145,
+     "prot": 7
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "mensa-cannelloni-ricotta",
+   "nome": "cannelloni ricotta e spinaci",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Cannelloni ricotta e spinaci",
+     "kcal": 704,
+     "prot": 29
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "mensa-tartare-nigiri",
+   "nome": "tartare di vitello e 3 nigiri",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Tartare di vitello 180 g con olio",
+     "kcal": 290,
+     "prot": 38
+    },
+    {
+     "nome": "3 nigiri di salmone con soia",
+     "kcal": 145,
+     "prot": 7
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "mensa-zafferano-olive",
+   "nome": "pasta allo zafferano e olive ascolane",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Pasta zafferano, gamberetti e asparagi",
+     "kcal": 450,
+     "prot": 18
+    },
+    {
+     "nome": "8 olive ascolane",
+     "kcal": 400,
+     "prot": 13
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "mensa-zafferano-sashimi",
+   "nome": "pasta allo zafferano e sashimi",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Pasta zafferano, gamberetti e asparagi",
+     "kcal": 450,
+     "prot": 18
+    },
+    {
+     "nome": "5 sashimi di salmone con soia",
+     "kcal": 160,
+     "prot": 16
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "mensa-riso-curry",
+   "nome": "riso e pollo al curry",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Riso, vaschetta",
+     "kcal": 260,
+     "prot": 5
+    },
+    {
+     "nome": "Pollo al curry, vaschetta",
+     "kcal": 300,
+     "prot": 32
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "mensa-lasagne",
+   "nome": "lasagne 500 g",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Lasagne alla bolognese 500 g",
+     "kcal": 800,
+     "prot": 42
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "mensa-cannelloni-carne",
+   "nome": "cannelloni di carne",
+   "pasto": [
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Cannelloni di carne",
+     "kcal": 700,
+     "prot": 33
+    }
+   ],
+   "mensa": true
+  },
+  {
+   "id": "cena-pesto",
+   "nome": "pasta al pesto",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "pasta",
+     "g": 180,
+     "porz": "normale"
+    },
+    {
+     "alimento": "pesto-rosso-mutti",
+     "g": 90
+    }
+   ]
+  },
+  {
+   "id": "cena-pesto-pomodorini",
+   "nome": "pasta pesto e pomodorini",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "pasta",
+     "g": 180,
+     "porz": "normale"
+    },
+    {
+     "alimento": "pesto-rosso-mutti",
+     "g": 90
+    },
+    {
+     "alimento": "pomodorini",
+     "g": 100
+    }
+   ]
+  },
+  {
+   "id": "cena-pesto-mozzarella",
+   "nome": "pasta pesto, pomodorini e mozzarella",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "pasta",
+     "g": 180,
+     "porz": "normale"
+    },
+    {
+     "alimento": "pesto-rosso-mutti",
+     "g": 90
+    },
+    {
+     "alimento": "pomodorini",
+     "g": 100
+    },
+    {
+     "alimento": "mozzarella",
+     "g": 125
+    }
+   ]
+  },
+  {
+   "id": "cena-pesto-philadelphia",
+   "nome": "pasta pesto e Philadelphia",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "pasta",
+     "g": 180,
+     "porz": "normale"
+    },
+    {
+     "alimento": "pesto-rosso-mutti",
+     "g": 90
+    },
+    {
+     "alimento": "philadelphia-light",
+     "pz": 1
+    }
+   ]
+  },
+  {
+   "id": "cena-passata-tonno",
+   "nome": "pasta passata e tonno",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "pasta",
+     "g": 180,
+     "porz": "normale"
+    },
+    {
+     "alimento": "passata",
+     "g": 150
+    },
+    {
+     "alimento": "tonno-naturale",
+     "pz": 1
+    },
+    {
+     "alimento": "olio-evo",
+     "n": 1,
+     "u": "cucchiaio"
+    }
+   ]
+  },
+  {
+   "id": "cena-passata-philadelphia",
+   "nome": "pasta passata e Philadelphia",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "pasta",
+     "g": 180,
+     "porz": "normale"
+    },
+    {
+     "alimento": "passata",
+     "g": 150
+    },
+    {
+     "alimento": "philadelphia-light",
+     "pz": 1
+    },
+    {
+     "alimento": "olio-evo",
+     "n": 1,
+     "u": "cucchiaio"
+    }
+   ]
+  },
+  {
+   "id": "cena-scottona",
+   "nome": "scottona e insalata",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "hamburger-scottona",
+     "pz": 1
+    },
+    {
+     "alimento": "insalata",
+     "g": 80
+    },
+    {
+     "alimento": "olio-evo",
+     "n": 1,
+     "u": "cucchiaio"
+    }
+   ]
+  },
+  {
+   "id": "cena-pollo-impanato",
+   "nome": "burger di pollo impanato e insalata",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "cotoletta-pollo",
+     "g": 200
+    },
+    {
+     "alimento": "insalata",
+     "g": 80
+    },
+    {
+     "alimento": "olio-evo",
+     "n": 1,
+     "u": "cucchiaio"
+    }
+   ]
+  },
+  {
+   "id": "cena-pizza",
+   "nome": "pizza e patatine",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Pizza capricciosa o ai würstel",
+     "kcal": 1000,
+     "prot": 45
+    },
+    {
+     "nome": "Patatine fritte",
+     "kcal": 450,
+     "prot": 5
+    }
+   ]
+  },
+  {
+   "id": "cena-bresaola-uova",
+   "nome": "bresaola e uova sode",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "alimento": "bresaola",
+     "n": 1,
+     "u": "vaschetta"
+    },
+    {
+     "alimento": "olio-evo",
+     "n": 1,
+     "u": "cucchiaio"
+    },
+    {
+     "alimento": "uova",
+     "pz": 2
+    },
+    {
+     "alimento": "maionese-calve",
+     "n": 1,
+     "u": "cucchiaio"
+    }
+   ]
+  }
+ ],
+ "abituali_note": "Stime del 15/11/2026 dalla descrizione di CAM, da verificare: porzioni della mensa (vaschette di riso, pasta allo zafferano, pollo al curry, cannelloni di carne), peso delle olive ascolane e dei pezzi di sushi, tipo di pesto (qui pesto rosso Mutti, mezzo vasetto), peso del burger di pollo impanato (qui 200 g), olio sull'insalata e sulla pasta al pomodoro (qui 1 cucchiaio)."
 }

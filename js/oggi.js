@@ -133,6 +133,9 @@ function recenti(q) {
   }
   return [...m.values()].sort((a, b) => b.volte - a.volte || b.ultimo.localeCompare(a.ultimo)).slice(0, 6);
 }
+// a pranzo nei feriali la mensa, nel weekend i piatti di casa
+const soliti = q => { const fer = dow(sel()) < 5; return (S.prog.abituali || []).filter(x => q !== 'altro' && (x.pasto || []).includes(q) && (q !== 'pranzo' || !!x.mensa === fer)); };
+const daSolito = v => (v.alimento ? { tipo: 'extra', alimento: v.alimento, ...(v.g != null ? { g: v.g } : v.pz != null ? { pz: v.pz } : { n: v.n, u: v.u }), ...(v.porz ? { porz: v.porz } : {}) } : { tipo: 'fuori', nome: v.nome, kcal: v.kcal, prot: v.prot });
 function sheetPasto(q) {
   P = { q, rec: recenti(q) };
   openSheet(`<div class="opasto"><span class="lab">${dataCorta(sel())} · ${NOMI[q]}</span><h3>cosa hai mangiato?</h3>
@@ -158,6 +161,8 @@ function rinfresca() {
   } else {
     const c = cicloDi(sel());
     const menu = c && q !== 'altro' && sel() <= c.al ? [...new Set(statoCiclo(c).filter(p => !p.fatto).map(p => p.ricetta))].filter(id => S.R[id]) : [];
+    const sol = soliti(q);
+    if (sol.length) res += `<span class="lab">I tuoi soliti</span><div class="chiprow">${sol.map(x => `<button data-act="o-sol" data-id="${x.id}">${esc(x.nome)}</button>`).join('')}</div>`;
     if (P.rec.length) res += `<span class="lab">Di recente</span><div class="chiprow">${P.rec.map((x, i) => `<button data-act="o-rec" data-i="${i}">${esc(x.nomi.join(', '))}</button>`).join('')}</div>`;
     if (menu.length) res += `<span class="lab">Dal tuo menù</span><div class="chiprow">${menu.map(id => `<button data-act="o-add" data-r="${id}">${esc(breve(id).toLowerCase())}</button>`).join('')}</div>`;
   }
@@ -237,8 +242,11 @@ export function azioneOggi(act, el) {
       if (el.dataset.r) { const id = el.dataset.r, c = cicloDi(d), nel = c && c.piatti.some(p => p.ricetta === id); aggiungi({ tipo: 'pasto', ricetta: id, porzione: 1, ...(nel ? { ciclo: c.id } : {}) }); }
       else aggiungi(nuovoCibo(el.dataset.a));
       $('oq').value = ''; rinfresca(); return true; }
+    case 'o-sol': { const x = (S.prog.abituali || []).find(a => a.id === el.dataset.id); if (!x) return false;
+      modifica(g => { for (const v of x.voci) g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(daSolito(v), P.q), solito: x.id }); });
+      rinfresca(); toast('Aggiunto'); return true; }
     case 'o-rec': { const x = P.rec[Number(el.dataset.i)]; if (!x) return false;
-      modifica(g => { for (const e of x.ev) { const { id, t, ciclo, voto, rif, ...resto } = e; g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(resto, P.q) }); } });
+      modifica(g => { for (const e of x.ev) { const { id, t, ciclo, voto, rif, solito, ...resto } = e; g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(resto, P.q) }); } });
       rinfresca(); toast('Aggiunto'); return true; }
     case 'o-porz': modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (!e) return; const a = S.A[e.alimento]; e.porz = el.dataset.v; e.g = Math.round((a.porzione_g || 100) * FATT[e.porz]); }); rinfresca(); return true;
     case 'o-pz': modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (e) e.pz = Math.max(1, (e.pz || 1) + Number(el.dataset.n)); }); rinfresca(); return true;

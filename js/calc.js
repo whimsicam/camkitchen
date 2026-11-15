@@ -65,7 +65,7 @@ export function totaliGiorno(g) {
   for (const e of g.eventi || []) {
     if (e.tipo === 'pasto') add(t, macroRicetta(e.ricetta, e.ingredienti, e.porzione || 1));
     else if (e.tipo === 'fuori') add(t, { kcal: e.kcal || 0, prot: e.prot || 0 }, 1);
-    else if (e.tipo === 'extra') add(t, macroVoci([{ alimento: e.alimento, g: e.g, pz: e.pz }]));
+    else if (e.tipo === 'extra') add(t, macroVoci([{ alimento: e.alimento, g: e.g, pz: e.pz, n: e.n, u: e.u }]));
   }
   return t;
 }
@@ -117,7 +117,7 @@ export function dispensa(finoA) {
     for (const m of giornataDel(d)) consuma(vociGiornata(m, g.giornata && g.giornata[m.id]));
     for (const e of ev) {
       if (e.tipo === 'pasto') consuma(ingredientiEffettivi(e.ricetta, e.ingredienti).map(i => ({ ...i, g: grammi(i) * (e.porzione || 1), pz: undefined })));
-      if (e.tipo === 'extra') consuma([{ alimento: e.alimento, g: e.g, pz: e.pz }]);
+      if (e.tipo === 'extra') consuma([{ alimento: e.alimento, g: e.g, pz: e.pz, n: e.n, u: e.u }]);
     }
   }
   return { saldo, ultimoCarico };
