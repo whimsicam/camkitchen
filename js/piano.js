@@ -31,6 +31,13 @@ function andamento(pesi, T) {
   return `Andamento: ${pend >= 0 ? '+' : '−'}${fmt(Math.abs(pend), 2)} kg a settimana, ${giud}. ${ob}`;
 }
 
+function controllo(c) {
+  if (!c || !c.data) return '';
+  const pr = c.proposte || [];
+  return `<div class="pctl"><div class="og-h"><h2>Ultimo controllo</h2><span>${gm(c.data)}</span></div>
+  ${(c.testo || '').split(/\n+/).filter(Boolean).map(t => `<p class="og-note" style="margin:12px 0 0;color:var(--ink)">${esc(t)}</p>`).join('')}
+  ${pr.length ? `<span class="lab" style="display:block;margin-top:14px">Proposte, da accettare in chat</span>${pr.map(x => `<div class="prow r2"><span>${esc(x)}</span></div>`).join('')}` : ''}</div>`;
+}
 export function vistaPiano() {
   const p = S.prog, T = p.target;
   const pesi = Object.entries(S.gym.peso || {}).sort((a, b) => a[0].localeCompare(b[0])).slice(-12);
@@ -52,6 +59,7 @@ export function vistaPiano() {
   const regole = (p.regole && p.regole.aggiustamento) || [];
   return `<section class="oggi piano">
   <div><h1 class="big">il piano</h1><p class="og-note" style="margin:10px 0 0">versione ${esc(p.versione)} · aggiornato il ${gm(p.aggiornato)}</p></div>
+  ${controllo(p.controllo)}
   <div>${h2('Come sta andando', 'peso da CAM Gym')}${grafico(pesi)}
     <p class="og-note" style="margin:12px 0 0">${andamento(pesi, T)}</p>
     <div class="pbar-h"><span>giorni registrati, ultimi 14</span><span class="num">${registrati} di 14</span></div><div class="pbar"><i style="width:${registrati / 14 * 100}%"></i></div>
