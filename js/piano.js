@@ -2,6 +2,7 @@
 import { S, oggi } from './store.js';
 import { fmt, addDays, macroVoci, macroRicetta, giornataDel, giornoCompleto, giorniTra } from './calc.js';
 import { esc, mascot, breve } from './ui.js';
+import { riepilogo } from './riepilogo.js';
 
 const MM = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
 const gm = d => `${Number(d.slice(8))} ${MM[Number(d.slice(5, 7)) - 1]}`;
@@ -38,11 +39,23 @@ function controllo(c) {
   ${(c.testo || '').split(/\n+/).filter(Boolean).map(t => `<p class="og-note" style="margin:12px 0 0;color:var(--ink)">${esc(t)}</p>`).join('')}
   ${pr.length ? `<span class="lab" style="display:block;margin-top:14px">Proposte, da accettare in chat</span>${pr.map(x => `<div class="prow r2"><span>${esc(x)}</span></div>`).join('')}` : ''}</div>`;
 }
+function quadro(r, T) {
+  const riga = (a, b) => `<div class="prow r2"><span>${a}</span><b class="num">${b}</b></div>`;
+  const s = r.settimane;
+  return `<div class="pbar-h"><span>giorni completi, ultimi 14</span><span class="num">${r.completi} di 14</span></div><div class="pbar"><i style="width:${r.completi / 14 * 100}%"></i></div>
+  <div style="margin-top:8px">
+  ${riga('giorni registrati', `${r.registrati} di 14`)}
+  ${r.completi ? riga('media nei giorni completi', `${fmt(r.kcal)} kcal · ${fmt(r.prot)} g`) + riga('dentro il target', `${r.inTarget} di ${r.completi}`) + riga('frutta e verdura', `${fmt(r.fv, 1)} porzioni`) : ''}
+  ${riga('allenamenti', `${s[1].allenamenti} + ${s[2].allenamenti} (su 4 + 4)`)}
+  ${r.piatti.length ? riga('piatti più usati', esc(r.piatti.slice(0, 3).map(p => `${p.nome} ${p.volte}×`).join(', '))) : ''}
+  </div>
+  <p class="og-note" style="margin:12px 0 0;color:var(--ink)"><b style="font-weight:500">Regola:</b> ${esc(r.regola)}</p>`;
+}
 export function vistaPiano() {
   const p = S.prog, T = p.target;
   const pesi = Object.entries(S.gym.peso || {}).sort((a, b) => a[0].localeCompare(b[0])).slice(-12);
   const ultimi = [...Array(14)].map((_, i) => addDays(oggi(), -i));
-  const registrati = ultimi.filter(d => giornoCompleto(S.giorni[d])).length;
+  const R = riepilogo(oggi()), registrati = R.completi;
   const pasto = (n, quando, testo, k) => `<div class="prow"><span><b>${esc(n)}</b>${quando ? `<i>${esc(quando)}</i>` : ''}<small>${esc(testo)}</small></span><span class="ok num">${k}</span></div>`;
   const rot = (p.menu.rotazione_cene || []).filter(id => S.R[id]), kc = rot.map(id => macroRicetta(id).kcal);
   const cenaTesto = `a scelta: ${rot.map(id => breve(id).toLowerCase()).join(', ')}, oppure una ricetta dentro il piano`;
@@ -62,7 +75,7 @@ export function vistaPiano() {
   ${controllo(p.controllo)}
   <div>${h2('Come sta andando', 'peso da CAM Gym')}${grafico(pesi)}
     <p class="og-note" style="margin:12px 0 0">${andamento(pesi, T)}</p>
-    <div class="pbar-h"><span>giorni registrati, ultimi 14</span><span class="num">${registrati} di 14</span></div><div class="pbar"><i style="width:${registrati / 14 * 100}%"></i></div>
+    ${quadro(R, T)}
   </div>
   <div class="pfig"><div><b class="num">${fmt(T.kcal)}</b><small>kcal al giorno</small></div><div><b class="num">${T.proteine_min} g</b><small>proteine, minimo</small></div><div><b class="num">${T.frutta_verdura_porzioni}</b><small>porzioni di frutta e verdura</small></div></div>
   <div>${h2('Cosa mangiare', 'ogni giorno')}${righe.join('')}

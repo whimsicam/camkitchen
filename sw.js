@@ -1,6 +1,6 @@
 // CAM Kitchen: cache dei file statici. I dati (JSON) sono sempre network-first.
-const V = 'ck-v14';
-const STATIC = ['./', 'index.html', 'style.css?v=14', 'js/app.js?v=14', 'js/store.js', 'js/calc.js', 'js/ui.js', 'js/menu.js', 'js/oggi.js', 'js/piano.js', 'js/other.js', 'js/spesa.js', 'js/ricettario.js',
+const V = 'ck-v15';
+const STATIC = ['./', 'index.html', 'style.css?v=15', 'js/app.js?v=15', 'js/store.js', 'js/calc.js', 'js/ui.js', 'js/menu.js', 'js/oggi.js', 'js/piano.js', 'js/riepilogo.js', 'js/other.js', 'js/spesa.js', 'js/ricettario.js',
   'manifest.webmanifest', 'icons/icon-192.png?v=3', 'icons/icon-180.png'];
 
 self.addEventListener('install', e => {
