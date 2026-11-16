@@ -65,8 +65,8 @@
    "t": "2026-11-16T12:32:24+01:00",
    "tipo": "extra",
    "alimento": "pasta",
-   "g": 180,
-   "porz": "normale",
+   "g": 252,
+   "porz": "tanto",
    "pasto": "cena",
    "solito": "c-pesto"
   },
@@ -78,6 +78,15 @@
    "g": 90,
    "pasto": "cena",
    "solito": "c-pesto"
+  },
+  {
+   "id": "mwj6p0tsud3l",
+   "t": "2026-11-16T12:32:27+01:00",
+   "tipo": "extra",
+   "alimento": "pomodorini",
+   "g": 100,
+   "pasto": "cena",
+   "solito": "c-pomodorini"
   }
  ],
  "rimossi": [
