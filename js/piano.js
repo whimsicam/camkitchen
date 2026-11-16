@@ -47,7 +47,6 @@ function quadro(r, T) {
   ${riga('giorni registrati', `${r.registrati} di 14`)}
   ${r.completi ? riga('media nei giorni completi', `${fmt(r.kcal)} kcal · ${fmt(r.prot)} g`) + riga('dentro il target', `${r.inTarget} di ${r.completi}`) + riga('frutta e verdura', `${fmt(r.fv, 1)} porzioni`) : ''}
   ${riga('allenamenti', `${s[1].allenamenti} + ${s[2].allenamenti} (su 4 + 4)`)}
-  ${r.piatti.length ? riga('più usato', esc(`${r.piatti[0].nome}, ${r.piatti[0].volte}×`)) : ''}
   </div>
   <p class="og-note" style="margin:12px 0 0;color:var(--ink)"><b style="font-weight:500">Regola:</b> ${esc(r.regola)}</p>`;
 }
