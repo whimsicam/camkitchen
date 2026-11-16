@@ -57,16 +57,6 @@
    "pasto": "pranzo",
    "solito": "m-pane",
    "pendente": false
-  },
-  {
-   "id": "mwjdncyrx0hp",
-   "t": "2026-11-16T15:47:07+01:00",
-   "tipo": "fuori",
-   "pasto": "cena",
-   "nome": "pollo con pesto",
-   "kcal": null,
-   "prot": null,
-   "pendente": true
   }
  ],
  "rimossi": [
@@ -87,6 +77,7 @@
   "mwj62vg4re4s",
   "mwj6oywsn020",
   "mwj6oywsl2um",
-  "mwj6p0tsud3l"
+  "mwj6p0tsud3l",
+  "mwjdncyrx0hp"
  ]
 }
