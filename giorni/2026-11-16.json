@@ -23,29 +23,6 @@
     }
    ]
   },
-  "merenda": {
-   "voci": [
-    {
-     "alimento": "grana-cubetti",
-     "n": 5,
-     "u": "cubetto"
-    },
-    {
-     "alimento": "bresaola",
-     "n": 0.5,
-     "u": "vaschetta"
-    },
-    {
-     "alimento": "crackers-pavesi",
-     "pz": 1
-    },
-    {
-     "alimento": "mandorle",
-     "n": 14,
-     "u": "mandorla"
-    }
-   ]
-  },
   "frutta": {
    "voci": [
     {
