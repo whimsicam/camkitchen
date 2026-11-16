@@ -35,7 +35,8 @@
    "prot": 5,
    "g": 200,
    "pasto": "pranzo",
-   "solito": "mensa-riso-curry"
+   "solito": "mensa-riso-curry",
+   "pendente": false
   },
   {
    "id": "mwj5m7opbnuv",
