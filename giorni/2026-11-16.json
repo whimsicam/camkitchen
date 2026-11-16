@@ -45,6 +45,17 @@
    "alimento": "u-tartare-di-salmone",
    "g": 82,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwj9679259ct",
+   "t": "2026-11-16T13:41:48+01:00",
+   "tipo": "fuori",
+   "nome": "Pane, panino",
+   "kcal": 165,
+   "prot": 5,
+   "g": 60,
+   "pasto": "pranzo",
+   "solito": "m-pane"
   }
  ],
  "rimossi": [
