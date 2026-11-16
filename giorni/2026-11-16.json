@@ -17,15 +17,6 @@
   "spuntino": {
    "voci": [
     {
-     "alimento": "yogurt-greco-bianco",
-     "pz": 1
-    },
-    {
-     "alimento": "confettura-fichi",
-     "n": 2,
-     "u": "cucchiaino"
-    },
-    {
      "alimento": "mandorle",
      "n": 1,
      "u": "manciata"
