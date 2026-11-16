@@ -31,11 +31,12 @@
    "t": "2026-11-16T13:36:19+01:00",
    "tipo": "fuori",
    "nome": "Tartare di vitello con olio",
-   "kcal": 335,
-   "prot": 38,
-   "g": 195,
+   "kcal": 241,
+   "prot": 27,
+   "g": 140,
    "pasto": "pranzo",
-   "solito": "m-tartare"
+   "solito": "m-tartare",
+   "pendente": false
   }
  ],
  "rimossi": [
