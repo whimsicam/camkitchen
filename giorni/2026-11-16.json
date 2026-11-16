@@ -66,14 +66,6 @@
    "pasto": "pranzo",
    "solito": "m-pane",
    "pendente": false
-  },
-  {
-   "id": "mwjnbsrtmizq",
-   "t": "2026-11-16T20:18:03+01:00",
-   "tipo": "pasto",
-   "pasto": "cena",
-   "ricetta": "kioene-patate",
-   "porzione": 1
   }
  ],
  "rimossi": [
@@ -95,6 +87,7 @@
   "mwj6oywsn020",
   "mwj6oywsl2um",
   "mwj6p0tsud3l",
-  "mwjdncyrx0hp"
+  "mwjdncyrx0hp",
+  "mwjnbsrtmizq"
  ]
 }
