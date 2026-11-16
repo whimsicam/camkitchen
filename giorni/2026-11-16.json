@@ -62,41 +62,6 @@
  "pranzo": null,
  "eventi": [
   {
-   "id": "mwj62vg4re4s",
-   "t": "2026-11-16T12:15:13+01:00",
-   "tipo": "fuori",
-   "nome": "Tartare di vitello con olio",
-   "kcal": 335,
-   "prot": 38,
-   "g": 195,
-   "pasto": "pranzo",
-   "solito": "m-tartare",
-   "pendente": false
-  },
-  {
-   "id": "mwj62we0q8j5",
-   "t": "2026-11-16T12:15:15+01:00",
-   "tipo": "fuori",
-   "nome": "5 sashimi di salmone con soia",
-   "kcal": 160,
-   "prot": 16,
-   "g": 85,
-   "pasto": "pranzo",
-   "solito": "m-sashimi"
-  },
-  {
-   "id": "mwj63bbnuqjg",
-   "t": "2026-11-16T12:15:34+01:00",
-   "tipo": "fuori",
-   "nome": "Pane, panino",
-   "kcal": 165,
-   "prot": 5,
-   "g": 60,
-   "pasto": "pranzo",
-   "solito": "m-pane",
-   "pendente": false
-  },
-  {
    "id": "mwj6oywsn020",
    "t": "2026-11-16T12:32:24+01:00",
    "tipo": "extra",
@@ -123,15 +88,6 @@
    "g": 100,
    "pasto": "cena",
    "solito": "c-pomodorini"
-  },
-  {
-   "id": "mwj6sgnfk9w2",
-   "t": "2026-11-16T12:35:07+01:00",
-   "tipo": "extra",
-   "alimento": "zucchine",
-   "g": 200,
-   "porz": "normale",
-   "pasto": "pranzo"
   }
  ],
  "rimossi": [
@@ -145,6 +101,10 @@
   "mwj64k5fqhbt",
   "mwj64k5fwusn",
   "mwj64k5fz7wo",
-  "mwj65909570l"
+  "mwj65909570l",
+  "mwj6sgnfk9w2",
+  "mwj63bbnuqjg",
+  "mwj62we0q8j5",
+  "mwj62vg4re4s"
  ]
 }
