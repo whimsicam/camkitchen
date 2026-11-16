@@ -66,14 +66,16 @@ function naturale(it) {
   if (pk) { const n = Math.max(1, Math.round(it.g / pk)); return { n, passo: pk, u: n > 1 ? plurale(c.nome || 'confezione') : (c.nome || 'confezione') }; }
   return { n: Math.round(it.g), passo: 50, u: a.unita === 'ml' ? 'ml' : 'grammi' };
 }
+const ABBR = { confezione: 'conf.', confezioni: 'conf.', bottiglia: 'bott.', bottiglie: 'bott.', vaschetta: 'vasch.', vaschette: 'vasch.', sacchetto: 'sacch.', sacchetti: 'sacch.', vasetto: 'vasetto', vasetti: 'vasetti', scatola: 'scat.', scatole: 'scat.', scatoletta: 'scat.', scatolette: 'scat.', barattolo: 'barat.', barattoli: 'barat.', tavoletta: 'tav.', tavolette: 'tav.', panetto: 'pan.', panetti: 'pan.', grammi: 'g' };
+const abbr = u => (u ? ABBR[u] || (u.length > 7 ? `${u.slice(0, 5)}.` : u) : '');
 function lista(L) {
   const voci = L ? [...(L.lista || []).map(it => ({ it, k: 'l' })), ...(L.extra || []).map(it => ({ it, k: 'e' }))] : S.inbox.map(x => ({ it: { id: x.file, testo: x.testo }, k: 'i' }));
   if (!voci.length) return `<div><div class="og-h"><h2>Da comprare</h2><span></span></div><p class="og-note" style="margin:12px 0 0">La lista è vuota. Aggiungi qualcosa qui sopra${L ? '' : ' o prepara la lista dal menù'}.</p></div>`;
   voci.sort((a, b) => (!!a.it.preso) - (!!b.it.preso));
   const riga = ({ it, k }) => {
     const a = it.alimento && S.A[it.alimento], nat = naturale(it), nome = a ? a.nome : it.testo;
-    const destra = it.preso ? '<span class="ok">preso</span>' : nat ? `<span class="ost"><button data-act="sp-q" data-k="${k}" data-id="${esc(it.id)}" data-n="-1" aria-label="Meno">−</button><b class="num">${fmt(nat.n)}</b><button data-act="sp-q" data-k="${k}" data-id="${esc(it.id)}" data-n="1" aria-label="Più">+</button></span>` : `<button class="del" data-act="${k === 'i' ? 'inbox-del' : 'sp-via'}" data-k="${k}" data-id="${esc(it.id)}" aria-label="Togli ${esc(nome)}">${ICON.x}</button>`;
-    return `<div class="orow sp ${it.preso ? 'on off' : ''}">${k === 'i' ? '<span class="bx"></span>' : `<button class="bx" data-act="${k === 'l' ? 'lista-tick' : 'extra-tick'}" data-id="${esc(it.id)}" aria-label="${it.preso ? 'Rimetti in lista' : 'Preso'}: ${esc(nome)}"></button>`}<span class="ow"><b>${esc(nome)}</b>${nat && nat.u ? `<small>${esc(nat.u)}</small>` : it.nota ? `<small>${esc(it.nota)}</small>` : ''}</span>${destra}</div>`;
+    const destra = it.preso ? '<span class="sp-u"></span><span class="ok">preso</span>' : nat ? `<span class="sp-u">${esc(abbr(nat.u))}</span><span class="ost"><button data-act="sp-q" data-k="${k}" data-id="${esc(it.id)}" data-n="-1" aria-label="Meno">−</button><b class="num">${fmt(nat.n)}</b><button data-act="sp-q" data-k="${k}" data-id="${esc(it.id)}" data-n="1" aria-label="Più">+</button></span>` : `<span class="sp-u"></span><button class="del" data-act="${k === 'i' ? 'inbox-del' : 'sp-via'}" data-k="${k}" data-id="${esc(it.id)}" aria-label="Togli ${esc(nome)}">${ICON.x}</button>`;
+    return `<div class="orow sp ${it.preso ? 'on off' : ''}">${k === 'i' ? '<span class="bx"></span>' : `<button class="bx" data-act="${k === 'l' ? 'lista-tick' : 'extra-tick'}" data-id="${esc(it.id)}" aria-label="${it.preso ? 'Rimetti in lista' : 'Preso'}: ${esc(nome)}"></button>`}<span class="ow"><b>${esc(nome)}</b>${!nat && it.nota ? `<small>${esc(it.nota)}</small>` : ''}</span>${destra}</div>`;
   };
   return `<div><div class="og-h"><h2>Da comprare</h2><span class="num">${voci.filter(v => v.it.preso).length} di ${voci.length}</span></div>${voci.map(riga).join('')}${L ? `<div style="text-align:center;margin-top:10px"><button class="link" data-act="lista-ricalcola">ricalcola dal menù</button></div>` : ''}</div>`;
 }

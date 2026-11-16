@@ -133,7 +133,7 @@ export function statoIngredienti(ricettaId, disp) {
     return { ...i, nome: a ? a.nome : i.alimento, serve, stato };
   });
 }
-const PLUR = { cucchiaino: 'cucchiaini', cucchiaio: 'cucchiai', manciata: 'manciate', cubetto: 'cubetti', vaschetta: 'vaschette', fetta: 'fette' };
+const PLUR = { mandorla: 'mandorle', cucchiaino: 'cucchiaini', cucchiaio: 'cucchiai', manciata: 'manciate', cubetto: 'cubetti', vaschetta: 'vaschette', fetta: 'fette' };
 export const misuraTesto = (n, u) => `${n === 0.5 ? '½' : fmt(n, n % 1 ? 1 : 0)} ${n > 1 ? (PLUR[u] || u) : u}`;
 export function quantitaTesto(i) {
   const a = S.A[i.alimento];

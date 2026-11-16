@@ -106,7 +106,7 @@ function cerca(testo, conRicette) {
   const tk = n.split(/\s+/), out = [];
   if (conRicette) for (const r of Object.values(S.R)) { const h = norm(`${r.nome} ${r.breve || ''}`); if (tk.every(t => h.includes(t))) out.push({ k: 'r', id: r.id, nome: r.nome, p: 1 }); }
   for (const a of Object.values(S.A)) {
-    if (!a.per100 || a.traccia_dispensa === false) continue;
+    if (!a.per100 || a.nascosto || (a.traccia_dispensa === false && !a.utente)) continue;
     const nomi = [a.nome, ...(a.alias || [])].map(norm);
     if (!tk.every(t => nomi.some(x => x.includes(t)))) continue;
     out.push({ k: 'a', id: a.id, nome: a.nome, p: nomi.includes(n) ? 0 : nomi.some(x => x.startsWith(n)) ? 1 : 2 });
@@ -138,7 +138,8 @@ function recenti(q) {
 const soliti = q => { const fer = dow(sel()) < 5; return (S.prog.abituali || []).filter(x => q !== 'altro' && (x.pasto || []).includes(q) && (q !== 'pranzo' || !!x.mensa === fer)); };
 const daSolito = v => (v.alimento ? { tipo: 'extra', alimento: v.alimento, ...(v.g != null ? { g: v.g } : v.pz != null ? { pz: v.pz } : { n: v.n, u: v.u }), ...(v.porz ? { porz: v.porz } : {}) } : { tipo: 'fuori', nome: v.nome, kcal: v.kcal, prot: v.prot, ...(v.g ? { g: v.g } : {}) });
 function sheetPasto(q) {
-  P = { q, rec: recenti(q) }; ED = null;
+  P = { q, rec: recenti(q) }; ED = null; GEST = false; NF = null;
+  for (const e of giorno(sel()).eventi || []) salvaPiatto(e, false);
   openSheet(`<div class="opasto"><span class="lab">${dataCorta(sel())} · ${NOMI[q]}</span><h3>cosa hai mangiato?</h3>
   <div class="search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><input id="oq" placeholder="cerca: pollo, riso, pizza…" autocomplete="off" autocapitalize="off" enterkeyhint="search" aria-label="Cerca un alimento o un piatto"></div>
   <div id="o-res"></div>
@@ -158,12 +159,16 @@ function rinfresca() {
   let res = '';
   if (testo.trim().length >= 2) {
     const r = cerca(testo, q !== 'altro');
-    res = r.length ? r.map(x => rigaRisultato(x, 'o-add')).join('') : `<p class="note">Non trovo "${esc(testo.trim())}". Usa i numeri della confezione, oppure chiedi una stima a Claude: uso quello che hai scritto qui.</p>`;
+    res = (r.length ? r.map(x => rigaRisultato(x, 'o-add')).join('') : `<p class="note">Non trovo "${esc(testo.trim())}". Aggiungilo con i numeri della confezione, oppure chiedi una stima a Claude.</p>`) + (NF && NF.ctx === 'o' ? formNuovo() : bottoneNuovo(testo, 'o'));
   } else {
     const c = cicloDi(sel());
     const menu = c && q !== 'altro' && sel() <= c.al ? [...new Set(statoCiclo(c).filter(p => !p.fatto).map(p => p.ricetta))].filter(id => S.R[id]) : [];
     const sol = soliti(q);
     if (sol.length) res += `<span class="lab">I tuoi soliti</span><div class="chiprow">${sol.map(x => `<button data-act="o-sol" data-id="${x.id}">${esc(x.nome)}</button>`).join('')}</div>`;
+    const mie = Object.values(S.pref.piatti || {}).filter(x => !x.nascosto), miei = Object.values(S.pref.alimenti || {}).filter(x => !x.nascosto);
+    if (mie.length) res += `<span class="lab">I tuoi piatti</span><div class="chiprow">${mie.map(x => `<button data-act="${GEST ? 'o-piatto-via' : 'o-piatto'}" data-id="${x.id}">${esc(x.nome)}${GEST ? ' ×' : ''}</button>`).join('')}</div>`;
+    if (GEST && miei.length) res += `<span class="lab">Alimenti aggiunti da te</span><div class="chiprow">${miei.map(x => `<button data-act="o-alim-via" data-id="${x.id}">${esc(x.nome)} ×</button>`).join('')}</div>`;
+    if (mie.length || miei.length) res += `<button class="link" data-act="o-gest" style="align-self:flex-start;padding-left:0">${GEST ? 'fine' : 'togli piatti o alimenti aggiunti da te'}</button>`;
     if (P.rec.length) res += `<span class="lab">Di recente</span><div class="chiprow">${P.rec.map((x, i) => `<button data-act="o-rec" data-i="${i}">${esc(x.nomi.join(', '))}</button>`).join('')}</div>`;
     if (menu.length) res += `<span class="lab">Dal tuo menù</span><div class="chiprow">${menu.map(id => `<button data-act="o-add" data-r="${id}">${esc(breve(id).toLowerCase())}</button>`).join('')}</div>`;
   }
@@ -172,6 +177,29 @@ function rinfresca() {
   $('o-tot').textContent = `${fmt(t.kcal)} kcal · ${fmt(t.prot)} g prot`;
 }
 let ED = null; // voce del piatto aperta in modifica
+let GEST = false; // modalità per togliere piatti e alimenti aggiunti
+let NF = null; // modulo "nuovo alimento": { ctx: 'o' | 'v', nome, modo: 'pz' | '100' }
+const slug = t => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+function bottoneNuovo(testo, ctx) { return `<button class="pill sm" data-act="n-apri" data-ctx="${ctx}" data-t="${esc(testo.trim())}" style="align-self:flex-start">+ aggiungi "${esc(testo.trim())}" come nuovo</button>`; }
+function formNuovo() {
+  const pz = NF.modo === 'pz';
+  return `<div class="oconf oed nf"><span class="lab">Nuovo alimento, dalla confezione</span>
+  <div class="field"><label class="lab" for="n-nome">nome</label><input id="n-nome" value="${esc(NF.nome)}" autocomplete="off"></div>
+  <div class="chiprow"><button class="${pz ? 'on' : ''}" data-act="n-modo" data-v="pz">valori per pezzo</button><button class="${pz ? '' : 'on'}" data-act="n-modo" data-v="100">valori per 100 g</button></div>
+  <div class="ogrid">${campo('n-k', pz ? 'kcal per pezzo' : 'kcal per 100 g', '')}${campo('n-p', pz ? 'proteine per pezzo' : 'proteine per 100 g', '')}${campo('n-q', pz ? 'pezzi mangiati' : 'grammi mangiati', pz ? 1 : '')}</div>
+  <div class="oconf-f"><button class="link" data-act="n-x" style="padding-left:0">annulla</button><button class="pill sm solid" data-act="n-ok">aggiungi</button></div></div>`;
+}
+// un piatto con kcal date (confezione, stima di Claude) resta tra "I tuoi piatti"
+function salvaPiatto(e, forza = true) {
+  if (!e || e.tipo !== 'fuori' || e.solito || e.pendente || e.kcal == null || !e.nome) return;
+  const id = e.piatto || `p-${slug(e.nome)}`;
+  S.pref.piatti = S.pref.piatti || {};
+  const v = S.pref.piatti[id] || {};
+  if (v.nascosto && !forza) return; // tolto da CAM: non torna da solo
+  if (!v.nascosto && v.kcal === e.kcal && v.prot === (e.prot || 0) && (v.g || null) === (e.g || null)) return;
+  S.pref.piatti[id] = { id, nome: e.nome, kcal: e.kcal, prot: e.prot || 0, ...(e.g ? { g: e.g } : {}) };
+  salvaPref();
+}
 const campo = (id, lab, v) => `<div class="field"><label class="lab" for="${id}">${lab}</label><input id="${id}" inputmode="decimal" value="${v ?? ''}" autocomplete="off"></div>`;
 function editor(x) {
   const e = giorno(sel()).eventi.find(z => z.id === x.id); if (!e) return '';
@@ -220,6 +248,7 @@ function righeDa(m, voci) {
   return base;
 }
 function sheetVoce(id) {
+  NF = null;
   const m = giornataDel(sel()).find(x => x.id === id); if (!m) return;
   const st = giorno(sel()).giornata[id];
   V = { id, righe: righeDa(m, vociGiornata(m, st || 'fatto')), variante: st && st !== 'fatto' ? (st.variante || '*') : '' };
@@ -241,6 +270,13 @@ function disegnaVoce() {
   <div class="ofoot"><div class="otot"><span>totale</span><span class="num">${fmt(t.kcal)} kcal · ${fmt(t.prot)} g prot</span></div>
   <button class="pill solid" data-act="v-ok">fatto</button>
   <div class="ovar"><input id="v-nome" placeholder="nome della variante" autocomplete="off" aria-label="Nome della variante"><button class="link" data-act="v-salva">salva come variante</button>${st ? `<button class="link" data-act="v-no">non fatto</button>` : ''}</div></div>`;
+}
+// ridisegna i risultati con il modulo "nuovo alimento" dove serve
+function disegnaNF() {
+  if ($('v-res') && (!NF || NF.ctx === 'v')) { const t = $('vq').value, r = cerca(t, false);
+    $('v-res').innerHTML = NF ? formNuovo() : t.trim().length >= 2 ? (r.length ? r.map(x => rigaRisultato(x, 'v-add')).join('') : `<p class="note">Non trovo "${esc(t.trim())}" nel catalogo.</p>`) + bottoneNuovo(t, 'v') : ''; }
+  else rinfresca();
+  const f = $('n-k'); if (f && NF) f.focus();
 }
 const vociDa = righe => righe.filter(r => r.on).map(r => ({ alimento: r.alimento, ...qta(r) }));
 const uguali = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -265,7 +301,24 @@ export function azioneOggi(act, el) {
         if (e.tipo === 'extra') { const pz = v('ed-pz'), gr = v('ed-g'); if (pz != null) e.pz = Math.max(0.5, pz); else if (gr != null) { e.g = Math.max(1, Math.round(gr)); delete e.n; delete e.u; delete e.porz; delete e.pz; } }
         else if (e.tipo === 'fuori') { const gr = v('ed-g'), k = v('ed-k'), pr = v('ed-p'); if (gr != null) e.g = Math.round(gr); else delete e.g; if (k != null) { e.kcal = Math.round(k); e.pendente = false; } if (pr != null) e.prot = Math.round(pr); }
         else if (e.tipo === 'pasto') { const por = v('ed-por'); if (por) e.porzione = Math.max(0.25, por); } });
-      ED = null; rinfresca(); return true; }
+      salvaPiatto(giorno(d).eventi.find(x => x.id === el.dataset.id)); ED = null; rinfresca(); return true; }
+    case 'o-gest': GEST = !GEST; rinfresca(); return false;
+    case 'o-piatto': { const x = (S.pref.piatti || {})[el.dataset.id]; if (!x) return false;
+      aggiungi({ tipo: 'fuori', nome: x.nome, kcal: x.kcal, prot: x.prot, ...(x.g ? { g: x.g } : {}), piatto: x.id }); rinfresca(); toast('Aggiunto'); return true; }
+    case 'o-piatto-via': { const x = (S.pref.piatti || {})[el.dataset.id]; if (!x) return false; x.nascosto = true; salvaPref(); rinfresca(); toast(`Tolto: ${x.nome}`); return false; }
+    case 'o-alim-via': { const x = (S.pref.alimenti || {})[el.dataset.id]; if (!x) return false; x.nascosto = true; salvaPref(); rinfresca(); toast(`Tolto: ${x.nome}`); return false; }
+    case 'n-apri': NF = { ctx: el.dataset.ctx, nome: el.dataset.t || '', modo: 'pz' }; disegnaNF(); return false;
+    case 'n-modo': NF.nome = $('n-nome').value; NF.modo = el.dataset.v; disegnaNF(); return false;
+    case 'n-x': NF = null; disegnaNF(); return false;
+    case 'n-ok': { const nome = $('n-nome').value.trim(), k = num($('n-k').value), pr = num($('n-p').value), q = num($('n-q').value);
+      if (!nome || !k || !q) { toast('Scrivi nome, kcal e quantità'); return false; }
+      const pz = NF.modo === 'pz', id = `u-${slug(nome) || uid()}`;
+      const a = { id, nome, marca: '—', categoria: 'aggiunti', unita: pz ? 'pz' : 'g', per100: { kcal: k, prot: pr, carb: 0, grassi: 0, fibre: 0 }, confezione: pz ? { nome: 'pezzo', pz: 1, g_pz: 100 } : null, alias: [], traccia_dispensa: false, utente: true, ...(pz ? { pezzo: 'pezzi' } : { porzione_g: q }) };
+      S.pref.alimenti = S.pref.alimenti || {}; S.pref.alimenti[id] = a; salvaPref();
+      const ctx = NF.ctx; NF = null;
+      if (ctx === 'v') { V.righe.push({ alimento: id, on: true, ...(pz ? { pz: q } : { g: q }) }); V.variante = '*'; disegnaVoce(); }
+      else { aggiungi({ tipo: 'extra', alimento: id, ...(pz ? { pz: q } : { g: q }) }); $('oq').value = ''; rinfresca(); }
+      toast(`${nome}: aggiunto e salvato nel catalogo`); return true; }
     case 'o-rec': { const x = P.rec[Number(el.dataset.i)]; if (!x) return false;
       modifica(g => { for (const e of x.ev) { const { id, t, ciclo, voto, rif, solito, ...resto } = e; g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(resto, P.q) }); } });
       rinfresca(); toast('Aggiunto'); return true; }
@@ -274,7 +327,8 @@ export function azioneOggi(act, el) {
     case 'o-del': modifica(g => { if (el.dataset.id === 'mensa') { g.pranzo = null; return; } g.eventi = g.eventi.filter(e => e.id !== el.dataset.id); g.rimossi = [...(g.rimossi || []), el.dataset.id]; }); rinfresca(); return true;
     case 'o-conf': { const n = $('c-nome').value.trim() || 'Piatto confezionato', k = num($('c-k').value), gr = num($('c-g').value), p = num($('c-p').value);
       if (!k || !gr) { toast('Scrivi le kcal per 100 g e i grammi'); return false; }
-      aggiungi({ tipo: 'fuori', nome: n, kcal: Math.round(k * gr / 100), prot: Math.round(p * gr / 100), etichetta: { g: gr, kcal100: k, prot100: p } });
+      const ev = { tipo: 'fuori', nome: n, g: gr, kcal: Math.round(k * gr / 100), prot: Math.round(p * gr / 100), etichetta: { g: gr, kcal100: k, prot100: p } };
+      aggiungi(ev); salvaPiatto(ev);
       for (const i of ['c-nome', 'c-k', 'c-g', 'c-p']) $(i).value = ''; $('c-tot').textContent = '= 0 kcal'; el.closest('details').open = false; rinfresca(); toast('Aggiunto'); return true; }
     case 'o-claude': { const n = $('oq').value.trim() || $('c-nome').value.trim();
       if (!n) { toast('Scrivi prima nel campo di ricerca cosa hai mangiato'); $('oq').focus(); return false; }
@@ -285,20 +339,20 @@ export function azioneOggi(act, el) {
       $('o-res').innerHTML = `<div class="oconf" style="padding:12px 14px"><span class="lab">${esc(e.nome)}</span><div class="ogrid" style="grid-template-columns:1fr 1fr"><div class="field"><label class="lab" for="s-k">kcal</label><input id="s-k" inputmode="decimal"></div><div class="field"><label class="lab" for="s-p">proteine g</label><input id="s-p" inputmode="decimal"></div></div><div class="oconf-f"><span></span><button class="pill sm solid" data-act="o-stima-ok" data-id="${e.id}">salva</button></div></div>`;
       $('s-k').focus(); return false; }
     case 'o-stima-ok': { const k = Math.round(num($('s-k').value)), p = Math.round(num($('s-p').value)); if (!k) { toast('Inserisci le kcal'); return false; }
-      modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (e) { e.kcal = k; e.prot = p; e.pendente = false; } }); rinfresca(); return true; }
+      modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (e) { e.kcal = k; e.prot = p; e.pendente = false; } }); salvaPiatto(giorno(d).eventi.find(x => x.id === el.dataset.id)); rinfresca(); return true; }
 
     case 'o-voce': sheetVoce(el.dataset.id); return false;
     case 'v-sw': { const r = V.righe[Number(el.dataset.i)]; r.on = !r.on; V.variante = '*'; disegnaVoce(); return false; }
     case 'v-st': { const r = V.righe[Number(el.dataset.i)], n = Number(el.dataset.n);
       if (r.pz != null) r.pz = Math.max(1, r.pz + n);
-      else if (r.n != null) { const passo = r.n < 1 || (r.n === 1 && n < 0) ? 0.5 : 1; r.n = Math.max(0.5, r.n + n * passo); }
+      else if (r.n != null) { const pa = (S.A[r.alimento] && S.A[r.alimento].passo && S.A[r.alimento].passo[r.u]); const passo = pa || (r.n < 1 || (r.n === 1 && n < 0) ? 0.5 : 1); r.n = Math.max(pa || 0.5, r.n + n * passo); }
       else { const passo = r.g >= 100 ? 10 : 5; r.g = Math.max(passo, r.g + n * passo); }
       V.variante = '*'; disegnaVoce(); return false; }
     case 'v-var': { const m = giornataDel(d).find(x => x.id === V.id), v = variantiDi(m).find(x => x.id === el.dataset.v);
       V.righe = righeDa(m, v ? v.voci : m.voci); V.variante = v ? v.id : ''; disegnaVoce(); return false; }
     case 'v-add': { const a = S.A[el.dataset.a]; if (!a) return false;
-      const u = a.misure ? Object.keys(a.misure)[0] : null;
-      V.righe.push({ alimento: a.id, on: true, ...(aPezzi(a) ? { pz: 1 } : u ? { n: 1, u } : { g: a.porzione_g || 100 }) }); V.variante = '*'; disegnaVoce(); return false; }
+      const u = a.misure ? Object.keys(a.misure)[0] : null, pa = u && a.passo && a.passo[u];
+      V.righe.push({ alimento: a.id, on: true, ...(aPezzi(a) ? { pz: 1 } : u ? { n: pa || 1, u } : { g: a.porzione_g || 100 }) }); V.variante = '*'; disegnaVoce(); return false; }
     case 'v-ok': { const m = giornataDel(d).find(x => x.id === V.id), voci = vociDa(V.righe);
       const std = uguali(voci, m.voci.map(v => ({ alimento: v.alimento, ...qta(v) })));
       modifica(g => { g.giornata[V.id] = std ? 'fatto' : { voci, ...(V.variante && V.variante !== '*' ? { variante: V.variante } : {}) }; });
@@ -314,8 +368,8 @@ export function azioneOggi(act, el) {
 
 document.addEventListener('input', e => {
   const t = e.target;
-  if (t.id === 'oq') rinfresca();
-  else if (t.id === 'vq') { const r = cerca(t.value, false); $('v-res').innerHTML = r.map(x => rigaRisultato(x, 'v-add')).join(''); }
+  if (t.id === 'oq') { NF = null; rinfresca(); }
+  else if (t.id === 'vq') { NF = null; disegnaNF(); }
   else if (t.id === 'ed-g') { const b = t.closest('.oed'); if (b && b.dataset.g) { const r = num(t.value) / num(b.dataset.g); if (r > 0) { $('ed-k').value = Math.round(num(b.dataset.k) * r); $('ed-p').value = Math.round(num(b.dataset.p) * r); } } }
   else if (t.id === 'c-k' || t.id === 'c-g') $('c-tot').textContent = `= ${fmt(num($('c-k').value) * num($('c-g').value) / 100)} kcal`;
 });

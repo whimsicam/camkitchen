@@ -57,12 +57,16 @@ export function salvaAlias(testo, alimento) {
   accoda('alias-utente.json');
 }
 export function salvaInbox() { scrivi(K.inbox, S.inbox); }
-export function salvaPref() { scrivi(K.pref, S.pref); accoda('preferenze.json'); emit(); }
+export function salvaPref() { scrivi(K.pref, S.pref); applicaAlimentiUtente(); accoda('preferenze.json'); emit(); }
+// preferenze: ingredienti tolti, varianti, alimenti e piatti aggiunti da CAM (quelli tolti restano con nascosto: true)
+export const normPref = p => ({ togli: (p && p.togli) || {}, nonMiPiace: (p && p.nonMiPiace) || [], varianti: (p && p.varianti) || {}, alimenti: (p && p.alimenti) || {}, piatti: (p && p.piatti) || {} });
 function unisciPref(a, b) {
   const togli = { ...(b.togli || {}) };
   for (const [k, v] of Object.entries(a.togli || {})) togli[k] = v;
-  return { togli, nonMiPiace: [...new Set([...(a.nonMiPiace || [])])], varianti: { ...(b.varianti || {}), ...(a.varianti || {}) } };
+  return { togli, nonMiPiace: [...new Set([...(a.nonMiPiace || [])])], varianti: { ...(b.varianti || {}), ...(a.varianti || {}) }, alimenti: { ...(b.alimenti || {}), ...(a.alimenti || {}) }, piatti: { ...(b.piatti || {}), ...(a.piatti || {}) } };
 }
+// gli alimenti aggiunti da CAM entrano nel catalogo come gli altri
+export function applicaAlimentiUtente() { for (const [id, a] of Object.entries((S.pref && S.pref.alimenti) || {})) S.A[id] = a; }
 
 function accoda(path) {
   if (!S.coda.includes(path)) S.coda.push(path);
@@ -156,7 +160,7 @@ async function invia(path) {
       S.shas[path] = info ? info.sha : undefined;
       if (path.startsWith('giorni/') && rem) { dati = unisciGiorno(dati, rem); S.giorni[dati.data] = dati; scrivi(K.giorni, S.giorni); }
       if (path === 'alias-utente.json' && rem) { S.alias = { ...rem, ...S.alias }; dati = S.alias; scrivi(K.alias, S.alias); }
-      if (path === 'preferenze.json' && rem) { S.pref = unisciPref(S.pref, rem); dati = S.pref; scrivi(K.pref, S.pref); }
+      if (path === 'preferenze.json' && rem) { S.pref = unisciPref(S.pref, rem); dati = S.pref; scrivi(K.pref, S.pref); applicaAlimentiUtente(); }
       continue;
     }
     throw new Error(erroreGH(r.status));
@@ -181,7 +185,7 @@ async function scarica() {
     S.shas[p] = f.sha; if (!rem) continue;
     if (p.startsWith('giorni/')) { const d = p.slice(7, -5); S.giorni[d] = unisciGiorno(S.coda.includes(p) ? S.giorni[d] : null, rem) || rem; }
     else if (p.startsWith('cicli/')) { const id = p.slice(6, -5); if (!S.coda.includes(p)) S.cicli[id] = rem; }
-    else if (p === 'preferenze.json') S.pref = S.coda.includes(p) ? unisciPref(S.pref, rem) : { togli: rem.togli || {}, nonMiPiace: rem.nonMiPiace || [], varianti: rem.varianti || {} };
+    else if (p === 'preferenze.json') { S.pref = S.coda.includes(p) ? unisciPref(S.pref, rem) : normPref(rem); applicaAlimentiUtente(); }
     else S.alias = { ...rem, ...S.alias };
     cambi++;
   }
@@ -244,13 +248,15 @@ export async function caricaProgramma() {
     S.prog = prog; S.preset = preset;
     S.A = Object.fromEntries(alimenti.map(a => [a.id, a]));
     S.R = Object.fromEntries(ric.filter(Boolean).map(r => [r.id, r]));
-    if (!localStorage.getItem(K.pref)) { const pr = await getJSON('preferenze.json').catch(() => null); if (pr) { S.pref = { togli: pr.togli || {}, nonMiPiace: pr.nonMiPiace || [], varianti: pr.varianti || {} }; scrivi(K.pref, S.pref); } }
+    if (!localStorage.getItem(K.pref)) { const pr = await getJSON('preferenze.json').catch(() => null); if (pr) { S.pref = normPref(pr); scrivi(K.pref, S.pref); } }
+    applicaAlimentiUtente();
     scrivi(K.prog, prog); scrivi(K.preset, preset); scrivi(K.alimenti, alimenti); scrivi(K.ricette, Object.values(S.R));
   } catch (e) {
     console.warn('programma offline', e);
     S.prog = leggi(K.prog, null); S.preset = leggi(K.preset, null);
     S.A = Object.fromEntries((leggi(K.alimenti, [])).map(a => [a.id, a]));
     S.R = Object.fromEntries((leggi(K.ricette, [])).map(r => [r.id, r]));
+    applicaAlimentiUtente();
   }
 }
 
@@ -281,7 +287,7 @@ export function caricaLocale() {
   S.cfg = leggi(K.cfg, {}); S.giorni = leggi(K.giorni, {}); S.cicli = leggi(K.cicli, {}); S.alias = leggi(K.alias, {});
   S.inbox = leggi(K.inbox, []); S.shas = leggi(K.shas, {}); S.coda = leggi(K.coda, []); S.gym = leggi(K.gym, { sessioni: {}, peso: {}, quando: 0 });
   S.ui = leggi(K.ui, {});
-  S.pref = leggi(K.pref, null) || { togli: {}, nonMiPiace: [] };
+  S.pref = normPref(leggi(K.pref, null));
 }
 export function esporta() {
   return JSON.stringify({ giorni: S.giorni, cicli: S.cicli, alias: S.alias, inbox: S.inbox }, null, 1);

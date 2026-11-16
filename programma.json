@@ -1,6 +1,6 @@
 {
  "versione": "0.3.1",
- "aggiornato": "2026-11-15",
+ "aggiornato": "2026-11-16",
  "messaggio_coach": "Piano 0.3: yogurt con confettura allo spuntino, mandorle a merenda. Ora registri a cucchiaini, pezzi e porzioni.",
  "target": {
   "kcal": 2800,
@@ -130,8 +130,8 @@
     },
     {
      "alimento": "mandorle",
-     "n": 1,
-     "u": "manciata"
+     "n": 7,
+     "u": "mandorla"
     }
    ],
    "varianti": [
@@ -156,12 +156,12 @@
      ]
     }
    ],
-   "piano": "5 cubetti di Grana, mezza vaschetta di bresaola, 1 pacchetto di crackers, una manciata di mandorle"
+   "piano": "5 cubetti di Grana, mezza vaschetta di bresaola, 1 pacchetto di crackers, 7 mandorle"
   },
   {
    "id": "shake",
    "nome": "Shake",
-   "ora": null,
+   "ora": "22:45",
    "giorni": "tutti",
    "descrizione": "whey e latte di soia",
    "evidenzia_dopo_palestra": true,
@@ -175,7 +175,7 @@
      "g": 250
     }
    ],
-   "piano": "1 dose di whey nel latte di soia; nei giorni di palestra dopo l'allenamento"
+   "piano": "1 dose di whey nel latte di soia, dopo cena"
   },
   {
    "id": "frutta",
@@ -241,8 +241,8 @@
  },
  "abituali": [
   {
-   "id": "mensa-zucca-nigiri",
-   "nome": "riso alla zucca e 3 nigiri",
+   "id": "m-riso-zucca",
+   "nome": "riso alla zucca",
    "pasto": [
     "pranzo"
    ],
@@ -253,7 +253,17 @@
      "g": 250,
      "kcal": 350,
      "prot": 8
-    },
+    }
+   ]
+  },
+  {
+   "id": "m-nigiri",
+   "nome": "3 nigiri di salmone",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
     {
      "nome": "3 nigiri di salmone con soia",
      "g": 100,
@@ -263,7 +273,151 @@
    ]
   },
   {
-   "id": "mensa-cannelloni-ricotta",
+   "id": "m-sashimi",
+   "nome": "5 sashimi di salmone",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "5 sashimi di salmone con soia",
+     "g": 85,
+     "kcal": 160,
+     "prot": 16
+    }
+   ]
+  },
+  {
+   "id": "m-tartare",
+   "nome": "tartare di vitello",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Tartare di vitello con olio",
+     "g": 195,
+     "kcal": 335,
+     "prot": 38
+    }
+   ]
+  },
+  {
+   "id": "m-zafferano",
+   "nome": "pasta zafferano e gamberetti",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Pasta zafferano, gamberetti e asparagi",
+     "g": 300,
+     "kcal": 450,
+     "prot": 18
+    }
+   ]
+  },
+  {
+   "id": "m-ascolane",
+   "nome": "8 olive ascolane",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "8 olive ascolane",
+     "g": 136,
+     "kcal": 400,
+     "prot": 13
+    }
+   ]
+  },
+  {
+   "id": "m-riso",
+   "nome": "riso, vaschetta",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Riso, vaschetta",
+     "g": 200,
+     "kcal": 260,
+     "prot": 5
+    }
+   ]
+  },
+  {
+   "id": "m-curry",
+   "nome": "pollo al curry",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Pollo al curry, vaschetta",
+     "g": 200,
+     "kcal": 300,
+     "prot": 32
+    }
+   ]
+  },
+  {
+   "id": "m-pollo-rost",
+   "nome": "pollo della rosticceria",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Pollo arrosto, un quarto",
+     "g": 180,
+     "kcal": 400,
+     "prot": 45
+    }
+   ]
+  },
+  {
+   "id": "m-verdure",
+   "nome": "verdure al forno",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Verdure al forno, vaschetta",
+     "g": 200,
+     "kcal": 120,
+     "prot": 3
+    }
+   ]
+  },
+  {
+   "id": "m-tortino",
+   "nome": "tortino di verdure",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Tortino di verdure",
+     "g": 150,
+     "kcal": 250,
+     "prot": 8
+    }
+   ]
+  },
+  {
+   "id": "m-cannelloni-ricotta",
    "nome": "cannelloni ricotta e spinaci",
    "pasto": [
     "pranzo"
@@ -279,117 +433,7 @@
    ]
   },
   {
-   "id": "mensa-tartare-nigiri",
-   "nome": "tartare di vitello e 3 nigiri",
-   "pasto": [
-    "pranzo"
-   ],
-   "mensa": true,
-   "voci": [
-    {
-     "nome": "Tartare di vitello",
-     "g": 180,
-     "kcal": 200,
-     "prot": 38
-    },
-    {
-     "nome": "Olio sulla tartare",
-     "g": 15,
-     "kcal": 135,
-     "prot": 0
-    },
-    {
-     "nome": "3 nigiri di salmone con soia",
-     "g": 100,
-     "kcal": 145,
-     "prot": 7
-    }
-   ]
-  },
-  {
-   "id": "mensa-zafferano-olive",
-   "nome": "pasta allo zafferano e olive ascolane",
-   "pasto": [
-    "pranzo"
-   ],
-   "mensa": true,
-   "voci": [
-    {
-     "nome": "Pasta zafferano, gamberetti e asparagi",
-     "g": 300,
-     "kcal": 450,
-     "prot": 18
-    },
-    {
-     "nome": "8 olive ascolane",
-     "g": 136,
-     "kcal": 400,
-     "prot": 13
-    }
-   ]
-  },
-  {
-   "id": "mensa-zafferano-sashimi",
-   "nome": "pasta allo zafferano e sashimi",
-   "pasto": [
-    "pranzo"
-   ],
-   "mensa": true,
-   "voci": [
-    {
-     "nome": "Pasta zafferano, gamberetti e asparagi",
-     "g": 300,
-     "kcal": 450,
-     "prot": 18
-    },
-    {
-     "nome": "5 sashimi di salmone con soia",
-     "g": 85,
-     "kcal": 160,
-     "prot": 16
-    }
-   ]
-  },
-  {
-   "id": "mensa-riso-curry",
-   "nome": "riso e pollo al curry",
-   "pasto": [
-    "pranzo"
-   ],
-   "mensa": true,
-   "voci": [
-    {
-     "nome": "Riso, vaschetta",
-     "g": 200,
-     "kcal": 260,
-     "prot": 5
-    },
-    {
-     "nome": "Pollo al curry, vaschetta",
-     "g": 200,
-     "kcal": 300,
-     "prot": 32
-    }
-   ]
-  },
-  {
-   "id": "mensa-lasagne",
-   "nome": "lasagne 500 g",
-   "pasto": [
-    "pranzo"
-   ],
-   "mensa": true,
-   "voci": [
-    {
-     "nome": "Lasagne alla bolognese",
-     "g": 500,
-     "kcal": 800,
-     "prot": 42
-    }
-   ]
-  },
-  {
-   "id": "mensa-cannelloni-carne",
+   "id": "m-cannelloni-carne",
    "nome": "cannelloni di carne",
    "pasto": [
     "pranzo"
@@ -405,7 +449,39 @@
    ]
   },
   {
-   "id": "cena-pesto",
+   "id": "m-lasagne",
+   "nome": "lasagne 500 g",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Lasagne alla bolognese",
+     "g": 500,
+     "kcal": 800,
+     "prot": 42
+    }
+   ]
+  },
+  {
+   "id": "m-pane",
+   "nome": "pane",
+   "pasto": [
+    "pranzo"
+   ],
+   "mensa": true,
+   "voci": [
+    {
+     "nome": "Pane, panino",
+     "g": 60,
+     "kcal": 165,
+     "prot": 5
+    }
+   ]
+  },
+  {
+   "id": "c-pesto",
    "nome": "pasta al pesto",
    "pasto": [
     "cena",
@@ -424,8 +500,8 @@
    ]
   },
   {
-   "id": "cena-pesto-pomodorini",
-   "nome": "pasta pesto e pomodorini",
+   "id": "c-pomodoro",
+   "nome": "pasta al pomodoro",
    "pasto": [
     "cena",
     "pranzo"
@@ -437,36 +513,24 @@
      "porz": "normale"
     },
     {
-     "alimento": "pesto-verde-mutti",
-     "g": 90
+     "alimento": "passata",
+     "g": 150
     },
     {
-     "alimento": "pomodorini",
-     "g": 100
+     "alimento": "olio-evo",
+     "n": 2,
+     "u": "cucchiaio"
     }
    ]
   },
   {
-   "id": "cena-pesto-mozzarella",
-   "nome": "pasta pesto, pomodorini e mozzarella",
+   "id": "c-mozzarella",
+   "nome": "+ mozzarella",
    "pasto": [
     "cena",
     "pranzo"
    ],
    "voci": [
-    {
-     "alimento": "pasta",
-     "g": 180,
-     "porz": "normale"
-    },
-    {
-     "alimento": "pesto-verde-mutti",
-     "g": 90
-    },
-    {
-     "alimento": "pomodorini",
-     "g": 100
-    },
     {
      "alimento": "mozzarella",
      "g": 125
@@ -474,87 +538,50 @@
    ]
   },
   {
-   "id": "cena-pesto-philadelphia",
-   "nome": "pasta pesto e Philadelphia",
+   "id": "c-pomodorini",
+   "nome": "+ pomodorini",
    "pasto": [
     "cena",
     "pranzo"
    ],
    "voci": [
     {
-     "alimento": "pasta",
-     "g": 180,
-     "porz": "normale"
-    },
-    {
-     "alimento": "pesto-verde-mutti",
-     "g": 90
-    },
-    {
-     "alimento": "philadelphia-light",
-     "pz": 1
+     "alimento": "pomodorini",
+     "g": 100
     }
    ]
   },
   {
-   "id": "cena-passata-tonno",
-   "nome": "pasta passata e tonno",
+   "id": "c-tonno",
+   "nome": "+ tonno",
    "pasto": [
     "cena",
     "pranzo"
    ],
    "voci": [
-    {
-     "alimento": "pasta",
-     "g": 180,
-     "porz": "normale"
-    },
-    {
-     "alimento": "passata",
-     "g": 150
-    },
     {
      "alimento": "tonno-naturale",
      "pz": 1
-    },
-    {
-     "alimento": "olio-evo",
-     "n": 2,
-     "u": "cucchiaio"
     }
    ]
   },
   {
-   "id": "cena-passata-philadelphia",
-   "nome": "pasta passata e Philadelphia",
+   "id": "c-philadelphia",
+   "nome": "+ Philadelphia",
    "pasto": [
     "cena",
     "pranzo"
    ],
    "voci": [
     {
-     "alimento": "pasta",
-     "g": 180,
-     "porz": "normale"
-    },
-    {
-     "alimento": "passata",
-     "g": 150
-    },
-    {
      "alimento": "philadelphia-light",
      "pz": 1
-    },
-    {
-     "alimento": "olio-evo",
-     "n": 2,
-     "u": "cucchiaio"
     }
    ]
   },
   {
-   "id": "cena-scottona",
-   "nome": "scottona e insalata",
+   "id": "c-scottona",
+   "nome": "hamburger di scottona",
    "pasto": [
     "cena",
     "pranzo"
@@ -563,21 +590,12 @@
     {
      "alimento": "hamburger-scottona",
      "pz": 1
-    },
-    {
-     "alimento": "insalata",
-     "g": 80
-    },
-    {
-     "alimento": "olio-evo",
-     "n": 2,
-     "u": "cucchiaio"
     }
    ]
   },
   {
-   "id": "cena-pollo-impanato",
-   "nome": "burger di pollo impanato e insalata",
+   "id": "c-pollo-impanato",
+   "nome": "burger di pollo impanato",
    "pasto": [
     "cena",
     "pranzo"
@@ -586,7 +604,17 @@
     {
      "alimento": "cotoletta-pollo",
      "g": 180
-    },
+    }
+   ]
+  },
+  {
+   "id": "c-insalata",
+   "nome": "insalata con olio",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
     {
      "alimento": "insalata",
      "g": 80
@@ -599,30 +627,27 @@
    ]
   },
   {
-   "id": "cena-pizza",
-   "nome": "pizza e patatine (ordinata)",
+   "id": "c-patate",
+   "nome": "patate in friggitrice",
    "pasto": [
     "cena",
     "pranzo"
    ],
    "voci": [
     {
-     "nome": "Pizza capricciosa o ai würstel",
-     "g": 450,
-     "kcal": 1000,
-     "prot": 45
+     "alimento": "patate",
+     "g": 250
     },
     {
-     "nome": "Patatine fritte",
-     "g": 150,
-     "kcal": 450,
-     "prot": 5
+     "alimento": "olio-evo",
+     "n": 1,
+     "u": "cucchiaio"
     }
    ]
   },
   {
-   "id": "cena-bresaola-uova",
-   "nome": "bresaola e uova sode",
+   "id": "c-bresaola",
+   "nome": "bresaola con olio",
    "pasto": [
     "cena",
     "pranzo"
@@ -637,18 +662,70 @@
      "alimento": "olio-evo",
      "n": 1,
      "u": "cucchiaio"
-    },
+    }
+   ]
+  },
+  {
+   "id": "c-uova",
+   "nome": "2 uova sode",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
     {
      "alimento": "uova",
      "pz": 2
-    },
+    }
+   ]
+  },
+  {
+   "id": "c-maionese",
+   "nome": "+ maionese",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
     {
      "alimento": "maionese-calve",
      "n": 1,
      "u": "cucchiaio"
     }
    ]
+  },
+  {
+   "id": "c-pizza",
+   "nome": "pizza ordinata",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Pizza capricciosa o ai würstel",
+     "g": 450,
+     "kcal": 1000,
+     "prot": 45
+    }
+   ]
+  },
+  {
+   "id": "c-patatine",
+   "nome": "patatine fritte",
+   "pasto": [
+    "cena",
+    "pranzo"
+   ],
+   "voci": [
+    {
+     "nome": "Patatine fritte",
+     "g": 150,
+     "kcal": 450,
+     "prot": 5
+    }
+   ]
   }
  ],
- "abituali_note": "Grammi e kcal indicativi (15/11/2026): si correggono nel giorno toccando il nome di ogni voce. Da verificare: vaschette della mensa, pesto verde Mutti (valori da FatSecret, dose mezzo vasetto), burger di pollo impanato 180 g, olio 2 cucchiai su insalata e pasta al pomodoro."
+ "abituali_note": "Pezzi componibili (16/11/2026): ogni vaschetta della mensa e ogni componente della cena è un pezzo a sé, si toccano quelli presi. Valori indicativi, si correggono toccando la voce. Da verificare: vaschette della mensa, pollo della rosticceria (un quarto, 180 g), tortino, pesto verde Mutti (valori da FatSecret), burger impanato 180 g, olio 2 cucchiai."
 }

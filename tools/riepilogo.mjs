@@ -22,7 +22,8 @@ const { riepilogo, riepilogoTesto } = await import('../js/riepilogo.js');
 S.prog = leggi('programma.json'); S.preset = leggi('preset.json');
 S.A = Object.fromEntries(leggi('alimenti.json').map(a => [a.id, a]));
 S.R = Object.fromEntries(leggi('ricette/indice.json').map(id => leggi(`ricette/${id}.json`)).map(r => [r.id, r]));
-const pr = leggi('preferenze.json'); S.pref = { togli: pr.togli || {}, nonMiPiace: pr.nonMiPiace || [], varianti: pr.varianti || {} };
+const { normPref, applicaAlimentiUtente } = await import('../js/store.js');
+S.pref = normPref(leggi('preferenze.json')); applicaAlimentiUtente();
 S.giorni = Object.fromEntries(fs.readdirSync(path.join(root, 'giorni')).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).map(f => [f.slice(0, 10), leggi(`giorni/${f}`)]));
 const sessioni = {}, peso = {};
 for (const f of fs.existsSync(path.join(gymDir, 'logs')) ? fs.readdirSync(path.join(gymDir, 'logs')) : []) { const m = f.match(/^(\d{4}-\d{2}-\d{2})-([a-z]+)/); if (m) (sessioni[m[1]] = sessioni[m[1]] || []).push(m[2]); }
