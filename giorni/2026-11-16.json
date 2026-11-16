@@ -11,20 +11,6 @@
      "alimento": "miele",
      "n": 1,
      "u": "cucchiaino"
-    },
-    {
-     "alimento": "pane-proteico",
-     "pz": 1
-    },
-    {
-     "alimento": "crema-arachidi",
-     "n": 1,
-     "u": "cucchiaio"
-    },
-    {
-     "alimento": "confettura-fichi",
-     "n": 1,
-     "u": "cucchiaio"
     }
    ]
   },
