@@ -59,6 +59,16 @@
    "g": 60,
    "pasto": "pranzo",
    "solito": "m-pane"
+  },
+  {
+   "id": "mwj65909570l",
+   "t": "2026-11-16T12:17:04+01:00",
+   "tipo": "fuori",
+   "pasto": "cena",
+   "nome": "pasta al salmone e crema di datteri no gialli",
+   "kcal": null,
+   "prot": null,
+   "pendente": true
   }
  ],
  "rimossi": [
