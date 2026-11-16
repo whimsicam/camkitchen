@@ -77,7 +77,7 @@ export function vistaRicettario() {
     <small>Dispensa, cursori e ricettario li allego io al messaggio.</small></div>
   <div>
     <div class="og-h"><h2>Tutto il ricettario</h2><span class="num">${tutte.length} ricette</span></div>
-    <div class="rix">${tutte.map(r => `<button data-act="recipe" data-r="${r.id}"><span class="n num">${pagina[r.id]}</span><b>${esc(r.nome)}</b><span class="dots"></span><span class="c">${esc(cap(r))}</span></button>`).join('')}</div>
+    <div class="rix">${tutte.map(r => `<button data-act="recipe" data-r="${r.id}"><span class="n num">${pagina[r.id]}</span><span class="ln"><b>${esc(r.nome)}</b><i class="dots" aria-hidden="true"></i></span><span class="c">${esc(cap(r))}</span></button>`).join('')}</div>
   </div></section>`;
 }
 

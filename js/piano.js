@@ -40,14 +40,14 @@ function controllo(c) {
   ${pr.length ? `<span class="lab" style="display:block;margin-top:14px">Proposte, da accettare in chat</span>${pr.map(x => `<div class="prow r2"><span>${esc(x)}</span></div>`).join('')}` : ''}</div>`;
 }
 function quadro(r, T) {
-  const riga = (a, b) => `<div class="prow r2"><span>${a}</span><b class="num">${b}</b></div>`;
+  const riga = (a, b) => `<div class="prow r3"><span>${a}</span><b class="num">${b}</b></div>`;
   const s = r.settimane;
   return `<div class="pbar-h"><span>giorni completi, ultimi 14</span><span class="num">${r.completi} di 14</span></div><div class="pbar"><i style="width:${r.completi / 14 * 100}%"></i></div>
   <div style="margin-top:8px">
   ${riga('giorni registrati', `${r.registrati} di 14`)}
   ${r.completi ? riga('media nei giorni completi', `${fmt(r.kcal)} kcal · ${fmt(r.prot)} g`) + riga('dentro il target', `${r.inTarget} di ${r.completi}`) + riga('frutta e verdura', `${fmt(r.fv, 1)} porzioni`) : ''}
   ${riga('allenamenti', `${s[1].allenamenti} + ${s[2].allenamenti} (su 4 + 4)`)}
-  ${r.piatti.length ? riga('piatti più usati', esc(r.piatti.slice(0, 3).map(p => `${p.nome} ${p.volte}×`).join(', '))) : ''}
+  ${r.piatti.length ? riga('più usato', esc(`${r.piatti[0].nome}, ${r.piatti[0].volte}×`)) : ''}
   </div>
   <p class="og-note" style="margin:12px 0 0;color:var(--ink)"><b style="font-weight:500">Regola:</b> ${esc(r.regola)}</p>`;
 }

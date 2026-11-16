@@ -794,9 +794,6 @@ button.bx::before{content:"";position:absolute;inset:-12px}
 /* carte: stessa distanza sopra e sotto il riquadro "Chiedi a Claude" */
 .rcards{padding-bottom:0}
 /* indice del ricettario: righe della stessa altezza, nomi su massimo due righe */
-.rix button{display:grid;grid-template-columns:26px minmax(0,auto) minmax(16px,1fr) auto;align-items:center;gap:8px;height:62px;min-height:0;padding:0}
-.rix b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
-.rix .dots{transform:none;align-self:center}
 /* spesa: righe di altezza fissa, caselle uguali, unità accanto al numero */
 .orow.sp{grid-template-columns:24px minmax(0,1fr) 46px auto;height:72px;min-height:0;gap:10px}
 .orow.sp .bx{width:22px;height:22px;flex:none;padding:0;margin:0;box-sizing:border-box;justify-self:center}
@@ -816,4 +813,18 @@ button.bx::before{content:"";position:absolute;inset:-12px}
 .oed .ogrid .field:only-child{grid-column:1/-1}
 .oed .ogrid .field:first-child:nth-last-child(3){grid-column:1/-1}
 .nf .chiprow{margin-top:4px}
-.prow.r2>span:first-child{white-space:nowrap;margin-right:12px}
+
+/* indice del ricettario: altezza fissa; i nomi lunghi vanno a capo presto; i puntini partono dall'ultima parola e finiscono tutti allo stesso punto */
+.rix button{display:grid;grid-template-columns:26px minmax(0,1fr) 62px;align-items:center;gap:8px;height:64px;min-height:0;padding:0}
+.rix .ln{display:block;overflow:hidden;padding-right:28%;line-height:1.35;max-height:2.7em}
+.rix .ln b{font-weight:500}
+.rix .ln .dots{display:inline-block;width:0;border:0;flex:none;min-width:0;transform:none;white-space:nowrap;overflow:visible;vertical-align:baseline}
+.rix .ln .dots::after{content:"\00a0................................................................................................................";font-style:normal;font-weight:400;letter-spacing:.12em;color:var(--ink);opacity:.7}
+/* piano: righe dei numeri e delle regole che vanno a capo senza sovrapporsi */
+.prow.r2{grid-template-columns:minmax(0,1fr) auto;gap:16px}
+.prow.r2>span{min-width:0}
+.prow.r2 b{white-space:nowrap}
+.prow.r3{grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;min-height:52px;padding:10px 0;font-size:13px}
+.prow.r3>span{white-space:nowrap}
+.prow.r3 b{font-weight:500;text-align:right;white-space:normal}
+.rix .c{text-align:right}

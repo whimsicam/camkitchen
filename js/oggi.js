@@ -66,7 +66,7 @@ export function vistaOggi() {
   </div>
   <p class="og-note">${nota}</p>
   <div>
-    <div class="og-h"><h2>La giornata</h2><span>cerchio: fatto · nome: cambia</span></div>
+    <div class="og-h"><h2>La giornata</h2></div>
     ${righe(g)}
   </div>
   <button class="og-add" data-act="o-pasto" data-q="altro">+ aggiungi qualcosa</button>
