@@ -25,7 +25,30 @@
   }
  },
  "pranzo": null,
- "eventi": [],
+ "eventi": [
+  {
+   "id": "mwj62vg4re4s",
+   "t": "2026-11-16T12:15:13+01:00",
+   "tipo": "fuori",
+   "nome": "Tartare di vitello con olio",
+   "kcal": 335,
+   "prot": 38,
+   "g": 195,
+   "pasto": "pranzo",
+   "solito": "m-tartare"
+  },
+  {
+   "id": "mwj62we0q8j5",
+   "t": "2026-11-16T12:15:15+01:00",
+   "tipo": "fuori",
+   "nome": "5 sashimi di salmone con soia",
+   "kcal": 160,
+   "prot": 16,
+   "g": 85,
+   "pasto": "pranzo",
+   "solito": "m-sashimi"
+  }
+ ],
  "rimossi": [
   "mwj5kefxzaka",
   "mwj5kik3wqfl",
