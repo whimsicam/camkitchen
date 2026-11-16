@@ -37,6 +37,14 @@
    "pasto": "pranzo",
    "solito": "m-tartare",
    "pendente": false
+  },
+  {
+   "id": "mwj95zkg3vne",
+   "t": "2026-11-16T13:41:38+01:00",
+   "tipo": "extra",
+   "alimento": "u-tartare-di-salmone",
+   "g": 82,
+   "pasto": "pranzo"
   }
  ],
  "rimossi": [
