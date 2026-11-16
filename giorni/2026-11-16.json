@@ -35,7 +35,8 @@
    "prot": 38,
    "g": 195,
    "pasto": "pranzo",
-   "solito": "m-tartare"
+   "solito": "m-tartare",
+   "pendente": false
   },
   {
    "id": "mwj62we0q8j5",
