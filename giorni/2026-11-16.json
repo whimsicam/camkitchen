@@ -25,7 +25,18 @@
   },
   "shake": "fatto",
   "merenda": "fatto",
-  "frutta": "fatto"
+  "frutta": {
+   "voci": [
+    {
+     "alimento": "banana",
+     "pz": 1
+    },
+    {
+     "alimento": "kiwi",
+     "pz": 1
+    }
+   ]
+  }
  },
  "pranzo": null,
  "eventi": [
