@@ -37,36 +37,7 @@
   }
  },
  "pranzo": null,
- "eventi": [
-  {
-   "id": "mwj6oywsn020",
-   "t": "2026-11-16T12:32:24+01:00",
-   "tipo": "extra",
-   "alimento": "pasta",
-   "g": 180,
-   "porz": "normale",
-   "pasto": "cena",
-   "solito": "c-pesto"
-  },
-  {
-   "id": "mwj6oywsl2um",
-   "t": "2026-11-16T12:32:24+01:00",
-   "tipo": "extra",
-   "alimento": "pesto-verde-mutti",
-   "g": 90,
-   "pasto": "cena",
-   "solito": "c-pesto"
-  },
-  {
-   "id": "mwj6p0tsud3l",
-   "t": "2026-11-16T12:32:27+01:00",
-   "tipo": "extra",
-   "alimento": "pomodorini",
-   "g": 100,
-   "pasto": "cena",
-   "solito": "c-pomodorini"
-  }
- ],
+ "eventi": [],
  "rimossi": [
   "mwj5kefxzaka",
   "mwj5kik3wqfl",
@@ -82,6 +53,9 @@
   "mwj6sgnfk9w2",
   "mwj63bbnuqjg",
   "mwj62we0q8j5",
-  "mwj62vg4re4s"
+  "mwj62vg4re4s",
+  "mwj6oywsn020",
+  "mwj6oywsl2um",
+  "mwj6p0tsud3l"
  ]
 }
