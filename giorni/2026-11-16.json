@@ -59,6 +59,25 @@
    "g": 60,
    "pasto": "pranzo",
    "solito": "m-pane"
+  },
+  {
+   "id": "mwj6oywsn020",
+   "t": "2026-11-16T12:32:24+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "porz": "normale",
+   "pasto": "cena",
+   "solito": "c-pesto"
+  },
+  {
+   "id": "mwj6oywsl2um",
+   "t": "2026-11-16T12:32:24+01:00",
+   "tipo": "extra",
+   "alimento": "pesto-verde-mutti",
+   "g": 90,
+   "pasto": "cena",
+   "solito": "c-pesto"
   }
  ],
  "rimossi": [
