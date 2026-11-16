@@ -15,7 +15,13 @@
    ]
   },
   "spuntino": {
-   "voci": []
+   "voci": [
+    {
+     "alimento": "mandorle",
+     "n": 20,
+     "u": "manciata"
+    }
+   ]
   }
  },
  "pranzo": null,
