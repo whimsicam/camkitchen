@@ -22,22 +22,22 @@
      "u": "manciata"
     }
    ]
-  },
-  "frutta": {
-   "voci": [
-    {
-     "alimento": "banana",
-     "pz": 1
-    },
-    {
-     "alimento": "kiwi",
-     "pz": 1
-    }
-   ]
   }
  },
  "pranzo": null,
- "eventi": [],
+ "eventi": [
+  {
+   "id": "mwj8z5e4hprk",
+   "t": "2026-11-16T13:36:19+01:00",
+   "tipo": "fuori",
+   "nome": "Tartare di vitello con olio",
+   "kcal": 335,
+   "prot": 38,
+   "g": 195,
+   "pasto": "pranzo",
+   "solito": "m-tartare"
+  }
+ ],
  "rimossi": [
   "mwj5kefxzaka",
   "mwj5kik3wqfl",
