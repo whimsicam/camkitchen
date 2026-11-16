@@ -146,6 +146,15 @@
    "g": 100,
    "pasto": "cena",
    "solito": "c-pomodorini"
+  },
+  {
+   "id": "mwj6sgnfk9w2",
+   "t": "2026-11-16T12:35:07+01:00",
+   "tipo": "extra",
+   "alimento": "zucchine",
+   "g": 200,
+   "porz": "normale",
+   "pasto": "pranzo"
   }
  ],
  "rimossi": [
