@@ -13,8 +13,18 @@
      "u": "cucchiaino"
     },
     {
-     "alimento": "nascondini",
-     "pz": 3
+     "alimento": "pane-proteico",
+     "pz": 1
+    },
+    {
+     "alimento": "crema-arachidi",
+     "n": 1,
+     "u": "cucchiaio"
+    },
+    {
+     "alimento": "confettura-fichi",
+     "n": 1,
+     "u": "cucchiaio"
     }
    ]
   },
