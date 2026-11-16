@@ -94,7 +94,8 @@
    "prot": 5,
    "g": 60,
    "pasto": "pranzo",
-   "solito": "m-pane"
+   "solito": "m-pane",
+   "pendente": false
   },
   {
    "id": "mwj6oywsn020",
