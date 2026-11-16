@@ -6,5 +6,28 @@
  },
  "nonMiPiace": [
   "cipolla"
- ]
+ ],
+ "varianti": {},
+ "alimenti": {
+  "u-tartare-di-salmone": {
+   "id": "u-tartare-di-salmone",
+   "nome": "tartare di salmone",
+   "marca": "—",
+   "categoria": "aggiunti",
+   "unita": "g",
+   "per100": {
+    "kcal": 164,
+    "prot": 24.5,
+    "carb": 0,
+    "grassi": 0,
+    "fibre": 0
+   },
+   "confezione": null,
+   "alias": [],
+   "traccia_dispensa": false,
+   "utente": true,
+   "porzione_g": 82
+  }
+ },
+ "piatti": {}
 }
