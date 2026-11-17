@@ -23,17 +23,6 @@
  "pranzo": null,
  "eventi": [
   {
-   "id": "mwknovfo965y",
-   "t": "2026-11-17T13:16:00+01:00",
-   "tipo": "fuori",
-   "nome": "Pollo al curry, vaschetta",
-   "kcal": 300,
-   "prot": 32,
-   "g": 200,
-   "pasto": "pranzo",
-   "solito": "m-curry"
-  },
-  {
    "id": "mwko4bigxylb",
    "t": "2026-11-17T13:28:00+01:00",
    "tipo": "fuori",
@@ -44,5 +33,7 @@
    "pendente": false
   }
  ],
- "rimossi": []
+ "rimossi": [
+  "mwknovfo965y"
+ ]
 }
