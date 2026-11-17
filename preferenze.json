@@ -40,6 +40,12 @@
    "nome": "Riso bianco",
    "kcal": 385,
    "prot": 8
+  },
+  "p-pollo-al-curry": {
+   "id": "p-pollo-al-curry",
+   "nome": "Pollo al curry",
+   "kcal": 501,
+   "prot": 30
   }
  }
 }
