@@ -38,9 +38,9 @@
    "tipo": "fuori",
    "pasto": "pranzo",
    "nome": "Pollo al curry",
-   "kcal": null,
-   "prot": null,
-   "pendente": true
+   "kcal": 501,
+   "prot": 30,
+   "pendente": false
   }
  ],
  "rimossi": [
