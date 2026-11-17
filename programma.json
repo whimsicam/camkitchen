@@ -345,10 +345,10 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Riso, vaschetta",
-     "g": 200,
-     "kcal": 260,
-     "prot": 5
+     "nome": "Riso basmati, vaschetta",
+     "g": 307,
+     "kcal": 385,
+     "prot": 8
     }
    ]
   },
@@ -362,9 +362,9 @@
    "voci": [
     {
      "nome": "Pollo al curry, vaschetta",
-     "g": 200,
-     "kcal": 300,
-     "prot": 32
+     "g": 258,
+     "kcal": 501,
+     "prot": 30
     }
    ]
   },
@@ -727,5 +727,5 @@
    ]
   }
  ],
- "abituali_note": "Pezzi componibili (16/11/2026): ogni vaschetta della mensa e ogni componente della cena è un pezzo a sé, si toccano quelli presi. Valori indicativi, si correggono toccando la voce. Da verificare: vaschette della mensa, pollo della rosticceria (un quarto, 180 g), tortino, pesto verde Mutti (valori da FatSecret), burger impanato 180 g, olio 2 cucchiai."
+ "abituali_note": "Pezzi componibili (16/11/2026): ogni vaschetta della mensa e ogni componente della cena è un pezzo a sé, si toccano quelli presi. Valori indicativi, si correggono toccando la voce. Da verificare: vaschette della mensa, pollo della rosticceria (un quarto, 180 g), tortino, pesto verde Mutti (valori da FatSecret), burger impanato 180 g, olio 2 cucchiai. Pollo al curry Esselunga da etichetta (17/11/2026): 194 kcal e 11,5 g di proteine per 100 g, vaschetta 258 g. Riso basmati in vaschetta (17/11/2026): 307 g, solo riso, acqua e sale, ~125 kcal per 100 g."
 }
