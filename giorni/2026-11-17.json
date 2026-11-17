@@ -39,9 +39,9 @@
    "tipo": "fuori",
    "pasto": "pranzo",
    "nome": "Riso bianco",
-   "kcal": null,
-   "prot": null,
-   "pendente": true
+   "kcal": 385,
+   "prot": 8,
+   "pendente": false
   }
  ],
  "rimossi": []
