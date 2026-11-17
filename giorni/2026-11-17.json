@@ -31,6 +31,16 @@
    "kcal": 385,
    "prot": 8,
    "pendente": false
+  },
+  {
+   "id": "mwko8wofww9m",
+   "t": "2026-11-17T13:31:34+01:00",
+   "tipo": "fuori",
+   "pasto": "pranzo",
+   "nome": "Pollo al curry",
+   "kcal": null,
+   "prot": null,
+   "pendente": true
   }
  ],
  "rimossi": [
