@@ -18,7 +18,21 @@
     }
    ]
   },
-  "spuntino": "fatto"
+  "spuntino": "fatto",
+  "merenda": {
+   "voci": [
+    {
+     "alimento": "bresaola",
+     "n": 0.5,
+     "u": "vaschetta"
+    },
+    {
+     "alimento": "mandorle",
+     "n": 14,
+     "u": "mandorla"
+    }
+   ]
+  }
  },
  "pranzo": null,
  "eventi": [
