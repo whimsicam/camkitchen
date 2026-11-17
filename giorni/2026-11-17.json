@@ -64,6 +64,35 @@
    "pz": 1,
    "pasto": "cena",
    "solito": "c-uova"
+  },
+  {
+   "id": "mwl5e5tmyg47",
+   "t": "2026-11-17T21:31:33+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "porz": "normale",
+   "pasto": "cena",
+   "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwl5e5tmw2mp",
+   "t": "2026-11-17T21:31:33+01:00",
+   "tipo": "extra",
+   "alimento": "passata",
+   "g": 150,
+   "pasto": "cena",
+   "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwl5e5tmodlv",
+   "t": "2026-11-17T21:31:33+01:00",
+   "tipo": "extra",
+   "alimento": "olio-evo",
+   "n": 2,
+   "u": "cucchiaio",
+   "pasto": "cena",
+   "solito": "c-pomodoro"
   }
  ],
  "rimossi": [
