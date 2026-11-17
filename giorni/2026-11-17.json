@@ -28,20 +28,8 @@
     },
     {
      "alimento": "mandorle",
-     "n": 14,
+     "n": 21,
      "u": "mandorla"
-    }
-   ]
-  },
-  "frutta": {
-   "voci": [
-    {
-     "alimento": "banana",
-     "pz": 1
-    },
-    {
-     "alimento": "mirtilli",
-     "g": 75
     }
    ]
   }
