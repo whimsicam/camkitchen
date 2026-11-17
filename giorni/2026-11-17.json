@@ -93,6 +93,15 @@
    "u": "cucchiaio",
    "pasto": "cena",
    "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwl5e9yxitv3",
+   "t": "2026-11-17T21:31:38+01:00",
+   "tipo": "extra",
+   "alimento": "philadelphia-light",
+   "pz": 1,
+   "pasto": "cena",
+   "solito": "c-philadelphia"
   }
  ],
  "rimossi": [
