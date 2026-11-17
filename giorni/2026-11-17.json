@@ -32,6 +32,16 @@
    "g": 200,
    "pasto": "pranzo",
    "solito": "m-curry"
+  },
+  {
+   "id": "mwko4bigxylb",
+   "t": "2026-11-17T13:28:00+01:00",
+   "tipo": "fuori",
+   "pasto": "pranzo",
+   "nome": "Riso bianco",
+   "kcal": null,
+   "prot": null,
+   "pendente": true
   }
  ],
  "rimossi": []
