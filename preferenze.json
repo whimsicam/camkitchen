@@ -34,5 +34,12 @@
    "porzione_g": 82
   }
  },
- "piatti": {}
+ "piatti": {
+  "p-riso-bianco": {
+   "id": "p-riso-bianco",
+   "nome": "Riso bianco",
+   "kcal": 385,
+   "prot": 8
+  }
+ }
 }
