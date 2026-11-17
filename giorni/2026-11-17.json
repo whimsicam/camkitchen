@@ -55,6 +55,15 @@
    "kcal": 501,
    "prot": 30,
    "pendente": false
+  },
+  {
+   "id": "mwl5a94z3icf",
+   "t": "2026-11-17T21:28:31+01:00",
+   "tipo": "extra",
+   "alimento": "uova",
+   "pz": 1,
+   "pasto": "cena",
+   "solito": "c-uova"
   }
  ],
  "rimossi": [
