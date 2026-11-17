@@ -67,6 +67,34 @@
    "kcal": 501,
    "prot": 30,
    "pendente": false
+  },
+  {
+   "id": "mwkxtlre40vf",
+   "t": "2026-11-17T17:59:36+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "porz": "normale",
+   "pasto": "cena",
+   "solito": "c-pesto"
+  },
+  {
+   "id": "mwkxtlressim",
+   "t": "2026-11-17T17:59:36+01:00",
+   "tipo": "extra",
+   "alimento": "pesto-verde-mutti",
+   "g": 90,
+   "pasto": "cena",
+   "solito": "c-pesto"
+  },
+  {
+   "id": "mwkxtm3vr27q",
+   "t": "2026-11-17T17:59:37+01:00",
+   "tipo": "extra",
+   "alimento": "mozzarella",
+   "g": 125,
+   "pasto": "cena",
+   "solito": "c-mozzarella"
   }
  ],
  "rimossi": [
