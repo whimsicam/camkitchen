@@ -273,17 +273,6 @@
    "solito": "m-nigiri"
   },
   {
-   "id": "mwm3602mfc4j",
-   "t": "2026-11-18T13:16:59+01:00",
-   "tipo": "fuori",
-   "nome": "Pasta zafferano, gamberetti e asparagi",
-   "kcal": 450,
-   "prot": 18,
-   "g": 300,
-   "pasto": "pranzo",
-   "solito": "m-zafferano"
-  },
-  {
    "id": "mwm3cqis801b",
    "t": "2026-11-18T13:22:13+01:00",
    "tipo": "extra",
@@ -292,5 +281,7 @@
    "pasto": "pranzo"
   }
  ],
- "rimossi": []
+ "rimossi": [
+  "mwm3602mfc4j"
+ ]
 }
