@@ -84,6 +84,13 @@
    "nome": "Pollo al curry",
    "kcal": 501,
    "prot": 30
+  },
+  "p-cubetto-di-cioccolato": {
+   "id": "p-cubetto-di-cioccolato",
+   "nome": "Cubetto di cioccolato",
+   "kcal": 73,
+   "prot": 2,
+   "g": 12.5
   }
  }
 }
