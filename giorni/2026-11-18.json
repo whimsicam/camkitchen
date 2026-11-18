@@ -204,6 +204,14 @@
    "alimento": "uova",
    "nuovo_pz": 5,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxmcs8yps6",
+   "t": "2026-11-18T10:41:44+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-bianco",
+   "nuovo_pz": 4,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
