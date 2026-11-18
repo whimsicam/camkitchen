@@ -331,6 +331,15 @@
    "u": "cucchiaio",
    "pasto": "cena",
    "solito": "c-insalata"
+  },
+  {
+   "id": "mwmirikhzlvf",
+   "t": "2026-11-18T20:33:37+01:00",
+   "tipo": "extra",
+   "alimento": "uova",
+   "pz": 2,
+   "pasto": "cena",
+   "solito": "c-uova"
   }
  ],
  "rimossi": [
