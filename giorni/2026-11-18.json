@@ -180,6 +180,30 @@
    "alimento": "philadelphia-light",
    "nuovo_g": 30,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxlxarifhl",
+   "t": "2026-11-18T10:41:24+01:00",
+   "tipo": "rettifica",
+   "alimento": "pomodorini",
+   "nuovo_g": 0,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxm6jjiifa",
+   "t": "2026-11-18T10:41:36+01:00",
+   "tipo": "rettifica",
+   "alimento": "uova",
+   "nuovo_pz": 6,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxm6p6gciw",
+   "t": "2026-11-18T10:41:37+01:00",
+   "tipo": "rettifica",
+   "alimento": "uova",
+   "nuovo_pz": 5,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
