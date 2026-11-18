@@ -262,17 +262,6 @@
    "motivo": "controllo"
   },
   {
-   "id": "mwm35yblv546",
-   "t": "2026-11-18T13:16:57+01:00",
-   "tipo": "fuori",
-   "nome": "3 nigiri di salmone con soia",
-   "kcal": 145,
-   "prot": 7,
-   "g": 100,
-   "pasto": "pranzo",
-   "solito": "m-nigiri"
-  },
-  {
    "id": "mwm3cqis801b",
    "t": "2026-11-18T13:22:13+01:00",
    "tipo": "extra",
@@ -282,6 +271,7 @@
   }
  ],
  "rimossi": [
-  "mwm3602mfc4j"
+  "mwm3602mfc4j",
+  "mwm35yblv546"
  ]
 }
