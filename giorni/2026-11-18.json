@@ -92,6 +92,14 @@
    "alimento": "crema-arachidi",
    "nuovo_g": 70,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxkpgmicxx",
+   "t": "2026-11-18T10:40:28+01:00",
+   "tipo": "rettifica",
+   "alimento": "hamburger-scottona",
+   "nuovo_pz": 3,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
