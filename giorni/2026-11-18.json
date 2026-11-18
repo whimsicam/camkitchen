@@ -228,6 +228,38 @@
    "alimento": "yogurt-greco-bianco",
    "nuovo_pz": 6,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxmiegii7q",
+   "t": "2026-11-18T10:41:52+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-vaniglia",
+   "nuovo_pz": 3,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxmiri9135",
+   "t": "2026-11-18T10:41:52+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-vaniglia",
+   "nuovo_pz": 2,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxmj5i63or",
+   "t": "2026-11-18T10:41:53+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-vaniglia",
+   "nuovo_pz": 1,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxmjkw1oxz",
+   "t": "2026-11-18T10:41:53+01:00",
+   "tipo": "rettifica",
+   "alimento": "yogurt-greco-vaniglia",
+   "nuovo_pz": 0,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
