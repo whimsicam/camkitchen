@@ -108,6 +108,30 @@
    "alimento": "insalata",
    "nuovo_g": 63,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxktphszq2",
+   "t": "2026-11-18T10:40:33+01:00",
+   "tipo": "rettifica",
+   "alimento": "kiwi",
+   "nuovo_pz": 2,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxkvx6cfhu",
+   "t": "2026-11-18T10:40:36+01:00",
+   "tipo": "rettifica",
+   "alimento": "kiwi",
+   "nuovo_pz": 1,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxkwcmkt9e",
+   "t": "2026-11-18T10:40:36+01:00",
+   "tipo": "rettifica",
+   "alimento": "kiwi",
+   "nuovo_pz": 0,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
