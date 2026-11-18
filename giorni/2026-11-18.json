@@ -268,6 +268,14 @@
    "alimento": "u-pasta-zafferano-gamberi-e-asparagi",
    "g": 255,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwm3e6wzd4xy",
+   "t": "2026-11-18T13:23:21+01:00",
+   "tipo": "extra",
+   "alimento": "u-nighiri-di-salmone",
+   "g": 85,
+   "pasto": "pranzo"
   }
  ],
  "rimossi": [
