@@ -303,6 +303,44 @@
    "alimento": "u-nighiri-di-salmone",
    "g": 85,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwmirthfdj1q",
+   "t": "2026-11-18T20:33:51+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "porz": "normale",
+   "pasto": "cena",
+   "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwmirthfahca",
+   "t": "2026-11-18T20:33:51+01:00",
+   "tipo": "extra",
+   "alimento": "passata",
+   "g": 150,
+   "pasto": "cena",
+   "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwmirthfsdkv",
+   "t": "2026-11-18T20:33:51+01:00",
+   "tipo": "extra",
+   "alimento": "olio-evo",
+   "n": 2,
+   "u": "cucchiaio",
+   "pasto": "cena",
+   "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwmiru9dzfji",
+   "t": "2026-11-18T20:33:52+01:00",
+   "tipo": "extra",
+   "alimento": "tonno-naturale",
+   "pz": 1,
+   "pasto": "cena",
+   "solito": "c-tonno"
   }
  ],
  "rimossi": [
