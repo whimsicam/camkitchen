@@ -132,6 +132,14 @@
    "alimento": "kiwi",
    "nuovo_pz": 0,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxkzdovgzq",
+   "t": "2026-11-18T10:40:40+01:00",
+   "tipo": "rettifica",
+   "alimento": "maionese-calve",
+   "nuovo_g": 225,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
