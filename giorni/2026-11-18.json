@@ -20,6 +20,39 @@
   }
  },
  "pranzo": null,
- "eventi": [],
+ "eventi": [
+  {
+   "id": "mwlxjv522v9b",
+   "t": "2026-11-18T10:39:48+01:00",
+   "tipo": "rettifica",
+   "alimento": "banana",
+   "nuovo_pz": 6,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxjvmkemn2",
+   "t": "2026-11-18T10:39:49+01:00",
+   "tipo": "rettifica",
+   "alimento": "banana",
+   "nuovo_pz": 5,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxjw38iz8i",
+   "t": "2026-11-18T10:39:49+01:00",
+   "tipo": "rettifica",
+   "alimento": "banana",
+   "nuovo_pz": 4,
+   "motivo": "controllo"
+  },
+  {
+   "id": "mwlxjwm6hpuc",
+   "t": "2026-11-18T10:39:50+01:00",
+   "tipo": "rettifica",
+   "alimento": "banana",
+   "nuovo_pz": 3,
+   "motivo": "controllo"
+  }
+ ],
  "rimossi": []
 }
