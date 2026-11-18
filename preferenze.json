@@ -51,6 +51,25 @@
    "traccia_dispensa": false,
    "utente": true,
    "porzione_g": 255
+  },
+  "u-nighiri-di-salmone": {
+   "id": "u-nighiri-di-salmone",
+   "nome": "nighiri di salmone",
+   "marca": "—",
+   "categoria": "aggiunti",
+   "unita": "g",
+   "per100": {
+    "kcal": 192,
+    "prot": 9.9,
+    "carb": 0,
+    "grassi": 0,
+    "fibre": 0
+   },
+   "confezione": null,
+   "alias": [],
+   "traccia_dispensa": false,
+   "utente": true,
+   "porzione_g": 85
   }
  },
  "piatti": {
