@@ -44,6 +44,18 @@
      "u": "vaschetta"
     }
    ]
+  },
+  "frutta": {
+   "voci": [
+    {
+     "alimento": "banana",
+     "pz": 1
+    },
+    {
+     "alimento": "mirtilli",
+     "g": 75
+    }
+   ]
   }
  },
  "pranzo": null,
