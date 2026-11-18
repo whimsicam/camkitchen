@@ -57,7 +57,18 @@
     }
    ]
   },
-  "shake": "fatto"
+  "shake": {
+   "voci": [
+    {
+     "alimento": "whey-yamamoto",
+     "g": 10
+    },
+    {
+     "alimento": "latte-soia",
+     "g": 150
+    }
+   ]
+  }
  },
  "pranzo": null,
  "eventi": [
