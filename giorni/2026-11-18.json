@@ -56,8 +56,7 @@
      "g": 75
     }
    ]
-  },
-  "shake": "fatto"
+  }
  },
  "pranzo": null,
  "eventi": [
@@ -362,15 +361,6 @@
    "pz": 1,
    "pasto": "cena",
    "solito": "c-philadelphia"
-  },
-  {
-   "id": "mwmirzpuxqi4",
-   "t": "2026-11-18T20:33:59+01:00",
-   "tipo": "extra",
-   "alimento": "uova",
-   "pz": 2,
-   "pasto": "cena",
-   "solito": "c-uova"
   }
  ],
  "rimossi": [
@@ -379,6 +369,7 @@
   "mwmir0rk3gmk",
   "mwmir6sl80i5",
   "mwmir6slhhxf",
-  "mwmirikhzlvf"
+  "mwmirikhzlvf",
+  "mwmirzpuxqi4"
  ]
 }
