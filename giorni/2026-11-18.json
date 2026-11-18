@@ -52,6 +52,14 @@
    "alimento": "banana",
    "nuovo_pz": 3,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxk9zx4vuo",
+   "t": "2026-11-18T10:40:07+01:00",
+   "tipo": "rettifica",
+   "alimento": "bresaola",
+   "nuovo_g": 45,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
