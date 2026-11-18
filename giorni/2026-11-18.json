@@ -148,6 +148,14 @@
    "alimento": "miele",
    "nuovo_g": 250,
    "motivo": "controllo"
+  },
+  {
+   "id": "mwlxlaaihmxj",
+   "t": "2026-11-18T10:40:55+01:00",
+   "tipo": "rettifica",
+   "alimento": "mirtilli",
+   "nuovo_g": 63,
+   "motivo": "controllo"
   }
  ],
  "rimossi": []
