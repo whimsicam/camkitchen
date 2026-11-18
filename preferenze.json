@@ -32,6 +32,25 @@
    "traccia_dispensa": false,
    "utente": true,
    "porzione_g": 82
+  },
+  "u-pasta-zafferano-gamberi-e-asparagi": {
+   "id": "u-pasta-zafferano-gamberi-e-asparagi",
+   "nome": "pasta zafferano gamberi e asparagi",
+   "marca": "—",
+   "categoria": "aggiunti",
+   "unita": "g",
+   "per100": {
+    "kcal": 136,
+    "prot": 7.9,
+    "carb": 0,
+    "grassi": 0,
+    "fibre": 0
+   },
+   "confezione": null,
+   "alias": [],
+   "traccia_dispensa": false,
+   "utente": true,
+   "porzione_g": 255
   }
  },
  "piatti": {
