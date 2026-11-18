@@ -373,6 +373,21 @@
    "pz": 1,
    "pasto": "cena",
    "solito": "c-philadelphia"
+  },
+  {
+   "id": "mwmpl638u0ru",
+   "t": "2026-11-18T23:44:38+01:00",
+   "tipo": "fuori",
+   "nome": "Cubetto di cioccolato",
+   "g": 12.5,
+   "kcal": 73,
+   "prot": 2,
+   "etichetta": {
+    "g": 12.5,
+    "kcal100": 584,
+    "prot100": 13
+   },
+   "pasto": "altro"
   }
  ],
  "rimossi": [
