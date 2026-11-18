@@ -310,7 +310,6 @@
    "tipo": "extra",
    "alimento": "pasta",
    "g": 180,
-   "porz": "normale",
    "pasto": "cena",
    "solito": "c-pomodoro"
   },
@@ -341,6 +340,24 @@
    "pz": 1,
    "pasto": "cena",
    "solito": "c-tonno"
+  },
+  {
+   "id": "mwmirwusxkbe",
+   "t": "2026-11-18T20:33:56+01:00",
+   "tipo": "extra",
+   "alimento": "philadelphia-light",
+   "pz": 1,
+   "pasto": "cena",
+   "solito": "c-philadelphia"
+  },
+  {
+   "id": "mwmirzpuxqi4",
+   "t": "2026-11-18T20:33:59+01:00",
+   "tipo": "extra",
+   "alimento": "uova",
+   "pz": 2,
+   "pasto": "cena",
+   "solito": "c-uova"
   }
  ],
  "rimossi": [
