@@ -70,6 +70,35 @@
    "pasto": "pranzo",
    "solito": "m-sashimi",
    "pendente": false
+  },
+  {
+   "id": "mwo3nk3jxp8s",
+   "t": "2026-11-19T23:06:11+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "porz": "normale",
+   "pasto": "cena",
+   "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwo3nk3j3obr",
+   "t": "2026-11-19T23:06:11+01:00",
+   "tipo": "extra",
+   "alimento": "passata",
+   "g": 85,
+   "pasto": "cena",
+   "solito": "c-pomodoro"
+  },
+  {
+   "id": "mwo3nk3jmjjr",
+   "t": "2026-11-19T23:06:11+01:00",
+   "tipo": "extra",
+   "alimento": "olio-evo",
+   "n": 2,
+   "u": "cucchiaio",
+   "pasto": "cena",
+   "solito": "c-pomodoro"
   }
  ],
  "rimossi": [
