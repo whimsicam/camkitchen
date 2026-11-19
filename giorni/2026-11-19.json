@@ -46,11 +46,12 @@
    "t": "2026-11-19T13:22:49+01:00",
    "tipo": "fuori",
    "nome": "5 sashimi di salmone con soia",
-   "kcal": 160,
-   "prot": 16,
-   "g": 85,
+   "kcal": 115,
+   "prot": 11,
+   "g": 61,
    "pasto": "pranzo",
-   "solito": "m-sashimi"
+   "solito": "m-sashimi",
+   "pendente": false
   }
  ],
  "rimossi": [
