@@ -70,6 +70,25 @@
    "pasto": "pranzo",
    "solito": "m-sashimi",
    "pendente": false
+  },
+  {
+   "id": "mwo3n8ydtza1",
+   "t": "2026-11-19T23:05:56+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "porz": "normale",
+   "pasto": "cena",
+   "solito": "c-pesto"
+  },
+  {
+   "id": "mwo3n8ydvxe8",
+   "t": "2026-11-19T23:05:56+01:00",
+   "tipo": "extra",
+   "alimento": "pesto-verde-mutti",
+   "g": 90,
+   "pasto": "cena",
+   "solito": "c-pesto"
   }
  ],
  "rimossi": [
