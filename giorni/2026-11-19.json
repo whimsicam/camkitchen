@@ -17,6 +17,15 @@
      "pz": 4
     }
    ]
+  },
+  "spuntino": {
+   "voci": [
+    {
+     "alimento": "mandorle",
+     "n": 14,
+     "u": "mandorla"
+    }
+   ]
   }
  },
  "pranzo": null,
