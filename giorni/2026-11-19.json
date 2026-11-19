@@ -26,6 +26,15 @@
      "u": "mandorla"
     }
    ]
+  },
+  "merenda": {
+   "voci": [
+    {
+     "alimento": "mandorle",
+     "n": 7,
+     "u": "mandorla"
+    }
+   ]
   }
  },
  "pranzo": null,
