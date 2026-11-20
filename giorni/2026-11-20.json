@@ -20,6 +20,16 @@
   }
  },
  "pranzo": null,
- "eventi": [],
+ "eventi": [
+  {
+   "id": "mwoz2249szj5",
+   "t": "2026-11-20T13:45:15+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "porz": "normale",
+   "pasto": "pranzo"
+  }
+ ],
  "rimossi": []
 }
