@@ -60,9 +60,9 @@
    "tipo": "fuori",
    "pasto": "cena",
    "nome": "riso basmati 100g pollo 170g 3/4 avocado",
-   "kcal": null,
-   "prot": null,
-   "pendente": true
+   "kcal": 720,
+   "prot": 49,
+   "pendente": false
   }
  ],
  "rimossi": [
