@@ -53,6 +53,16 @@
    "alimento": "tonno-naturale",
    "pz": 1,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwpgncoefefz",
+   "t": "2026-11-20T21:57:42+01:00",
+   "tipo": "fuori",
+   "pasto": "cena",
+   "nome": "riso basmati 100g pollo 170g 3/4 avocado",
+   "kcal": null,
+   "prot": null,
+   "pendente": true
   }
  ],
  "rimossi": [
