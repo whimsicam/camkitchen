@@ -28,6 +28,47 @@
    "alimento": "pasta",
    "g": 180,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwoz2kz020mu",
+   "t": "2026-11-20T13:45:40+01:00",
+   "tipo": "extra",
+   "alimento": "pasta",
+   "g": 180,
+   "pasto": "pranzo"
+  },
+  {
+   "id": "mwoz2kz0s4yb",
+   "t": "2026-11-20T13:45:40+01:00",
+   "tipo": "extra",
+   "alimento": "passata",
+   "g": 150,
+   "pasto": "pranzo"
+  },
+  {
+   "id": "mwoz2kz0fvv4",
+   "t": "2026-11-20T13:45:40+01:00",
+   "tipo": "extra",
+   "alimento": "olio-evo",
+   "n": 2,
+   "u": "cucchiaio",
+   "pasto": "pranzo"
+  },
+  {
+   "id": "mwoz2kz0qw7r",
+   "t": "2026-11-20T13:45:40+01:00",
+   "tipo": "extra",
+   "alimento": "tonno-naturale",
+   "pz": 1,
+   "pasto": "pranzo"
+  },
+  {
+   "id": "mwoz2kz07wa6",
+   "t": "2026-11-20T13:45:40+01:00",
+   "tipo": "extra",
+   "alimento": "philadelphia-light",
+   "pz": 1,
+   "pasto": "pranzo"
   }
  ],
  "rimossi": []
