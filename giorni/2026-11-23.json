@@ -18,7 +18,16 @@
     }
    ]
   },
-  "spuntino": "fatto"
+  "spuntino": "fatto",
+  "merenda": {
+   "voci": [
+    {
+     "alimento": "mandorle",
+     "n": 21,
+     "u": "mandorla"
+    }
+   ]
+  }
  },
  "pranzo": null,
  "eventi": [
