@@ -22,11 +22,6 @@
   "merenda": {
    "voci": [
     {
-     "alimento": "grana-cubetti",
-     "n": 5,
-     "u": "cubetto"
-    },
-    {
      "alimento": "bresaola",
      "n": 0.5,
      "u": "vaschetta"
