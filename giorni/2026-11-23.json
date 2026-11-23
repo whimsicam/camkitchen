@@ -1,23 +1,7 @@
 {
  "data": "2026-11-23",
  "giornata": {
-  "colazione": {
-   "voci": [
-    {
-     "alimento": "te",
-     "pz": 1
-    },
-    {
-     "alimento": "miele",
-     "n": 1,
-     "u": "cucchiaino"
-    },
-    {
-     "alimento": "nascondini",
-     "pz": 3
-    }
-   ]
-  },
+  "colazione": "fatto",
   "spuntino": "fatto",
   "merenda": {
    "voci": [
