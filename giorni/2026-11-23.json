@@ -17,9 +17,31 @@
      "pz": 3
     }
    ]
-  }
+  },
+  "spuntino": "fatto"
  },
  "pranzo": null,
- "eventi": [],
+ "eventi": [
+  {
+   "id": "mwtgmbfagdng",
+   "t": "2026-11-23T17:07:59+01:00",
+   "tipo": "fuori",
+   "nome": "Riso bianco",
+   "kcal": 385,
+   "prot": 8,
+   "piatto": "p-riso-bianco",
+   "pasto": "pranzo"
+  },
+  {
+   "id": "mwtgmbxu7nqx",
+   "t": "2026-11-23T17:07:59+01:00",
+   "tipo": "fuori",
+   "nome": "Pollo al curry",
+   "kcal": 501,
+   "prot": 30,
+   "piatto": "p-pollo-al-curry",
+   "pasto": "pranzo"
+  }
+ ],
  "rimossi": []
 }
