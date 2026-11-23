@@ -22,6 +22,11 @@
   "merenda": {
    "voci": [
     {
+     "alimento": "bresaola",
+     "n": 0.5,
+     "u": "vaschetta"
+    },
+    {
      "alimento": "mandorle",
      "n": 21,
      "u": "mandorla"
