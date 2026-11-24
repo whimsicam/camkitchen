@@ -1,0 +1,25 @@
+{
+ "data": "2026-11-24",
+ "giornata": {
+  "colazione": {
+   "voci": [
+    {
+     "alimento": "te",
+     "pz": 1
+    },
+    {
+     "alimento": "miele",
+     "n": 1,
+     "u": "cucchiaino"
+    },
+    {
+     "alimento": "nascondini",
+     "pz": 1
+    }
+   ]
+  }
+ },
+ "pranzo": null,
+ "eventi": [],
+ "rimossi": []
+}
