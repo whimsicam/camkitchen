@@ -48,22 +48,13 @@
    "alimento": "u-risotto-zucca",
    "g": 344,
    "pasto": "pranzo"
-  },
-  {
-   "id": "mwuus0l6f4u8",
-   "t": "2026-11-24T16:32:05+01:00",
-   "tipo": "fuori",
-   "pasto": "cena",
-   "nome": "pollo alle mandorle",
-   "kcal": null,
-   "prot": null,
-   "pendente": true
   }
  ],
  "rimossi": [
   "mwuo23btu3tg",
   "mwuuqrhyrrar",
   "mwuur4jckpe0",
-  "mwuurgwvmt3k"
+  "mwuurgwvmt3k",
+  "mwuus0l6f4u8"
  ]
 }
