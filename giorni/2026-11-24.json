@@ -48,6 +48,16 @@
    "alimento": "u-risotto-zucca",
    "g": 344,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwuuqrhyrrar",
+   "t": "2026-11-24T16:31:07+01:00",
+   "tipo": "fuori",
+   "pasto": "cena",
+   "nome": "lasagn",
+   "kcal": null,
+   "prot": null,
+   "pendente": true
   }
  ],
  "rimossi": [
