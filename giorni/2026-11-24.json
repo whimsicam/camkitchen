@@ -42,17 +42,6 @@
    "solito": "m-nigiri"
   },
   {
-   "id": "mwuo23btu3tg",
-   "t": "2026-11-24T13:23:58+01:00",
-   "tipo": "fuori",
-   "nome": "Riso alla zucca, vaschetta piccola",
-   "kcal": 350,
-   "prot": 8,
-   "g": 250,
-   "pasto": "pranzo",
-   "solito": "m-riso-zucca"
-  },
-  {
    "id": "mwuo7lkqeqy7",
    "t": "2026-11-24T13:28:15+01:00",
    "tipo": "extra",
@@ -61,5 +50,7 @@
    "pasto": "pranzo"
   }
  ],
- "rimossi": []
+ "rimossi": [
+  "mwuo23btu3tg"
+ ]
 }
