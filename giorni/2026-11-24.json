@@ -48,6 +48,15 @@
    "alimento": "u-risotto-zucca",
    "g": 344,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwuurgwvmt3k",
+   "t": "2026-11-24T16:31:40+01:00",
+   "tipo": "extra",
+   "alimento": "cannelloni-carne",
+   "g": 380,
+   "porz": "normale",
+   "pasto": "cena"
   }
  ],
  "rimossi": [
