@@ -29,6 +29,29 @@
   }
  },
  "pranzo": null,
- "eventi": [],
+ "eventi": [
+  {
+   "id": "mwuo21t20lyw",
+   "t": "2026-11-24T13:23:56+01:00",
+   "tipo": "fuori",
+   "nome": "3 nigiri di salmone con soia",
+   "kcal": 145,
+   "prot": 7,
+   "g": 100,
+   "pasto": "pranzo",
+   "solito": "m-nigiri"
+  },
+  {
+   "id": "mwuo23btu3tg",
+   "t": "2026-11-24T13:23:58+01:00",
+   "tipo": "fuori",
+   "nome": "Riso alla zucca, vaschetta piccola",
+   "kcal": 350,
+   "prot": 8,
+   "g": 250,
+   "pasto": "pranzo",
+   "solito": "m-riso-zucca"
+  }
+ ],
  "rimossi": []
 }
