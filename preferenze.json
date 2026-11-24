@@ -70,6 +70,25 @@
    "traccia_dispensa": false,
    "utente": true,
    "porzione_g": 85
+  },
+  "u-risotto-zucca": {
+   "id": "u-risotto-zucca",
+   "nome": "risotto zucca",
+   "marca": "—",
+   "categoria": "aggiunti",
+   "unita": "g",
+   "per100": {
+    "kcal": 160,
+    "prot": 4,
+    "carb": 0,
+    "grassi": 0,
+    "fibre": 0
+   },
+   "confezione": null,
+   "alias": [],
+   "traccia_dispensa": false,
+   "utente": true,
+   "porzione_g": 344
   }
  },
  "piatti": {
