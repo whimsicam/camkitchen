@@ -48,19 +48,11 @@
    "alimento": "u-risotto-zucca",
    "g": 344,
    "pasto": "pranzo"
-  },
-  {
-   "id": "mwuur4jckpe0",
-   "t": "2026-11-24T16:31:24+01:00",
-   "tipo": "extra",
-   "alimento": "lasagne",
-   "g": 350,
-   "porz": "normale",
-   "pasto": "cena"
   }
  ],
  "rimossi": [
   "mwuo23btu3tg",
-  "mwuuqrhyrrar"
+  "mwuuqrhyrrar",
+  "mwuur4jckpe0"
  ]
 }
