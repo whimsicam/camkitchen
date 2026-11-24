@@ -54,7 +54,7 @@
   },
   "u-nighiri-di-salmone": {
    "id": "u-nighiri-di-salmone",
-   "nome": "nighiri di salmone",
+   "nome": "nigiri di salmone",
    "marca": "—",
    "categoria": "aggiunti",
    "unita": "g",
@@ -89,6 +89,31 @@
    "traccia_dispensa": false,
    "utente": true,
    "porzione_g": 344
+  },
+  "u-cubetto-di-cioccolato": {
+   "id": "u-cubetto-di-cioccolato",
+   "nome": "cubetto di cioccolato",
+   "marca": "—",
+   "categoria": "aggiunti",
+   "unita": "pz",
+   "per100": {
+    "kcal": 584,
+    "prot": 16,
+    "carb": 0,
+    "grassi": 0,
+    "fibre": 0
+   },
+   "confezione": {
+    "nome": "pezzo",
+    "pz": 1,
+    "g_pz": 12.5
+   },
+   "alias": [
+    "cioccolato"
+   ],
+   "traccia_dispensa": false,
+   "utente": true,
+   "pezzo": "cubetti"
   }
  },
  "piatti": {
@@ -96,20 +121,24 @@
    "id": "p-riso-bianco",
    "nome": "Riso bianco",
    "kcal": 385,
-   "prot": 8
+   "prot": 8,
+   "migrato": "riso-basmati-vaschetta"
   },
   "p-pollo-al-curry": {
    "id": "p-pollo-al-curry",
    "nome": "Pollo al curry",
    "kcal": 501,
-   "prot": 30
+   "prot": 30,
+   "migrato": "pollo-curry"
   },
   "p-cubetto-di-cioccolato": {
    "id": "p-cubetto-di-cioccolato",
    "nome": "Cubetto di cioccolato",
    "kcal": 73,
    "prot": 2,
-   "g": 12.5
+   "g": 12.5,
+   "migrato": "u-cubetto-di-cioccolato"
   }
- }
+ },
+ "combinazioni": {}
 }

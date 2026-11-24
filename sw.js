@@ -1,6 +1,6 @@
 // CAM Kitchen: cache dei file statici. Tutto è network-first; la cache serve solo offline.
-const V = 'ck-v18';
-const STATIC = ['./', 'index.html', 'style.css?v=18', 'js/app.js?v=18', 'js/store.js', 'js/calc.js', 'js/ui.js', 'js/menu.js', 'js/oggi.js', 'js/piano.js', 'js/riepilogo.js', 'js/other.js', 'js/spesa.js', 'js/ricettario.js',
+const V = 'ck-v19';
+const STATIC = ['./', 'index.html', 'style.css?v=19', 'js/app.js?v=19', 'js/store.js', 'js/calc.js', 'js/ui.js', 'js/menu.js', 'js/oggi.js', 'js/piano.js', 'js/riepilogo.js', 'js/other.js', 'js/spesa.js', 'js/ricettario.js',
   'manifest.webmanifest', 'icons/icon-192.png?v=3', 'icons/icon-180.png'];
 
 self.addEventListener('install', e => {

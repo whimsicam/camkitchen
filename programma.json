@@ -1,6 +1,6 @@
 {
  "versione": "0.3.1",
- "aggiornato": "2026-11-16",
+ "aggiornato": "2026-11-24",
  "messaggio_coach": "Piano 0.3: yogurt con confettura allo spuntino, mandorle a merenda. Ora registri a cucchiaini, pezzi e porzioni.",
  "target": {
   "kcal": 2800,
@@ -249,10 +249,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Riso alla zucca, vaschetta piccola",
-     "g": 250,
-     "kcal": 350,
-     "prot": 8
+     "alimento": "riso-zucca-mensa",
+     "g": 250
     }
    ]
   },
@@ -265,10 +263,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "3 nigiri di salmone con soia",
-     "g": 100,
-     "kcal": 145,
-     "prot": 7
+     "alimento": "u-nighiri-di-salmone",
+     "g": 85
     }
    ]
   },
@@ -281,10 +277,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "5 sashimi di salmone con soia",
-     "g": 85,
-     "kcal": 160,
-     "prot": 16
+     "alimento": "sashimi-salmone",
+     "pz": 5
     }
    ]
   },
@@ -297,10 +291,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Tartare di vitello con olio",
-     "g": 195,
-     "kcal": 335,
-     "prot": 38
+     "alimento": "tartare-vitello",
+     "g": 195
     }
    ]
   },
@@ -313,10 +305,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Pasta zafferano, gamberetti e asparagi",
-     "g": 300,
-     "kcal": 450,
-     "prot": 18
+     "alimento": "u-pasta-zafferano-gamberi-e-asparagi",
+     "g": 255
     }
    ]
   },
@@ -329,10 +319,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "8 olive ascolane",
-     "g": 136,
-     "kcal": 400,
-     "prot": 13
+     "alimento": "olive-ascolane",
+     "pz": 8
     }
    ]
   },
@@ -345,10 +333,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Riso basmati, vaschetta",
-     "g": 307,
-     "kcal": 385,
-     "prot": 8
+     "alimento": "riso-basmati-vaschetta",
+     "g": 307
     }
    ]
   },
@@ -361,10 +347,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Pollo al curry, vaschetta",
-     "g": 258,
-     "kcal": 501,
-     "prot": 30
+     "alimento": "pollo-curry",
+     "g": 258
     }
    ]
   },
@@ -377,10 +361,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Pollo arrosto, un quarto",
-     "g": 180,
-     "kcal": 400,
-     "prot": 45
+     "alimento": "pollo-arrosto",
+     "g": 180
     }
    ]
   },
@@ -393,10 +375,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Verdure al forno, vaschetta",
-     "g": 200,
-     "kcal": 120,
-     "prot": 3
+     "alimento": "verdure-forno",
+     "g": 200
     }
    ]
   },
@@ -409,10 +389,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Tortino di verdure",
-     "g": 150,
-     "kcal": 250,
-     "prot": 8
+     "alimento": "tortino-verdure",
+     "g": 150
     }
    ]
   },
@@ -425,10 +403,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Cannelloni ricotta e spinaci",
-     "g": 380,
-     "kcal": 704,
-     "prot": 29
+     "alimento": "cannelloni-ricotta-spinaci",
+     "g": 380
     }
    ]
   },
@@ -441,10 +417,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Cannelloni di carne",
-     "g": 380,
-     "kcal": 700,
-     "prot": 33
+     "alimento": "cannelloni-carne",
+     "g": 380
     }
    ]
   },
@@ -457,10 +431,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Lasagne alla bolognese",
-     "g": 500,
-     "kcal": 800,
-     "prot": 42
+     "alimento": "lasagne",
+     "g": 500
     }
    ]
   },
@@ -473,10 +445,8 @@
    "mensa": true,
    "voci": [
     {
-     "nome": "Pane, panino",
-     "g": 60,
-     "kcal": 165,
-     "prot": 5
+     "alimento": "pane-comune",
+     "g": 60
     }
    ]
   },
@@ -703,10 +673,8 @@
    ],
    "voci": [
     {
-     "nome": "Pizza capricciosa o ai würstel",
-     "g": 450,
-     "kcal": 1000,
-     "prot": 45
+     "alimento": "pizza-capricciosa",
+     "g": 450
     }
    ]
   },
@@ -719,13 +687,11 @@
    ],
    "voci": [
     {
-     "nome": "Patatine fritte",
-     "g": 150,
-     "kcal": 450,
-     "prot": 5
+     "alimento": "patatine-fritte",
+     "g": 150
     }
    ]
   }
  ],
- "abituali_note": "Pezzi componibili (16/11/2026): ogni vaschetta della mensa e ogni componente della cena è un pezzo a sé, si toccano quelli presi. Valori indicativi, si correggono toccando la voce. Da verificare: vaschette della mensa, pollo della rosticceria (un quarto, 180 g), tortino, pesto verde Mutti (valori da FatSecret), burger impanato 180 g, olio 2 cucchiai. Pollo al curry Esselunga da etichetta (17/11/2026): 194 kcal e 11,5 g di proteine per 100 g, vaschetta 258 g. Riso basmati in vaschetta (17/11/2026): 307 g, solo riso, acqua e sale, ~125 kcal per 100 g."
+ "abituali_note": "Pezzi componibili (16/11/2026): ogni vaschetta della mensa e ogni componente della cena è un pezzo a sé, si toccano quelli presi. Valori indicativi, si correggono toccando la voce. Da verificare: vaschette della mensa, pollo della rosticceria (un quarto, 180 g), tortino, pesto verde Mutti (valori da FatSecret), burger impanato 180 g, olio 2 cucchiai. Pollo al curry Esselunga da etichetta (17/11/2026): 194 kcal e 11,5 g di proteine per 100 g, vaschetta 258 g. Riso basmati in vaschetta (17/11/2026): 307 g, solo riso, acqua e sale, ~125 kcal per 100 g. Dal 24/11/2026 ogni solito è fatto di ingredienti del catalogo (valori per 100 g): i piatti della mensa sono in alimenti.json con pronto: true; nigiri e pasta allo zafferano usano gli ingredienti che CAM ha creato dall'etichetta."
 }

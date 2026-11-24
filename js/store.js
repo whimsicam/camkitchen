@@ -58,15 +58,33 @@ export function salvaAlias(testo, alimento) {
 }
 export function salvaInbox() { scrivi(K.inbox, S.inbox); }
 export function salvaPref() { scrivi(K.pref, S.pref); applicaAlimentiUtente(); accoda('preferenze.json'); emit(); }
-// preferenze: ingredienti tolti, varianti, alimenti e piatti aggiunti da CAM (quelli tolti restano con nascosto: true)
-export const normPref = p => ({ togli: (p && p.togli) || {}, nonMiPiace: (p && p.nonMiPiace) || [], varianti: (p && p.varianti) || {}, alimenti: (p && p.alimenti) || {}, piatti: (p && p.piatti) || {} });
+// preferenze: ingredienti tolti, varianti, alimenti e combinazioni aggiunti da CAM (quelli tolti restano con nascosto: true).
+// "piatti" sono i vecchi piatti a kcal fisse: si convertono in alimenti e restano solo come traccia (migrato).
+export const normPref = p => ({ togli: (p && p.togli) || {}, nonMiPiace: (p && p.nonMiPiace) || [], varianti: (p && p.varianti) || {}, alimenti: (p && p.alimenti) || {}, piatti: (p && p.piatti) || {}, combinazioni: (p && p.combinazioni) || {} });
 function unisciPref(a, b) {
   const togli = { ...(b.togli || {}) };
   for (const [k, v] of Object.entries(a.togli || {})) togli[k] = v;
-  return { togli, nonMiPiace: [...new Set([...(a.nonMiPiace || [])])], varianti: { ...(b.varianti || {}), ...(a.varianti || {}) }, alimenti: { ...(b.alimenti || {}), ...(a.alimenti || {}) }, piatti: { ...(b.piatti || {}), ...(a.piatti || {}) } };
+  const piatti = { ...(b.piatti || {}), ...(a.piatti || {}) };
+  for (const [k, v] of Object.entries(b.piatti || {})) if (v.migrato && piatti[k] && !piatti[k].migrato) piatti[k] = v;
+  return { togli, nonMiPiace: [...new Set([...(a.nonMiPiace || [])])], varianti: { ...(b.varianti || {}), ...(a.varianti || {}) }, alimenti: { ...(b.alimenti || {}), ...(a.alimenti || {}) }, piatti, combinazioni: { ...(b.combinazioni || {}), ...(a.combinazioni || {}) } };
 }
-// gli alimenti aggiunti da CAM entrano nel catalogo come gli altri
-export function applicaAlimentiUtente() { for (const [id, a] of Object.entries((S.pref && S.pref.alimenti) || {})) S.A[id] = a; }
+const slugA = t => String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+// un vecchio piatto a kcal fisse diventa un alimento: per 100 g se si sanno i grammi, altrimenti "a porzione"
+function migraPiatti() {
+  for (const p of Object.values(S.pref.piatti || {})) {
+    if (p.migrato || p.nascosto || p.kcal == null) continue;
+    const id = `u-${slugA(p.nome)}`;
+    if (!S.pref.alimenti[id] && !S.A[id]) S.pref.alimenti[id] = alimentoDaTotale(id, p.nome, p.kcal, p.prot || 0, p.g);
+    p.migrato = id;
+  }
+}
+export function alimentoDaTotale(id, nome, kcal, prot, g) {
+  const base = { id, nome, marca: '—', categoria: 'aggiunti', per100: { kcal: 0, prot: 0, carb: 0, grassi: 0, fibre: 0 }, alias: [], traccia_dispensa: false, utente: true };
+  if (g) return { ...base, unita: 'g', per100: { ...base.per100, kcal: Math.round(kcal * 100 / g), prot: Math.round(prot * 1000 / g) / 10 }, confezione: null, porzione_g: Math.round(g) };
+  return { ...base, unita: 'pz', per100: { ...base.per100, kcal: Math.round(kcal), prot: Math.round(prot * 10) / 10 }, confezione: { nome: 'porzione', pz: 1, g_pz: 100 }, pezzo: 'porzioni' };
+}
+// gli alimenti aggiunti (o ritoccati) da CAM entrano nel catalogo come gli altri
+export function applicaAlimentiUtente() { if (!S.pref) return; S.pref.alimenti = S.pref.alimenti || {}; migraPiatti(); for (const [id, a] of Object.entries(S.pref.alimenti)) S.A[id] = a; }
 
 function accoda(path) {
   if (!S.coda.includes(path)) S.coda.push(path);

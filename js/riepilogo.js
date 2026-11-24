@@ -32,8 +32,8 @@ export function riepilogo(oggi, n = 14) {
   const trend = punti.length >= 4 && giorniTra(punti[0][0], punti[punti.length - 1][0]) >= 10 ? pendenza(punti) : null;
 
   const usati = {};
-  for (const d of giorni) { const visti = new Set(); for (const e of (G[d] && G[d].eventi) || []) if (e.solito && !visti.has(e.solito + e.pasto)) { visti.add(e.solito + e.pasto); usati[e.solito] = (usati[e.solito] || 0) + 1; } }
-  const piatti = Object.entries(usati).sort((a, b) => b[1] - a[1]).map(([id, v]) => ({ id, nome: ((S.prog.abituali || []).find(x => x.id === id) || { nome: id }).nome, volte: v }));
+  for (const d of giorni) { const visti = new Set(); for (const e of (G[d] && G[d].eventi) || []) { const c = e.solito || e.comb; if (c && !visti.has(c + e.pasto)) { visti.add(c + e.pasto); usati[c] = (usati[c] || 0) + 1; } } }
+  const piatti = Object.entries(usati).sort((a, b) => b[1] - a[1]).map(([id, v]) => ({ id, nome: ((S.prog.abituali || []).find(x => x.id === id) || ((S.pref && S.pref.combinazioni) || {})[id] || { nome: id }).nome, volte: v }));
   const inAttesa = giorni.reduce((a, d) => a + ((G[d] && G[d].eventi) || []).filter(e => e.tipo === 'fuori' && e.pendente).length, 0);
 
   const [a, b] = T.peso_settimana || [0.25, 0.4];

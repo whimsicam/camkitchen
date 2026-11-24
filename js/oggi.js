@@ -1,5 +1,5 @@
 // CAM Kitchen: scheda Oggi (la giornata in un'unica lista, varianti con un tocco, "cosa hai mangiato?").
-import { S, giorno, salvaPref, oggi, uid, nowISO, cfg, syncPronto } from './store.js';
+import { S, giorno, salvaPref, oggi, uid, nowISO, cfg, syncPronto, alimentoDaTotale } from './store.js';
 import { fmt, addDays, dow, grammi, giornataDel, totaliGiorno, vociGiornata, macroVoci, macroRicetta, cicloDi, statoCiclo, quantitaTesto, misuraTesto } from './calc.js';
 import { $, esc, toast, mascot, openSheet, closeSheet, breve, ICON } from './ui.js';
 import { sel, bannerIeri, bannerCoach, modifica } from './menu.js';
@@ -100,13 +100,15 @@ function rigaPasto(g, q) {
   return `<div class="orow ${xs.length ? 'on' : 'vuoto'}"><button class="oc" data-act="o-pasto" data-q="${q}" aria-label="${NOMI[q]}"></button><button class="ow" data-act="o-pasto" data-q="${q}"><b>${NOMI[q]}</b><small>${esc(sub)}</small></button>${xs.length ? `<span class="ok num">${xs.some(x => x.pendente) ? '…' : fmt(t.kcal)}</span>` : `<button class="pill sm" data-act="o-pasto" data-q="${q}">scegli</button>`}</div>`;
 }
 
-/* ---------- ricerca nel catalogo e nel ricettario ---------- */
-function cerca(testo, conRicette) {
+/* ---------- ricerca nel catalogo, nelle combinazioni e nel ricettario ---------- */
+const cercabile = a => a.per100 && !a.nascosto && (a.traccia_dispensa !== false || a.utente || a.pronto);
+function cerca(testo, conRicette, conComb = true) {
   const n = norm(testo).trim(); if (n.length < 2) return [];
   const tk = n.split(/\s+/), out = [];
+  if (conComb) for (const c of combinazioni()) if (tk.every(t => norm(c.nome).includes(t))) out.push({ k: c.k, id: c.id, nome: c.nome, p: -1 });
   if (conRicette) for (const r of Object.values(S.R)) { const h = norm(`${r.nome} ${r.breve || ''}`); if (tk.every(t => h.includes(t))) out.push({ k: 'r', id: r.id, nome: r.nome, p: 1 }); }
   for (const a of Object.values(S.A)) {
-    if (!a.per100 || a.nascosto || (a.traccia_dispensa === false && !a.utente)) continue;
+    if (!cercabile(a)) continue;
     const nomi = [a.nome, ...(a.alias || [])].map(norm);
     if (!tk.every(t => nomi.some(x => x.includes(t)))) continue;
     out.push({ k: 'a', id: a.id, nome: a.nome, p: nomi.includes(n) ? 0 : nomi.some(x => x.startsWith(n)) ? 1 : 2 });
@@ -115,43 +117,66 @@ function cerca(testo, conRicette) {
 }
 function rigaRisultato(x, act) {
   if (x.k === 'r') { const t = macroRicetta(x.id); return `<button class="ores" data-act="${act}" data-r="${x.id}"><span><b>${esc(x.nome)}</b><small>ricetta · ${fmt(t.kcal)} kcal</small></span><span class="pill sm">+</span></button>`; }
+  if (x.k === 's' || x.k === 'c') { const c = combinazioni().find(z => z.id === x.id); return `<button class="ores" data-act="${x.k === 's' ? 'o-sol' : 'o-comb'}" data-id="${x.id}"><span><b>${esc(x.nome)}</b><small>combinazione · ${esc(c ? c.voci.map(nomeVoce).join(' + ') : '')}</small></span><span class="pill sm">+</span></button>`; }
   const a = S.A[x.id];
-  return `<button class="ores" data-act="${act}" data-a="${x.id}"><span><b>${esc(a.nome)}</b><small class="num">${fmt(a.per100.kcal)} kcal per 100 ${a.unita === 'ml' ? 'ml' : 'g'}</small></span><span class="pill sm">+</span></button>`;
+  const dose = aPezzi(a) ? `${fmt(a.per100.kcal * a.confezione.g_pz / 100)} kcal a ${a.confezione.nome === 'porzione' ? 'porzione' : 'pezzo'}` : `${fmt(a.per100.kcal)} kcal per 100 ${a.unita === 'ml' ? 'ml' : 'g'}`;
+  return `<button class="ores" data-act="${act}" data-a="${x.id}"><span><b>${esc(a.nome)}</b><small class="num">${dose}</small></span><span class="pill sm">+</span></button>`;
 }
 
-/* ---------- foglio: cosa hai mangiato? ---------- */
-let P = null; // { q, rec }
-function recenti(q) {
-  if (q === 'altro') return [];
-  const m = new Map(), d0 = sel();
-  for (const d of Object.keys(S.giorni).sort()) for (const p of ['pranzo', 'cena']) {
-    if (d === d0 && p === q) continue;
-    const ev = (S.giorni[d].eventi || []).filter(e => e.pasto === p && (e.tipo === 'pasto' || e.tipo === 'extra' || (e.tipo === 'fuori' && !e.pendente && e.kcal)));
-    if (!ev.length) continue;
-    const nomi = ev.map(e => (e.tipo === 'pasto' ? breve(e.ricetta) : e.tipo === 'fuori' ? e.nome : (S.A[e.alimento] ? S.A[e.alimento].nome : e.alimento)).toLowerCase().split(' (')[0]);
-    const key = [...nomi].sort().join('|'), x = m.get(key) || { volte: 0 };
-    m.set(key, { nomi, ev, volte: x.volte + 1, ultimo: d });
-  }
-  return [...m.values()].sort((a, b) => b.volte - a.volte || b.ultimo.localeCompare(a.ultimo)).slice(0, 6);
+/* ---------- i tuoi: gli stessi per ogni pasto, ordinati da quanto li usi ---------- */
+let P = null; // { q }
+const nomeVoce = v => (v.alimento ? (S.A[v.alimento] ? S.A[v.alimento].nome : v.alimento) : v.ricetta ? breve(v.ricetta) : v.nome || '').toLowerCase().split(' (')[0].split(',')[0];
+// combinazioni: quelle del piano (abituali con più voci) e quelle salvate da CAM
+function combinazioni() {
+  const out = [];
+  for (const x of (S.prog && S.prog.abituali) || []) if ((x.voci || []).length > 1) out.push({ k: 's', id: x.id, nome: x.nome, voci: x.voci });
+  for (const c of Object.values(S.pref.combinazioni || {})) if (!c.nascosto) out.push({ k: 'c', id: c.id, nome: c.nome, voci: c.voci, mia: true });
+  return out;
 }
-// a pranzo nei feriali la mensa, nel weekend i piatti di casa
-const soliti = q => { const fer = dow(sel()) < 5; return (S.prog.abituali || []).filter(x => q !== 'altro' && (x.pasto || []).includes(q) && (q !== 'pranzo' || !!x.mensa === fer)); };
-const daSolito = v => (v.alimento ? { tipo: 'extra', alimento: v.alimento, ...(v.g != null ? { g: v.g } : v.pz != null ? { pz: v.pz } : { n: v.n, u: v.u }), ...(v.porz ? { porz: v.porz } : {}) } : { tipo: 'fuori', nome: v.nome, kcal: v.kcal, prot: v.prot, ...(v.g ? { g: v.g } : {}) });
+function usi(q) {
+  const u = {}, da = addDays(sel(), -60);
+  for (const [d, g] of Object.entries(S.giorni)) {
+    if (d < da) continue; const visti = new Set();
+    for (const e of g.eventi || []) {
+      const w = e.pasto === q ? 3 : 1;
+      if (e.tipo === 'extra' && e.alimento) u[`a:${e.alimento}`] = (u[`a:${e.alimento}`] || 0) + w;
+      const c = e.comb || e.solito; if (c && !visti.has(c + e.pasto)) { visti.add(c + e.pasto); u[`c:${c}`] = (u[`c:${c}`] || 0) + w; }
+    }
+  }
+  return u;
+}
+function tuoi(q) {
+  const u = usi(q), mensa = q === 'pranzo' && dow(sel()) < 5, visti = new Set(), out = [];
+  for (const x of (S.prog && S.prog.abituali) || []) {
+    if ((x.voci || []).length !== 1) continue; const v = x.voci[0];
+    if (v.alimento && (!S.A[v.alimento] || S.A[v.alimento].nascosto)) continue;
+    if (v.alimento) visti.add(v.alimento);
+    out.push({ k: 's', id: x.id, nome: x.nome, n: (u[`a:${v.alimento}`] || 0) + (u[`c:${x.id}`] || 0) + (x.mensa && mensa ? 1.5 : 0) });
+  }
+  for (const a of Object.values(S.pref.alimenti || {})) if (!a.nascosto && !a.ritocco && !visti.has(a.id)) { visti.add(a.id); out.push({ k: 'a', id: a.id, nome: a.nome, n: (u[`a:${a.id}`] || 0) + 0.5 }); }
+  for (const [k, n] of Object.entries(u)) {
+    if (!k.startsWith('a:') || n < 2) continue; const id = k.slice(2), a = S.A[id];
+    if (a && !a.nascosto && !visti.has(id) && cercabile(a)) { visti.add(id); out.push({ k: 'a', id, nome: a.nome.toLowerCase(), n }); }
+  }
+  return out.sort((x, y) => y.n - x.n || x.nome.localeCompare(y.nome));
+}
+const chip = x => x.k === 's' ? `<button data-act="o-sol" data-id="${x.id}">${esc(x.nome)}</button>` : x.k === 'c' ? `<button data-act="o-comb" data-id="${x.id}">${esc(x.nome)}</button>` : `<button data-act="o-add" data-a="${x.id}">${esc(x.nome)}</button>`;
 function sheetPasto(q) {
-  P = { q, rec: recenti(q) }; ED = null; GEST = false; NF = null;
-  for (const e of giorno(sel()).eventi || []) salvaPiatto(e, false);
+  P = { q }; ED = null; GEST = false; NF = null; SC = false; TUTTI = false;
   openSheet(`<div class="opasto"><span class="lab">${dataCorta(sel())} · ${NOMI[q]}</span><h3>cosa hai mangiato?</h3>
-  <div class="search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><input id="oq" placeholder="cerca: pollo, riso, pizza…" autocomplete="off" autocapitalize="off" enterkeyhint="search" aria-label="Cerca un alimento o un piatto"></div>
-  <div id="o-res"></div>
+  <p class="note" id="o-intro">Componi il pasto un pezzo alla volta: riso, poi pollo, poi l'olio.</p>
   <div id="o-piatto"></div>
-  <details class="oconf"><summary>Ho i numeri della confezione</summary>
-    <div class="field"><label class="lab" for="c-nome">cosa</label><input id="c-nome" placeholder="es. insalata di pollo della mensa" autocomplete="off"></div>
-    <div class="ogrid"><div class="field"><label class="lab" for="c-k">kcal per 100 g</label><input id="c-k" inputmode="decimal" placeholder="148"></div><div class="field"><label class="lab" for="c-g">grammi</label><input id="c-g" inputmode="decimal" placeholder="350"></div><div class="field"><label class="lab" for="c-p">proteine per 100 g</label><input id="c-p" inputmode="decimal" placeholder="9,5"></div></div>
-    <div class="oconf-f"><b class="num" id="c-tot">= 0 kcal</b><button class="pill sm solid" data-act="o-conf">aggiungi</button></div>
-  </details>
-  <button class="link" data-act="o-claude" style="text-align:left;padding-left:0">non lo so: chiedi una stima a Claude</button>
+  <div class="search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg><input id="oq" placeholder="cerca: riso, pesto, pollo al curry…" autocomplete="off" autocapitalize="off" enterkeyhint="search" aria-label="Cerca un alimento, una combinazione o una ricetta"></div>
+  <div id="o-res"></div>
   <div class="ofoot"><div class="otot"><span>${NOMI[q].toLowerCase()}</span><span class="num" id="o-tot"></span></div><button class="pill solid" data-act="o-fine">fatto</button></div></div>`);
   rinfresca();
+}
+// il riquadro per le cose nuove: sempre visibile, con etichetta o stima di Claude
+function boxNuovo(testo) {
+  const t = testo.trim();
+  return `<div class="onuovo"><b>${t.length >= 2 ? `“${esc(t)}” non c'è o è diverso?` : 'Hai mangiato qualcosa di nuovo?'}</b>
+  <small>${t.length >= 2 ? 'Lo aggiungi una volta sola: poi lo ritrovi cercandolo e tra i tuoi, con i suoi valori.' : 'Scrivine il nome qui sopra, poi aggiungilo con l\'etichetta o chiedi i valori a Claude.'}</small>
+  <div class="onuovo-b"><button class="pill sm" data-act="n-apri" data-ctx="o" data-t="${esc(t)}">ho l'etichetta</button><button class="pill sm solid" data-act="o-claude">chiedi a Claude</button></div></div>`;
 }
 function rinfresca() {
   if (!P || !$('o-res')) return;
@@ -159,55 +184,60 @@ function rinfresca() {
   let res = '';
   if (testo.trim().length >= 2) {
     const r = cerca(testo, q !== 'altro');
-    res = (r.length ? r.map(x => rigaRisultato(x, 'o-add')).join('') : `<p class="note">Non trovo "${esc(testo.trim())}". Aggiungilo con i numeri della confezione, oppure chiedi una stima a Claude.</p>`) + (NF && NF.ctx === 'o' ? formNuovo() : bottoneNuovo(testo, 'o'));
-  } else {
+    res = r.map(x => rigaRisultato(x, 'o-add')).join('') + (NF && NF.ctx === 'o' ? formNuovo() : boxNuovo(testo));
+  } else if (NF && NF.ctx === 'o') res = formNuovo();
+  else {
     const c = cicloDi(sel());
     const menu = c && q !== 'altro' && sel() <= c.al ? [...new Set(statoCiclo(c).filter(p => !p.fatto).map(p => p.ricetta))].filter(id => S.R[id]) : [];
-    const sol = soliti(q);
-    if (sol.length) res += `<span class="lab">I tuoi soliti</span><div class="chiprow">${sol.map(x => `<button data-act="o-sol" data-id="${x.id}">${esc(x.nome)}</button>`).join('')}</div>`;
-    const mie = Object.values(S.pref.piatti || {}).filter(x => !x.nascosto), miei = Object.values(S.pref.alimenti || {}).filter(x => !x.nascosto);
-    if (mie.length) res += `<span class="lab">I tuoi piatti</span><div class="chiprow">${mie.map(x => `<button data-act="${GEST ? 'o-piatto-via' : 'o-piatto'}" data-id="${x.id}">${esc(x.nome)}${GEST ? ' ×' : ''}</button>`).join('')}</div>`;
-    if (GEST && miei.length) res += `<span class="lab">Alimenti aggiunti da te</span><div class="chiprow">${miei.map(x => `<button data-act="o-alim-via" data-id="${x.id}">${esc(x.nome)} ×</button>`).join('')}</div>`;
-    if (mie.length || miei.length) res += `<button class="link" data-act="o-gest" style="align-self:flex-start;padding-left:0">${GEST ? 'fine' : 'togli piatti o alimenti aggiunti da te'}</button>`;
-    if (P.rec.length) res += `<span class="lab">Di recente</span><div class="chiprow">${P.rec.map((x, i) => `<button data-act="o-rec" data-i="${i}">${esc(x.nomi.join(', '))}</button>`).join('')}</div>`;
-    if (menu.length) res += `<span class="lab">Dal tuo menù</span><div class="chiprow">${menu.map(id => `<button data-act="o-add" data-r="${id}">${esc(breve(id).toLowerCase())}</button>`).join('')}</div>`;
+    const u = usi(q), comb = combinazioni().map(x => ({ ...x, n: (u[`c:${x.id}`] || 0) + (x.mia ? 0.5 : 0) })).sort((x, y) => y.n - x.n || x.nome.localeCompare(y.nome));
+    const tu = tuoi(q), MAX = 14;
+    if (GEST) {
+      const mie = comb.filter(x => x.mia), miei = Object.values(S.pref.alimenti || {}).filter(x => !x.nascosto && !x.ritocco);
+      res += `<span class="lab">Tocca per togliere</span>`;
+      if (mie.length) res += `<span class="lab">Le tue combinazioni</span><div class="chiprow">${mie.map(x => `<button data-act="o-comb-via" data-id="${x.id}">${esc(x.nome)} ×</button>`).join('')}</div>`;
+      if (miei.length) res += `<span class="lab">Aggiunti da te</span><div class="chiprow">${miei.map(x => `<button data-act="o-alim-via" data-id="${x.id}">${esc(x.nome)} ×</button>`).join('')}</div>`;
+      res += `<button class="link" data-act="o-gest" style="align-self:flex-start;padding-left:0">fine</button>`;
+    } else {
+      if (comb.length) res += `<span class="lab">Combinazioni</span><div class="chiprow">${comb.map(chip).join('')}</div>`;
+      if (tu.length) res += `<span class="lab">I tuoi</span><div class="chiprow">${(TUTTI ? tu : tu.slice(0, MAX)).map(chip).join('')}${tu.length > MAX ? `<button class="altri" data-act="o-tutti">${TUTTI ? 'meno' : `altri ${tu.length - MAX}…`}</button>` : ''}</div>`;
+      if (menu.length) res += `<span class="lab">Dal tuo menù</span><div class="chiprow">${menu.map(id => `<button data-act="o-add" data-r="${id}">${esc(breve(id).toLowerCase())}</button>`).join('')}</div>`;
+      if (Object.values(S.pref.alimenti || {}).some(x => !x.nascosto && !x.ritocco) || comb.some(x => x.mia)) res += `<button class="link" data-act="o-gest" style="align-self:flex-start;padding-left:0">togli combinazioni o cose aggiunte da te</button>`;
+    }
+    res += boxNuovo('');
   }
   $('o-res').innerHTML = res;
-  $('o-piatto').innerHTML = xs.length ? `<div class="og-h"><h2>Nel piatto</h2><span>tocca un nome per cambiarlo</span></div>${xs.map(rigaPiatto).join('')}` : '';
+  const salvabili = xs.filter(x => x.k !== 'mensa' && !x.pendente);
+  $('o-piatto').innerHTML = xs.length ? `<div class="og-h"><h2>Nel piatto</h2><span>tocca un nome per cambiare dose o valori</span></div>${xs.map(rigaPiatto).join('')}${salvabili.length >= 2 ? (SC ? `<div class="osalva"><input id="sc-nome" value="${esc(salvabili.map(x => nomeVoce(x.e || { nome: x.corto })).join(' + '))}" autocomplete="off" aria-label="Nome della combinazione"><button class="pill sm solid" data-act="o-comb-salva">salva</button></div>` : `<button class="link" data-act="o-comb-apri" style="align-self:flex-start;padding-left:0">salva come combinazione</button>`) : ''}` : '';
+  $('o-intro').hidden = xs.length > 0;
   $('o-tot').textContent = `${fmt(t.kcal)} kcal · ${fmt(t.prot)} g prot`;
 }
 let ED = null; // voce del piatto aperta in modifica
-let GEST = false; // modalità per togliere piatti e alimenti aggiunti
+let GEST = false; // modalità per togliere combinazioni e alimenti aggiunti
+let SC = false; // campo "salva come combinazione" aperto
+let TUTTI = false; // tutti i chip dei tuoi
 let NF = null; // modulo "nuovo alimento": { ctx: 'o' | 'v', nome, modo: 'pz' | '100' }
 const slug = t => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
 function bottoneNuovo(testo, ctx) { return `<button class="pill sm" data-act="n-apri" data-ctx="${ctx}" data-t="${esc(testo.trim())}" style="align-self:flex-start">+ aggiungi "${esc(testo.trim())}" come nuovo</button>`; }
 function formNuovo() {
   const pz = NF.modo === 'pz';
-  return `<div class="oconf oed nf"><span class="lab">Nuovo alimento, dalla confezione</span>
-  <div class="field"><label class="lab" for="n-nome">nome</label><input id="n-nome" value="${esc(NF.nome)}" autocomplete="off"></div>
-  <div class="chiprow"><button class="${pz ? 'on' : ''}" data-act="n-modo" data-v="pz">valori per pezzo</button><button class="${pz ? '' : 'on'}" data-act="n-modo" data-v="100">valori per 100 g</button></div>
+  return `<div class="oconf oed nf"><span class="lab">Nuovo, dall'etichetta</span>
+  <div class="field"><label class="lab" for="n-nome">nome</label><input id="n-nome" value="${esc(NF.nome)}" placeholder="es. risotto alla zucca Esselunga" autocomplete="off"></div>
+  <div class="chiprow"><button class="${pz ? '' : 'on'}" data-act="n-modo" data-v="100">valori per 100 g</button><button class="${pz ? 'on' : ''}" data-act="n-modo" data-v="pz">valori per pezzo</button></div>
   <div class="ogrid">${campo('n-k', pz ? 'kcal per pezzo' : 'kcal per 100 g', '')}${campo('n-p', pz ? 'proteine per pezzo' : 'proteine per 100 g', '')}${campo('n-q', pz ? 'pezzi mangiati' : 'grammi mangiati', pz ? 1 : '')}</div>
   <div class="oconf-f"><button class="link" data-act="n-x" style="padding-left:0">annulla</button><button class="pill sm solid" data-act="n-ok">aggiungi</button></div></div>`;
-}
-// un piatto con kcal date (confezione, stima di Claude) resta tra "I tuoi piatti"
-function salvaPiatto(e, forza = true) {
-  if (!e || e.tipo !== 'fuori' || e.solito || e.pendente || e.kcal == null || !e.nome) return;
-  const id = e.piatto || `p-${slug(e.nome)}`;
-  S.pref.piatti = S.pref.piatti || {};
-  const v = S.pref.piatti[id] || {};
-  if (v.nascosto && !forza) return; // tolto da CAM: non torna da solo
-  if (!v.nascosto && v.kcal === e.kcal && v.prot === (e.prot || 0) && (v.g || null) === (e.g || null)) return;
-  S.pref.piatti[id] = { id, nome: e.nome, kcal: e.kcal, prot: e.prot || 0, ...(e.g ? { g: e.g } : {}) };
-  salvaPref();
 }
 const campo = (id, lab, v) => `<div class="field"><label class="lab" for="${id}">${lab}</label><input id="${id}" inputmode="decimal" value="${v ?? ''}" autocomplete="off"></div>`;
 function editor(x) {
   const e = giorno(sel()).eventi.find(z => z.id === x.id); if (!e) return '';
   let campi = '', scala = '';
-  if (x.k === 'cibo') { const a = S.A[e.alimento]; campi = e.pz != null ? campo('ed-pz', (a && a.pezzo) || 'pezzi', e.pz) : campo('ed-g', a && a.unita === 'ml' ? 'ml' : 'grammi', Math.round(grammi(e))); }
-  else if (x.k === 'stima') { campi = campo('ed-g', 'grammi', e.g) + campo('ed-k', 'kcal', e.kcal) + campo('ed-p', 'proteine g', e.prot); if (e.g && e.kcal != null) scala = ` data-g="${e.g}" data-k="${e.kcal}" data-p="${e.prot || 0}"`; }
+  if (x.k === 'cibo') {
+    const a = S.A[e.alimento], q = e.pz != null ? e.pz : Math.round(grammi(e)), k = Math.round(x.kcal), p = Math.round(x.prot);
+    campi = (e.pz != null ? campo('ed-pz', (a && a.pezzo) || 'pezzi', q) : campo('ed-g', a && a.unita === 'ml' ? 'ml' : 'grammi', q)) + campo('ed-k', 'kcal', k) + campo('ed-p', 'proteine g', p);
+    if (q) scala = ` data-q="${q}" data-k="${k}" data-p="${p}"`;
+  } else if (x.k === 'stima') { campi = campo('ed-g', 'grammi', e.g) + campo('ed-k', 'kcal', e.kcal) + campo('ed-p', 'proteine g', e.prot); if (e.g && e.kcal != null) scala = ` data-q="${e.g}" data-k="${e.kcal}" data-p="${e.prot || 0}"`; }
   else if (x.k === 'ricetta') campi = campo('ed-por', 'porzioni', e.porzione || 1);
-  return `<div class="oconf oed"${scala}><span class="lab">${esc(x.nome)}</span><div class="ogrid">${campi}</div><div class="oconf-f"><button class="link" data-act="o-ed-x" style="padding-left:0">annulla</button><button class="pill sm solid" data-act="o-ed-ok" data-id="${x.id}">salva</button></div></div>`;
+  const nota = x.k === 'ricetta' ? '' : '<small class="note">Se cambi kcal o proteine, li ricordo anche per le prossime volte.</small>';
+  return `<div class="oconf oed"${scala}><span class="lab">${esc(x.nome)}</span><div class="ogrid">${campi}</div>${nota}<div class="oconf-f"><button class="link" data-act="o-ed-x" style="padding-left:0">annulla</button><button class="pill sm solid" data-act="o-ed-ok" data-id="${x.id}">salva</button></div></div>`;
 }
 function rigaPiatto(x) {
   if (ED === x.id) return editor(x);
@@ -228,13 +258,33 @@ function nuovoCibo(id) {
   const a = S.A[id];
   return aPezzi(a) ? { tipo: 'extra', alimento: id, pz: 1 } : { tipo: 'extra', alimento: id, g: a.porzione_g || 100, porz: 'normale' };
 }
+const daVoce = v => (v.ricetta ? { tipo: 'pasto', ricetta: v.ricetta, porzione: v.porzione || 1 } : daSolito(v));
+const daSolito = v => (v.alimento ? { tipo: 'extra', alimento: v.alimento, ...(v.g != null ? { g: v.g } : v.pz != null ? { pz: v.pz } : { n: v.n, u: v.u }), ...(v.porz ? { porz: v.porz } : {}) } : { tipo: 'fuori', nome: v.nome, kcal: v.kcal, prot: v.prot, ...(v.g ? { g: v.g } : {}) });
+// voce di una combinazione da un evento del pasto
+function voceDa(e) {
+  if (e.tipo === 'pasto') return { ricetta: e.ricetta, ...(e.porzione && e.porzione !== 1 ? { porzione: e.porzione } : {}) };
+  if (e.tipo === 'extra') return { alimento: e.alimento, ...(e.g != null ? { g: e.g } : e.pz != null ? { pz: e.pz } : { n: e.n, u: e.u }), ...(e.porz ? { porz: e.porz } : {}) };
+  if (e.tipo === 'fuori' && !e.pendente && e.kcal != null) return { nome: e.nome, kcal: e.kcal, prot: e.prot || 0, ...(e.g ? { g: e.g } : {}) };
+  return null;
+}
+// un valore inserito a mano (stima o correzione) diventa un alimento del catalogo, che resta per le volte dopo
+function salvaAlimento(a) { S.pref.alimenti = S.pref.alimenti || {}; S.pref.alimenti[a.id] = a; salvaPref(); }
+function idNuovo(nome) { const b = `u-${slug(nome) || uid()}`; return S.A[b] && !S.A[b].utente ? `${b}-${uid().slice(-3)}` : b; }
+function inAlimento(e, kcal, prot, g) {
+  const id = idNuovo(e.nome || 'piatto');
+  salvaAlimento(alimentoDaTotale(id, e.nome || 'piatto', kcal, prot, g));
+  for (const k of ['nome', 'kcal', 'prot', 'g', 'pendente', 'piatto', 'etichetta', 'solito', 'preset', 'porzione']) delete e[k];
+  e.tipo = 'extra'; e.alimento = id; if (g) { e.g = Math.round(g); e.porz = 'normale'; } else e.pz = 1;
+}
 function messaggioClaude(nome, id, q) {
   const c = cfg(), d = sel(), file = `giorni/${d}.json`;
-  return [`Ciao Claude, ti scrivo da CAM Kitchen. Stimami kcal e proteine di questo pasto: ${nome}.`, `Giorno ${d}, ${q === 'altro' ? 'fuori pasto' : q}. Se c'è, allego una foto o l'etichetta.`,
-    `Poi aggiorna il pasto in CAM Kitchen: repo ${c.owner || 'whimsicam'}/${c.repo || 'camkitchen'}, ramo ${c.branch || 'main'}, file ${file}, evento con id "${id}": imposta kcal (intero), prot (intero) e pendente: false, senza toccare il resto del file.`,
-    `Se il file non c'è ancora nel repo (il telefono non ha sincronizzato), crealo tu con questo contenuto, che è il giorno com'è adesso sul telefono, aggiornando l'evento:`,
+  return [`Ciao Claude, ti scrivo da CAM Kitchen. Stimami kcal e proteine di questo: ${nome}.`, `Giorno ${d}, ${q === 'altro' ? 'fuori pasto' : q}. Se c'è, allego una foto o l'etichetta.`,
+    `Poi salvalo in CAM Kitchen come ingrediente da ritrovare le prossime volte (repo ${c.owner || 'whimsicam'}/${c.repo || 'camkitchen'}, ramo ${c.branch || 'main'}, vedi SPEC.md, "Stima di Claude"):`,
+    `1) in preferenze.json → alimenti aggiungi un alimento con id "u-…", nome breve, per100 (kcal, prot), utente: true, traccia_dispensa: false e porzione_g (oppure unita "pz" se ha senso a pezzi);`,
+    `2) in ${file} trasforma l'evento con id "${id}" in { tipo: "extra", alimento: <id>, g: <grammi> } (o pz), tenendo id, t e pasto, senza toccare il resto del file.`,
+    `Se il file del giorno non c'è ancora nel repo (il telefono non ha sincronizzato), crealo tu con questo contenuto, che è il giorno com'è adesso sul telefono:`,
     JSON.stringify(giorno(d)),
-    `Se non riesci a scrivere nel repo, rispondimi con una riga sola nel formato "kcal: 000 · proteine: 00": li inserisco io toccando il pasto.`].join('\n');
+    `Se non riesci a scrivere nel repo, rispondimi con una riga sola nel formato "grammi: 000 · kcal: 000 · proteine: 00": li inserisco io toccando la voce.`].join('\n');
 }
 
 /* ---------- foglio: una voce della giornata, con varianti ---------- */
@@ -273,7 +323,7 @@ function disegnaVoce() {
 }
 // ridisegna i risultati con il modulo "nuovo alimento" dove serve
 function disegnaNF() {
-  if ($('v-res') && (!NF || NF.ctx === 'v')) { const t = $('vq').value, r = cerca(t, false);
+  if ($('v-res') && (!NF || NF.ctx === 'v')) { const t = $('vq').value, r = cerca(t, false, false);
     $('v-res').innerHTML = NF ? formNuovo() : t.trim().length >= 2 ? (r.length ? r.map(x => rigaRisultato(x, 'v-add')).join('') : `<p class="note">Non trovo "${esc(t.trim())}" nel catalogo.</p>`) + bottoneNuovo(t, 'v') : ''; }
   else rinfresca();
   const f = $('n-k'); if (f && NF) f.focus();
@@ -293,53 +343,65 @@ export function azioneOggi(act, el) {
       $('oq').value = ''; rinfresca(); return true; }
     case 'o-sol': { const x = (S.prog.abituali || []).find(a => a.id === el.dataset.id); if (!x) return false;
       modifica(g => { for (const v of x.voci) g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(daSolito(v), P.q), solito: x.id }); });
-      rinfresca(); toast('Aggiunto'); return true; }
+      $('oq').value = ''; rinfresca(); toast('Aggiunto'); return true; }
+    case 'o-comb': { const x = (S.pref.combinazioni || {})[el.dataset.id]; if (!x) return false;
+      modifica(g => { for (const v of x.voci) g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(daVoce(v), P.q), comb: x.id }); });
+      $('oq').value = ''; rinfresca(); toast('Aggiunto'); return true; }
+    case 'o-comb-apri': SC = true; rinfresca(); { const f = $('sc-nome'); if (f) f.focus(); } return false;
+    case 'o-comb-salva': { const nome = $('sc-nome').value.trim(); if (!nome) { toast('Dai un nome alla combinazione'); return false; }
+      const voci = (giorno(d).eventi || []).filter(e => e.pasto === P.q || (P.q === 'altro' && e.tipo === 'extra' && !e.pasto)).map(voceDa).filter(Boolean);
+      if (voci.length < 2) { toast('Servono almeno due cose nel piatto'); return false; }
+      const vecchia = Object.values(S.pref.combinazioni || {}).find(c => c.nome.toLowerCase() === nome.toLowerCase());
+      const id = vecchia ? vecchia.id : `k-${slug(nome).slice(0, 30)}-${uid().slice(-3)}`;
+      S.pref.combinazioni = S.pref.combinazioni || {}; S.pref.combinazioni[id] = { id, nome, voci }; salvaPref();
+      SC = false; rinfresca(); toast(`Combinazione salvata: ${nome}`); return false; }
+    case 'o-comb-via': { const x = (S.pref.combinazioni || {})[el.dataset.id]; if (!x) return false; x.nascosto = true; salvaPref(); rinfresca(); toast(`Tolta: ${x.nome}`); return false; }
+    case 'o-tutti': TUTTI = !TUTTI; rinfresca(); return false;
     case 'o-ed': ED = el.dataset.id; rinfresca(); const f = document.querySelector('.oed input'); if (f) f.focus(); return false;
     case 'o-ed-x': ED = null; rinfresca(); return false;
     case 'o-ed-ok': { const v = id => { const i = $(id); return i && i.value.trim() !== '' ? num(i.value) : null; };
+      let msg = '';
       modifica(g => { const e = g.eventi.find(z => z.id === el.dataset.id); if (!e) return;
-        if (e.tipo === 'extra') { const pz = v('ed-pz'), gr = v('ed-g'); if (pz != null) e.pz = Math.max(0.5, pz); else if (gr != null) { e.g = Math.max(1, Math.round(gr)); delete e.n; delete e.u; delete e.porz; delete e.pz; } }
-        else if (e.tipo === 'fuori') { const gr = v('ed-g'), k = v('ed-k'), pr = v('ed-p'); if (gr != null) e.g = Math.round(gr); else delete e.g; if (k != null) { e.kcal = Math.round(k); e.pendente = false; } if (pr != null) e.prot = Math.round(pr); }
+        if (e.tipo === 'extra') {
+          const pz = v('ed-pz'), gr = v('ed-g'), k = v('ed-k'), pr = v('ed-p');
+          if (pz != null) e.pz = Math.max(0.5, pz); else if (gr != null) { e.g = Math.max(1, Math.round(gr)); delete e.n; delete e.u; delete e.porz; delete e.pz; }
+          const a = S.A[e.alimento], t = macroVoci([e]), gg = grammi(e);
+          if (a && gg > 0 && k != null && (Math.abs(k - t.kcal) > 1.5 || (pr != null && Math.abs(pr - t.prot) > 0.6))) {
+            const per100 = { ...a.per100, kcal: Math.round(k * 100 / gg), prot: Math.round((pr != null ? pr : t.prot) * 1000 / gg) / 10 };
+            salvaAlimento(a.utente ? { ...a, per100 } : { ...a, per100, utente: true, ritocco: true });
+            msg = `${a.nome}: valori aggiornati anche per le prossime volte`;
+          }
+          if (a && a.utente && !a.ritocco && e.g != null && S.pref.alimenti[a.id]) { S.pref.alimenti[a.id].porzione_g = e.g; salvaPref(); }
+        } else if (e.tipo === 'fuori') { const gr = v('ed-g'), k = v('ed-k'), pr = v('ed-p'); if (k != null) { inAlimento(e, k, pr || 0, gr); msg = 'Salvato: lo ritrovi cercandolo'; } }
         else if (e.tipo === 'pasto') { const por = v('ed-por'); if (por) e.porzione = Math.max(0.25, por); } });
-      salvaPiatto(giorno(d).eventi.find(x => x.id === el.dataset.id)); ED = null; rinfresca(); return true; }
+      ED = null; rinfresca(); if (msg) toast(msg); return true; }
     case 'o-gest': GEST = !GEST; rinfresca(); return false;
-    case 'o-piatto': { const x = (S.pref.piatti || {})[el.dataset.id]; if (!x) return false;
-      aggiungi({ tipo: 'fuori', nome: x.nome, kcal: x.kcal, prot: x.prot, ...(x.g ? { g: x.g } : {}), piatto: x.id }); rinfresca(); toast('Aggiunto'); return true; }
-    case 'o-piatto-via': { const x = (S.pref.piatti || {})[el.dataset.id]; if (!x) return false; x.nascosto = true; salvaPref(); rinfresca(); toast(`Tolto: ${x.nome}`); return false; }
     case 'o-alim-via': { const x = (S.pref.alimenti || {})[el.dataset.id]; if (!x) return false; x.nascosto = true; salvaPref(); rinfresca(); toast(`Tolto: ${x.nome}`); return false; }
-    case 'n-apri': NF = { ctx: el.dataset.ctx, nome: el.dataset.t || '', modo: 'pz' }; disegnaNF(); return false;
+    case 'n-apri': NF = { ctx: el.dataset.ctx, nome: el.dataset.t || '', modo: '100' }; disegnaNF(); return false;
     case 'n-modo': NF.nome = $('n-nome').value; NF.modo = el.dataset.v; disegnaNF(); return false;
     case 'n-x': NF = null; disegnaNF(); return false;
     case 'n-ok': { const nome = $('n-nome').value.trim(), k = num($('n-k').value), pr = num($('n-p').value), q = num($('n-q').value);
       if (!nome || !k || !q) { toast('Scrivi nome, kcal e quantità'); return false; }
-      const pz = NF.modo === 'pz', id = `u-${slug(nome) || uid()}`;
+      const pz = NF.modo === 'pz', id = idNuovo(nome);
       const a = { id, nome, marca: '—', categoria: 'aggiunti', unita: pz ? 'pz' : 'g', per100: { kcal: k, prot: pr, carb: 0, grassi: 0, fibre: 0 }, confezione: pz ? { nome: 'pezzo', pz: 1, g_pz: 100 } : null, alias: [], traccia_dispensa: false, utente: true, ...(pz ? { pezzo: 'pezzi' } : { porzione_g: q }) };
-      S.pref.alimenti = S.pref.alimenti || {}; S.pref.alimenti[id] = a; salvaPref();
+      salvaAlimento(a);
       const ctx = NF.ctx; NF = null;
       if (ctx === 'v') { V.righe.push({ alimento: id, on: true, ...(pz ? { pz: q } : { g: q }) }); V.variante = '*'; disegnaVoce(); }
-      else { aggiungi({ tipo: 'extra', alimento: id, ...(pz ? { pz: q } : { g: q }) }); $('oq').value = ''; rinfresca(); }
-      toast(`${nome}: aggiunto e salvato nel catalogo`); return true; }
-    case 'o-rec': { const x = P.rec[Number(el.dataset.i)]; if (!x) return false;
-      modifica(g => { for (const e of x.ev) { const { id, t, ciclo, voto, rif, solito, ...resto } = e; g.eventi.push({ id: uid(), t: nowISO(), ...conPasto(resto, P.q) }); } });
-      rinfresca(); toast('Aggiunto'); return true; }
+      else { aggiungi({ tipo: 'extra', alimento: id, ...(pz ? { pz: q } : { g: q, porz: 'normale' }) }); $('oq').value = ''; rinfresca(); }
+      toast(`${nome}: aggiunto, lo ritrovi tra i tuoi`); return true; }
     case 'o-porz': modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (!e) return; const a = S.A[e.alimento]; e.porz = el.dataset.v; e.g = Math.round((a.porzione_g || 100) * FATT[e.porz]); }); rinfresca(); return true;
     case 'o-pz': modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (e) e.pz = Math.max(1, (e.pz || 1) + Number(el.dataset.n)); }); rinfresca(); return true;
     case 'o-del': modifica(g => { if (el.dataset.id === 'mensa') { g.pranzo = null; return; } g.eventi = g.eventi.filter(e => e.id !== el.dataset.id); g.rimossi = [...(g.rimossi || []), el.dataset.id]; }); rinfresca(); return true;
-    case 'o-conf': { const n = $('c-nome').value.trim() || 'Piatto confezionato', k = num($('c-k').value), gr = num($('c-g').value), p = num($('c-p').value);
-      if (!k || !gr) { toast('Scrivi le kcal per 100 g e i grammi'); return false; }
-      const ev = { tipo: 'fuori', nome: n, g: gr, kcal: Math.round(k * gr / 100), prot: Math.round(p * gr / 100), etichetta: { g: gr, kcal100: k, prot100: p } };
-      aggiungi(ev); salvaPiatto(ev);
-      for (const i of ['c-nome', 'c-k', 'c-g', 'c-p']) $(i).value = ''; $('c-tot').textContent = '= 0 kcal'; el.closest('details').open = false; rinfresca(); toast('Aggiunto'); return true; }
-    case 'o-claude': { const n = $('oq').value.trim() || $('c-nome').value.trim();
-      if (!n) { toast('Scrivi prima nel campo di ricerca cosa hai mangiato'); $('oq').focus(); return false; }
+    case 'o-claude': { const n = $('oq').value.trim() || ($('n-nome') ? $('n-nome').value.trim() : '');
+      if (!n) { toast('Scrivi prima nella ricerca cosa hai mangiato'); $('oq').focus(); return false; }
       const id = uid(), q = P.q;
       modifica(g => { g.eventi.push({ id, t: nowISO(), tipo: 'fuori', pasto: q, nome: n, kcal: null, prot: null, pendente: true }); });
       const msg = messaggioClaude(n, id, q); closeSheet(); P = null; apriClaude(msg); return true; }
     case 'o-stima': { const e = giorno(d).eventi.find(x => x.id === el.dataset.id); if (!e) return false;
-      $('o-res').innerHTML = `<div class="oconf" style="padding:12px 14px"><span class="lab">${esc(e.nome)}</span><div class="ogrid" style="grid-template-columns:1fr 1fr"><div class="field"><label class="lab" for="s-k">kcal</label><input id="s-k" inputmode="decimal"></div><div class="field"><label class="lab" for="s-p">proteine g</label><input id="s-p" inputmode="decimal"></div></div><div class="oconf-f"><span></span><button class="pill sm solid" data-act="o-stima-ok" data-id="${e.id}">salva</button></div></div>`;
-      $('s-k').focus(); return false; }
-    case 'o-stima-ok': { const k = Math.round(num($('s-k').value)), p = Math.round(num($('s-p').value)); if (!k) { toast('Inserisci le kcal'); return false; }
-      modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (e) { e.kcal = k; e.prot = p; e.pendente = false; } }); salvaPiatto(giorno(d).eventi.find(x => x.id === el.dataset.id)); rinfresca(); return true; }
+      $('o-res').innerHTML = `<div class="oconf oed" style="padding:12px 14px"><span class="lab">${esc(e.nome)}</span><div class="ogrid">${campo('s-g', 'grammi', '')}${campo('s-k', 'kcal', '')}${campo('s-p', 'proteine g', '')}</div><small class="note">I grammi servono per ritrovarlo e cambiare la porzione le prossime volte.</small><div class="oconf-f"><span></span><button class="pill sm solid" data-act="o-stima-ok" data-id="${e.id}">salva</button></div></div>`;
+      $('s-g').focus(); return false; }
+    case 'o-stima-ok': { const k = Math.round(num($('s-k').value)), p = num($('s-p').value), gr = num($('s-g').value); if (!k) { toast('Inserisci le kcal'); return false; }
+      modifica(g => { const e = g.eventi.find(x => x.id === el.dataset.id); if (e) inAlimento(e, k, p, gr || null); }); rinfresca(); toast('Salvato: lo ritrovi cercandolo'); return true; }
 
     case 'o-voce': sheetVoce(el.dataset.id); return false;
     case 'v-sw': { const r = V.righe[Number(el.dataset.i)]; r.on = !r.on; V.variante = '*'; disegnaVoce(); return false; }
@@ -370,6 +432,5 @@ document.addEventListener('input', e => {
   const t = e.target;
   if (t.id === 'oq') { NF = null; rinfresca(); }
   else if (t.id === 'vq') { NF = null; disegnaNF(); }
-  else if (t.id === 'ed-g') { const b = t.closest('.oed'); if (b && b.dataset.g) { const r = num(t.value) / num(b.dataset.g); if (r > 0) { $('ed-k').value = Math.round(num(b.dataset.k) * r); $('ed-p').value = Math.round(num(b.dataset.p) * r); } } }
-  else if (t.id === 'c-k' || t.id === 'c-g') $('c-tot').textContent = `= ${fmt(num($('c-k').value) * num($('c-g').value) / 100)} kcal`;
+  else if (t.id === 'ed-g' || t.id === 'ed-pz') { const b = t.closest('.oed'); if (b && b.dataset.q) { const r = num(t.value) / num(b.dataset.q); if (r > 0) { $('ed-k').value = Math.round(num(b.dataset.k) * r); $('ed-p').value = Math.round(num(b.dataset.p) * r); } } }
 });
