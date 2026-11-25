@@ -21,6 +21,15 @@
   "spuntino": {
    "voci": [
     {
+     "alimento": "yogurt-greco-bianco",
+     "pz": 1
+    },
+    {
+     "alimento": "confettura-fichi",
+     "n": 2,
+     "u": "cucchiaino"
+    },
+    {
      "alimento": "mandorle",
      "n": 14,
      "u": "mandorla"
@@ -48,6 +57,35 @@
    "alimento": "u-risotto-zucca",
    "g": 344,
    "pasto": "pranzo"
+  },
+  {
+   "id": "mwwaps37vthp",
+   "t": "2026-11-25T16:46:01+01:00",
+   "tipo": "extra",
+   "alimento": "bresaola",
+   "n": 1,
+   "u": "vaschetta",
+   "pasto": "cena",
+   "solito": "c-bresaola"
+  },
+  {
+   "id": "mwwaps38i0i2",
+   "t": "2026-11-25T16:46:01+01:00",
+   "tipo": "extra",
+   "alimento": "olio-evo",
+   "n": 1,
+   "u": "cucchiaio",
+   "pasto": "cena",
+   "solito": "c-bresaola"
+  },
+  {
+   "id": "mwwaq3nmqqs2",
+   "t": "2026-11-25T16:46:16+01:00",
+   "tipo": "extra",
+   "alimento": "pane-comune",
+   "g": 60,
+   "pasto": "cena",
+   "solito": "m-pane"
   }
  ],
  "rimossi": [
