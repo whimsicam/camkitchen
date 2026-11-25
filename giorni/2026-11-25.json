@@ -35,15 +35,9 @@
    "pz": 5,
    "pasto": "pranzo",
    "solito": "m-sashimi"
-  },
-  {
-   "id": "mwwarukqgrpp",
-   "t": "2026-11-25T16:47:37+01:00",
-   "tipo": "extra",
-   "alimento": "olio-evo",
-   "g": 100,
-   "pasto": "pranzo"
   }
  ],
- "rimossi": []
+ "rimossi": [
+  "mwwarukqgrpp"
+ ]
 }
