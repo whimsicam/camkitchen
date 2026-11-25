@@ -13,9 +13,37 @@
      "u": "cucchiaino"
     }
    ]
-  }
+  },
+  "spuntino": "fatto"
  },
  "pranzo": null,
- "eventi": [],
+ "eventi": [
+  {
+   "id": "mwwar5qvq4di",
+   "t": "2026-11-25T16:47:05+01:00",
+   "tipo": "extra",
+   "alimento": "cannelloni-ricotta-spinaci",
+   "g": 380,
+   "pasto": "pranzo",
+   "solito": "m-cannelloni-ricotta"
+  },
+  {
+   "id": "mwwar70ps4xh",
+   "t": "2026-11-25T16:47:07+01:00",
+   "tipo": "extra",
+   "alimento": "sashimi-salmone",
+   "pz": 5,
+   "pasto": "pranzo",
+   "solito": "m-sashimi"
+  },
+  {
+   "id": "mwwarukqgrpp",
+   "t": "2026-11-25T16:47:37+01:00",
+   "tipo": "extra",
+   "alimento": "olio-evo",
+   "g": 100,
+   "pasto": "pranzo"
+  }
+ ],
  "rimossi": []
 }
