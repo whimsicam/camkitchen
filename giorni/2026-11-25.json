@@ -44,6 +44,14 @@
    "pz": 5,
    "pasto": "pranzo",
    "solito": "m-sashimi"
+  },
+  {
+   "id": "mwwlskhv25o8",
+   "t": "2026-11-25T21:56:07+01:00",
+   "tipo": "extra",
+   "alimento": "hamburger-pollo",
+   "pz": 2,
+   "pasto": "cena"
   }
  ],
  "rimossi": [
